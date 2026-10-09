@@ -1,4 +1,4 @@
 interface:
   display_name: "Research Agent"
-  short_description: "Nature Skills research entry with local safeguards."
-  default_prompt: "Use $research-agent to complete my research task with the Nature Skills baseline and local evidence safeguards."
+  short_description: "Source-grounded research and scientific synthesis."
+  default_prompt: "Use $research-agent to complete my research task from original literature, local knowledge and verified research evidence."

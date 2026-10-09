@@ -11,7 +11,7 @@ Distill public scholarship for: **$ARGUMENTS**
 
 ## Role in the Research Workflow
 
-`research-scholar-distiller` turns public papers, reviews, perspectives, talks, lab pages, and verified bibliographic records into a constrained research-judgment framework. Use `nature-academic-search` for missing literature, then return the requested judgment framework. Later idea screening, method design, writing, or review uses the matching Research Agent owner only when requested.
+`research-scholar-distiller` turns public papers, reviews, perspectives, talks, lab pages, and verified bibliographic records into a constrained research-judgment framework. Use `research-agent` for missing literature, then return the requested judgment framework. Later idea screening, method design, writing, or review uses the matching Research Agent owner only when requested.
 
 Use it to improve how a research question is framed, tested, written, reviewed, and positioned for publication. Do not present the output as an authorized digital replica of any scholar.
 

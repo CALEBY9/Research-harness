@@ -11,13 +11,9 @@ import json
 from pathlib import Path
 import shutil
 
-NATURE = """nature-academic-search nature-citation nature-data nature-downloader
-nature-figure nature-image2ppt nature-literature-pipeline nature-paper-card
-nature-paper2ppt nature-polishing nature-reader nature-ref-verifier nature-response
-nature-reviewer nature-shared nature-statistics nature-writing researchwrite""".split()
 LOCAL = """research-agent anti-defensive-writing humanizer humanizer-zh literature_kb
 res_find res_method res_plan data_analyze res_analyze evidence_audit lit_synthesis
-paper_format nature-image2-prompt research-scholar-distiller skill_evolve_workflow""".split()
+paper_format nature-image2-prompt research-scholar-distiller""".split()
 EXCLUDE = {".git", ".agent", "__pycache__", ".venv", "node_modules", "candidates"}
 EXTENSIONS = {".md", ".py", ".json", ".yaml", ".yml", ".toml", ".txt", ".sh",
               ".mjs", ".tsv", ".tex", ".bib", ".ris", ".nbib", ".png", ".jpg", ".pdf"}
@@ -32,8 +28,7 @@ def main():
     repo = args.repo.resolve()
     if (repo / "skills").exists() or (repo / "docs/import_manifest.json").exists():
         parser.error("Import destination already exists; use reviewed file-level diffs for updates.")
-    sources = [(args.home / ".agents/skills" / name, "nature-local", name) for name in NATURE]
-    sources += [(args.home / ".codex/skills" / name, "local-adapter", name) for name in LOCAL]
+    sources = [(args.home / ".codex/skills" / name, "local-support", name) for name in LOCAL]
     selected = []
     excluded = []
     for source, group, name in sources:

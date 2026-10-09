@@ -32,7 +32,7 @@ Use `data_analyze` when the user asks to:
 - generate reproducible analysis scripts, tables, figures, diagnostics, and an analysis report;
 - compare layouts, treatments, scenarios, baselines, models, methods, regions, periods, or ecological/energy/economic indicators.
 
-Do not use `data_analyze` merely to polish manuscript text or judge whether a claim is manuscript-ready; route those to `nature-polishing`, `nature-reviewer`, or `res_analyze` as appropriate.
+Do not use `data_analyze` merely to polish manuscript text or judge whether a claim is manuscript-ready; route those to `research-agent` or `res_analyze` as appropriate.
 
 ## Expected Inputs
 

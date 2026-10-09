@@ -129,7 +129,7 @@ Use this structure for `ANALYSIS_SUMMARY.md`:
 
 ## Figure and Table Readiness
 
-## Evidence Gaps Before `nature-writing`
+## Evidence Gaps Before `research-agent`
 ```
 
 ## Key Rules
@@ -138,5 +138,5 @@ Use this structure for `ANALYSIS_SUMMARY.md`:
 - Preserve data provenance paths and carry forward Claim ID / Evidence ID / Locator from `res_plan` when available.
 - Mark weak, ambiguous, or failed results explicitly.
 - Separate observation from interpretation.
-- Do not polish into manuscript prose here; `nature-writing` handle paper structure and drafting.
+- Do not polish into manuscript prose here; `research-agent` handle paper structure and drafting.
 - Prefer a compact set of paper-critical findings over exhaustive log summaries.

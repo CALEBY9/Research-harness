@@ -12,10 +12,10 @@ Format or audit manuscript materials for: **$ARGUMENTS**
 ## Quick Trigger / Stop Card
 
 - Use when: auditing, repairing, converting, or final-QAing academic document format, DOCX/Word layout, LaTeX/Markdown/Quarto outputs, references, captions, headings, page numbers, MathType/equations, tables, blind-review metadata, or clean-final compliance.
-- Do not use when: the user asks for scientific argument revision (`nature-reviewer`), manuscript drafting (`nature-writing`), language/style polish (`nature-polishing`), journal strategy (`nature-writing`), or reviewer-response prose (`nature-response`).
+- Do not use when: the user asks for scientific argument revision (`research-agent`), manuscript drafting (`research-agent`), language/style polish (`research-agent`), journal strategy (`research-agent`), or reviewer-response prose (`research-agent`).
 - Required inputs: editable source or rendered artifact, deliverable type, target authority or generic baseline, source format, output expectation, content stability, and any MathType/Word/template requirements.
 - Output / handoff: format audit, edited file, clean final, marked/blind version, PDF proof, layout QA report, output index/version ledger, or blocked status with missing authority/QA.
-- Return / stop conditions: return to `nature-reviewer` or `nature-writing` if scientific structure is unstable; stop before submission-ready claims until Word/PDF render QA and clean-final scanning pass.
+- Return / stop conditions: return to `research-agent` if scientific structure is unstable; stop before submission-ready claims until Word/PDF render QA and clean-final scanning pass.
 - Validation: target-rule readback, `docx_layout_audit.py` when DOCX exists, clean-final scanner, rendered Word/PDF page inspection, figure/table body-callout coverage, display-item/caption centering, English-font hierarchy, table/heading/equation QA, and current-file existence checks for versioned outputs.
 
 ## Role in the Research Workflow
@@ -67,8 +67,8 @@ If the target journal, course rubric, school manual, or style guide is missing a
 - 改写科学结论、增强贡献表述或补充未支持声明
 - 生成不存在的 DOI、页码、期号、作者信息或数据可得性声明
 - 修改数值、统计结果、图表数据或单位含义
-- 代替 `nature-polishing` 做语言风格润色
-- 代替 `nature-writing` 做期刊选择、投稿策略或 cover letter
+- 代替 `research-agent` 做语言风格润色
+- 代替 `research-agent` 做期刊选择、投稿策略或 cover letter
 
 ## Hard Constraints
 
@@ -515,7 +515,7 @@ Status: [ready / needs minor fixes / needs major fixes / blocked]
 
 ## Relationship to Other Skills
 
-- Use `nature-writing` before this skill if the manuscript sections are not yet drafted.
-- Use `nature-reviewer` before this skill if scientific structure or evidence strength is still unstable.
-- Use `nature-polishing` before this skill if prose quality still needs revision.
-- Use `nature-writing` after this skill for journal portal checklist, cover letter, and submission package decisions.
+- Use `research-agent` before this skill if the manuscript sections are not yet drafted.
+- Use `research-agent` before this skill if scientific structure or evidence strength is still unstable.
+- Use `research-agent` before this skill if prose quality still needs revision.
+- Use `research-agent` after this skill for journal portal checklist, cover letter, and submission package decisions.

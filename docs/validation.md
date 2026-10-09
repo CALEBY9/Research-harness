@@ -1,5 +1,8 @@
 # 首次迁移验证
 
+后续候选行为比较使用 [behavioral_evaluation.md](behavioral_evaluation.md)。
+本页保留首次迁移的历史结果；结构 PASS 不等于行为改善。
+
 日期：2026-09-08。
 
 | 检查 | 实际结果 | 能证明什么 |

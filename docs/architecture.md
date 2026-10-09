@@ -10,7 +10,7 @@
 ```mermaid
 flowchart TB
     U[研究者：任务、材料、已确认决定] --> R[Research Agent：选择当前任务 owner]
-    R --> S[Nature Skills 与有限本地适配技能]
+    R --> S[原文证据综合与现有本地工具]
     S --> T[现有运行时与工具：Codex、脚本、检索、文档]
     T --> A[可审阅产物与实际验证结果]
     A --> U

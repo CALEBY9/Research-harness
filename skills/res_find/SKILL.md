@@ -34,7 +34,7 @@ Extract from the request and available context; ask only for unresolved, consequ
 - what kind of evidence could answer it
 
 ### G1 — Literature and Gap Gate
-Use `nature-academic-search` for missing literature evidence.
+Use `research-agent` for missing literature evidence.
 Extract:
 - core-domain consensus
 - unresolved scientific gaps

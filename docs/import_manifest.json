@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "scope": "installed skill source snapshot, not an upstream pristine release",
+  "scope": "Historical import provenance, not the current installed inventory; Nature Skills and skill_evolve_workflow were retired on 2026-09-22",
   "skills": [
     {
       "name": "nature-academic-search",
@@ -2971,6 +2971,74 @@
     {
       "path": "skills/skill_evolve_workflow/SKILL.md",
       "source_sha256": "4da47513a1adea9a29e73a10f181682fc6fc7d8dd8b488d90770765586b52425"
+    },
+    {
+      "path": "skills/shared-references/README.md",
+      "source_sha256": "342a47c9b3a4d3dded3c04fdc124edaf53eb352d82579d984b802857d691ec16"
+    },
+    {
+      "path": "skills/shared-references/citation-discipline.md",
+      "source_sha256": "591410ef10937e580293db238d5794548b0560bae95eb6693fec1a9cae62d9e4"
+    },
+    {
+      "path": "skills/shared-references/claim-typology-and-rivals.md",
+      "source_sha256": "0176c18037964529678ad0e9e3f888c9b26a121912ffac0ed2b95c892600897c"
+    },
+    {
+      "path": "skills/shared-references/clean-final-language-gate.md",
+      "source_sha256": "a5e353dbbf256d446a20559730bde98f43cc5000c5d900bac2b8215be3d686e2"
+    },
+    {
+      "path": "skills/shared-references/editorial-judgment-framework.md",
+      "source_sha256": "eb610c197c95d63b3a39f197b84dac4c12ec51fb65b146f178e7074c98a2bbd0"
+    },
+    {
+      "path": "skills/shared-references/equation-semantic-integrity-gate.md",
+      "source_sha256": "95088055a8dd4d0e392b42c10707723c25f1dff3642b9159a7bd04d86aaa8782"
+    },
+    {
+      "path": "skills/shared-references/generic-scientific-prose-profile.md",
+      "source_sha256": "08ca857760ffa56340254ed5b19de28614c9d83f479c4a1115f108a7653d43bb"
+    },
+    {
+      "path": "skills/shared-references/introduction-paragraph-reconstruction-gate.md",
+      "source_sha256": "e55b2a80cbd88c67a1fee12751045ee889f4e33349d90a9450780d1bdb61b550"
+    },
+    {
+      "path": "skills/shared-references/kb-to-manuscript-evidence-bridge.md",
+      "source_sha256": "5c4ed21f13de5e9c8115617da101adf477d80e287eb0da237c154521b868fae5"
+    },
+    {
+      "path": "skills/shared-references/manuscript-revision-granularity-gate.md",
+      "source_sha256": "f3828620f9bf7ac078d3be340eed83fd8b149ac6c5e2663833d074cbdd5a4374"
+    },
+    {
+      "path": "skills/shared-references/manuscript-stage-handoff-contract.md",
+      "source_sha256": "3c6db84791d5535ab97424304d03adeb7b1e5c84ac72169604b11e5d6d8350f7"
+    },
+    {
+      "path": "skills/shared-references/manuscript-version-update-gate.md",
+      "source_sha256": "9d86e17202da94ba88110290673836078167e4883433202ff235393907757a37"
+    },
+    {
+      "path": "skills/shared-references/nature-portfolio-checklists.md",
+      "source_sha256": "312bdf507df1228e9823bff36dba4286ed2dd8625be03a4cf9b1d96c7a4d548f"
+    },
+    {
+      "path": "skills/shared-references/nature-style-principles.md",
+      "source_sha256": "f1c1da8e142ef2d8c371382d9bed211b96822a05c8dd4fd420cbf2aa21da265f"
+    },
+    {
+      "path": "skills/shared-references/production-proof-integrity-gate.md",
+      "source_sha256": "983227a05de4f4892ed87757df728529092fd1eca3912329b2608182a508d445"
+    },
+    {
+      "path": "skills/shared-references/scripts/clean_final_scanner.py",
+      "source_sha256": "8cc185fe2087422b9c53cf7b1800f61b5fc6757aff9b9ae69e1b7667a95d6924"
+    },
+    {
+      "path": "skills/shared-references/scripts/equation_semantic_gate.py",
+      "source_sha256": "e15cd6c69113e37a7e6c33106dd22ffeb1eaf36e36d4f2934a21f602248773a0"
     }
   ],
   "excluded": [
@@ -2983,5 +3051,5 @@
     "candidates",
     "node_modules"
   ],
-  "note": "Hashes verify initial import only; legitimate future source edits need not match them."
+  "note": "Hashes verify initial import only; legitimate future source edits need not match them. shared-references/ imported 2026-09-20 from the live .codex install (17 files, hashes verified at copy time) to repair broken ../shared-references/ contract links in evidence_audit, paper_format, lit_synthesis, literature_kb."
 }

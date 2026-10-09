@@ -2,9 +2,13 @@
 
 ## 现有机器
 
-初次导入采用 34 个实际已安装技能作为来源。Nature 源仓库的 HEAD 为
+2026-09-08 初次导入采用 34 个实际已安装技能作为来源。Nature 源仓库的 HEAD 为
 `54144dcf6376b034716bd70edd40ad2cf407943e`，工作树存在本地增强，因此不能
 用该 commit 或最新上游版本替代本次实际安装快照。
+
+当前保留 16 个本地研究技能，实质写作由 `ars-academic-writing` 承担。
+Nature Skills 整套与 `skill_evolve_workflow` 已退役；初次导入记录仅用于溯源，
+不得据此恢复旧依赖。变更见 [ARS 采用记录](ars_writing_adoption.md)。
 
 `docs/import_manifest.json` 记录逐文件初次导入校验值，供迁移证据使用。
 它不是今后禁止修改技能的冻结门槛。`scripts/import_local_skills.py` 是
@@ -28,7 +32,7 @@ python scripts/harness.py stage --target .\local_state\trial_skills --skill rese
 
 1. 克隆指定分支/commit，运行 `validate` 和单元测试。
 2. 运行 `doctor`。它列出含本机绝对路径的文件和行号，不会自动改写路径。
-3. 按需要绑定 Nature shared、KB、文档工具等依赖。路径提示也可能来自示例，
+3. 按需要绑定 ARS 写作方法、KB、文档工具等现用依赖。路径提示也可能来自示例，
    须检查调用语义；简单字符串替换不能证明可迁移。
 4. 查看现有安装与候选 diff，保留现有有效本地修改，选择本次安装的技能集合。
 5. 使用该运行时支持的安装方式，并验证实际技能发现与一条目标任务。
@@ -43,7 +47,8 @@ Codex 当前官方文档支持仓库/用户级 `.agents/skills`，并说明同�
 
 ## 公开发布
 
-当前按私有个人维护仓库处理。转公开前需逐项处理本机路径、项目名称、私有
-fixture 指针和第三方素材的再分发范围；本次的密钥模式扫描不等于完整脱敏。
+当前 GitHub 仓库为公开源码仓库。提交前需逐项核查本机路径、项目名称、私有
+fixture 指针和第三方素材的再分发范围；密钥模式扫描不等于完整脱敏。
+`.agent/`、`local_state/`、凭据及私有研究输入保持在本地忽略范围。
 保留第三方 LICENSE 和 NOTICE，不能给整包第三方内容重新指定统一许可。
 面向其他用户的一键安装/plugin 发布是后续独立工作。

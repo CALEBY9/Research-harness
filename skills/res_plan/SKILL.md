@@ -11,7 +11,7 @@ Refine and concretize: **$ARGUMENTS**
 
 ## Role in the Research Workflow
 
-`res_plan` is the Planning-stage experiment and analysis roadmap skill. It converts a final proposal into the exact evidence package needed for `data_analyze`, `res_analyze`, and `nature-writing`.
+`res_plan` is the Planning-stage experiment and analysis roadmap skill. It converts a final proposal into the exact evidence package needed for `data_analyze`, `res_analyze`, and `research-agent`.
 
 Complete the requested operation only. Use the corresponding owner for a needed handoff within the user's authorized scope; these skills are not a mandatory stage chain.
 

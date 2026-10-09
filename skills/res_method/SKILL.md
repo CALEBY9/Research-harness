@@ -15,7 +15,7 @@ Begin with the author's selected question or mature idea. Do not force discovery
 
 ## Evidence needed for design
 
-Reuse existing literature coverage, closest prior work, residual delta, hypothesis, and data feasibility evidence in any sufficient format. When novelty affects the proposed method, verify the missing evidence with `nature-academic-search`; a named legacy gate file is not a prerequisite. Separate established support, unresolved novelty, and provisional design assumptions. Do not rescue a region-only or method-only novelty claim by changing wording.
+Reuse existing literature coverage, closest prior work, residual delta, hypothesis, and data feasibility evidence in any sufficient format. When novelty affects the proposed method, verify the missing evidence with `research-agent`; a named legacy gate file is not a prerequisite. Separate established support, unresolved novelty, and provisional design assumptions. Do not rescue a region-only or method-only novelty claim by changing wording.
 
 ## Goal
 

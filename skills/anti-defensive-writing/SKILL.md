@@ -12,11 +12,9 @@ changing the scientific result or deciding what the paper should claim.
 
 Run only after the applicable owner has completed its work:
 
-- new or restructured manuscript prose: after `nature-writing`;
-- proposal prose: after `researchwrite`;
-- bounded manuscript rewriting: after `nature-polishing`;
-- manuscript text produced during revision: after `nature-response`, applied
-  only to the revised manuscript passage, not to reviewer-facing correspondence.
+Research Agent first completes the requested drafting or substantive revision.
+For revision correspondence, apply this finish only to the manuscript passage,
+not the reviewer-facing letter. It is not a mandatory pass for every draft.
 
 Receive the owner draft together with the available claim, evidence, scope,
 section, and genre boundaries. Return the clean revised prose to the calling

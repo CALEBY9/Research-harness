@@ -12,10 +12,10 @@ Plan or write a synthesis manuscript for: **$ARGUMENTS**
 ## Quick Trigger / Stop Card
 
 - Use when: planning or writing a systematic review, meta-analysis, scientometric/meta-research manuscript, or producing a formal cross-paper synthesis asset from a bounded corpus.
-- Do not use when: the task is ordinary KB query/build, single-paper reading, open-ended discovery, or a small primary-article literature set that `nature-writing` can organize from verified evidence cards.
+- Do not use when: the task is ordinary KB query/build, single-paper reading, open-ended discovery, or a small primary-article literature set that `research-agent` can organize from verified evidence cards.
 - Required inputs: review/synthesis question, corpus or search boundary, screening/coverage state, full-text status, synthesis-critical evidence cards, review type, and target genre.
-- Output / handoff: protocol/screening assets when applicable, Review Literature Matrix, `CROSS_PAPER_SYNTHESIS_MATRIX` for KB-assisted writing, unresolved gaps, and handoff to `nature-writing`.
-- Return / stop conditions: incomplete search/screening -> return to `nature-academic-search`; unverified core evidence -> `KB_EVIDENCE_PACK_INCOMPLETE` / `nature-paper-card`; unresolved disagreement or heterogeneity -> `KB_SYNTHESIS_UNRESOLVED`.
+- Output / handoff: protocol/screening assets when applicable, Review Literature Matrix, `CROSS_PAPER_SYNTHESIS_MATRIX` for KB-assisted writing, unresolved gaps, and handoff to `research-agent`.
+- Return / stop conditions: incomplete search/screening -> return to `research-agent`; unverified core evidence -> `KB_EVIDENCE_PACK_INCOMPLETE` / `research-agent`; unresolved disagreement or heterogeneity -> `KB_SYNTHESIS_UNRESOLVED`.
 - Validation: source identity and locator coverage, contradiction retention, review-type requirements, question-driven synthesis, and no retrieval-fragment-to-prose shortcut.
 
 ## Scope
@@ -46,7 +46,7 @@ Plan or write a synthesis manuscript for: **$ARGUMENTS**
 
 ## 为什么独立成 skill
 
-`nature-academic-search` 是当前的多源检索、引文影响审计和参考文献导出 owner；Web of Science 只是其中一个按需来源，不再由独立本地 skill 承担。
+`research-agent` 是当前的多源检索、引文影响审计和参考文献导出 owner；Web of Science 只是其中一个按需来源，不再由独立本地 skill 承担。
 
 但**综述论文本身**的写作有特殊要求:
 - 方法学透明度 (PRISMA flowchart, exclusion 理由记录)
@@ -154,7 +154,7 @@ Nature 子刊近 3 年开始**强烈期待**(部分 mandatory) systematic review
 - 留这一节 — 任何与 protocol 的偏离必须显式记录
 ```
 
-**关键认识**: 顶刊 reviewer 几乎一定会要 pre-registration。**如果你已经做完 review 才意识到要 pre-register, 你已经晚了** — 应在 `nature-academic-search` 检索设计阶段就 register。
+**关键认识**: 顶刊 reviewer 几乎一定会要 pre-registration。**如果你已经做完 review 才意识到要 pre-register, 你已经晚了** — 应在 `research-agent` 检索设计阶段就 register。
 
 ---
 
@@ -207,7 +207,7 @@ Rules:
 - Record `full_text_status` for records that require full-text extraction, and do not treat paywall, anti-bot block, HTML-not-PDF, and no-open-PDF as the same failure.
 - Stop before claiming systematic-review completeness if only one database was searched, search strings were not recorded, paywalled full texts block required extraction, eligibility criteria are ambiguous, or formal risk-of-bias assessment is needed but not planned.
 
-This matrix is a gate for reproducibility, not a replacement for `nature-academic-search` coverage audit or `nature-paper-card` evidence extraction.
+This matrix is a gate for reproducibility, not a replacement for `research-agent` coverage audit or `research-agent` evidence extraction.
 
 ---
 
@@ -225,7 +225,7 @@ For narrative reviews, methodological SLRs, scoping reviews, evidence maps, or m
 | search_log | source, query, date, hits, screened, included |
 | coverage_matrix | category, target, actual, classic papers, recent papers, gap_status |
 | core_set | Top N core papers with selection rationale and full_text_status |
-| deep_read_required | synthesis-critical papers that must go to `nature-paper-card` before coding |
+| deep_read_required | synthesis-critical papers that must go to `research-agent` before coding |
 | comparison_tables | method / data / metric / region / mechanism dimensions tied to the research question |
 | unresolved_gaps | missing categories, access blockers, weak source quality, or uncertain taxonomy decisions |
 ```
@@ -233,8 +233,8 @@ For narrative reviews, methodological SLRs, scoping reviews, evidence maps, or m
 Rules:
 
 - Treat numeric targets such as `Top N`, per-category counts, or recent-literature ratios as review-specific calibration, not universal thresholds.
-- Do not require Exa, ArXiv, Semantic Scholar, Papers With Code, Zotero, MinerU, WoS, Scopus, or any other source as a hidden default; use the sources selected by `nature-academic-search` and record unavailable sources explicitly.
-- Use the matrix to decide which papers need `nature-paper-card`, which comparison tables are needed, and which taxonomy gaps block strong synthesis claims.
+- Do not require Exa, ArXiv, Semantic Scholar, Papers With Code, Zotero, MinerU, WoS, Scopus, or any other source as a hidden default; use the sources selected by `research-agent` and record unavailable sources explicitly.
+- Use the matrix to decide which papers need `research-agent`, which comparison tables are needed, and which taxonomy gaps block strong synthesis claims.
 - For systematic-review completeness claims, this handoff supplements the screening matrix; it does not replace inclusion / exclusion reasons, full-text status, risk-of-bias planning, or protocol deviations.
 - When the input is a local KB/RAG corpus and the output will feed manuscript prose, load `../shared-references/kb-to-manuscript-evidence-bridge.md`. Consume verified `KBE###`/`E###` cards and emit the bridge's `CROSS_PAPER_SYNTHESIS_MATRIX`; do not treat retrieval rank, paper count, or majority direction as consensus. Preserve contradictory evidence, contextual heterogeneity, rival explanations, and `INSUFFICIENT` rows. Return `KB_EVIDENCE_PACK_INCOMPLETE` or `KB_SYNTHESIS_UNRESOLVED` instead of drafting across a broken handoff.
 
@@ -248,7 +248,7 @@ Large-scale LLM-augmented synthesis 会被 Nature 子刊严格审查,以下 4 �
 - 抽样 N 篇(通常 100-500,根据总量),由人工提取,作为 ground truth
 - 抽样必须分层(by year × domain × method),不要 random
 - 抽样比例随总量递减,但绝对数量 ≥ 100
-- 对 gold-standard papers 或 synthesis-critical papers，先用 `nature-paper-card` 生成 claim-level extraction 与 evidence locations，再编码进 review matrix
+- 对 gold-standard papers 或 synthesis-critical papers，先用 `research-agent` 生成 claim-level extraction 与 evidence locations，再编码进 review matrix
 
 ### 3.2 LLM-Human Agreement Quantification
 - 每个提取字段单独计算 agreement
@@ -446,7 +446,7 @@ SLR / Meta 在 Nature 子刊允许较高引用密度 (80-150 in main),不像 pri
 
 ## 与其他 skill 的接口
 
-按需使用 `nature-academic-search` 检索、`nature-paper-card` 核验关键原文；本 skill 负责系统综合方法与证据资产。需要形成论文时交给 `nature-writing`；审稿、语言润色和修回分别由 `nature-reviewer`、`nature-polishing` 和 `nature-response` 承担。已有充分输入时直接开始，不自动串行加载所有技能。
+按需使用 `research-agent` 检索、`research-agent` 核验关键原文；本 skill 负责系统综合方法与证据资产。需要形成论文时交给 `research-agent`；审稿、语言润色和修回分别由 `research-agent`、`research-agent` 和 `research-agent` 承担。已有充分输入时直接开始，不自动串行加载所有技能。
 
 ---
 

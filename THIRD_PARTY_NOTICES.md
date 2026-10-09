@@ -4,8 +4,20 @@ This is initially a private maintenance repository for an existing local researc
 skill installation. There is no blanket license grant over all bundled material.
 Retain original notices and review component-specific terms before redistribution.
 
+## ARS writing adaptation
+
+- `skills/ars-academic-writing/` is a local adaptation of selected argument,
+  Introduction rhetoric and drafting guidance from academic-research-skills.
+- Upstream copyright (c) 2026 Cheng-I Wu; CC BY-NC 4.0, not Apache or MIT.
+- Commit, links, modifications, license and warranty notice are retained in
+  `skills/ars-academic-writing/references/provenance.md`.
+- This is not the full suite or an upstream-endorsed installation.
+
 ## Nature Skills
 
+- Historical provenance only: the 18 directories below were removed from the
+  source and live installations on 2026-09-22 by the author's request. They are
+  not current runtime dependencies. The license notice remains for provenance.
 - Source: https://github.com/Yuan1z0825/nature-skills
 - License: Apache License 2.0; original root license copied to `skills/NATURE_LICENSE`.
 - Scope: the 17 `nature-*` directories imported from the Nature installation,

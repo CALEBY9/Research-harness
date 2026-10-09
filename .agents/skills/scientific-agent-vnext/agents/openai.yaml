@@ -1,0 +1,6 @@
+interface:
+  display_name: "Scientific Agent vNext (Candidate)"
+  short_description: "Scientific writing and controlled revision; explicit trial"
+  default_prompt: "Use $scientific-agent-vnext for the requested writing task. Preserve the current Research Agent baseline and the author's scientific scope."
+policy:
+  allow_implicit_invocation: false

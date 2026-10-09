@@ -16,7 +16,7 @@ Audit the evidence chain and reproducibility of a research project from: **$ARGU
 
 Compatibility: if the user or an older workflow note says `code_repro`, treat it as the old name for `evidence_audit`.
 
-Use it for the requested audit of analysis, figures, or manuscript evidence. Coordinate with `data_analyze`, `res_analyze`, `nature-figure`, `nature-writing`, or `nature-reviewer` only where an identified issue needs that owner. Do not run a figure or paper-production chain merely to perform an audit.
+Use it for the requested audit of analysis, figures, or manuscript evidence. Coordinate with `data_analyze`, `res_analyze`, `research-agent` only where an identified issue needs that owner. Do not run a figure or paper-production chain merely to perform an audit.
 
 For empirical, computational, or figure-bearing manuscripts, `evidence_audit` is the final evidence and artifact-manifest gate before submission packaging.
 
@@ -135,7 +135,7 @@ For important in-scope runs, inspect the existing run manifest or create `RUN_MA
 
 ## Artifact Manifest Template
 
-For paper-ready outputs, create `results/review_package/ARTIFACT_MANIFEST.md`. This is the evidence handoff from analysis, figures, writing, review, and reproducibility into submission-package work owned by `nature-writing`:
+For paper-ready outputs, create `results/review_package/ARTIFACT_MANIFEST.md`. This is the evidence handoff from analysis, figures, writing, review, and reproducibility into submission-package work owned by `research-agent`:
 
 ```markdown
 # Artifact Manifest
@@ -234,7 +234,7 @@ The `in_scope` denominator is all atomic externally verifiable claims, not only 
 
 Unsupported claims remain visible as `BLOCK`, `HOLD_FOR_EVIDENCE`, or `REJECT_OR_REMOVE`; do not silently delete them during audit. Internal claim IDs, evidence tags, verdicts, and coverage notes stay in author-side artifacts and must not leak into the clean final manuscript.
 
-Any `BLOCK` or unregistered in-scope claim prevents final evidence closeout and returns to `nature-reviewer`, `res_analyze`, `data_analyze`, or the relevant owner skill. `PARTIAL`, `INCONCLUSIVE`, and `ACCESS_LIMITED` cannot support an unbounded strong claim unless the wording is downgraded and the boundary is explicit.
+Any `BLOCK` or unregistered in-scope claim prevents final evidence closeout and returns to `research-agent`, `res_analyze`, `data_analyze`, or the relevant owner skill. `PARTIAL`, `INCONCLUSIVE`, and `ACCESS_LIMITED` cannot support an unbounded strong claim unless the wording is downgraded and the boundary is explicit.
 
 ## Methods and Submission Blocker Gate
 
@@ -261,7 +261,7 @@ Check these failure modes:
 | Bug reframed as insight | Surprising findings from fragile/debugging runs require independent reproduction or recomputation. Literature expectations inform interpretation but do not substitute for execution checks. | A surprising result from a fragile/debugging run is written as a finding without reproduction. |
 | Claim stronger than provenance | Manuscript wording matches what the reproducibility artifacts actually establish. | The artifact supports an association, ranking, or suitability result, but the text claims causality, mechanism, or general law. |
 
-Output a compact `AI Research Failure Mode Audit` table in `ARTIFACT_MANIFEST.md` or the reproducibility report. Use `PASS`, `WARN`, `BLOCK`, or `NOT_APPLICABLE` verdicts. Any `BLOCK` must return to `data_analyze`, `res_analyze`, `nature-reviewer`, or the relevant figure skill before polish or submission packaging.
+Output a compact `AI Research Failure Mode Audit` table in `ARTIFACT_MANIFEST.md` or the reproducibility report. Use `PASS`, `WARN`, `BLOCK`, or `NOT_APPLICABLE` verdicts. Any `BLOCK` must return to `data_analyze`, `res_analyze`, `research-agent`, or the relevant figure skill before polish or submission packaging.
 
 ## Search-Derived Result Audit
 
@@ -281,7 +281,7 @@ Check these risks before the result supports a manuscript claim:
 | Search cost boundary missing | Runtime, compute, LLM/API use, human filtering, and stop rule are recorded when material. | The result depends on a large hidden search budget or manual filtering that is absent from methods or limitations. |
 | Metric-delta framing | Multiplicative improvement claims report the absolute baseline and final metric, denominator, repeats/uncertainty, metric meaning, and total search cost. | A ratio of small deltas is described as overall performance, speed, efficiency, or general capability without the absolute values, uncertainty, or cost boundary. |
 
-Output a compact `Search-Derived Result Audit` table in `ARTIFACT_MANIFEST.md` or the reproducibility report. Use `PASS`, `WARN`, `BLOCK`, or `NOT_APPLICABLE`. A score gain alone supports only an empirical-software or model-selection claim until `res_analyze` or `nature-reviewer` justifies a mechanism, causal, or broad scientific claim. Any `BLOCK` on mechanism application invalidates attribution to that mechanism even when the score improved; equal inner-evaluation counts do not establish equal total compute or efficiency.
+Output a compact `Search-Derived Result Audit` table in `ARTIFACT_MANIFEST.md` or the reproducibility report. Use `PASS`, `WARN`, `BLOCK`, or `NOT_APPLICABLE`. A score gain alone supports only an empirical-software or model-selection claim until `res_analyze` or `research-agent` justifies a mechanism, causal, or broad scientific claim. Any `BLOCK` on mechanism application invalidates attribution to that mechanism even when the score improved; equal inner-evaluation counts do not establish equal total compute or efficiency.
 
 ## Environment Capture
 

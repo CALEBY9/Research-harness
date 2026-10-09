@@ -10,7 +10,7 @@ This skill is the Codex-side mirror of the Claude Code `literature_kb` skill.
 - Interpret Claude slash-command references such as `/literature_kb` as the Codex skill name `literature_kb`.
 - Map Claude tools to Codex operations: `Read`/`Glob`/`Grep` to shell reads/searches, `Write`/`Edit` to local file edits, and `Bash` to PowerShell-compatible `shell_command`.
 - Do not assume Claude Code hooks, settings, slash-command routing, or Claude-only frontmatter fields exist in Codex CLI.
-- Use this skill only as local-document intelligence support; it does not replace `nature-academic-search` for topic discovery.
+- Use this skill only as local-document intelligence support; it does not replace `research-agent` for topic discovery.
 - Follow `C:\Users\Administrator\AGENTS.md` and project-local `AGENTS.md`.
 
 # literature_kb
@@ -19,7 +19,7 @@ Use this skill when the user asks to build, refresh, inspect, or query the paper
 
 This is a local-document intelligence layer. Use a relevant registered corpus
 for corpus-assisted writing and questions about its papers; supplement with
-`nature-academic-search` for missing or newer literature. The local corpus does
+`research-agent` for missing or newer literature. The local corpus does
 not establish exhaustive field coverage or replace open literature discovery.
 
 ## Quick Trigger / Stop Card
@@ -28,7 +28,7 @@ not establish exhaustive field coverage or replace open literature discovery.
 - Do not use as the sole owner of open-ended discovery, closest-prior coverage, novelty judgment, or acquisition of papers outside the corpus; use the corresponding research or search owner.
 - Required inputs: selected `corpus_id`, source/index boundary, intended action, and a verified backend/script path.
 - Output / handoff: backend and run directory, corpus boundary, retrieval candidates with source locators, quality warnings, and next owner skill; add a Retrieval QA Dossier when multiple KB papers will feed manuscript prose.
-- Return / stop conditions: missing script/index -> `KB_RESOURCE_MISSING`; documented interface drift -> `KB_RESOURCE_CONTRACT_DRIFT`; missing runtime dependency -> `KB_ENVIRONMENT_MISSING`; unresolved corpus/run boundary -> `KB_CORPUS_UNBOUND`; incomplete retrieval QA for a planned manuscript claim -> `KB_RETRIEVAL_QA_INCOMPLETE`; incomplete corpus coverage -> return to `nature-academic-search` for field-level claims.
+- Return / stop conditions: missing script/index -> `KB_RESOURCE_MISSING`; documented interface drift -> `KB_RESOURCE_CONTRACT_DRIFT`; missing runtime dependency -> `KB_ENVIRONMENT_MISSING`; unresolved corpus/run boundary -> `KB_CORPUS_UNBOUND`; incomplete retrieval QA for a planned manuscript claim -> `KB_RETRIEVAL_QA_INCOMPLETE`; incomplete corpus coverage -> return to `research-agent` for field-level claims.
 - Validation: `Test-Path`, script `--help` or AST/parser check, manifest/artifact readback, and a read-only query or explicitly scoped smoke build.
 
 ## Canonical Entry
@@ -160,15 +160,16 @@ If the dependency preflight fails, return `KB_ENVIRONMENT_MISSING`. Do not insta
 Use this adapter for local-PDF retrieval, corpus-supported writing or knowledge-base maintenance:
 
 ```text
-literature_kb -> original-source verification -> nature-writing
-Use nature-academic-search for coverage outside the corpus;
-use nature-downloader for missing originals.
+research-agent -> literature_kb -> original-source verification -> ars-academic-writing (substantive prose)
+Use research-agent for coverage outside the corpus;
+use research-agent for missing originals.
 ```
 
 For requested writing from multiple corpus papers, load
 `../shared-references/kb-to-manuscript-evidence-bridge.md`. This owner supplies
-retrieval candidates; `nature-writing` owns source-grounded synthesis and prose.
-Use `nature-paper-card` for a requested or necessary deep read, and
+retrieval candidates; `research-agent` coordinates the task and
+`ars-academic-writing` owns substantive source-grounded synthesis and prose.
+Use `research-agent` for a requested or necessary deep read, and
 `lit_synthesis` for formal review/synthesis work. Continue the authorized task
 without forcing a full Paper Card or a retired manuscript stage per citation.
 
@@ -217,6 +218,5 @@ Original-paper locator completeness:
 Answerability: answered / partial / not enough evidence
 Residual source families or contradictions:
 Bridge status / failure code:
-Next owner: nature-writing / nature-paper-card / lit_synthesis (as needed)
+Next owner: ars-academic-writing (substantive prose) / research-agent (source work) / lit_synthesis (formal synthesis methods)
 ```
-
