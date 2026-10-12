@@ -34,7 +34,7 @@ needs a bounded reread before its evidence is used.
 | Verify reference metadata | `nature-ref-verifier` |
 | Retrieve lawful full texts | `nature-downloader` |
 | Set up explicitly requested literature monitoring | `nature-literature-pipeline`; schedules require user authorization |
-| Plan, draw or review publication figures | `nature-figure`; reuse the project's verified data and plotting tools |
+| Plan, render or review publication figures | `nature-figure`; reuse verified data and the existing plotting workflow; use `data_analyze` for new computation |
 | Review statistical reporting or data-availability statements | `nature-statistics` or `nature-data`, respectively |
 | Review a manuscript or prepare reviewer responses | `nature-reviewer` or `nature-response`, respectively |
 | Turn a paper or source image into slides | `nature-paper2ppt` or `nature-image2ppt`, respectively |
@@ -50,7 +50,6 @@ needs a bounded reread before its evidence is used.
 | Use selected studies to develop the present manuscript's argument | `nature-writing` with source-grounded synthesis support; original sources support the present task |
 | Distill a scholar's public work into a reusable research judgment framework | `research-scholar-distiller` |
 | Draft a manuscript-grounded conceptual image prompt | `nature-image2-prompt` (independent local adapter) |
-| Render a quantitative figure from verified data and a figure plan | Existing project plotting workflow through `data_analyze`; available chart tools such as `editaplot` require their own runtime checks |
 
 These are task-specific alternatives, not mandatory stages. Scientific drafting
 and substantive argument reconstruction use `nature-writing`; read its `SKILL.md`,
@@ -61,6 +60,13 @@ remain in `C:/Users/Administrator/.codex/skills/`. Do not assume they are siblin
 Load `nature-shared` as the selected owner's reference dependency, not as a
 second drafting agent. Use document, PDF, presentation and chart tools for their
 verified capabilities. File restoration alone does not verify external services.
+
+Choose the primary owner by the requested deliverable. A reviewer report uses
+`nature-reviewer`, a provenance/reproduction audit uses `evidence_audit`, and
+interpretation of completed results uses `res_analyze`. Reuse prior checks when
+their source version and scope still cover the question; call another owner only
+for an identified gap. These are distinct review products, not three mandatory
+validation passes or independent runtime agents.
 
 ## Literature-supported writing
 
@@ -94,8 +100,10 @@ mandatory critique pass or routine planning packet.
 For an authorized combined writing/analysis/figure task, remain responsible for
 the requested final artifacts across owner handoffs. nature-writing owns the paper
 argument, res_analyze resolves result meaning, nature-figure owns figure design
-and review, and data_analyze executes quantitative analysis and data-driven
-rendering when needed. Reuse sufficient prior work; a plan or handoff is
+and review as well as rendering from verified results, and data_analyze executes
+new quantitative analysis and its associated plots when needed. Use one rendering
+workflow rather than handing an unchanged figure between two executors.
+Reuse sufficient prior work; a plan or handoff is
 not the end of a task asking for prose or a rendered figure. Proposing a new
 scientific comparison remains distinct from running it or changing formal claims.
 
@@ -154,6 +162,12 @@ unresolved blockers, and next owner. Do not create a parallel state system.
 Continue while scope and evidence prerequisites permit. Negative or ambiguous
 results may narrow, hold, or reject support; a new research question, dominant
 claim, or `STORY_REBASE` requires the author's decision.
+
+Keep task scope and decisions in the project's existing authoritative document.
+An OpenSpec work package links those definitions when OpenSpec is in use;
+`.agent/` records recovery pointers. Owner templates are optional representations
+of missing information, not a reason to copy settled requirements or start
+another task-state file.
 
 Subagents, schedules, external messages, and external-library mutations require
 explicit user authorization. Destructive or irreversible actions retain their

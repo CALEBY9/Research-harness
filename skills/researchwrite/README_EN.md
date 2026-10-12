@@ -2,13 +2,13 @@
 
 [中文说明](README.md)
 
-`nature-proposal-writer` is a proposal-first research-writing workflow for turning topics, ideas, drafts, or sections into academic text with argument structure, evidence boundaries, and quality gates.
+The local skill is `researchwrite`, mapped to upstream `nature-proposal-writer`. It produces proposals, opening reports and research-plan documents; manuscript and standalone review-paper prose belongs to `nature-writing`.
 
 ## What To Use It For
 
 - Build a research canon, problem chain, and section contracts from a rough research direction.
 - Revise existing paragraphs so argument order, contribution boundaries, and evidence support are clearer.
-- Expand existing drafts into proposals, manuscript sections, review frameworks, or project narratives.
+- Expand drafts into proposals, opening reports or research plans, including literature background and the methodology of a proposed review study.
 - Run content, language, citation, and formatting QA after drafting.
 
 ## Three Modes

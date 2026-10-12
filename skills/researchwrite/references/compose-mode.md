@@ -19,7 +19,10 @@ Intake Q&A → scope lock → research canon → evidence table → argument map
 → full proposal QA → export
 ```
 
-Each step produces a concrete file or decision. Do not skip foundation steps.
+Each step resolves required information through an existing source, a decision,
+or a missing-field note; it need not produce a new file. Reuse sufficient project
+contracts instead of creating duplicate foundation or task-state documents.
+Do not skip unresolved foundation checks.
 Drafting begins only after foundation review passes the stage threshold (foundation_score > 7.5).
 
 ---

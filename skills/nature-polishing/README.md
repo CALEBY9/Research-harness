@@ -2,12 +2,12 @@
 
 [English](README_EN.md)
 
-`nature-polishing` 用于把学术手稿文本润色、重构或翻译成更接近 Nature 风格的简洁英文，同时保持作者原意、证据边界和引用意图。
+`nature-polishing` 用于润色、翻译或精简已有学术文本，保持既定论证、证据边界和引用意图；输出语言依用户要求。
 
 ## 适合用它做什么
 
 - 将中文学术段落翻译为投稿可用英文。
-- 精简冗长句子，增强论证顺序和段落推进。
+- 精简冗长句子，澄清既定论证与段落之间的衔接。
 - 按 Nature / Nature Communications / Nature Machine Intelligence 论文范式调整摘要、引言、结果、讨论或标题。
 - 对 NMI 识别独立路由，检查 3,500 词正文、150 词摘要、6 个 display、代码审查与会议论文实质扩展，不再误用旗舰 Nature 数字。
 - 对旗舰 Nature、Nature Communications、NMI 及其他 Nature Portfolio 期刊的 Results–Discussion，保留 claim 递进、证据绑定的局部解释和跨结果综合，区分必要回顾与重复论证。
@@ -48,7 +48,7 @@
 
 - 不会替作者新增结果、机制、统计意义或未给出的引用。
 - 不会为了更像 Nature 而夸大 novelty、causality 或 generality。
-- 如果需要从零搭建论文章节，优先使用 `nature-writing`。
+- 新写或改变论证、段落架构与证据使用交给 `nature-writing`；纯排版交给 `paper_format`。
 
 ## 相关技能
 

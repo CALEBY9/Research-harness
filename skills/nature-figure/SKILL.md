@@ -85,13 +85,15 @@ Apply the loaded material in this order:
 5. Template adaptation — when reusing built-in original examples, licensed external material, or user-provided plotting code, load `references/asset-adaptation.md` before mapping data or changing the script.
 6. Delivery preflight — before final delivery, load `references/qa-contract.md`, run `scripts/validate_figure.py` on the plotting source, run `scripts/audit_pdf_text.py` on the exported PDF, then inspect every panel and the complete figure at final physical size. Automated checks do not replace the panel-by-panel uncertainty, salience, spacing, and collision audit.
 
-For data-bearing rendering, resolve the installed `data_analyze` from the
-available catalogue and read its `references/figure-execution.md`. Read
-`references/analytical-design.md` there when new aggregation, joins, uncertainty
-or statistical comparisons are required. These support code/data execution;
-`nature-figure` retains design and review ownership. Reuse verified project
-results rather than recomputing them to suit a layout. Report unavailable
-support or unresolved numerics separately and continue unaffected design work.
+For rendering from verified plotting data, use the selected backend and existing
+project code directly; no analysis-owner handoff is required. When new aggregation,
+joins, uncertainty estimates or statistical comparisons are needed, resolve
+`data_analyze` from the installed catalogue and use its analytical-design support.
+Keep one rendering executor: an analysis-owned task may render its own plots;
+reuse those outputs for figure design/review instead of regenerating them in a
+second pipeline. `nature-figure` retains publication design and review ownership.
+Do not recompute results to suit a layout. Report unresolved numerics separately
+and continue unaffected design work.
 
 When the target is the flagship journal Nature, also load
 `references/nature-article-requirements.md`. It separates initial-review files

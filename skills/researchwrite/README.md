@@ -2,13 +2,13 @@
 
 [English](README_EN.md)
 
-`nature-proposal-writer` 是 proposal-first 的科研写作工作流，用于把题目、想法、草稿或章节扩展为有论证结构、证据边界和质量闸门的科研文本。
+本机技能名为 `researchwrite`，上游对应 `nature-proposal-writer`。用于 proposal、开题报告和研究计划文档；论文与独立综述论文正文由 `nature-writing` 负责。
 
 ## 适合用它做什么
 
 - 从模糊研究方向搭建 research canon、问题链和章节契约。
 - 修改已有段落，使论证顺序、贡献边界和证据支撑更清楚。
-- 将已有草稿扩写为 proposal、论文章节、综述框架或项目说明。
+- 将已有草稿扩写为 proposal、开题报告或研究计划，包括文献背景与拟开展综述研究的方法设计。
 - 在写作后执行内容、语言、引用和格式层面的 QA。
 
 ## 三种模式

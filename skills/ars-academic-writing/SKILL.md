@@ -1,9 +1,14 @@
 ---
 name: ars-academic-writing
-description: Draft or substantively reconstruct academic manuscripts, theses and proposals; compare paper-level scientific positioning and plan figure arguments from the author's evidence. ARS-adapted writing owner for Research Agent. Not for language-only polishing, formatting-only work, standalone citation lookup or data analysis.
+description: Inactive ARS writing reference retained for rollback and explicitly selected comparisons. Research Agent uses nature-writing by default; do not select ARS as a second writing owner or enable it through an ordinary manuscript request.
 ---
 
 # ARS Academic Writing
+
+Status: legacy reference, inactive in the local skill configuration. The material
+below records the retained alternative method; it is not the current Research
+Agent routing contract. Inspect it only for an explicitly requested comparison
+or rollback. Its presence does not authorize changing the active writing owner.
 
 This is a locally adapted writing layer, not the full academic-research-skills
 suite. Its basis is ARS argument construction, introduction rhetoric and

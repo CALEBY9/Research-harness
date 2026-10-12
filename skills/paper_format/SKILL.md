@@ -26,6 +26,12 @@ Complete the requested operation only. Use the corresponding owner for a needed 
 
 Use `paper_format` after the manuscript content is scientifically stable and before final submission packaging.
 
+For LaTeX float placement or sparse-page defects, resolve installed
+`nature-polishing` through the skill catalogue and reuse its
+`references/latex-layout.md` as a technical reference. This remains a formatting
+task; do not invoke a prose-polishing pass or copy the resource into another skill.
+Figure composition or scientific encoding changes belong to `nature-figure`.
+
 ## Required Inputs
 
 Inspect only materials needed for the requested formatting task:

@@ -1,5 +1,12 @@
 # Project structure
 
+Reuse the owning project's directories and authoritative task/state records.
+The layout below is an optional example for an independent new proposal, not a
+required file set. Create only needed files. If `.agent/`, OpenSpec or another
+current project record already owns task status, use pointers there rather than
+creating `state.json` as a second state system. Existing researchwrite projects
+may keep their state file; scientific decisions remain in the owning documents.
+
 Default working directory:
 
 ```text

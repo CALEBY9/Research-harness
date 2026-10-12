@@ -1,6 +1,8 @@
 # Revise mode
 
-Use when the user provides existing proposal text, a paper or proposal section, or a full research-plan draft.
+Use when the user provides existing proposal text, a proposal section, or a full
+research-plan draft. Manuscript or independent review-paper revision belongs to
+`nature-writing`; language-only editing belongs to `nature-polishing`.
 
 ## Contents
 
@@ -18,7 +20,10 @@ classify text → extract claims → compare with canon/evidence → diagnose st
 → professor review → anti-slop scan → revision brief → revise → rescore
 ```
 
-Revise mode starts from existing text. It does not build foundation files from scratch — it either reads existing foundation files or extracts them from the text itself. If no foundation files exist, the first run of revise mode builds minimal `research_canon` and `evidence_table` from the text before diagnosing.
+Revise mode starts from existing text. Read sufficient existing canon/evidence
+records or extract the needed bindings into the current working notes. Missing
+foundation filenames do not require new files when the owning project documents
+already supply the information. Keep paragraph-level revision local.
 
 **Core rule**: diagnose before rewriting. Content before language. Never beautify unsupported claims.
 

@@ -1,6 +1,6 @@
 ---
 name: nature-polishing
-description: Polish, restructure, or translate Chinese or English academic prose while preserving facts, evidence boundaries, terminology, claim strength, and citations. Use for 论文润色、学术改写、SCI语言编辑、Results压缩, or manuscript LaTeX layout fixes; use nature-writing when creating new arguments or sections.
+description: Polish, translate, or shorten existing Chinese or English academic prose within its established argument and evidence. Use for 论文润色、同论证学术改写、SCI语言编辑、Results压缩; use nature-writing for argument or section restructuring and paper_format for layout-only work.
 ---
 
 # Nature-Style Academic Polishing — Router
@@ -14,6 +14,12 @@ Do not try to apply the polishing logic from memory or from this router. Always 
 
 ## Fast-path preflight
 
+This owner edits an established argument. Sentence reconstruction and bounded
+compression are allowed when they preserve the scientific meaning, evidence,
+claim strength and paragraph roles. New claims, changed evidence use, a different
+story or paragraph architecture belong to `nature-writing`; hand over the supplied
+text and identified issue rather than continuing a second drafting workflow.
+
 Before the normal five-step route, check whether the request matches
 `fast_paths.language_only` in [manifest.yaml](manifest.yaml). It matches only
 when the user supplied the text and requested wording-level improvement while
@@ -26,10 +32,10 @@ announce the other axes, and do not load `always_load`, paper-type, section,
 journal, evidence-authority, or on-demand resources. Naming the passage as an
 Abstract or Introduction does not by itself disable this fast path.
 
-Use the normal route whenever the user asks for translation plus substantive
-rewriting, target-journal conformity or word-limit work, structural
-compression, argument/evidence changes, whole-manuscript consistency, or
-versioned-artifact mutation.
+Use the normal route for target-journal language/style conformity, word-limit
+work, same-argument compression, whole-manuscript consistency, or a versioned
+artifact edit within this boundary. Argument/evidence changes go to
+`nature-writing`; layout-only changes go to `paper_format`.
 
 ## Routing protocol
 
@@ -69,8 +75,8 @@ Do **not** read every fragment in `static/`. Load only what step 2 selected.
 
 Apply the loaded fragments in this priority order, matching the `paper type -> section job -> paragraph logic -> claim/evidence/boundary -> sentence polish` rule from `core/failure-modes.md`:
 
-1. Paper-type playbook (architecture, writing order).
-2. Section-specific job and failure modes.
+1. Paper-type playbook as editing guidance within the established architecture.
+2. Preserve the section's existing job while addressing its wording failures.
 3. Journal-specific framing and constraints.
 4. Language-specific sentence and paragraph rules (apply last).
 5. Core stance and ethics throughout.
@@ -98,8 +104,8 @@ unchanged. Classify it internally as `LANGUAGE_ONLY`.
 - Return clean prose only. Report a genuine contradiction or meaning-changing
   ambiguity separately instead of silently editing the scientific claim.
 
-Use the fuller route below only when the user requests structural compression,
-argument changes, evidence changes, a whole-manuscript consistency pass, or an
+Use the fuller route below only when the user requests same-argument compression,
+a whole-manuscript consistency pass, or an
 actual versioned-artifact mutation that needs authority checks.
 
 For Results, full-main-text compression, main-versus-SI allocation, or prose
@@ -147,21 +153,19 @@ editing:
 - `BOUNDED_ACADEMIC_REWRITE`: sentence reconstruction is allowed inside the
   existing argument and evidence boundary.
 - `ARGUMENT_OR_EVIDENCE_REWRITE`: interpretation, claim strength, evidence use,
-  paragraph function/order, or story may change and therefore requires the
-  applicable author/evidence gate before polishing continues.
+  paragraph function/order, or story may change. Transfer to `nature-writing`
+  with the existing source binding and applicable author/evidence constraints;
+  this classification is a handoff, not a polishing mode.
 
 Return clean prose as the deliverable. Keep rationale, before/after mapping,
 and claim-disposition notes separate unless the user explicitly asks for them.
 
 **Layout/typesetting (排版) requests are different.** If the user asks to fix
-*placement* rather than wording — loose/sparse pages, stranded headings, figures
-that don't fill the page or split across pages, "Float too large", multi-panel
-arrangement, sparse Supplementary Information — skip the prose axes (paper_type,
-section, language, journal) and load `references/latex-layout.md` directly. That
-file is self-contained: it carries the diagnosis workflow (render → contact-sheet →
-read the log), the float-glue and `[H]`/`\clearpage`/`placeins` patterns, and the
-"regenerate wide figures taller at the source" rule. Always compile and visually
-inspect rendered pages before and after — never judge layout from the `.tex` alone.
+*placement* rather than wording, route to `paper_format` without loading the prose
+axes. The retained `references/latex-layout.md` is a technical resource for that
+owner, not a second layout workflow. Changes to a figure's scientific composition
+remain with `nature-figure`. Compile and inspect rendered pages for actual layout
+changes; source inspection alone is insufficient.
 
 ## Why this split
 

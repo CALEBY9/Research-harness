@@ -13,9 +13,16 @@ metadata:
 
 受 autonovel（状态机+打分）、professor（动态专家）、brainstorming（入口追问）、anti-AI-writing（语言清理）启发的科研写作状态机。**不是通用"帮我写论文"prompt。**
 
-`researchwrite` 是为兼容既有安装保留的触发名称，仓库目录名仍为
-`nature-proposal-writer`。不要在没有迁移方案时修改 frontmatter 名称。需要初始化模板、
+`researchwrite` 是本机技能与源码目录名，上游对应 `nature-proposal-writer`。
+需要初始化模板、
 按条件加载参考资料或执行导出脚本时，先读取 `manifest.yaml`，只加载与当前条件匹配的路径。
+
+## 产物边界
+
+负责 proposal、开题报告和研究计划文档，包括其中的背景与文献综述章节。
+论文、学位论文章节及独立综述论文正文交给 `nature-writing`，模拟论文审稿交给
+`nature-reviewer`，语言-only 编辑交给 `nature-polishing`；普通邮件不触发本技能。
+输入出现 Introduction、Discussion 或“综述”时，先按目标文档区分，不按章节词抢占任务。
 
 ## 核心原则
 
@@ -23,7 +30,7 @@ metadata:
 2. **论证先于章节** — 写正文前必须完成 `argument_map`
 3. **契约先于段落** — 每节需要 purpose / allowed claims / forbidden claims / inputs / validation
 4. **范围先于完备** — 如果是分阶段写作，先锁定阶段边界
-5. **动态专家，不设固定池** — 用 `professor` 按失败模式召唤对应专家
+5. **按问题检查** — 默认由当前代理检查；只有明确获准 delegation 时使用可用专家适配器
 6. **内容先于语言** — 诊断科学逻辑后再做 anti-slop / 语言打磨
 7. **不自动升级事实** — 永远不把 "may indicate" 改成 "proves"，除非有证据支撑
 8. **删除胜于解释** — 当某主张不可行，直接删除。正文干净，解释留给答辩
@@ -46,27 +53,12 @@ metadata:
 
 ## 项目结构
 
-**工作目录**：`<outputs>/researchwrite/<project-slug>/`
-
-**标准文件**：
-
-```
-00_scope.md              写作任务边界
-01_research_canon.md     硬事实和约束
-02_evidence_table.md      claim → evidence 映射表
-03_argument_map.md        论证架构
-04_section_contracts.md   每节的 purpose / inputs / allowed & forbidden claims
-05_style_guide.md         风格、术语、禁用表达
-state.json                项目状态（mode、round、scores、technical_debts）
-sources/                  用户材料、文献、数据
-drafts/                   草稿和分节文件
-revision_briefs/          修订简报
-qa_logs/                  诊断、专家审查、anti-slop、打分记录
-exports/                  最终输出（.md + .docx）
-```
-
-新建项目时按 `manifest.yaml` 的 `templates.on_demand` 路由从 `templates/` 取空模板。
-`references/worked-example-quaternary-proposal.md` 提供了基于通用材料科学领域的完整填写示例。
+先复用项目已有的任务范围、事实表、证据表、提纲和章节要求。它们可以直接满足
+下述 foundation 字段，不必复制为一套新文件。已有 OpenSpec 工作包记录实施状态，
+`.agent/` 记录恢复指针；不另建 `state.json` 镜像。
+独立新 proposal 没有目录约定时，在项目指定的交付目录按需使用
+`references/project-structure.md` 和 manifest 模板。只建立本次需要的文件，
+不为段落修订预建完整目录树。已有 researchwrite 项目可继续使用原文件结构。
 
 ## Reference 文件索引
 
@@ -79,16 +71,16 @@ exports/                  最终输出（.md + .docx）
 | `references/hybrid-mode.md` | 模式 = hybrid |
 | `references/evaluation-rubric.md` | 使用 8 维 × 4 锚点评分体系时 |
 | `references/research-anti-slop.md` | 清理中文 proposal 的模板化和空泛表达时 |
-| `references/chinese-review-writing-style.md` | 撰写或修订中文综述时 |
+| `references/chinese-review-writing-style.md` | proposal 背景中的文献综合需要此参考时；不是综述论文入口 |
 | `references/stopping-rules.md` | 判断继续迭代、拆分范围或停止时 |
 | `references/professor-dispatch.md` | 按失败模式分派动态专家时 |
 | `references/foundation-files.md` | 建立或修复 foundation 五文件时 |
-| `references/project-structure.md` | 初始化项目目录或维护 `state.json` 时 |
+| `references/project-structure.md` | 无既有约定的新 proposal，或维护已存在的 researchwrite 文件时 |
 | `references/export-archive.md` | 导出和归档 `.md` / `.docx` 时 |
 | `references/partial-proposal-scope.md` | 分阶段写作并防止范围蔓延时 |
 | `references/ref-renumbering-cascade.md` | 处理参考文献增删和编号级联时 |
-| `references/review-paper-framework.md` | 设计综述论文框架时 |
-| `references/review-critique-methodology.md` | 建立综述的批判性分析时 |
+| `references/review-paper-framework.md` | proposal 拟开展综述研究，需说明其问题与证据设计时 |
+| `references/review-critique-methodology.md` | proposal 文献背景需要证据比较方法时 |
 | `references/validation-checklist.md` | 自动检查主张、引用、编号和可复现性时 |
 | `references/gpt-handoff-revision-brief.md` | 生成跨 agent 修订交接简报时 |
 | `references/within-approved-proposal.md` | 在已批准的 proposal 框架内扩写时 |
@@ -97,12 +89,8 @@ exports/                  最终输出（.md + .docx）
 
 ## 运行交付
 
-每次运行结束时输出：
-
-1. 当前文件路径或修订后文本
-2. 当前分数/状态
-3. 剩余风险
-4. 一条建议的下一步
+交付用户要求的正文、文件或审查报告。修改理由、未解决证据缺口和验证情况另列；
+内部评分与状态不进入正文，也不作为每次调用的必需输出。
 
 ## QA Mode — 四层质量保障 Pipeline
 
@@ -117,22 +105,16 @@ exports/                  最终输出（.md + .docx）
 
 | 挡位 | 适用场景 | 阈值 |
 |------|---------|------|
-| `paper` | 投稿论文 | 7.0 |
 | `proposal` | 研究方案/开题 | 7.0 |
-| `internal` | 内部汇报/周报 | 5.0 |
-| `quick` | 快速扫读 | 无 |
+| `quick` | 当前 proposal 的局部检查 | 无 |
 
 ### Pipeline 顺序（先内容后语言）
 
 ```
-Gate 2: professor Convener（内容层）
-  ├── 论文 → 方法论专家 + 领域专家
-  ├── proposal → 可行性专家 + 创新性专家
-  └── 文献综述 → 覆盖面专家 + 批判深度专家
+Gate 2: 内容检查（当前代理，按具体缺口检查可行性与创新依据）
   │
   ▼
-Gate 1: avoid-ai-writing 模式 detect-only
-  └── 只对英文有效，中文跳过或降级为手工扫读
+Gate 1: 语言检查（复用本技能的 research-anti-slop 参考）
   │
   ▼
 Gate 3: auto-validation（格式/完整性层）
@@ -149,14 +131,14 @@ Gate 4: 评分阈值（分维度打分）
 ### 使用方法
 
 ```
-用户: "用 researchwrite 审查这段 discussion，paper 挡位"
-  → 自动走 Gate 2 → Gate 1 → Gate 3 → Gate 4
+用户: "用 researchwrite 审查这段开题报告的方法方案"
+  → 在请求范围内检查内容、语言、完整性与评分
   → 返回审查报告 + 定向修改建议
 
-用户: "快速扫一下这个邮件"
-  → 走 quick 挡位，只标记 P0 问题
+用户: "快速检查开题报告这段是否符合已确认的研究范围"
+  → 只检查该段与既有范围，不启动完整方案审查
 ```
 
 ## 配置你的研究域
 
-首次使用告诉 agent 你的研究背景，agent 会调用 `professor` 建立领域专家知识。后续写作中专家审查会基于你的领域。
+从当前材料与已确认的项目背景获取领域约束；不因首次使用自动创建领域专家或知识文件。

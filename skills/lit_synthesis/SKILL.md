@@ -1,17 +1,17 @@
 ---
 name: lit_synthesis
-description: Plan and write systematic reviews, meta-analyses, or scientometric environmental-science manuscripts.
+description: Develop systematic-review protocols, screening and coding methods, evidence-synthesis assets, and meta-analysis or scientometric methodology. Use for reproducible cross-paper synthesis; manuscript drafting belongs to nature-writing and numerical execution to data_analyze.
 ---
 
 Use subagents only when the user explicitly requests delegation; otherwise perform role checks locally.
 
 # Literature Synthesis — 系统综述 / 元研究 / LLM 流水线综述 (v1.0)
 
-Plan or write a synthesis manuscript for: **$ARGUMENTS**
+Develop synthesis methodology and evidence assets for: **$ARGUMENTS**
 
 ## Quick Trigger / Stop Card
 
-- Use when: planning or writing a systematic review, meta-analysis, scientometric/meta-research manuscript, or producing a formal cross-paper synthesis asset from a bounded corpus.
+- Use when: developing a systematic-review, meta-analysis or scientometric protocol, screening/coding design, or a formal cross-paper synthesis asset from a bounded corpus.
 - Do not use when: the task is ordinary KB query/build, single-paper reading, open-ended discovery, or a small primary-article literature set that `research-agent` can organize from verified evidence cards.
 - Required inputs: review/synthesis question, corpus or search boundary, screening/coverage state, full-text status, synthesis-critical evidence cards, review type, and target genre.
 - Output / handoff: protocol/screening assets when applicable, Review Literature Matrix, `CROSS_PAPER_SYNTHESIS_MATRIX` for KB-assisted writing, unresolved gaps, and handoff to `research-agent`.
@@ -46,7 +46,10 @@ Plan or write a synthesis manuscript for: **$ARGUMENTS**
 
 ## 为什么独立成 skill
 
-`research-agent` 是当前的多源检索、引文影响审计和参考文献导出 owner；Web of Science 只是其中一个按需来源，不再由独立本地 skill 承担。
+`nature-academic-search` 负责多源检索与参考文献管理；Web of Science 是按需来源。
+本 skill 负责系统综合方法与证据资产，`nature-writing` 负责论文正文，
+`data_analyze` 负责获准的数值计算。已有方法与综合资产充分时，直接进入写作，
+不为综述体裁重复启动方法规划。
 
 但**综述论文本身**的写作有特殊要求:
 - 方法学透明度 (PRISMA flowchart, exclusion 理由记录)
@@ -381,57 +384,18 @@ SLR / Meta 在 Nature 子刊允许较高引用密度 (80-150 in main),不像 pri
 
 ---
 
-## Step 8 — Section-by-Section 写作模板
+## Step 8 — 交给写作 owner 的证据清单
 
-```markdown
-# Title
-[12-16 词;包含 N studies, 系统综述/meta-analysis, 主 question 关键词]
+交付已完成的综合资产及其来源定位，不另起一份论文提纲或套用固定字数模板：
 
-# Abstract (200 词)
-1. Lead pattern R-A/R-B/R-C/R-D 一句
-2. Specific gap with stake (1 句)
-3. 综述方法 (database, query, time window, N records → final N) (1 句)
-4. Headline finding with quantitative pattern (1 句, 含数字 + CI)
-5. Underlying mechanism / structural pattern (1 句)
-6. Generalization boundary OR displacement claim (1 句)
-7. Implication (1 句)
+- 问题、综述类型与已有框架比较；支持新增认识的依据和边界。
+- 协议、注册状态、纳排规则、完整检索式与时间窗口、筛选记录及计数。
+- 提取/编码规则、适用时的 LLM 使用与一致性检查、偏倚评估。
+- 综合结果、分组/敏感性结果及对应图表数据；未完成数值计算明确标出。
+- 异质性、搜索覆盖、publication bias 与提取管道的局限或矛盾证据。
 
-# Introduction
-- Lead pattern 段
-- Field accumulation context (N papers, time, prior frameworks)
-- Specific gap (用 editorial-judgment Q1-Q5 自检)
-- Approach overview (本研究方法 + 为什么这种综述类型适合)
-
-# Methods (前置 — SLR/Meta 特殊)
-- Protocol & registration
-- Eligibility criteria
-- Search strategy (完整 query string)
-- Selection process (PRISMA flowchart 引用)
-- Data extraction (codebook, LLM pipeline if any, inter-rater)
-- Risk of bias assessment
-- Synthesis methods (quantitative + narrative)
-
-# Results
-- PRISMA selection summary (含 Fig 1 引用)
-- Descriptive synthesis (Fig 2)
-- Main synthesis pattern (Fig 3) — meta-analysis pooled effect / 框架轴向投射
-- Subgroup / sensitivity (Fig 4)
-- Risk of bias outcomes (Extended Data)
-
-# Discussion
-- 主 finding 重述 + magnitude
-- Displacement claim (本综述推翻/精化的 prior 共识)
-- Mechanism / structural reasoning
-- Generalization 边界 (geographic / temporal / methodological)
-- Limitations
-  - 包含 LLM pipeline limitations (若适用)
-  - 包含 publication bias residual
-  - 包含 search drift
-- Implication
-
-# Methods Online (extended)
-[Detailed search strings, codebook, full statistical specifications]
-```
+复用已有 literature matrix、综合表与方法记录。由 `nature-writing` 按作者提纲、
+研究类型和期刊要求形成正文；本清单不要求新建另一份综合登记表。
 
 ---
 
@@ -446,7 +410,10 @@ SLR / Meta 在 Nature 子刊允许较高引用密度 (80-150 in main),不像 pri
 
 ## 与其他 skill 的接口
 
-按需使用 `research-agent` 检索、`research-agent` 核验关键原文；本 skill 负责系统综合方法与证据资产。需要形成论文时交给 `research-agent`；审稿、语言润色和修回分别由 `research-agent`、`research-agent` 和 `research-agent` 承担。已有充分输入时直接开始，不自动串行加载所有技能。
+按需使用 `nature-academic-search` 检索、`nature-paper-card` 核验关键论文的证据；
+本 skill 负责系统综合方法与证据资产，数值执行由 `data_analyze` 承担。
+论文正文、审稿、语言润色和修回分别交给 `nature-writing`、`nature-reviewer`、
+`nature-polishing` 和 `nature-response`。已有充分输入时直接开始，不自动串行加载所有技能。
 
 ---
 

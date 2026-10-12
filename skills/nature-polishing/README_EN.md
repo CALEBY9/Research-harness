@@ -2,12 +2,12 @@
 
 [中文说明](README.md)
 
-`nature-polishing` polishes, restructures, or translates academic manuscript text into concise Nature-leaning English while preserving author meaning, evidence boundaries, and citation intent.
+`nature-polishing` polishes, translates, or shortens existing academic text within its established argument, evidence boundaries, and citation intent. Follow the requested output language.
 
 ## What To Use It For
 
 - Translate Chinese academic paragraphs into submission-ready English.
-- Shorten long sentences and improve argument order and paragraph movement.
+- Shorten long sentences and clarify the existing argument and paragraph connections.
 - Adjust abstracts, introductions, results, discussions, or titles using Nature / Nature Communications / Nature Machine Intelligence article patterns.
 - Route NMI separately to check its 3,500-word main text, 150-word abstract, six-display budget, code-review duties, and substantial conference-paper extension without importing flagship Nature numbers.
 - For flagship Nature, Nature Communications, NMI, and other Nature Portfolio titles, preserve claim escalation, evidence-bound local interpretation, and cross-Results synthesis, distinguishing a necessary recap from redundant re-demonstration.
@@ -48,7 +48,7 @@
 
 - The skill does not add results, mechanisms, statistical significance, or citations not provided by the author.
 - It does not exaggerate novelty, causality, or generality to sound more like Nature.
-- For building a manuscript section from scratch, use `nature-writing` first.
+- Use `nature-writing` for new drafting or changed argument, paragraph architecture or evidence use; use `paper_format` for layout-only work.
 
 ## Related Skills
 

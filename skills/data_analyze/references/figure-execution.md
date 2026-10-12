@@ -1,9 +1,11 @@
 # Execute and finish a scientific figure
 
-data_analyze owns quantitative figure code, plotting data, actual rendering and
-in-scope visual repair. nature-writing owns the paper argument and nature-figure
-owns figure design and review; res_analyze is needed only for unsettled result
-interpretation. Reuse a sufficient approved
+data_analyze owns computation, plotting data and the figures delivered as part
+of its analysis task, including rendering and in-scope visual repair.
+nature-figure can directly render publication figures from verified results and
+owns their design and review; do not create a second executor for the same plot.
+nature-writing owns the paper argument; res_analyze is needed only for unsettled
+result interpretation. Reuse a sufficient approved
 figure plan. Do not introduce a mandatory new spec or ask the author to perform
 routine coding, layout or export decisions.
 

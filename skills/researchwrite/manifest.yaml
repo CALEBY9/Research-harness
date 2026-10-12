@@ -5,8 +5,8 @@ description: >
   skill uses a compact state-machine description and loads its complete set of
   workflow, review, export, and validation references only when they are needed.
 
-# Design note: the installed skill name is researchwrite although the directory
-# is nature-proposal-writer. Keep this manifest aligned with the SKILL.md
+# Design note: local skill and directory name is researchwrite; upstream uses
+# nature-proposal-writer. Keep this manifest aligned with the SKILL.md
 # frontmatter so `npx skills add --list` exposes the same user-facing name.
 
 always_load:
@@ -43,7 +43,7 @@ references:
       path: references/evaluation-rubric.md
     - condition: removing generic, inflated, or template-like language from a Chinese proposal
       path: references/research-anti-slop.md
-    - condition: drafting or revising a Chinese review article with scientific section titles and evidence-led synthesis
+    - condition: a Chinese proposal literature-background section needs evidence-led synthesis wording
       path: references/chinese-review-writing-style.md
     - condition: deciding whether to continue, stop, split scope, or request more evidence
       path: references/stopping-rules.md
@@ -51,7 +51,7 @@ references:
       path: references/professor-dispatch.md
     - condition: creating or repairing the five foundation files before drafting
       path: references/foundation-files.md
-    - condition: initializing the project directory or reading and updating state.json
+    - condition: initializing an independent proposal without existing project conventions, or maintaining an already existing researchwrite state file
       path: references/project-structure.md
     - condition: exporting and archiving Markdown and DOCX deliverables
       path: references/export-archive.md
@@ -59,9 +59,9 @@ references:
       path: references/partial-proposal-scope.md
     - condition: inserting or deleting citations that require reference-number cascade updates
       path: references/ref-renumbering-cascade.md
-    - condition: designing the question chain, evidence structure, and section architecture of a review paper
+    - condition: a proposal plans a review study and needs to describe its question chain and evidence design
       path: references/review-paper-framework.md
-    - condition: building critical comparison and evidence-weighted synthesis into a review paper
+    - condition: a proposal literature-background section needs critical comparison and evidence-weighted synthesis methods
       path: references/review-critique-methodology.md
     - condition: validating claims, citations, numbering, method reproducibility, or project completeness
       path: references/validation-checklist.md

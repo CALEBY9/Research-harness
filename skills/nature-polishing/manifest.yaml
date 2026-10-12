@@ -88,13 +88,13 @@ references:
   on_demand:
     - condition: polishing a whole manuscript or multiple sections; repeated terminology, abbreviation, unit, or notation drift is visible; a material term collision could change meaning; or the user asks for a terminology audit
       path: ../nature-shared/core/terminology-ledger.md
-    - condition: polishing, restructuring, or shortening Results or full main text; deciding what belongs in main text versus captions or SI; preventing revision accretion; reducing statistical or claim repetition; or applying a paragraph necessity test
+    - condition: same-argument shortening of Results or full main text; preserving the existing main-text versus captions or SI allocation; preventing revision accretion or reducing repetition without changing paragraph roles
       path: ../nature-shared/core/main-text-discipline.md
-    - condition: target is flagship Nature, Nature Communications, Nature Machine Intelligence, or another Nature Portfolio title and the user is polishing or restructuring Results, Discussion, or their boundary; testing claim escalation; deciding whether local interpretation or robustness advances the claim; or separating necessary recap from redundant re-demonstration
+    - condition: target is a Nature Portfolio title and the user is polishing existing Results or Discussion wording while preserving the established claim progression and evidence boundary
       path: ../nature-shared/core/nature-results-discussion.md
-    - condition: target is flagship Nature, Nature Communications, Nature Machine Intelligence, or another Nature Portfolio title and the user is polishing or restructuring the Introduction or whole-manuscript narrative; building a fast problem funnel, exact knowledge gap, literature tension, question-first novelty, compact study roadmap, or Introduction–Results alignment
+    - condition: target is a Nature Portfolio title and the user is polishing the wording of an established Introduction or narrative, preserving its question, gap and Introduction-Results alignment
       path: ../nature-shared/core/nature-introduction.md
-    - condition: target is flagship Nature, Nature Communications, Nature Machine Intelligence, or another Nature Portfolio title and the user is polishing or restructuring the abstract; compressing the manuscript into a discovery-centred evidence chain; selecting one main claim, one or two decisive supports, optional core numbers, or a bounded field-level payoff
+    - condition: target is a Nature Portfolio title and the user is shortening or polishing an existing abstract without selecting a new main claim or changing its evidence chain
       path: ../nature-shared/core/nature-abstract.md
     - condition: needs Nature/Nature Communications article-level patterns for abstracts, intros, Results openings, Discussion, conclusions, titles
       path: references/published-article-patterns.md
@@ -110,7 +110,5 @@ references:
       path: ../nature-shared/core/consistency-sweep.md
     - condition: needs deeper writing-strategy principles
       path: references/writing-strategy.md
-    - condition: needs LaTeX layout/typesetting help (排版) — loose or sparse pages, stranded section headings, figures that don't fill the page or split across pages, "Float too large", multi-panel figure arrangement, or Supplementary Information that looks empty
-      path: references/latex-layout.md
     - condition: target is Nature Machine Intelligence and exact content-type, word/display, data/code, initial-submission, or production requirements affect the polish
       path: ../nature-shared/journal-formats/nature-machine-intelligence.md
