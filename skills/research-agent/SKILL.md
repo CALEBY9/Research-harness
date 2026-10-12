@@ -6,15 +6,38 @@ description: Research assistance grounded in original literature, local knowledg
 # Research Agent
 
 Complete the user's current research task with the smallest sufficient set of
-sources and tools. The author retired the Nature Skills suite and
-skill_evolve_workflow. Do not load their archived instructions, reinstall them,
-or restore the retired Research workflow or paper_* owner chain.
+sources and tools. At the author's request, Nature Skills is again the default
+writing foundation, restored from the author's published Research Harness
+snapshot `b5b8e08`. ARS is retained as an inactive alternative, not a co-owner.
+Do not restore skill_evolve_workflow or the retired Research workflow / paper_*
+owner chain.
+
+Recover the current task from the project's authority pointers and read the
+relevant definitions, decisions, evidence and manuscript passages. Expand into
+history only to resolve a specific conflict; do not inject entire state logs or
+maintenance records into ordinary writing. Read multilingual files explicitly
+as UTF-8 and narrow large reads by section. A damaged or truncated tool result
+needs a bounded reread before its evidence is used.
 
 ## Available support
 
 | Task | Support |
 |---|---|
-| Draft or substantively reconstruct manuscript sections, theses or proposals | `ars-academic-writing` |
+| Draft or substantively reconstruct manuscript sections or theses | `nature-writing` (`task=thesis` for theses; preserve the author's chapter plan) |
+| Compare paper-level scientific positioning or reconstruct the paper argument | `nature-writing` with its relevant shared narrative references; use `res_analyze` for unresolved result interpretation |
+| Language-only polishing or academic translation | `nature-polishing`; use its bounded language-only path when applicable |
+| Write a proposal, opening report or research-plan document | `researchwrite`; preserve the approved template and scope |
+| Read or translate a full paper | `nature-reader` |
+| Produce an evidence-linked deep-reading paper card | `nature-paper-card` |
+| Search literature or support claims without a journal-family restriction | `nature-academic-search` |
+| Find citations explicitly restricted to Nature / Science / Cell families | `nature-citation` |
+| Verify reference metadata | `nature-ref-verifier` |
+| Retrieve lawful full texts | `nature-downloader` |
+| Set up explicitly requested literature monitoring | `nature-literature-pipeline`; schedules require user authorization |
+| Plan, draw or review publication figures | `nature-figure`; reuse the project's verified data and plotting tools |
+| Review statistical reporting or data-availability statements | `nature-statistics` or `nature-data`, respectively |
+| Review a manuscript or prepare reviewer responses | `nature-reviewer` or `nature-response`, respectively |
+| Turn a paper or source image into slides | `nature-paper2ppt` or `nature-image2ppt`, respectively |
 | Query or maintain a registered local paper corpus | `literature_kb` |
 | Assess an idea or closest prior work | `res_find` |
 | Refine an author-selected method | `res_method` |
@@ -24,23 +47,27 @@ or restore the retired Research workflow or paper_* owner chain.
 | Audit evidence and reproducibility | `evidence_audit` |
 | Systematic-review protocol, screening or meta-analysis methods | `lit_synthesis` |
 | Repair manuscript formatting without changing its science | `paper_format` |
-| Distill public scholarship into research judgment frameworks | `research-scholar-distiller` |
-| Draft a manuscript-grounded conceptual image prompt | `nature-image2-prompt` (independent local skill, not the retired suite) |
+| Use selected studies to develop the present manuscript's argument | `nature-writing` with source-grounded synthesis support; original sources support the present task |
+| Distill a scholar's public work into a reusable research judgment framework | `research-scholar-distiller` |
+| Draft a manuscript-grounded conceptual image prompt | `nature-image2-prompt` (independent local adapter) |
+| Render a quantitative figure from verified data and a figure plan | Existing project plotting workflow through `data_analyze`; available chart tools such as `editaplot` require their own runtime checks |
 
 These are task-specific alternatives, not mandatory stages. Scientific drafting
-and substantive argument reconstruction use `ars-academic-writing`; read its
-`SKILL.md` before drafting. The entrypoint directly handles language-only revision,
-source reading, literature search, citation checking and reviewer correspondence.
-Use available document, PDF, presentation and chart tools for their actual
-capabilities; do not claim the retired specialist functionality remains installed.
-If an operation has no working replacement, state that specific limitation.
+and substantive argument reconstruction use `nature-writing`; read its `SKILL.md`,
+manifest and selected references before drafting. Resolve each owner from the
+actual installed skill catalog. On this host, Nature Skills and `researchwrite`
+are in `C:/Users/Administrator/.agents/skills/`; this router and local adapters
+remain in `C:/Users/Administrator/.codex/skills/`. Do not assume they are siblings.
+Load `nature-shared` as the selected owner's reference dependency, not as a
+second drafting agent. Use document, PDF, presentation and chart tools for their
+verified capabilities. File restoration alone does not verify external services.
 
 ## Literature-supported writing
 
-The default writing foundation is the locally adapted ARS owner
-[`ars-academic-writing`](../ars-academic-writing/SKILL.md), not the full upstream
-suite. It owns argument construction, narrative drafting and separate outline /
-evidence notes. The existing source-grounded synthesis reference remains evidence
+The default writing owner is the restored, locally enhanced `nature-writing`.
+It owns argument construction, narrative drafting and separate outline / evidence
+notes. Do not automatically add ARS methods or the independent vNext candidate.
+The existing source-grounded synthesis reference remains evidence
 support, not a competing writing owner. OpenScholar and PaperQA2 are design
 references, not installed runtimes or publication-quality certifications.
 
@@ -63,6 +90,14 @@ An author rejection of the overall story requires reconsidering its scientific
 premise and use of evidence. A language-only request requires only a bounded
 meaning-preserving edit: no project scan, literature search, new argument,
 mandatory critique pass or routine planning packet.
+
+For an authorized combined writing/analysis/figure task, remain responsible for
+the requested final artifacts across owner handoffs. nature-writing owns the paper
+argument, res_analyze resolves result meaning, nature-figure owns figure design
+and review, and data_analyze executes quantitative analysis and data-driven
+rendering when needed. Reuse sufficient prior work; a plan or handoff is
+not the end of a task asking for prose or a rendered figure. Proposing a new
+scientific comparison remains distinct from running it or changing formal claims.
 
 Keep the requested manuscript clean. Preserve facts, numerical denominators,
 measurement meanings, citations, adverse evidence, uncertainty and causal

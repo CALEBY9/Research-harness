@@ -8,14 +8,15 @@
 
 ## 当前版本
 
-- 维护 16 个本地研究技能；Nature Skills 整套与 skill_evolve_workflow 已按作者要求移除。
-- Research Agent 的实质写作默认使用 `ars-academic-writing`：ARS 论证、引言叙事及证据整合写作的本地精简适配，不是完整上游套件。保留本地知识库和分析工具，不自动加载多代理、hooks 或演化流程；未认证稿件质量。
+- 按作者 2026-10-12 的决定，从本仓库已发布的 `b5b8e08` 恢复 Nature 方法及配套技能；`skill_evolve_workflow` 继续退役。
+- Research Agent 的实质写作默认使用 `nature-writing`，润色使用 `nature-polishing`，图件设计与审查使用 `nature-figure`，开题及研究计划文档使用 `researchwrite`。ARS 源码和增强保留为非默认备选，本机 ARS 技能入口禁用。保留知识库、分析工具与任务内完成责任；恢复安装不等于已经证明写作质量提升。
 - 保留 Research Agent 的 36 条维护回归定义；其中 2 条缺少原始私有片段，仍不可执行。
 - 提供 Python 标准库维护命令：源码验证、本机路径诊断、隔离暂存。
+- 提供 Nature 上游检查与更新审阅包；已授权的本机每日检查不覆盖技能或调用模型，见 [更新方式](docs/installation.md#已授权的上游监测)。
 - 记录 8 个参考项目的来源、设计取舍与改进路线。
 - 接入 OpenSpec 1.12.0，以单份工作包链接科学要求、实现与验收，见 [科研使用说明](docs/openspec_usage.md)。
 - GitHub 仓库公开维护技能源码；知识库、研究项目、论文片段、会话和凭据不在导入范围。
-- 项目内保留显式调用的 `scientific-agent-vnext` 候选，默认入口仍为 Research Agent／ARS。本机绑定与上游方法快照不随源码发布；使用候选前按其说明绑定实际依赖。
+- 项目内保留显式调用的 `scientific-agent-vnext` 候选及既有绑定，默认入口为 Research Agent／Nature。本机绑定与上游方法快照不随源码发布；候选不参与默认写作。
 
 这是运行在现有 Codex 技能体系上的源码与维护层。模型调用、工具权限、
 交互和会话执行仍由 Codex 提供。首版没有实现独立 Agent runtime、自动科研

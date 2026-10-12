@@ -1,5 +1,10 @@
 # Minimal ARS writing adoption
 
+Current status, 2026-10-12: the author chose to restore Nature as the default
+writing foundation from this repository's `b5b8e08` snapshot. ARS source and
+local refinements are retained as an inactive alternative; the record below
+describes the earlier adoption and is not the current default routing policy.
+
 ## Targeted narrative refinement, 2026-09-28
 
 The author requested diagnosis and targeted ARS optimization. The existing

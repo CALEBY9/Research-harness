@@ -17,20 +17,20 @@ Complete the requested operation only. Use the corresponding owner for a needed 
 
 ## Goal
 
-Design a compact validation plan that proves:
+Design a compact validation plan that tests:
 
 1. the method or analysis answers the anchored environmental question
 2. the dominant contribution is real and focused
-3. mature field baselines are addressed
+3. appropriate field comparators and alternative explanations are addressed
 4. cross-domain or frontier components are justified rather than decorative
 5. figures and tables needed for the paper are planned before execution
 
 ## Constants
 
 - **OUTPUT_DIR = `refine-logs/`** — Default destination for experiment planning artifacts
-- **MAX_PRIMARY_CLAIMS = 2** — Prefer one dominant claim plus one supporting claim
-- **MAX_CORE_BLOCKS = 5** — Keep the must-run experimental story compact
-- **MAX_BASELINE_FAMILIES = 3** — Prefer a few strong baselines over many weak ones
+- **CLAIM_SCOPE** — Preserve the author-approved question groups; compactness is not permission to reduce them to two claims
+- **CORE_BLOCK_SCOPE** — Keep only blocks needed for the approved questions and their validity; do not impose a fixed count
+- **MAX_BASELINE_FAMILIES = 3** — For algorithm comparisons, prefer a few strong baselines over many weak ones
 - **DEFAULT_SEEDS = 3** — Use 3 seeds when stochastic variance matters and budget allows
 
 ## Workflow
@@ -55,6 +55,19 @@ Extract:
 - cross-domain or frontier component, if central
 
 If these files do not exist, derive the same information from the user's prompt.
+
+Identify the research design before selecting validation blocks. Use existing
+authoritative project documents over generic planning defaults:
+
+| Research design | Evidence the plan must address | Conditional, not default |
+|---|---|---|
+| Algorithm or predictive-method contribution | Relevant baselines, comparable splits, leakage, claimed component effects and variability | Ablations for claimed components; seeds for stochastic variance |
+| Quantitative literature or scientific-practice research | Corpus eligibility, measurement definitions and units, independent coding validity, unknown labels, denominators/weights, dependence and sensitivity of the scientific comparisons | Classifier benchmarks only if classifier performance is a contribution; no automatic model-improvement or ablation story |
+| Observational, spatial or scenario research | Target quantity, sampling and dependence, confounding or identification limits, scenario assumptions, meaningful comparators and uncertainty | Causal or mechanistic claims only with the required design; scenarios are conditional outcomes |
+
+For mixed designs, combine only the applicable requirements. Do not create a
+new experiment to fill a template slot. Failed or null comparisons may still
+answer the scientific question; plan their interpretation before seeing results.
 
 ### Phase 1: Data Audit and Freeze the Paper Claims
 
@@ -82,7 +95,9 @@ Then write down the claims that must be defended:
 
 ### Phase 2: Build the Experimental Storyline
 
-Default blocks; keep only those that defend a claim:
+For algorithm contributions, the following are possible blocks; keep only those
+that test an actual claim. For other designs, construct blocks from the design
+requirements above and the author's question groups instead:
 
 1. **Main anchor result** — does the method or analysis solve the actual environmental bottleneck?
 2. **Baseline comparison** — does it outperform or clarify mature field standards?
@@ -103,13 +118,19 @@ For every kept block, specify:
 - claim tested
 - why this block exists
 - dataset / split / region / period / task
-- compared systems, baselines, ablations, or variants
+- scientific comparison, reference group, systems or variants as applicable
 - metrics or environmental indicators
 - setup details: resolution, preprocessing, model settings, statistical design, seeds if needed
 - success criterion
 - failure interpretation
 - figure/table target
 - priority: MUST-RUN or NICE-TO-HAVE
+
+For explanatory claims, specify what the strongest rival also predicts and
+which observation distinguishes it. Prioritize checks that could invalidate the
+interpretation before expanding descriptive outputs. If the data cannot make
+the distinction, retain the descriptive claim and propose the missing design;
+do not replace identification with more regressions or significance tests.
 
 Special rules:
 - If the proposal uses cross-domain borrowing, include at least one transfer-legality check.
@@ -153,13 +174,22 @@ Rules:
 
 ### Phase 4: Execution Order
 
-Use this milestone structure:
+Order work by the dependencies of the selected design. For an algorithm study,
+the following milestone structure may apply:
 
 1. **Sanity stage** — data pipeline, metric correctness, toy region or small sample
 2. **Baseline stage** — reproduce mature baseline or field-standard analysis
 3. **Main method stage** — run the proposed method or analysis on the primary setting
 4. **Decision stage** — decisive ablations, transfer checks, sensitivity tests
 5. **Polish stage** — robustness, qualitative diagnosis, paper figures, appendix extras
+
+For quantitative literature research, establish corpus/measurement validity
+before conditional comparisons and their sensitivity checks. For observational
+or scenario studies, establish the target quantity, data and identification or
+scenario assumptions before estimation. Essential uncertainty and robustness
+checks belong before claim acceptance, not in optional polish. Plan figures
+from supported comparisons using the existing figure plan; do not promise
+unexecuted mechanisms or impose algorithm ablations on these designs.
 
 For each milestone, estimate:
 - compute or human effort
@@ -175,7 +205,7 @@ For each milestone, estimate:
 # Experiment Plan
 
 **Problem**: [problem]
-**Method Thesis**: [one-sentence thesis]
+**Research Design and Question**: [design and author-approved question]
 **Date**: [today]
 
 ## Data Audit Gate
@@ -202,7 +232,7 @@ Include only when a block is a candidate-search or empirical-software task.
 |----------|-------|----------------|--------------------------------|-----------------------------|--------------------|--------------------------|-----------------------|------------------|---------------|
 
 ## Paper Storyline
-- Main paper must prove:
+- Main paper must test or establish within its design:
 - Appendix can support:
 - Experiments intentionally cut:
 
@@ -250,8 +280,8 @@ Include only if the method uses teacher, critic, verifier, self-correction, retr
 ## Final Checklist
 - [ ] Main paper tables are covered
 - [ ] Main paper figures are planned
-- [ ] Novelty is isolated
-- [ ] Mature baselines are included
+- [ ] The claimed scientific increment has an appropriate discriminating comparison
+- [ ] Field comparators are included; algorithm baselines and ablations are used only where applicable
 - [ ] Transfer/frontier contribution is justified or explicitly not claimed
 - [ ] Scorable-task searches, if used, have explicit metrics, split boundaries, budget/stop rules, and score-hacking checks
 - [ ] Assisted and independent performance are separated when external feedback or guided retry is used
@@ -274,7 +304,7 @@ Keep the tracker compact and execution-oriented.
 
 - Every experiment must defend a Claim ID and expected Evidence ID / Locator that can be checked by `res_analyze`.
 - Prefer a compact paper story over a giant benchmark wishlist.
-- Prefer strong baselines over long baseline lists.
+- For algorithm comparisons, prefer strong baselines over long baseline lists.
 - Separate must-run from nice-to-have.
 - Reuse proposal constraints; do not invent unrealistic budgets or data assumptions.
 - Plan evidence; do not claim evidence.

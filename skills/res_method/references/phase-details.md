@@ -1,7 +1,13 @@
 # Research Refine - Phase Details
 
-This document contains detailed instructions, templates, and prompts for each phase.
-See the main SKILL.md for workflow summary and constants.
+Optional technical-method examples for an actual algorithm-development task.
+Use the main SKILL.md for scope and authority; observational, literature,
+measurement and scenario studies do not inherit a training/benchmark pipeline.
+The checkpoints and review templates below are optional, not a required stage
+chain. Reuse existing project notes. External review requires the user's request
+and authorized model, channel, material transfer and budget; do not delegate or
+run repeated model calls by default. Scores do not establish scientific validity
+or readiness for a particular journal.
 
 ---
 
@@ -59,7 +65,7 @@ Make the gap operational:
 
 Compare two candidate routes if both are plausible:
 - **Route A: Elegant minimal route** — smallest mechanism targeting the bottleneck.
-- **Route B: Frontier-native route** — more modern route using LLM/VLM/Diffusion/RL if it gives a cleaner or stronger story.
+- **Route B: Justified alternative** — a newer method only if its technical properties better answer the scientific question under the actual constraints.
 
 Decide based on:
 - Which route is more likely to become a strong paper under constraints?
@@ -72,7 +78,7 @@ The proposal must answer "how would we actually build this?"
 
 Cover:
 1. One-sentence method thesis
-2. Contribution focus (one dominant + at most one supporting)
+2. Contribution focus (preserve the author's question groups; prioritize their evidence without imposing a fixed claim count)
 3. Complexity budget (what is frozen/reused, what is new, what is excluded)
 4. System graph (modules, data flow, inputs, outputs)
 5. Representation design
@@ -169,7 +175,9 @@ Update `REFINE_STATE.json` with `{"phase": "proposal", "round": 0, ...}`.
 
 ## Phase 2: External Method Review (Round 1)
 
-Send the full proposal to GPT-5.4 for review:
+Only when external review is explicitly requested, use the authorized model and
+channel. The following is an optional technical-review prompt example, not an
+instruction to invoke an unavailable MCP tool or choose a different model:
 
 ```
 mcp__codex__codex:
@@ -221,7 +229,8 @@ mcp__codex__codex:
     - **Drift Warning**: NONE if still solves anchored problem
     - **Verdict**: READY / REVISE / RETHINK
 
-    Verdict: READY if overall >= 9, no drift, one focused dominant contribution
+    Verdict: explain supported strengths, unresolved defects and required evidence.
+    Do not infer scientific validity or publication readiness from the overall score.
 ```
 
 **CRITICAL**: Save `threadId` and full raw response. Save to `refine-logs/round-1-review.md`.
@@ -253,7 +262,8 @@ Update `refine-logs/score-history.md`:
 | 1     | X                | X                  | X                    | X                 | X           | X                | X               | X       | REVISE  |
 ```
 
-**STOP CONDITION**: If overall >= SCORE_THRESHOLD, verdict READY, no drift → skip to Phase 5.
+Finish when the authorized deliverable is complete and the evidence-relevant
+defects are resolved or explicitly bounded. Do not use a score threshold as proof.
 
 ### Step 3.2: Revise
 
@@ -308,7 +318,8 @@ Update `REFINE_STATE.json` with `{"phase": "refine", "round": N, ...}`.
 
 ## Phase 4: Re-evaluation (Round 2+)
 
-Send revised proposal back to GPT-5.4 in **same thread**:
+If a further review round is within the explicit authorization and budget, the
+example below can be adapted to the authorized channel. No automatic re-review:
 
 ```
 mcp__codex__codex-reply:
@@ -346,7 +357,8 @@ Save to `refine-logs/round-N-review.md`.
 
 Update `REFINE_STATE.json` with `{"phase": "review", "round": N, "threadId": "<saved>", "last_score": <parsed>, "last_verdict": "<parsed>", ...}`.
 
-**Loop**: Return to Phase 3 until overall >= SCORE_THRESHOLD or MAX_ROUNDS reached.
+Further revision addresses a concrete unresolved defect within the task scope.
+A model score is not a stopping rule or authorization for another paid call.
 
 ---
 
@@ -420,9 +432,9 @@ Update `REFINE_STATE.json` with `{"phase": "review", "round": N, "threadId": "<s
 [Honest unresolved issues]
 
 ## Next Steps
-- If READY: proceed to `/research_design_experiments`
-- If REVISE: manually address remaining issues, re-run `/research_design_method`
-- If RETHINK: revisit core mechanism with `/idea-creator`
+- If supported and experiment planning is requested: hand off to `res_plan`.
+- If revision is needed: address the specific defect within the current task.
+- If the scientific question must change: explain the evidence and return that choice to the author.
 ```
 
 ### Step 5.4: Finalize score-history.md
@@ -449,7 +461,7 @@ Remaining concerns:
 Review summary: refine-logs/REVIEW_SUMMARY.md
 Full report: refine-logs/REFINEMENT_REPORT.md
 Final proposal: refine-logs/FINAL_PROPOSAL.md
-Next step: /research_design_experiments
+Next step: deliver the proposal; use res_plan only if planning is requested.
 ```
 
 ### Checkpoint

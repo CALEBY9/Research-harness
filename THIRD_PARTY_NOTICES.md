@@ -15,9 +15,9 @@ Retain original notices and review component-specific terms before redistributio
 
 ## Nature Skills
 
-- Historical provenance only: the 18 directories below were removed from the
-  source and live installations on 2026-09-22 by the author's request. They are
-  not current runtime dependencies. The license notice remains for provenance.
+- The 18 directories below were retired on 2026-09-22 and restored on 2026-10-12
+  at the author's explicit request, from this repository's published commit
+  `b5b8e082522409aea0cb8db80a7afc2e5c086867`. They are current runtime dependencies.
 - Source: https://github.com/Yuan1z0825/nature-skills
 - License: Apache License 2.0; original root license copied to `skills/NATURE_LICENSE`.
 - Scope: the 17 `nature-*` directories imported from the Nature installation,
@@ -27,6 +27,15 @@ Retain original notices and review component-specific terms before redistributio
 - Embedded assets/tools may have additional LICENSE/NOTICE files; those remain
   in their original imported directories. Root Apache metadata alone does not
   establish rights for every image or embedded third-party example.
+- On 2026-10-12, scoped updates from upstream commit
+  `e605b35611ab2849af46d0cf7831aefdcf85be07` imported
+  `nature-shared/core/discussion-argument-language.md` verbatim and applied the
+  `nature-academic-search/scripts/format-converter.py` retry-zero correction.
+  Local router, language/thesis support and other adaptations were preserved.
+  This does not claim adoption of that entire upstream release.
+- Scientific-positioning and conceptual-handoff references are local behavior
+  guidance for observed integration gaps; they do not import the complete ARS
+  method text or change the separate ARS component's CC BY-NC license.
 
 ## Humanizer
 

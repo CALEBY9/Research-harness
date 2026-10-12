@@ -160,16 +160,16 @@ If the dependency preflight fails, return `KB_ENVIRONMENT_MISSING`. Do not insta
 Use this adapter for local-PDF retrieval, corpus-supported writing or knowledge-base maintenance:
 
 ```text
-research-agent -> literature_kb -> original-source verification -> ars-academic-writing (substantive prose)
-Use research-agent for coverage outside the corpus;
-use research-agent for missing originals.
+research-agent -> literature_kb -> original-source verification -> nature-writing (substantive prose)
+Use nature-academic-search for coverage outside the corpus;
+use nature-downloader for lawful retrieval of missing originals.
 ```
 
 For requested writing from multiple corpus papers, load
 `../shared-references/kb-to-manuscript-evidence-bridge.md`. This owner supplies
 retrieval candidates; `research-agent` coordinates the task and
-`ars-academic-writing` owns substantive source-grounded synthesis and prose.
-Use `research-agent` for a requested or necessary deep read, and
+`nature-writing` owns substantive source-grounded synthesis and prose.
+Use `nature-paper-card` for a requested or necessary deep read, and
 `lit_synthesis` for formal review/synthesis work. Continue the authorized task
 without forcing a full Paper Card or a retired manuscript stage per citation.
 
@@ -218,5 +218,5 @@ Original-paper locator completeness:
 Answerability: answered / partial / not enough evidence
 Residual source families or contradictions:
 Bridge status / failure code:
-Next owner: ars-academic-writing (substantive prose) / research-agent (source work) / lit_synthesis (formal synthesis methods)
+Next owner: nature-writing (substantive prose) / nature-paper-card (deep reading) / lit_synthesis (formal synthesis methods)
 ```

@@ -1,7 +1,8 @@
 # OpenSpec for researcher-directed work
 
 Use only for an explicitly requested OpenSpec task or an existing OpenSpec
-project. Keep the selected Nature/local owner. OpenSpec is a planning and
+project. Keep the current task owner (nature-writing for substantive academic writing).
+OpenSpec is a planning and
 execution-record tool, not scientific adjudication or a new research stage.
 
 ## Start from existing decisions

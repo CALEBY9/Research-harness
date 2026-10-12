@@ -4,7 +4,8 @@ context: |
   Language: Chinese
   All artifacts must be written in Chinese.
   Keep OpenSpec structural headings and SHALL/MUST keywords in English.
-  This repository maintains Research Agent source. Preserve Nature/local owners
+  This repository maintains Research Agent source. Use the restored Nature writing owners
+  while retaining ARS as an inactive alternative. Preserve current analysis/KB owners
   and author-controlled science. Read AGENTS.md and docs/architecture.md.
   Existing scientific plans and TODOs remain authoritative in their research
   projects. Keep private inputs and machine-specific evidence out of this repo.

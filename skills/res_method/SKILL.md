@@ -33,8 +33,8 @@ Produce a proposal that is:
 | Constant | Default | Description |
 |----------|---------|-------------|
 | `OUTPUT_DIR` | `refine-logs/` | Directory for method refinement artifacts |
-| `MAX_PRIMARY_CLAIMS` | 2 | Prefer one dominant claim plus one supporting claim |
-| `MAX_METHOD_BLOCKS` | 5 | Keep the core method compact |
+| `CLAIM_SCOPE` | Author-approved questions | Preserve the question groups; prioritize without silently dropping them |
+| `METHOD_BLOCK_SCOPE` | Evidence needed | Keep only blocks that resolve a question or its validity; no fixed count |
 | `MAX_BASELINE_FAMILIES` | 3 | Prefer a few strong baselines over long lists |
 
 ## Expected Inputs
@@ -89,9 +89,17 @@ For marine spatial co-location or offshore planning studies, extend the Data Aud
 
 Compare viable routes when the method remains open or the user requests comparison. When the author has already chosen a method, refine it and its relevant baselines without forcing unrelated alternatives:
 
-1. **Mature in-domain route** — strong established method or baseline
-2. **Borrowable adjacent-domain route** — theory, model, statistic, or workflow from another domain
-3. **Frontier route, if justified** — LLM/VLM/foundation model/diffusion/RL/etc. only when it directly solves the bottleneck
+For a method-development task, compare mature field methods and any justified
+borrowed or frontier route. For observational, literature, measurement or
+scenario research, compare designs that answer the actual question: what is
+measured, against which reference, under which assumptions, and which rival
+explanation remains compatible. An algorithm family comparison is not mandatory.
+
+For a material unresolved interpretation, identify the observation that would
+distinguish it from its strongest competitor, whether the current data contain
+it, and the smallest feasible addition if they do not. Avoid circular proxies
+defined by the outcome. State how the decision changes if that observation is
+absent, null or reversed; descriptive contributions need no invented mechanism.
 
 For every borrowed or frontier component, state:
 - what is transferred

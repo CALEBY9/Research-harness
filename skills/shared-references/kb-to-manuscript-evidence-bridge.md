@@ -8,9 +8,9 @@ checks, or results supported entirely by the author's own data.
 
 `literature_kb` selects the registered corpus/run and returns locatable
 candidates. `research-agent` coordinates retrieval and source reading;
-`ars-academic-writing` owns substantive synthesis and manuscript drafting,
+`nature-writing` owns substantive synthesis and manuscript drafting,
 including checking the original passages that support its claims. Use
-`research-agent` when a paper needs a full deep read or a Paper Card, not
+`nature-paper-card` when a paper needs a full deep read or a Paper Card, not
 automatically for every citation. Use `lit_synthesis` for an actual systematic
 review, meta-analysis or formal synthesis task.
 
@@ -61,7 +61,7 @@ distinctions. An ordinary paragraph can keep the same trace in compact notes;
 it does not require a new directory, ledger, full Paper Card per source or
 fixed number of tables.
 
-`ars-academic-writing` drafts only the supported or explicitly bounded propositions.
+`nature-writing` drafts only the supported or explicitly bounded propositions.
 Verify claim support against the original evidence and preserve author authority. Unsupported
 central claims remain `HOLD_FOR_EVIDENCE` or `REJECT_OR_REMOVE`; continue
 unaffected writing where possible rather than hiding uncertainty in fluent prose.

@@ -1,6 +1,6 @@
 # Source-grounded scientific synthesis
 
-Evidence support for `ars-academic-writing`, not a separate writing owner.
+Evidence support for `nature-writing`, not a separate writing owner.
 Use for literature-supported manuscript arguments, not language-only edits.
 This is a small local adaptation of research ideas, not an implementation of
 OpenScholar or PaperQA2 and not a journal-style template.
@@ -56,6 +56,22 @@ Other AI-for-Science systems are discussed in maintenance documentation, not
 imported as writing requirements. An external benchmark score is neither a
 local acceptance threshold nor proof that a mechanism has been implemented.
 Traceability supports checking; it does not establish that the inference is valid.
+
+## Transfer reasoning into the present study
+
+When the author asks to distill studies for this manuscript, recover the
+question, decisive comparison, observation and inference from the original
+text and figures. Test whether this project has comparable observations,
+scales and controls before reusing the reasoning. Missing observations can
+motivate a proposal, but cannot become this study's findings. Source effects,
+parameters, mechanisms and novelty do not transfer with a writing pattern.
+
+For a consequential multi-study inference, ask whether the proposed sentence
+could be false even if every cited finding were true. If so, supply the missing
+premise, narrow the claim or preserve the uncertainty. Shared datasets may not
+be independent corroboration; different metrics or baselines may not be a
+scientific disagreement. Distinguish prior findings, present observations and
+the interpretation offered from them, including in the final prose.
 
 OpenScholar/PaperQA2 design-source review: 2026-09-22. Scope corrected 2026-09-28.
 Neither source establishes that these adapted instructions yield submission-grade

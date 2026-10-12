@@ -19,7 +19,7 @@ Use this skill for non-data-bearing or conceptual figures. For data-bearing maps
    - **AI/CS method or model-architecture figure**: use the `AI/CS Method Figure Triage` from `fig_nature` when available; distinguish paper type, novelty locus, training/inference/evaluation lanes, module relations, and data-bearing placeholders.
    - **System dynamics canvas**: require Vensim-like stock-flow notation, curved causal arrows, stocks, flows, valves, and clouds; forbid infographic cards and decorative icons.
 
-2. Resolve the `Logic Wireframe Intake Gate`. For a new or substantively redesigned conceptual, mechanism, method/workflow, technical-route, research-framework, or graphical-abstract figure, consume the frozen wireframe from `fig_nature` or `figure_spec_builder` before drafting prompt language.
+2. Resolve the `Logic Wireframe Intake Gate`. For a new or substantively redesigned conceptual, mechanism, method/workflow, technical-route, research-framework, or graphical-abstract figure, consume the frozen wireframe from the project's existing figure specification before drafting prompt language. A currently available, authorized planning tool may prepare it; named legacy providers are not required dependencies.
 
 2a. Resolve the `Visual Direction Intake and Prompt Preflight Gate`. For an applicable figure, consume only the selected direction and its visual render projection; never ask the image model to choose among unselected layouts.
 
@@ -50,19 +50,20 @@ For an applicable figure, require the one-sentence objective, status, mainline n
 - Preserve every node ID, reader-facing label, role, input/precondition, transformation/function, output/effect, evidence/source locator, and claim/novelty role.
 - Preserve every edge direction, semantic type, label, evidence/source locator, and `must_not_imply` boundary.
 - Do not add, drop, merge, rename, redirect, or causally upgrade nodes or edges. Style and layout may change only within this contract.
-- Mermaid, when supplied, is a secondary preview. If it conflicts with the node/edge tables, the tables control and the conflict returns to `fig_nature`.
+- Mermaid, when supplied, is a secondary preview. If it conflicts with the node/edge tables, the tables control and the conflict returns to the current figure-planning owner.
 - `LOGIC_VALIDATED` may proceed only for an exploratory prototype. A high-stakes manuscript/submission figure requires `USER_APPROVED` or `USER_WAIVED`. A bounded edit with unchanged approved structure may use `NOT_APPLICABLE`.
 
 Failure modes:
 
-- Missing or `DRAFT` applicable wireframe -> `LOGIC_WIREFRAME_REQUIRED` and return to `fig_nature`.
+- Missing or `DRAFT` applicable wireframe -> `LOGIC_WIREFRAME_REQUIRED` and return to `nature-figure`. Its figure-planning guidance can support a candidate plan, but does not supply author approval or a complete wireframe by itself.
+- Resolve the installed `nature-figure` from the skill catalogue and use its `references/conceptual-handoff.md` to complete missing fields in the existing specification. Do not assume support and Nature skills share one installation root.
 - Incomplete node/edge fields, competing mainlines, or unclear branch attachment -> `LOGIC_WIREFRAME_INCOMPLETE`.
 - Unsupported or ambiguous arrow meaning, or association/sequence presented as causality -> `ARROW_SEMANTICS_UNRESOLVED`.
 - High-stakes diagram lacks `USER_APPROVED` or `USER_WAIVED` -> `LOGIC_WIREFRAME_APPROVAL_REQUIRED`.
 
 ## Visual Direction Intake and Prompt Preflight Gate
 
-For a new or substantively redesigned conceptual, mechanism, method/workflow, technical-route, research-framework, graphical-abstract, or mixed conceptual layer whose layout is not already approved, require the `selected_visual_direction`, `visual_render_projection`, `visible_text_allowlist`, `figure_caption_division`, `negative_visual_constraints`, and passing `prompt_preflight` fields from `figure_spec_builder`.
+For a new or substantively redesigned conceptual, mechanism, method/workflow, technical-route, research-framework, graphical-abstract, or mixed conceptual layer whose layout is not already approved, require the `selected_visual_direction`, `visual_render_projection`, `visible_text_allowlist`, `figure_caption_division`, `negative_visual_constraints`, and passing `prompt_preflight` fields in the figure specification. Accept an existing project specification or one prepared by a currently available, authorized planning tool only after checking these same requirements. Record actual preflight findings; a provider name, file's existence or storyboard does not constitute a pass. Do not restore a retired provider or relax semantic, selection or approval requirements to resolve a missing handoff.
 
 - Preserve the selected narrative strategy, layout archetype, dominant visual spine, reader path, grouping/lanes, novelty anchor, density budget, caption burden, and traits to preserve.
 - Treat the Logic Wireframe as the semantic graph and the visual render projection as the only approved visible projection. The projection may place semantic content in modules, edge/port labels, attached tags/small glyphs, caption-only items, or removed items, but may not change scientific meaning.

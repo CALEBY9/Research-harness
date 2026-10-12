@@ -1,6 +1,6 @@
 ---
 name: ars-academic-writing
-description: Draft or substantively reconstruct academic manuscript sections, abstracts, discussions, theses and proposals from the author's research and original literature. ARS-adapted writing owner for Research Agent. Not for language-only polishing, formatting-only work, standalone citation lookup or data analysis.
+description: Draft or substantively reconstruct academic manuscripts, theses and proposals; compare paper-level scientific positioning and plan figure arguments from the author's evidence. ARS-adapted writing owner for Research Agent. Not for language-only polishing, formatting-only work, standalone citation lookup or data analysis.
 ---
 
 # ARS Academic Writing
@@ -21,7 +21,10 @@ irrelevant modes or treat the short rules below as substitutes for them.
 |---|---|
 | New substantive section or reconstruction of its argument | [Literature-to-argument synthesis](references/argument-synthesis.md) |
 | New Introduction or reconstruction of its scientific story | Also read [Introduction narrative](references/introduction-narrative.md) |
+| Draft or reconstruct Results or Discussion | Also read [Results and Discussion](references/results-discussion.md); use the completed analyses, not proposed experiments, as the narrative's evidence |
 | Review of a substantive draft or substantive revision | [Revision diagnostics](references/revision-diagnostics.md); return to synthesis/Introduction guidance when the argument needs rebuilding |
+| Compare paper-level scientific contributions, resolve an unsettled mainline, or reconsider a rejected overall story | Also read [Scientific positioning](references/scientific-positioning.md); an ordinary Introduction request with a settled question does not trigger this comparison |
+| Plan a paper's main-figure sequence or substantively redesign its visual argument | Read [Figure storyboard](references/figure-storyboard.md); reuse an existing figure plan and involve the analysis owner only for unresolved evidence interpretation |
 
 These are reference documents, not additional agents or required workflow files.
 Citation-only and language-only requests remain outside this owner's scope.
@@ -109,6 +112,14 @@ vocabulary out of scientific prose unless genuinely part of the scientific metho
 Repair the specific reasoning or support defect found. Overall story rejection
 calls for reconsidering the premise and synthesis, not adjective substitutions.
 Language-only changes do not authorize argument reconstruction.
+
+Assess task completion before polishing or estimating revision cost: the draft
+must actually establish its question, compare the necessary prior work and make
+the supported contribution legible. A short or evasive draft is not successful
+because it contains few factual errors. Keep missing evidence, reasoning defects
+and author style preferences distinguishable in the existing companion. Apply
+the same claim/scope check across languages and across abstract, text and captions;
+a good Chinese draft does not validate an English submission.
 
 Deliver the clean requested prose with citations and a matching reference list.
 For substantive section drafting/reconstruction, maintain a separate concise

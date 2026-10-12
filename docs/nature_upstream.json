@@ -1,0 +1,33 @@
+{
+  "upstream_url": "https://github.com/Yuan1z0825/nature-skills",
+  "restored_harness_commit": "b5b8e082522409aea0cb8db80a7afc2e5c086867",
+  "historical_upstream_hint": "54144dcf6376b034716bd70edd40ad2cf407943e",
+  "historical_baseline_verified": false,
+  "watch_initial_commit": "e605b35611ab2849af46d0cf7831aefdcf85be07",
+  "scoped_import_commit": "e605b35611ab2849af46d0cf7831aefdcf85be07",
+  "scoped_imports": [
+    {"path": "skills/nature-shared/core/discussion-argument-language.md", "kind": "verbatim_reference"},
+    {"path": "skills/nature-academic-search/scripts/format-converter.py", "kind": "retry_zero_patch"}
+  ],
+  "note": "Scoped imports are not an upgrade of the whole suite. Preserve local language, thesis, science and delivery adaptations. Historical upstream hint returned 404 during the public-source audit; no pristine base is assumed.",
+  "skills": {
+    "nature-academic-search": "skills/nature-academic-search",
+    "nature-citation": "skills/nature-citation",
+    "nature-data": "skills/nature-data",
+    "nature-downloader": "skills/nature-downloader",
+    "nature-figure": "skills/nature-figure",
+    "nature-image2ppt": "skills/nature-image2ppt",
+    "nature-literature-pipeline": "skills/nature-literature-pipeline",
+    "nature-paper-card": "skills/nature-paper-card",
+    "nature-paper2ppt": "skills/nature-paper2ppt",
+    "nature-polishing": "skills/nature-polishing",
+    "nature-reader": "skills/nature-reader",
+    "nature-ref-verifier": "skills/nature-ref-verifier",
+    "nature-response": "skills/nature-response",
+    "nature-reviewer": "skills/nature-reviewer",
+    "nature-shared": "skills/nature-shared",
+    "nature-statistics": "skills/nature-statistics",
+    "nature-writing": "skills/nature-writing",
+    "researchwrite": "skills/nature-proposal-writer"
+  }
+}

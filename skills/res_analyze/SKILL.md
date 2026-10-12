@@ -52,7 +52,7 @@ For each relevant claim, organize:
 - sensitivity or robustness result
 - missing or failed runs
 
-### Step 3: Interpret Results Conservatively
+### Step 3: Establish What the Result Adds
 
 For every finding, separate:
 
@@ -63,6 +63,19 @@ For every finding, separate:
 5. **Next check** — follow-up analysis needed before paper writing
 
 Do not upgrade correlation, map pattern, or model performance into mechanism unless the evidence supports it.
+
+State the strongest useful conclusion that remains after the limitations, not
+only what cannot be inferred. Relate it to the closest available comparison:
+who can estimate, compare, understand or act more reliably, and why? A better
+estimate, boundary or reusable resource can matter without reversing consensus.
+When that added value is unresolved, identify the missing comparison instead of
+adding generic importance language. Keep the observation-to-interpretation link
+usable by nature-writing; manuscript prose belongs to the writing owner.
+
+Preserve denominators and unknown states in downstream summaries. For nested
+categories, set membership alone does not explain conditional proportions.
+Neither observed proportions nor stress scenarios establish measurement-error
+intervals, causal mechanisms or rankings of method quality.
 
 ### Step 4: Produce Figure and Table Readiness Notes
 
@@ -98,7 +111,10 @@ Check:
 
 ## Canonical Outputs
 
-Write or propose files under `results/analysis/`:
+Reuse the project's existing evidence notes. For a bounded task, one concise
+companion with result locators, supported claims and figure needs is sufficient;
+do not require four new files before drafting or rendering. If separate files
+are useful, write or propose them under `results/analysis/`:
 
 ```text
 results/analysis/
