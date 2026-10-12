@@ -229,6 +229,15 @@ def next_check(now):
     return scheduled if scheduled > now else scheduled + timedelta(days=1)
 
 
+def wait_until(scheduled):
+    # Recheck wall time so sleep/resume or a clock change cannot postpone a due check.
+    while True:
+        remaining = (scheduled - datetime.now().astimezone()).total_seconds()
+        if remaining <= 0:
+            return
+        time.sleep(min(60, remaining))
+
+
 def monitor(root=ROOT):
     """User-login background monitor for hosts that cannot register scheduled tasks."""
     directory = root / "local_state/nature_upstream_watch"
@@ -246,7 +255,7 @@ def monitor(root=ROOT):
         (directory / "monitor_status.json").write_text(json.dumps(
             {"process_id": os.getpid(), "next_check": scheduled.isoformat(),
              "automatic_install": False}, indent=2) + "\n", encoding="utf-8")
-        time.sleep((scheduled - now).total_seconds())
+        wait_until(scheduled)
 
 
 def main():

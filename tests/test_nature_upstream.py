@@ -234,6 +234,15 @@ class NatureUpstreamTests(unittest.TestCase):
         afternoon = morning.replace(hour=14)
         self.assertEqual(updater.next_check(afternoon), exact + timedelta(days=1))
 
+    def test_monitor_rechecks_wall_clock_after_sleep_or_clock_jump(self):
+        zone = timezone(timedelta(hours=8))
+        due = datetime(2026, 10, 13, 9, tzinfo=zone)
+        with patch.object(updater, "datetime") as clock, \
+                patch.object(updater.time, "sleep") as sleep:
+            clock.now.side_effect = [due - timedelta(hours=15), due + timedelta(minutes=3)]
+            updater.wait_until(due)
+        sleep.assert_called_once_with(60)
+
 
 if __name__ == "__main__":
     unittest.main()
