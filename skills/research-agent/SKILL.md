@@ -39,7 +39,7 @@ needs a bounded reread before its evidence is used.
 | Review a manuscript or prepare reviewer responses | `nature-reviewer` or `nature-response`, respectively |
 | Turn a paper or source image into slides | `nature-paper2ppt` or `nature-image2ppt`, respectively |
 | Query or maintain a registered local paper corpus | `literature_kb` |
-| Assess an idea or closest prior work | `res_find` |
+| Map a research field, assess closest prior work, or develop testable candidate hypotheses | `res_find` |
 | Refine an author-selected method | `res_method` |
 | Plan experiments for a selected question or hypothesis | `res_plan` |
 | Execute reproducible analysis and statistical computation | `data_analyze` |

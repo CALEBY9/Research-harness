@@ -1,187 +1,60 @@
-# Idea Discovery - Templates
+# Idea discovery: optional report structures
 
-## IDEA_REPORT.md Template
+Use only the sections needed for the requested field map, prior-work assessment
+or candidate shortlist. The main skill defines the scientific requirements.
+Reuse sufficient project records and link evidence rather than copying it into
+several tables. No particular filename or number of ideas is required.
 
-```markdown
-# IDEA_REPORT
-
-**Direction**: [research direction]
-**Date**: [today]
-**Pipeline**: lit_search -> anti-novelty-gate -> editorial-hypothesis-gate -> res_find -> res_novelty -> res_method -> res_plan
-
-## Executive Summary
-[2-3 sentences: best idea, key evidence, data grounding, recommended next step]
-
-## Literature and Gap Summary
-[key findings, gaps, closest prior work hypotheses, and open problems from lit_search]
-
-## Literature Coverage Audit
-| Coverage dimension | Checked sources / query families | Missing or manual sources | Residual risk | Action |
-|--------------------|----------------------------------|---------------------------|---------------|--------|
-
-## Killer Prior Work Matrix
-| Candidate direction | Killer prior work | Object overlap | Method overlap | Data overlap | Claim overlap | Threat | Verdict |
-|---------------------|-------------------|----------------|----------------|--------------|---------------|--------|---------|
-
-## Claim Overlap Score
-| Claim | Must-be-new component | Strongest overlapping evidence | Overlap score | Residual delta | Verdict |
-|-------|-----------------------|-------------------------------|---------------|----------------|---------|
-
-## Reframe Log
-| Original direction | Reason it failed or weakened | Reframed residual delta | Status |
-|--------------------|-----------------------------|--------------------------|--------|
-
-## Editorial Hypothesis Gate Summary
-| Candidate | Central tension | Falsifiable hypothesis | Killer figure | Journal ceiling | Fatal risk | Verdict |
-|-----------|-----------------|------------------------|---------------|-----------------|------------|---------|
-
-## Search and Evidence Trace
-| Source | Query / Lead | Relevant Finding | Verification Status | Notes |
-|--------|--------------|------------------|---------------------|-------|
-
-## Data Grounding Summary
-| Data source / product | Variables | Scale | Quality risk | Access / license | Relevance |
-|-----------------------|-----------|-------|--------------|------------------|-----------|
-
-## Top-Journal Reproduction Opportunities
-| Paper | Reproducible component | Limitation or gap | Possible extension | Data needed |
-|-------|------------------------|-------------------|--------------------|-------------|
-
-## Candidate Ideas
-
-### Idea 1: [title] — RECOMMENDED / BACKUP / REFRAME / DROP
-- Scientific question:
-- Hypothesis:
-- Novelty type: problem / method / data / finding
-- Core environmental system:
-- Data grounding:
-- Data requirements:
-- Mature baseline / existing model:
-- Cross-domain inspiration:
-- Transfer boundary:
-- Experiment outline:
-- Minimal validation:
-- Closest prior work hypothesis:
-- Residual delta after prior work:
-- Anti-novelty verdict:
-- Editorial hypothesis verdict:
-- Central tension:
-- Killer figure:
-- Journal ceiling:
-- Claim overlap score:
-- What would falsify novelty:
-- What would falsify the scientific claim:
-- Feasibility risk:
-- Novelty risk:
-- Reviewer attack:
-- Paper story:
-
-## Candidate Evidence Table
-| Idea | Residual delta | Data grounding | Minimal test | Closest prior work to check | Overlap threat | PI critic verdict |
-|------|----------------|----------------|--------------|-----------------------------|----------------|-------------------|
-
-## Ranked Recommendation
-| Rank | Idea | Why now | Main risk | Required novelty check | Next skill |
-|------|------|---------|-----------|------------------------|------------|
-
-## Next Step
-Run `res_novelty` on the top candidate before method design.
-```
-
-## RESEARCH_BRIEF.md Template
+## Compact report
 
 ```markdown
-# Research Brief
+# Research discovery assessment
 
-**Topic**: [direction]
-**Created**: [date]
+## Direction and conclusion
+[Object, process, scale, requested assessment, strongest supported conclusion.]
 
-## Problem Statement
-[What scientific or environmental problem must be solved?]
+## Landscape and evidence
+[Source-backed relationships and unresolved questions. Separate established
+findings from proposed connections; include a field map only if useful.]
 
-## Constraints
-- **Compute**: [hardware/software constraints]
-- **Data**: [available data, data needs]
-- **Timeline**: [deadline, venue]
-- **Venue / article type**: [target journal or manuscript type]
+| Source / query or citation lead | Relevant finding and original locator | Verification / coverage limit |
+|---|---|---|
 
-## Prior Attempts
-[What has been tried before, and why insufficient?]
+## Candidate or assessed idea: [title]
+- Scientific question and prior explanation:
+- Observed evidence versus proposed hypothesis:
+- Closest prior work, overlap and residual delta:
+- Novelty assessment: SURVIVE / REFRAME / DROP, with coverage limits:
+- Mechanism and credible rival explanation:
+- Distinguishing observation, falsifier and minimal test:
+- Data, scale, access, quality risks and mature baseline:
+- Cross-domain transfer boundary, if relevant:
+- Strongest reviewer objection and unresolved evidence:
+- Recommendation and its scientific / feasibility tradeoffs:
 
-## Domain Knowledge
-[Relevant background, established methods in the field]
-
-## Non-Goals
-[What is explicitly NOT the goal of this project]
-
-## Existing Results
-[Any preliminary results already obtained]
-
-## Research Direction Statement
-[One-paragraph statement anchoring all downstream phases]
+## Next action
+[Most useful evidence check or author decision. Name a downstream owner only
+when relevant to the requested next deliverable; this does not start it.]
 ```
 
-## IDEA_CANDIDATES.md Compact Format
+For several candidates, explain their relative merits once. Add a comparison
+table only if it improves selection; do not repeat all candidate fields. A
+field-map-only report omits the candidate section. A prior-work-only report can
+end with overlap, residual delta and unresolved coverage.
+
+## Brief, only when project context is missing
 
 ```markdown
-# Idea Candidates
+# Research brief
 
-| # | Idea | Residual Delta | Central Tension | Killer Figure | Data Grounding | Overlap Threat | Minimal Test | Status |
-|---|------|----------------|-----------------|---------------|----------------|----------------|--------------|--------|
-| 1 | [title] | [delta] | [tension] | [figure] | [data] | [threat] | [test] | RECOMMENDED |
-| 2 | [title] | [delta] | [tension] | [figure] | [data] | [threat] | [test] | BACKUP |
-| 3 | [title] | [none/weak] | [none] | [none] | [data] | [high] | [test] | DROP |
-
-## Active Idea: #1 — [title]
-- Hypothesis:
-- Data grounding:
-- Key evidence:
-- Closest prior work to check:
-- Killer prior work:
-- Residual delta:
-- Anti-novelty verdict:
-- Editorial hypothesis verdict:
-- Central tension:
-- Killer figure:
-- Journal ceiling:
-- Next step: `res_novelty`
+- Scientific object, process and question:
+- Spatial / temporal scale and target variable:
+- Why existing explanations are insufficient:
+- Available evidence and preliminary results:
+- Data, access, compute and time constraints:
+- Author-confirmed decisions and non-goals:
 ```
 
-## Checkpoint Templates
-
-### After Literature and Anti-Novelty Gate
-```text
-Literature and anti-novelty screen complete:
-- [key findings, gaps, open problems]
-- Killer prior work: [list]
-- Claim overlap scores: [summary]
-- Surviving residual deltas: [list]
-- Editorial hypotheses: [central tension + killer figure summary]
-- Data products or datasets mentioned: [list]
-
-Does this match your understanding? Should I adjust the scope before generating ideas?
-```
-
-### After Candidate Idea Gate
-```text
-Generated X data-grounded ideas and filtered to Y. Top results:
-
-1. [Idea 1] — Data: [source] — Novelty risk: [risk]
-2. [Idea 2] — Data: [source] — Novelty risk: [risk]
-3. [Idea 3] — Reframe/drop: [reason]
-
-Which ideas should proceed to `res_novelty`?
-```
-
-### After Method Refinement
-```text
-Method refined and experiment plan ready:
-- Problem anchor: [anchored problem]
-- Data audit verdict: [proceed / data gap]
-- Method thesis: [one sentence]
-- Dominant contribution: [what's new]
-- Must-run experiments: [N blocks]
-- PI critic risk: [risk]
-
-Proceed to `res_plan`, or adjust the proposal?
-```
+Fill recoverable context from the project's authoritative material. Ask the
+author only about an unresolved consequential choice. Save a brief only when
+requested or needed for authorized continuity, using the project's conventions.

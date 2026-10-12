@@ -44,7 +44,7 @@ Write `refine-logs/REFINE_STATE.json`:
 
 ### Step 1.1: Scan Grounding Material
 
-Use `lit_search` outputs, `refine-logs/NOVELTY_EVIDENCE_PACKAGE.md`, and known-paper context if available. Focus on:
+Use verified literature evidence from `nature-academic-search`, existing closest-prior-work assessments, and known-paper context if available. Reuse sufficient project records; no legacy evidence-package filename is required. Focus on:
 - What mechanism do current methods use?
 - Where exactly do they fail for this problem?
 - Which mature in-domain methods and adjacent-domain techniques are relevant?

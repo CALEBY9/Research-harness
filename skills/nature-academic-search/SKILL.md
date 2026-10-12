@@ -33,7 +33,7 @@ Also read every file listed under `always_load`:
 
 Map the user's need to one or more `workflow` values:
 
-- `multi-source-search` — find literature across sources, including support for manuscript claims without an explicit journal-family restriction.
+- `multi-source-search` — find literature across sources, including iterative checks of a material evidence gap, closest prior work, or support for manuscript claims without an explicit journal-family restriction.
 - `citation-verification` — verify citations extracted from a document.
 - `mesh-strategy` — build a MeSH/PubMed search strategy.
 - `citation-file-mgmt` — convert/manage `.nbib`/`.ris`/`.bib` files.

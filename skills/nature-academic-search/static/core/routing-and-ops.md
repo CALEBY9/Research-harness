@@ -21,7 +21,8 @@ Quick guide:
 
 | Service | Env Var | Register At | Free Tier |
 |---------|---------|-------------|-----------|
-| Semantic Scholar | `SEMANTIC_SCHOLAR_API_KEY` | [api.semanticscholar.org](https://api.semanticscholar.org/) | 100 req/s with key (1/s without) |
+| Semantic Scholar | `SEMANTIC_SCHOLAR_API_KEY` | [api.semanticscholar.org](https://api.semanticscholar.org/) | Check current service/account quota |
+| OpenAlex HTTP fallback | `OPENALEX_API_KEY` | [OpenAlex authentication](https://help.openalex.org/api/authentication/) | Anonymous basic use; key/account budget for larger searches |
 | NCBI E-utilities | `NCBI_API_KEY` | [ncbi.nlm.nih.gov/account](https://www.ncbi.nlm.nih.gov/account/) | 10 req/s with key (3/s without) |
 | Elsevier / Scopus / ScienceDirect | pybliometrics config | [dev.elsevier.com](https://dev.elsevier.com/) | Depends on API entitlement |
 
@@ -50,7 +51,7 @@ The format converter (`scripts/format-converter.py`) uses Python stdlib only —
 
 When the MCP server is not mounted (plain CLI use, skill auto-discovery, CI), the search workflow still runs via two stdlib-only scripts that hit public HTTP APIs directly — the same pattern `nature-citation/scripts/nature_citation.py` uses for CrossRef:
 
-- **Discovery** — `scripts/academic_search.py` queries OpenAlex (free, no API key). OpenAlex indexes CrossRef, PubMed and arXiv-deposited works, so one endpoint covers journals and preprints for keyword/author search, with relevance re-ranking and author disambiguation (`--affiliation` / `--orcid` / `--list-authors`). Returns ranked JSON (title, DOI, authors, year, citations, abstract).
+- **Discovery** — `scripts/academic_search.py` queries OpenAlex for keyword/author search, with relevance re-ranking and author disambiguation (`--affiliation` / `--orcid` / `--list-authors`). Returns ranked JSON (title, DOI, authors, year, citations, abstract). It supports anonymous basic use and an optional `OPENALEX_API_KEY` sent as a bearer header. Keep credentials in the runtime environment; do not put them in command arguments, URLs, reports or this plugin.
 - **Download / convert** — `scripts/format-converter.py` turns the chosen DOIs/PMIDs/arXiv IDs into `.ris`/`.bib`/`.enw`/`.nbib` (CrossRef + PubMed + arXiv, also stdlib-only).
 
 ```bash
@@ -59,7 +60,7 @@ python scripts/academic_search.py "graph neural network potentials" --limit 10 -
 python scripts/format-converter.py --doi 10.1103/physrevlett.120.143001 --format ris
 ```
 
-Be polite to the OpenAlex pool: pass `--mailto` or set `OPENALEX_MAILTO` / `CROSSREF_MAILTO`. Each script reports per-source failures (HTTP 429, timeout, network) on stderr and exits non-zero, so a caller treats each source independently and continues with another tool. This fallback covers the same T1→T2→T3 sources for *discovery* via OpenAlex; the MCP path remains preferred when available (per-source tool selection, Semantic Scholar / Scopus providers).
+`--mailto` / `OPENALEX_MAILTO` / `CROSSREF_MAILTO` retain contact compatibility; they do not raise the API budget. Consult the current [authentication](https://help.openalex.org/api/authentication/) and [deprecation](https://help.openalex.org/api/deprecations/) guidance rather than assuming a permanent anonymous quota. HTTP failures remain visible and exit non-zero; do not silently retry an authenticated failure as anonymous. OpenAlex is one index, so its records are not independent verification by CrossRef, PubMed and arXiv. Use available original sources or independent providers where the requested evidence requires them. For field classification, OpenAlex Topics replaces deprecated Concepts; classification labels alone do not establish a research gap.
 
 ### MCP server runtime
 

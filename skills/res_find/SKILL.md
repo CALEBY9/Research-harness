@@ -1,6 +1,6 @@
 ---
 name: res_find
-description: Turn a broad environmental-science direction into a defensible, data-grounded research idea.
+description: Map an environmental-science field, screen closest prior work, or develop defensible, data-grounded candidate hypotheses and research ideas.
 ---
 
 Use subagents only when the user explicitly requests delegation; otherwise perform role checks locally.
@@ -11,13 +11,15 @@ Generate environment-science research ideas from: **$ARGUMENTS**
 
 `res_find` is the Discovery-stage orchestrator. It should produce a small set of defensible, data-grounded candidate ideas, not a finished method or paper.
 
-Screen the current direction using the supplied evidence and targeted literature checks. Return a ranked shortlist with uncertainty; do not automatically launch method design, experiment planning, or writing. Existing novelty/editorial assessments are useful inputs, not required workflow dependencies.
+Match the requested deliverable: a field map, a closest-prior-work assessment, or candidate hypotheses. A map-only request does not require generating or ranking ideas. Apply the gates below to the recommendation being made; an author-selected question can go directly to `res_method` or `res_plan` through the router.
+
+Screen the current direction using the supplied evidence and targeted literature checks. Return the requested assessment with uncertainty, ranking candidates when a shortlist is requested; do not automatically launch method design, experiment planning, or writing. Existing novelty/editorial assessments are useful inputs, not required workflow dependencies.
 
 SciDER-inspired principle: idea generation must be grounded in **killer prior work + residual delta + data characteristics + executable validation**, not only in abstract novelty language. The default stance is falsification-first: try to prove the idea is already done before generating candidates.
 
 ## Core Outputs
 
-- `IDEA_REPORT.md` — ranked idea report with evidence, novelty risks, data grounding, feasibility, and next-step recommendations
+- One report or project equivalent — the requested field map, prior-work assessment, or ranked idea report; `IDEA_REPORT.md` is a suggested name for the latter
 - Optional `idea.json` — machine-readable idea summary when requested or useful for an authorized handoff
 - Optional `IDEA_CANDIDATES.md` — compact shortlist when the user requests a lightweight handoff
 
@@ -34,7 +36,7 @@ Extract from the request and available context; ask only for unresolved, consequ
 - what kind of evidence could answer it
 
 ### G1 — Literature and Gap Gate
-Use `research-agent` for missing literature evidence.
+Use `nature-academic-search` for missing literature evidence and `literature_kb` for a relevant verified local corpus. Choose sources by the question and actual tool availability; a tool name in a reference is not proof that it is mounted.
 Extract:
 - core-domain consensus
 - unresolved scientific gaps
@@ -43,6 +45,8 @@ Extract:
 - top-journal papers worth reproducing or extending
 - adjacent domains with transferable theories, data products, or methods
 - closest prior work and what remains unverified
+
+When a field map is requested or needed to clarify a broad direction, connect research objects, processes, scales, measures, and disciplinary perspectives to identifiable sources. Distinguish established relationships from proposed connections. An empty map cell or an unfamiliar combination is a search lead, not evidence of a scientific gap.
 
 ### G1.5 — Closest prior work and falsifiability
 
@@ -56,6 +60,8 @@ Check the proposed contribution against the closest prior work using claim, syno
 ### G1.6 — Scientific hypothesis and evidence test
 
 For a recommendation, identify the central tension, prior explanation being refined, falsifiable hypothesis, mechanism chain, distinguishing figure or test, minimum evidence, and strongest reviewer objection. Assess a journal ceiling only when requested and supported. If the evidence is insufficient, return a qualified candidate or a specific evidence gap; do not require permission just to perform the requested screening.
+
+Separate observed findings from proposed explanations. State a credible rival explanation, the observation or comparison that distinguishes it, and a null or reversed outcome that would reject the proposed explanation. For an apparent anomaly, first check measurement quality, definitions, sampling and scale mismatch; unresolved interpretation of completed outputs belongs to `res_analyze`. Co-location, association or a simulated scenario alone does not establish a causal mechanism.
 
 ### G2 — Data Grounding Gate
 Before ranking ideas, identify the data reality behind each candidate:
@@ -118,9 +124,11 @@ Recommend the strongest supported candidates; the author chooses the research di
 
 ## Output
 
-Use one compact report with the direction, search/source trace and coverage gaps, closest prior work, candidates with the fields above, and ranked recommendations. Include reproduction opportunities only when relevant. Keep missing evidence next to the affected recommendation; use `AUTHOR_INPUT_NEEDED` only for a scientific choice or input that cannot be recovered from available sources.
+Use one compact report with the direction, search/source trace and coverage gaps, and the requested map, prior-work assessment, or candidates with ranked recommendations. Apply the candidate fields above when recommending ideas. Include reproduction opportunities only when relevant. Keep missing evidence next to the affected recommendation; use `AUTHOR_INPUT_NEEDED` only for a scientific choice or input that cannot be recovered from available sources.
 
 Do not repeat the same candidate fields across multiple mandatory tables. Produce `idea.json` when a machine-readable handoff is useful or requested; it does not authorize a downstream workflow.
+
+For detailed execution, read [idea-discovery-workflow.md](references/idea-discovery-workflow.md). Use [idea-discovery-templates.md](references/idea-discovery-templates.md) only when a report structure is useful; reuse sufficient project records instead of duplicating them.
 
 ## `idea.json` Schema
 

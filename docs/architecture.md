@@ -63,6 +63,10 @@ OpenSpec 是已有工作包的记录工具，不是所有任务的入口。科�
 2026-10-12 的逐项诊断、完整技能处置清单和修改边界见
 [架构重叠审查](architecture_review.md)。
 
+科学发现与外部 AI for Science 建议的核验和选择性优化见
+[科学发现审查](scientific_discovery_review.md)；发现、方法与实验设计复用
+`res_find`、`res_method`、`res_plan`，不新增自动运行的五层 Agent 链。
+
 ## 首版能力边界
 
 当前仓库已经覆盖技能源码版本管理、维护检查、参考设计分析和评估流程。

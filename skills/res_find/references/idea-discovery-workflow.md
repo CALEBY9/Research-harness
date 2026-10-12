@@ -1,155 +1,74 @@
-# Idea Discovery - Detailed Workflow
+# Idea discovery: detailed workflow
 
-See main `SKILL.md` for stage gates and output contracts.
+The main `SKILL.md` owns the evidence requirements. This reference explains how
+to apply them to the requested deliverable without starting a stage pipeline.
 
----
+## 1. Anchor the task
 
-## Phase 0: Research Direction Clarification
+Read the supplied brief, current project context and evidence. Recover the
+research object, process, scale, target variable and consequential constraints.
+Ask only about choices that the evidence cannot resolve. Reuse an existing
+brief; do not require a new file or a scope-confirmation checkpoint.
 
-### Step A — Load Research Brief if Available
+Determine whether the user wants a field map, screening of one idea, or a
+candidate shortlist. Complete that task. An already selected hypothesis does
+not need another discovery round before method design or experiment planning.
 
-Check for `RESEARCH_BRIEF.md` in the project root:
-- problem statement
-- constraints: compute, data, timeline, venue
-- prior attempts
-- domain knowledge
-- non-goals
-- existing results
+## 2. Build the relevant landscape
 
-If both a brief and a one-line prompt exist, merge them, with the brief taking priority for details.
+Use `nature-academic-search` for missing public literature and `literature_kb`
+for relevant verified local evidence. Known papers can seed queries and citation
+leads; disclose their coverage limits. Choose databases by domain and available
+access rather than running a fixed source order regardless of the question.
 
-### Step B — 5W1H Clarification
+For a field map, connect objects, mechanisms, scales, measures and perspectives
+to source-backed findings. Mark proposed connections and unresolved areas.
+Do not infer a research gap from a missing keyword, sparse map cell or an
+unsearched discipline. A map-only deliverable can end here with its limits.
 
-When the prompt is vague, run a 5W1H pass:
+## 3. Challenge the proposed contribution
 
-- What phenomenon/process?
-- Why scientifically important?
-- Where and at what scale?
-- Which target variable or mechanism?
-- Which data could answer it?
-- How would a minimal validation look?
+Compare the intended claim with the closest studies across object, method, data
+and finding. Use exact-claim, synonym, adjacent-domain, baseline and data-source
+queries where they could change the assessment. Follow backward or forward
+citations selectively when a pivotal study leaves a material question open.
 
-Output a one-paragraph **Research Direction Statement** and save to `RESEARCH_BRIEF.md` only if useful and requested or needed for continuity.
+Record the search trace, original source locators, overlap, residual delta and
+coverage limits in the existing report or project evidence record. A missing
+legacy filename is not missing evidence. Relevance scores and citation counts
+help find papers; they do not establish evidence quality or novelty.
 
----
+High verified overlap requires `REFRAME` or `DROP`. Incomplete coverage leaves
+novelty qualified or unresolved. A region, combination or method-only difference
+needs a new scientific question, dataset, mechanism or finding to be compelling.
+For a closest-prior-work request, report this assessment without inventing a
+candidate list or automatically requesting the next stage.
 
-## Phase 1: Literature and Anti-Novelty Survey
+## 4. Develop a testable explanation
 
-Use `lit_search` with the current canonical source order:
+For a candidate recommendation, identify the scientific tension and prior
+explanation, then distinguish established observations from the new hypothesis.
+Specify a plausible mechanism, a credible rival explanation, a discriminating
+observation or comparison, a falsifier, and the smallest feasible test.
 
-```text
-OpenAlex -> Semantic Scholar -> Crossref/DOI -> WebSearch -> Google Scholar manual -> WoS/Scopus optional
-```
+For an anomaly, check definitions, measurement quality, sampling and scale
+before treating it as a new mechanism. If completed outputs remain unexplained,
+use `res_analyze` for that interpretation. Preserve null and reversed outcomes;
+association and simulated gains alone cannot identify a causal effect.
 
-Extract:
+Check data variables, units, scale, quality, access and mature baselines.
+Downgrade a candidate with no plausible data or discriminating test. A detailed
+method or experimental specification remains the task of `res_method` or
+`res_plan` when the user authorizes that deliverable.
 
-- field consensus
-- closest prior work hypotheses
-- recurring limitations
-- mature baselines and standard models
-- available datasets or data products mentioned in the literature
-- adjacent-domain paradigms worth borrowing
+## 5. Critique and deliver
 
-Do not treat Zotero/local papers as the primary discovery corpus. They are known-paper context and de-duplication aids.
+Return a shortlist proportionate to the evidence, with the main owner's fields
+for each recommendation. Explain ranking with evidence and tradeoffs; do not
+invent a calibrated novelty score or target-journal guarantee. Include the
+strongest reviewer objection and what evidence could reverse the recommendation.
 
-Checkpoint: present the landscape summary and ask whether the scope should be adjusted before generating ideas.
-
----
-
-## Phase 1.5: Anti-Novelty Gate
-
-Before generating candidate ideas, try to kill each direction with closest prior work. Run exact-claim, synonym/field-term, adjacent-domain, method-baseline, and data-source query families.
-
-Write or propose:
-- `refine-logs/LITERATURE_COVERAGE_AUDIT.md`
-- `refine-logs/KILLER_PRIOR_WORK_MATRIX.md`
-- `refine-logs/CLAIM_OVERLAP_SCORE.md`
-- `refine-logs/REFRAME_LOG.md`
-- `refine-logs/SURVIVING_IDEAS.md`
-
-For each candidate direction, score object, method, data, and claim overlap. If overlap is high, mark `DROP` or `REFRAME`. Only residual deltas marked `SURVIVE` can enter candidate idea generation.
-
-Hard failures:
-- no literature coverage audit -> no candidate idea or strong novelty language;
-- no closest prior-work matrix -> no candidate idea;
-- no falsifier -> no candidate idea;
-- high verified overlap -> reframe or stop;
-- only region / combination / method-only delta -> weak novelty unless it creates a new question, dataset, mechanism, or finding.
-
----
-
-## Phase 2: Data Grounding Pass
-
-Before generating candidate ideas, identify plausible data foundations:
-
-- observations, remote-sensing products, field measurements, model outputs, reanalysis data, policy datasets, or derived products
-- variables, units, semantics, and expected mechanism relevance
-- spatial/temporal scale and coverage
-- missingness, uncertainty, bias, and scale mismatch
-- access, license, privacy, and reproducibility constraints
-
-Reject or downgrade idea directions that cannot be minimally tested with plausible data.
-
----
-
-## Phase 3: Candidate Idea Generation
-
-Generate 5-8 candidate ideas only from editorially viable residual deltas that passed Phase 1.6. Each idea must include:
-
-- scientific question
-- hypothesis
-- novelty type: problem / method / data / finding
-- data grounding
-- minimal validation
-- mature baseline
-- closest prior work hypothesis
-- residual delta after closest prior work
-- central tension, falsifiable hypothesis, and killer figure
-- journal ceiling and fatal reviewer questions
-- overlap score and anti-novelty verdict
-- cross-domain inspiration and transfer boundary
-- what would falsify novelty
-- what would falsify the scientific claim
-- reviewer attack
-
-Avoid ideas that are only “apply method X to domain Y” unless the application reveals a new scientific question, dataset, mechanism, or finding.
-
----
-
-## Phase 4: PI-style Critic and Ranking
-
-Apply a PI-style critic gate to each candidate:
-
-- Is this question important enough?
-- Is the novelty defensible?
-- Can the data answer the question?
-- What would a reviewer attack?
-- What evidence is missing?
-- Should it proceed, reframe, or stop?
-
-Rank candidates by:
-
-- scientific importance
-- novelty defensibility
-- residual delta strength after closest prior work
-- editorial hypothesis strength
-- overlap threat level
-- data availability and quality
-- methodological feasibility
-- paper story potential
-- transfer legality
-- reviewer risk
-
-Only the top 1-3 should proceed to `res_novelty`.
-
----
-
-## Phase 5: Write Outputs
-
-Write or propose:
-
-- `IDEA_REPORT.md`
-- `idea.json`
-- optional `IDEA_CANDIDATES.md`
-
-The output should point clearly to `res_novelty` as the next gate. Do not proceed directly to method design while novelty is uncertain.
+Use one report, or the project's existing equivalent. Optional JSON is for an
+actual handoff, not a required second record. State the strongest supported next
+action and unresolved limits. The author selects the scientific direction;
+continue to another stage only under the existing task authorization.

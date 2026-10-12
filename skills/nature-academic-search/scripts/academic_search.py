@@ -9,9 +9,9 @@ the MCP server (plain CLI use, skill auto-discovery, CI). It mirrors what
 `nature-citation/scripts/nature_citation.py` already does for CrossRef: a single
 self-contained file hitting a public HTTP API with no third-party dependencies.
 
-Source: OpenAlex (https://openalex.org) — free, no API key. OpenAlex indexes
-CrossRef, PubMed and arXiv-deposited works, so one endpoint covers journals,
-preprints and most of the T1/T2/T3 sources for *discovery*. Pair it with
+Source: OpenAlex (https://openalex.org), with anonymous basic use or an optional
+OPENALEX_API_KEY bearer header. It is one discovery index, not independent
+verification by the providers whose records it includes. Pair it with
 `format-converter.py` to download/convert the chosen DOIs/PMIDs into
 .ris/.bib/.enw citation files — together they make the search→export workflow
 runnable without MCP.
@@ -32,8 +32,9 @@ Usage:
     # By exact author ID (skip name resolution)
     python3 academic_search.py --author-id A5055881494
 
-Be polite to the OpenAlex pool: pass --mailto you@example.com or set the
-OPENALEX_MAILTO / CROSSREF_MAILTO environment variable.
+Contact compatibility: --mailto or OPENALEX_MAILTO / CROSSREF_MAILTO does not
+raise the API budget. See https://help.openalex.org/api/authentication/ for
+current access and quotas. Never pass a key in a command argument or URL.
 
 Output: JSON list of papers with title, DOI, authors, year, citation count, abstract.
 Per-source failures (HTTP 429 rate-limit, timeouts, network errors) are reported
@@ -52,7 +53,7 @@ import urllib.error
 
 OPENALEX_API = "https://api.openalex.org/works"
 AUTHORS_API = "https://api.openalex.org/authors"
-# Polite-pool contact; overridden by --mailto or OPENALEX_MAILTO / CROSSREF_MAILTO.
+# Contact compatibility; overridden by --mailto or OPENALEX_MAILTO / CROSSREF_MAILTO.
 MAILTO = "nature-skills@users.noreply.github.com"
 
 # When re-ranking a query's results by citations/date, drop candidates whose
@@ -63,6 +64,14 @@ MAILTO = "nature-skills@users.noreply.github.com"
 # the top. Empirically off-topic papers score ~0.2x the top hit while on-topic ones
 # stay above ~0.3x, so 0.3 cleanly separates them.
 RELEVANCE_FLOOR = 0.3
+
+
+def _openalex_request(url: str) -> urllib.request.Request:
+    headers = {"Accept": "application/json"}
+    api_key = os.environ.get("OPENALEX_API_KEY")
+    if api_key:
+        headers["Authorization"] = f"Bearer {api_key}"
+    return urllib.request.Request(url, headers=headers)
 
 
 def _institution(author: dict) -> str:
@@ -117,7 +126,7 @@ def _cluster_summary(results: list[dict]) -> list[dict]:
 def fetch_author_candidates(name: str, per_page: int = 50) -> list[dict]:
     params = {"search": name, "per_page": per_page, "mailto": MAILTO}
     url = f"{AUTHORS_API}?{urllib.parse.urlencode(params)}"
-    req = urllib.request.Request(url, headers={"Accept": "application/json"})
+    req = _openalex_request(url)
     with urllib.request.urlopen(req, timeout=30) as resp:
         data = json.loads(resp.read().decode())
     return data.get("results", [])
@@ -187,7 +196,7 @@ def resolve_by_orcid(orcid: str) -> dict | None:
         return None
     params = {"filter": f"orcid:{oid}", "mailto": MAILTO}
     url = f"{AUTHORS_API}?{urllib.parse.urlencode(params)}"
-    req = urllib.request.Request(url, headers={"Accept": "application/json"})
+    req = _openalex_request(url)
     with urllib.request.urlopen(req, timeout=30) as resp:
         data = json.loads(resp.read().decode())
     results = data.get("results", [])
@@ -243,7 +252,7 @@ def search(query: str | None = None, limit: int = 10, year_from: int | None = No
         params["filter"] = ",".join(filters)
 
     url = f"{OPENALEX_API}?{urllib.parse.urlencode(params)}"
-    req = urllib.request.Request(url, headers={"Accept": "application/json"})
+    req = _openalex_request(url)
     with urllib.request.urlopen(req, timeout=30) as resp:
         data = json.loads(resp.read().decode())
 
@@ -323,12 +332,12 @@ def main():
                         help="Sort order. With a query, cited_by_count/publication_date "
                              "re-rank within the relevance-matched pool (not the whole DB)")
     parser.add_argument("--mailto", default=None,
-                        help="Contact email for the OpenAlex polite pool "
+                        help="Contact email for compatibility (does not raise API budget); "
                              "(falls back to OPENALEX_MAILTO / CROSSREF_MAILTO env)")
     parser.add_argument("--compact", action="store_true", help="Compact output (one line per paper)")
     args = parser.parse_args()
 
-    # Resolve the polite-pool contact: --mailto > OPENALEX_MAILTO > CROSSREF_MAILTO > default.
+    # Resolve contact: --mailto > OPENALEX_MAILTO > CROSSREF_MAILTO > default.
     global MAILTO
     MAILTO = (args.mailto or os.environ.get("OPENALEX_MAILTO")
               or os.environ.get("CROSSREF_MAILTO") or MAILTO)
