@@ -1,6 +1,6 @@
 # Research Harness
 
-**面向环境科学、地理科学、海洋科学的 AI Research Partner。**
+**面向环境科学、地理科学的 AI Research Partner。**
 
 Research Harness 维护本地 Research Agent 的技能源码、工具、项目上下文约定与评估方法。
 研究者决定科学问题、方法取舍和核心主张，Agent 根据当前任务协调文献、数据、分析、
