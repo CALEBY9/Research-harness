@@ -1,5 +1,7 @@
 # Research Harness
 
+面向环境科学、地理科学、海洋科学的 AI Research Partner
+
 由研究者掌握方向、以真实证据为基础的个人科研 Agent 工作环境。
 
 围绕已经在本机使用的 Research Agent，维护可版本化的技能、上下文约定、
