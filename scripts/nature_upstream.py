@@ -226,7 +226,12 @@ def watch(root=ROOT):
 
 def next_check(now):
     scheduled = now.replace(hour=9, minute=0, second=0, microsecond=0)
-    return scheduled if scheduled > now else scheduled + timedelta(days=1)
+    scheduled += timedelta(days=(-now.weekday()) % 7)
+    return scheduled if scheduled > now else scheduled + timedelta(weeks=1)
+
+
+def check_due(now, checked_at):
+    return checked_at is None or datetime.fromisoformat(checked_at) < next_check(now) - timedelta(weeks=1)
 
 
 def wait_until(scheduled):
@@ -245,15 +250,20 @@ def monitor(root=ROOT):
     logging.basicConfig(filename=directory / "monitor.log", encoding="utf-8", level=logging.INFO,
                         format="%(asctime)s %(levelname)s %(message)s")
     while True:
-        try:
-            result = watch(root)
-            logging.info("%s %s", result["status"], result["upstream_commit"])
-        except (OSError, ValueError, KeyError, subprocess.TimeoutExpired):
-            logging.exception("Upstream check failed; see check_result.json. Next attempt is at 09:00.")
+        previous_report = directory / "check_result.json"
+        checked_at = json.loads(previous_report.read_text(encoding="utf-8"))["checked_at"] \
+            if previous_report.exists() else None
+        if check_due(datetime.now().astimezone(), checked_at):
+            try:
+                result = watch(root)
+                logging.info("%s %s", result["status"], result["upstream_commit"])
+            except (OSError, ValueError, KeyError, subprocess.TimeoutExpired):
+                logging.exception("Upstream check failed; see check_result.json. Next attempt is next Monday.")
         now = datetime.now().astimezone()
         scheduled = next_check(now)
         (directory / "monitor_status.json").write_text(json.dumps(
             {"process_id": os.getpid(), "next_check": scheduled.isoformat(),
+             "schedule": "Monday 09:00 local time, weekly",
              "automatic_install": False}, indent=2) + "\n", encoding="utf-8")
         wait_until(scheduled)
 
@@ -263,7 +273,7 @@ def main():
     commands = parser.add_subparsers(dest="command", required=True)
     commands.add_parser("check", help="Read upstream main; do not write anything")
     commands.add_parser("watch", help="Check once; save local status and stage changed upstream for review")
-    commands.add_parser("monitor", help="Check on login and daily at 09:00; never install or merge")
+    commands.add_parser("monitor", help="Check weekly on Monday at 09:00; catch up on login, never install")
     staging = commands.add_parser("prepare", help="Save original versions and a review diff; never install")
     staging.add_argument("--commit", required=True)
     staging.add_argument("--target", required=True, type=Path)

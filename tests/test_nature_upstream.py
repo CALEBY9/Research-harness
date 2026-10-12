@@ -225,14 +225,25 @@ class NatureUpstreamTests(unittest.TestCase):
         self.assertEqual(report["status"], "CHECK_FAILED")
         self.assertEqual(report["error"], "offline")
 
-    def test_monitor_next_check_follows_local_nine_oclock_schedule(self):
+    def test_monitor_next_check_follows_weekly_monday_schedule(self):
         zone = timezone(timedelta(hours=8))
         morning = datetime(2026, 10, 12, 8, 30, tzinfo=zone)
         self.assertEqual(updater.next_check(morning), morning.replace(hour=9, minute=0))
         exact = morning.replace(hour=9, minute=0)
-        self.assertEqual(updater.next_check(exact), exact + timedelta(days=1))
+        self.assertEqual(updater.next_check(exact), exact + timedelta(weeks=1))
         afternoon = morning.replace(hour=14)
-        self.assertEqual(updater.next_check(afternoon), exact + timedelta(days=1))
+        self.assertEqual(updater.next_check(afternoon), exact + timedelta(weeks=1))
+        tuesday = morning + timedelta(days=1)
+        self.assertEqual(updater.next_check(tuesday), exact + timedelta(weeks=1))
+
+    def test_weekly_monitor_does_not_recheck_on_login_and_catches_missed_week(self):
+        zone = timezone(timedelta(hours=8))
+        monday = datetime(2026, 10, 12, 9, tzinfo=zone)
+        now = monday + timedelta(days=2)
+        self.assertFalse(updater.check_due(now, (monday + timedelta(hours=5)).isoformat()))
+        self.assertTrue(updater.check_due(now, (monday - timedelta(weeks=1)).isoformat()))
+        self.assertTrue(updater.check_due(now, None))
+        self.assertTrue(updater.check_due(monday, (monday - timedelta(days=1)).isoformat()))
 
     def test_monitor_rechecks_wall_clock_after_sleep_or_clock_jump(self):
         zone = timezone(timedelta(hours=8))

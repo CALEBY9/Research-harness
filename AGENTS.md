@@ -21,7 +21,7 @@ Read `docs/architecture.md` and `.agent/NEXT.md` when resuming maintenance.
   behavior from actual tasks; structural checks do not certify writing quality. Do not enable
   automatic self-editing, paid evaluations, schedules or subagents without explicit
   authorization. On 2026-10-12 the author authorized Nature upstream monitoring:
-  the daily watcher may read the public upstream and prepare ignored local reviews,
+  the weekly watcher may read the public upstream and prepare ignored local reviews,
   but must not overwrite skills, call models or publish research materials.
 - Keep `.agent/STATE.md` and `.agent/NEXT.md` local and concise after implementation.
 
