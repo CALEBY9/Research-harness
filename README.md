@@ -67,28 +67,40 @@ Nature Skills 是默认写作底座，同时保留本地
 6. **让改进可以核查。** 技能源码版本化，真实任务问题推动局部维护；结构检查、
    工具测试和科研质量评估分别记录。上游改进先审阅差异，再选择性吸收并验证。
 
-## 能力与分工
+## 科研流程与对应技能
 
-按当前交付物选择一个主要负责技能，再按证据缺口使用支持工具。
+从模糊想法开始时，通常按下列步骤推进。已有文献、明确问题、分析结果或稿件时，
+可以从对应步骤开始。每次只使用当前任务需要的技能，复用已完成的证据和判断。
 
-| 任务 | 内容 | 主要技能 |
+| 步骤 | 要做什么及完成标志 | 对应技能 |
 |---|---|---|
-| 科研洞察与判断（核心） | 判断已有问题或现象的研究价值、贡献、解释可信度及下一步科学取舍 | [nature-scientific-insight](skills/nature-scientific-insight/SKILL.md) |
-| 科学发现与选题 | 有来源的领域地图、最接近的先行研究、残余贡献、可检验假设、数据可行性与风险比较 | [nature-research-discovery](skills/nature-research-discovery/SKILL.md) |
-| 方法与实验设计 | 细化作者选定的问题，比较方法与竞争解释，设计对照、区分性观测和验证路线 | [nature-method-design](skills/nature-method-design/SKILL.md)、[nature-experiment-plan](skills/nature-experiment-plan/SKILL.md) |
-| 学术判断框架 | 从学者公开研究中提取对象定义、创新逻辑、机制链和证据标准 | [nature-scholar-distiller](skills/nature-scholar-distiller/SKILL.md) |
-| 文献检索与引文核验 | 多源检索、按证据缺口继续搜索、选择性引文追踪、参考文献核验与导出；明确要求 CNS 来源时单独限制 | [nature-academic-search](skills/nature-academic-search/SKILL.md) |
-| 全文获取与论文阅读 | 合法获取全文，制作保留定位信息的双语 reader，或整理单篇论文证据卡 | [nature-downloader](skills/nature-downloader/SKILL.md)、[nature-reader](skills/nature-reader/SKILL.md) |
-| 知识库与证据综合 | 查询已核验的本地论文库；制定系统综述、筛选、编码与跨论文综合方法 | [nature-literature-kb](skills/nature-literature-kb/SKILL.md)、[nature-literature-synthesis](skills/nature-literature-synthesis/SKILL.md) |
-| 数据分析与结果解释 | 执行可复现计算，形成脚本、表图和诊断；解释已完成结果及其可支持的结论 | [nature-data-analysis](skills/nature-data-analysis/SKILL.md) |
-| 论文与学位论文写作 | 基于作者证据规划、起草和重构摘要、引言、方法、结果、讨论及学位论文章节 | [nature-writing](skills/nature-writing/SKILL.md) |
-| 学术润色与文风修订 | 保持论证、科学含义和主张强度，润色、翻译或压缩已有文本；按需修订公式化或防御性表达 | [nature-polishing](skills/nature-polishing/SKILL.md)、[humanizer-zh](skills/humanizer-zh/SKILL.md)、[Humanizer](skills/humanizer/SKILL.md) |
-| 开题与研究计划 | 按已确认题目、学校或项目模板撰写开题报告、项目书与研究计划 | [nature-proposal-writer](skills/nature-proposal-writer/SKILL.md) |
-| 科研图件 | 图件叙事、多面板设计、核验数据绘制、投稿格式导出与审查；机制图提示词及参考图件使用按需模式 | [nature-figure](skills/nature-figure/SKILL.md) |
-| 证据与投稿前审查 | 溯源和可复现性审计、审稿人视角评估、统计报告检查、数据可用性说明 | [nature-evidence-audit](skills/nature-evidence-audit/SKILL.md)、[nature-reviewer](skills/nature-reviewer/SKILL.md)、[nature-statistics](skills/nature-statistics/SKILL.md)、[nature-data](skills/nature-data/SKILL.md) |
-| 审稿回复 | 按审稿人分别组织回复、返修信与修改片段，保持正文和回复内容一致 | [nature-response](skills/nature-response/SKILL.md) |
-| 格式与汇报材料 | 修订论文排版，制作论文汇报 PPT，或把图片、扫描页面重建为可编辑幻灯片 | [nature-paper-format](skills/nature-paper-format/SKILL.md)、[nature-paper2ppt](skills/nature-paper2ppt/SKILL.md)、[nature-image2ppt](skills/nature-image2ppt/SKILL.md) |
-| 周期文献追踪 | 在明确授权的来源、频率和交付渠道内发现、筛选、阅读和归档文献 | [nature-literature-pipeline](skills/nature-literature-pipeline/SKILL.md) |
+| 1. 澄清模糊想法 | 明确感兴趣的现象、研究对象、尺度与资源约束，形成可检索的问题范围 | [nature-research-discovery](skills/nature-research-discovery/SKILL.md) |
+| 2. 检索领域与先行研究 | 多源检索、查询相关本地论文库，识别领域共识、最接近研究和证据缺口；保留来源及覆盖范围 | [nature-academic-search](skills/nature-academic-search/SKILL.md)、[nature-literature-kb](skills/nature-literature-kb/SKILL.md) |
+| 3. 获取全文并精读关键论文 | 合法取得全文，核查关键方法、结果与局限，形成有原文定位的证据卡；按请求提供完整或双语阅读 | [nature-downloader](skills/nature-downloader/SKILL.md)、[nature-reader](skills/nature-reader/SKILL.md) |
+| 4. 形成并筛选候选 idea | 根据文献提出少量可检验问题，比较科学价值、已有研究重合、剩余贡献、数据可行性与风险，给出推荐或重构建议 | [nature-research-discovery](skills/nature-research-discovery/SKILL.md)（候选组织）、[nature-scientific-insight](skills/nature-scientific-insight/SKILL.md)（核心判断标准） |
+| 5. 确定研究问题与方向 | 研究者依据证据和建议选择方向，明确核心问题、假设或描述目标，以及保留和放弃的范围 | 研究者决定；[nature-scientific-insight](skills/nature-scientific-insight/SKILL.md)辅助取舍 |
+| 6. 设计方法与验证计划 | 比较成熟方法和竞争解释，确定数据需求、对照、基线、区分性观测与最小验证，形成可执行方案 | [nature-method-design](skills/nature-method-design/SKILL.md)、[nature-experiment-plan](skills/nature-experiment-plan/SKILL.md) |
+| 7. 获取数据并执行分析 | 在可用访问和实验条件下整理数据、运行分析、检查误差与不确定性，保留负结果和可复现计算依据 | [nature-data-analysis](skills/nature-data-analysis/SKILL.md)；实际采样或实验由研究者及获授权工具完成 |
+| 8. 解释结果并确定科学主线 | 复用已完成计算，区分观测、解释和可支持主张，比较新增认识与竞争解释，由研究者决定核心主线 | [nature-data-analysis](skills/nature-data-analysis/SKILL.md)（结果解释）、[nature-scientific-insight](skills/nature-scientific-insight/SKILL.md)（科学取舍） |
+| 9. 组织图件并撰写论文 | 让关键图件、章节和引用共同支持已确认的主线，形成论文或学位论文章节；提纲与证据说明单独交付 | [nature-figure](skills/nature-figure/SKILL.md)、[nature-writing](skills/nature-writing/SKILL.md) |
+| 10. 润色与格式修订 | 保留科学含义和主张强度，按需要润色、翻译、压缩及修订版式，形成干净的正文和页面 | [nature-polishing](skills/nature-polishing/SKILL.md)、[nature-paper-format](skills/nature-paper-format/SKILL.md) |
+| 11. 投稿前检查与修正 | 按具体风险核查证据、可复现性和统计报告，开展审稿人视角预审；补证据或修正后同步相关正文和图件 | [nature-evidence-audit](skills/nature-evidence-audit/SKILL.md)、[nature-statistics](skills/nature-statistics/SKILL.md)、[nature-reviewer](skills/nature-reviewer/SKILL.md) |
+| 12. 整理投稿材料 | 核查目标期刊要求，整理投稿信、数据与代码可用性声明、附件及必要 source-data，由作者最终确认提交包 | [nature-writing](skills/nature-writing/SKILL.md)、[nature-data](skills/nature-data/SKILL.md) |
+| 13. 根据审稿意见返修 | 收到意见后制定修订方案，按审稿人组织回复，同步修改正文、图件和回复定位 | [nature-response](skills/nature-response/SKILL.md)；正文与图件仍由相应技能处理 |
+
+步骤 2–5 可以反复迭代：文献会改变候选问题，重合较高或证据不足时应补充检索、
+收窄或重构想法。没有搜到相同论文不能直接证明创新成立。步骤 4 的筛选可以在
+一份候选报告中完成；已有判断充分时直接复用。
+
+`nature-scientific-insight` 是贯穿选题、设计和结果解释的核心判断支持。“核心”
+表示采用什么科学判断标准，执行顺序仍由当前问题、可用证据和研究者的选择决定。
+
+其他交付按需要插入对应步骤：
+
+- 确定问题与设计后，需撰写开题报告、项目书或研究计划时，使用 [nature-proposal-writer](skills/nature-proposal-writer/SKILL.md)。
+- 做系统综述或元分析时，使用 [nature-literature-synthesis](skills/nature-literature-synthesis/SKILL.md)制定适用的检索、筛选与综合方案；按研究类型调整后续分析步骤。
+- 从学者公开研究提取判断框架时，使用 [nature-scholar-distiller](skills/nature-scholar-distiller/SKILL.md)；明确需要周期文献监测时，使用 [nature-literature-pipeline](skills/nature-literature-pipeline/SKILL.md)。
+- 需独立文风修订时，可使用 [humanizer-zh](skills/humanizer-zh/SKILL.md)或 [Humanizer](skills/humanizer/SKILL.md)；汇报材料用 [nature-paper2ppt](skills/nature-paper2ppt/SKILL.md)，已有图片幻灯片重建用 [nature-image2ppt](skills/nature-image2ppt/SKILL.md)。
 
 Nature 技能按需使用 [nature-shared](skills/nature-shared/SKILL.md) 的共享参考，
 它承担参考支持。ARS 保留为停用的备选材料；本机独立 `scientific-agent-vnext`
@@ -116,19 +128,12 @@ Nature 技能按需使用 [nature-shared](skills/nature-shared/SKILL.md) 的共�
 
 ### 项目如何推进
 
-下表描述一个完整项目的使用路径。已有问题、结果或稿件时可以从相应阶段开始；
-普通操作沿用已有授权，只有会改变科学方向的选择或无法绕过的输入缺口需要研究者
-处理。它不启动固定多代理流水线，也不要求每个阶段都重新确认。
+按上方流程表推进：起步时先检索和精读关键研究，再形成、筛选并确定问题。
+方向与关键方法确定后，研究者提供数据或可用访问方式，Agent 在授权范围内完成
+分析、解释、图件、写作及提交准备。新的证据或审查意见可能要求返回相关步骤。
 
-| 阶段 | 使用者提供或决定什么 | Agent 完成什么 | 主要产出 |
-|---|---|---|---|
-| 1. idea → 可研究的问题 | 初步兴趣、约束与已知资料；选择支持最充分的候选方向 | 梳理领域、寻找最接近的先行研究、比较重叠与剩余贡献，提出可证伪假设 | 问题说明、候选比较、来源定位与数据可行性 |
-| 2. 问题 → 可执行设计 | 确认问题、关键方法取舍与资源条件 | 比较成熟方法，设计竞争解释、对照、区分性观测、失败边界和必要图表 | 数据与实验/分析计划、关键比较及验收依据 |
-| 3. 设计 → 真实证据 | 提供数据或可用访问方式，完成需要人工或设备参与的采样与实验 | 在可执行条件下获取和整理数据、运行分析、检查误差与不确定性，保留负结果 | 可复现脚本、核验结果、表图与分析记录 |
-| 4. 证据 → 科学主线 | 决定尚未确定的核心解释与主张范围 | 比较现有解释与实际新增知识，把主张对应到结果和关键图件 | 论文主线、图件方案、主张与证据对应说明 |
-| 5. 主线 → 完整手稿 | 提供已确认提纲、写作语言与目标读者/期刊 | 起草各章节，完成图件、图注和引用，按需要润色与修订 | 干净的完整正文、图件、图注、参考文献与补充材料 |
-| 6. 手稿 → 投稿准备稿 | 处理需要新增实验或改变科学主张的审查意见 | 根据关键风险做证据审计和投稿前评审，修复范围内问题，检查跨文件一致性 | 修订稿、审查结果与尚未解决的问题 |
-| 7. 投稿准备稿 → 提交包 | 确认目标期刊、作者信息及相关声明 | 核查适用的投稿要求，整理正文、附件、初次投稿信和必要声明 | 待作者最终确认的投稿文件与完整性检查 |
+普通操作沿用已有授权；会改变科学方向的选择或无法绕过的输入缺口需要研究者
+处理。已有问题、结果或稿件可从对应步骤开始，不要求逐项重做或每个步骤重新确认。
 
 需要实际采样、实验设备或外部访问的工作由研究者或获授权的工具完成。
 只有 idea 而没有所需证据时，当前交付会是选题与验证方案；数据或分析不足会被
