@@ -56,7 +56,7 @@ choice, explain the alternatives and the evidence instead of silently changing i
 
 For literature-supported claims, read
 [the existing source-grounded evidence guidance](../research-agent/references/source-grounded-synthesis.md).
-Use `literature_kb` for the relevant registered corpus; extend discovery when
+Use `nature-literature-kb` for the relevant registered corpus; extend discovery when
 the nearest prior work or an essential premise is missing. Read source passages
 and their relevant conditions, not just retrieval hits or generated summaries.
 Keep original empirical findings, reviews, perspectives and proposals distinct.

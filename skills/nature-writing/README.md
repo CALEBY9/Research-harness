@@ -45,13 +45,13 @@
 
 - 不会替作者虚构实验结果、统计意义、机制解释或参考文献。
 - 如果已有英文草稿只需要句子级润色，优先使用 `nature-polishing`。
-- 如果需要先找文献支撑 claim，优先使用 `nature-citation` 或 `nature-academic-search`。
+- 如果需要先找文献支撑 claim，优先使用 `nature-academic-search`；明确要求 CNS 来源时使用其对应模式。
 - 首次投稿材料由本技能处理；返修 cover letter、rebuttal 和逐点回复由 `nature-response` 处理。
 
 ## 相关技能
 
 - `nature-polishing`：英文润色、翻译和风格收束。
-- `nature-citation`：为 claim 匹配支撑文献。
+- `nature-academic-search`：为 claim 匹配支撑文献。
 - `nature-figure`：把图件结论和面板设计对齐到正文叙事。
 - `nature-response`：返修 cover letter、response to reviewers 和返修通信材料。
 - `nature-reviewer`：投稿前模拟审稿。

@@ -1,10 +1,10 @@
 ---
 name: nature-figure
 description: >-
-  Create, revise, audit, and export submission-grade scientific figures in Python or R,
-  including multi-panel plots and SVG/PDF/TIFF outputs. Use for 论文配图、科研绘图、
-  图表可视化, or manuscript graphical abstracts and mechanism diagrams; not for raw-data
-  analysis or generic image editing.
+  Create, revise, audit and export scientific figures, prepare conceptual-image
+  prompts, and inspect or organize figure references when requested. Use for
+  论文配图、科研绘图、机制图提示词、参考图分析 or 图件语料整理; raw-data
+  calculation and generic image editing keep their own tools.
 ---
 
 # Nature Figure Making — Router
@@ -12,58 +12,75 @@ description: >-
 This skill is split into two layers:
 
 - A **static layer** under `static/` that holds versioned, reusable content fragments (the figure contract and default stance, plus a per-backend quick-start for Python and R).
-- A **dynamic layer** (this file plus `manifest.yaml`) that detects the plotting backend and loads only the fragment needed for the current job. The large design, API, pattern, and QA material lives in on-demand references.
+- A **dynamic layer** that first selects the requested deliverable. Plotting uses `manifest.yaml` to resolve its backend; other modes use their own guidance. The large design, API, pattern, and QA material lives in on-demand references.
 
 Do not try to apply the figure logic from memory or from this router. Always load fragments from disk as described below.
 
-## Routing protocol
+## Select the requested deliverable first
 
-Follow these steps every time the skill is invoked.
+Choose the applicable branch before loading a plotting manifest or backend.
+Non-plotting branches finish with their requested output and return; the plotting
+protocol below does not apply to them. For an explicitly combined task, reuse
+the shared scientific specification and execute only the requested parts.
 
-### 0. Check for graphical-abstract and AI-schematic routes
+| Deliverable | Selected resources and stopping point |
+|---|---|
+| Scientific plot or manuscript figure assembly | Use the plotting protocol below; resolve Python/R only when rendering or a plotting-source edit requires it. |
+| Figure planning or audit only | Read the scientific-design sections of [figure contract](static/core/contract.md) and the existing specification; for supplied figures, use the applicable [QA checks](references/qa-contract.md). Return the plan or findings without starting rendering. |
+| Conceptual-image prompt or prompt audit | Read [conceptual-prompts mode](references/conceptual-prompts/guide.md); return the requested prompt/audit without an image call or plotting preflight. |
+| Reference-figure comparison/design rules | Read [figure-benchmark mode](references/figure-benchmark/guide.md); return the benchmark/transfer findings, without plot/PDF QA. |
+| Reference inventory or corpus intake | Read [figure-corpus mode](references/figure-corpus/guide.md); return the inventory or authorized intake result, without plotting. |
+| Requested conceptual-image generation/edit | Use the conceptual-prompt contract and the available authorized image capability; perform the actual-image checks, then return. |
 
-For a new or substantially redesigned conceptual figure that will be handed
-to `nature-image2-prompt`, read `references/conceptual-handoff.md`. Reuse a
-sufficient existing specification; complete its missing fields in place rather
-than creating another figure registry. Planning does not grant scientific or
-visual approval.
+Read the `User-facing privacy rule` section of `static/core/stance.md` for every
+branch; its other plotting stance and backend rules apply only to plotting.
+Preserve protected scientific content, author approval, copyright, data integrity
+and shared-write boundaries in the selected resources. Resolve mode helpers
+under MODE_DIR. Inspection or prompt preparation does not authorize shared
+intake, generation, external upload, or canonical promotion.
 
-For every graphical-abstract planning, generation, revision, or audit task that
-uses AI, read
-[references/ai-graphical-abstract-workflow.md](references/ai-graphical-abstract-workflow.md)
-first. It owns the message/audience brief, composition and palette workflow,
-policy gate, human scientific review, disclosure boundary, and provenance
-requirements. A Nature Careers article is practitioner advice, not submission
-clearance; verify the current official policy for the exact target journal.
+For a new or substantively redesigned conceptual figure, use
+`references/conceptual-handoff.md` only for missing fields required by the selected
+prompt contract. Reuse a sufficient existing specification; planning does not
+grant scientific or visual approval.
 
-If the request is planning or auditing only, do not ask for Python or R unless
-the user also asks to render or revise a data-driven figure.
+For an AI-assisted graphical abstract, read
+[AI graphical-abstract guidance](references/ai-graphical-abstract-workflow.md)
+and apply only the steps relevant to planning, prompting, generation or audit.
+Preserve the approved semantic graph and selected visual direction. Verify the
+exact journal's policy when submission eligibility is at issue; an internal
+draft is not certified for submission.
 
-If the user explicitly asks to generate a manuscript schematic, graphical abstract, mechanism diagram, concept illustration, or paper schematic with OpenRouter, GPT Image 2, an image-generation API, or similar wording, do **not** ask "Python or R?". This is a non-plotting AI-schematic route.
+Honor a user-specified provider. Otherwise use the current available authorized
+image capability and follow its instructions. A generic Image 2 or AI-image
+request does not select OpenRouter. Read
+[OpenRouter generation guidance](references/openrouter-image-generation.md)
+and use `scripts/generate_openrouter_schematic.py` only when OpenRouter was
+explicitly selected for the task or already bound by its authorized project
+workflow. If that provider is unavailable, report the blocker rather than
+silently switching services or uploading unpublished material.
 
-For this route:
+## Plotting and figure-assembly protocol
 
-1. Read [manifest.yaml](manifest.yaml) and the `always_load` files.
-2. Read [references/ai-graphical-abstract-workflow.md](references/ai-graphical-abstract-workflow.md).
-3. Read [references/openrouter-image-generation.md](references/openrouter-image-generation.md).
-4. Use [scripts/generate_openrouter_schematic.py](scripts/generate_openrouter_schematic.py) when the user wants a real API call or a reproducible payload.
-5. Treat output as a draft schematic / graphical abstract, not as a quantitative data panel. Do not invent experimental values, author logos, institutional marks, or unsupported mechanisms. Keep internal usefulness separate from submission eligibility.
-
-Only continue to the Python/R backend gate for plotting, charting, data visualization, or manuscript figure assembly tasks that are not explicit OpenRouter AI image-generation requests.
+These steps apply to the selected plotting/assembly branch. Planning-only or
+audit-only work uses the needed design/verification sections and returns without
+loading a rendering backend, calling renderers, or creating missing exports.
 
 ### 1. Load the manifest and the core layer
 
 Read [manifest.yaml](manifest.yaml). It declares the `backend` axis, the allowed values, and the file paths each value maps to.
 
-Also read every file listed under `always_load` (`static/core/contract.md` and `static/core/stance.md`). These hold the figure contract, the backend gate, the missing-runtime rule, the privacy rule, and the default operating stance that apply to every figure job.
+Read the `always_load` files (`static/core/contract.md` and
+`static/core/stance.md`) only for plotting/assembly. Their backend and export
+requirements do not become defaults for prompt or reference modes.
 
-### 2. Resolve the backend
+### 2. Resolve the backend for rendering or plotting-source edits
 
-Use the backend-selection rules in `static/core/contract.md`: current explicit choice, existing project workflow, saved preference, then the supported local default. This is a technical choice, not a mandatory approval checkpoint. Read `references/backend-selection.md` only when comparing backends is material to the task. The selected backend remains exclusive throughout rendering and visual QA.
+If the request stops at planning/audit, skip backend setup. Otherwise use the backend-selection rules in `static/core/contract.md`: current explicit choice, existing project workflow, saved preference, then the supported local default. This is a technical choice, not a mandatory approval checkpoint. Read `references/backend-selection.md` only when comparing backends is material to the task. The selected backend remains exclusive throughout rendering and visual QA.
 
 ### 3. Load the matching backend fragment
 
-After the backend is resolved, Read the mapped fragment (`static/fragments/backend/python.md` or `static/fragments/backend/r.md`). It carries the backend-only execution rule and the publication quick-start (rcParams/theme and export helper). Do **not** load the other backend's fragment.
+When a backend is needed and resolved, read the mapped fragment (`static/fragments/backend/python.md` or `static/fragments/backend/r.md`). It carries the backend-only execution rule and the publication quick-start (rcParams/theme and export helper). Do **not** load the other backend's fragment.
 
 ### 4. Build the figure using the loaded material
 
@@ -83,12 +100,12 @@ Apply the loaded material in this order:
 3. Default stance (`core/stance.md`) — archetype-first composition, hero panel, restrained palette, statistics/integrity as part of the figure.
 4. Backend fragment — the exclusive Python or R quick-start and execution rule.
 5. Template adaptation — when reusing built-in original examples, licensed external material, or user-provided plotting code, load `references/asset-adaptation.md` before mapping data or changing the script.
-6. Delivery preflight — before final delivery, load `references/qa-contract.md`, run `scripts/validate_figure.py` on the plotting source, run `scripts/audit_pdf_text.py` on the exported PDF, then inspect every panel and the complete figure at final physical size. Automated checks do not replace the panel-by-panel uncertainty, salience, spacing, and collision audit.
+6. Delivery preflight — for a rendered plot/assembly, load `references/qa-contract.md`. Validate the actual plotting source when present and audit the actual exported PDF when present, then inspect the delivered figure at final size. A requested PDF export must exist and pass its checks; an artifact that the task neither requests nor produces does not become a prerequisite. For planning/audit-only work, check the supplied material and report unassessable rendered properties without creating exports. Automated checks do not replace visual inspection.
 
 For rendering from verified plotting data, use the selected backend and existing
 project code directly; no analysis-owner handoff is required. When new aggregation,
 joins, uncertainty estimates or statistical comparisons are needed, resolve
-`data_analyze` from the installed catalogue and use its analytical-design support.
+`nature-data-analysis` from the installed catalogue and use its analytical-design support.
 Keep one rendering executor: an analysis-owned task may render its own plots;
 reuse those outputs for figure design/review instead of regenerating them in a
 second pipeline. `nature-figure` retains publication design and review ownership.
@@ -123,6 +140,6 @@ corpus or from the visual-style examples in this skill.
 ## Why this split
 
 - The static layer is versioned and reviewable. The backend gate is now explicit in the manifest rather than buried in prose.
-- The dynamic layer keeps each invocation cheap: only the selected backend's quick-start enters context, and the 2,600+ lines of reference depth load only when a step needs them.
+- The dynamic layer loads the selected mode's resources. A backend quick-start enters context only when plotting requires it; deeper references load only when needed.
 - The router itself is short on purpose. Update fragments and references, not this file, when adding scope.
 - This structure mirrors `nature-writing`, `nature-polishing`, `nature-reader`, and `nature-paper2ppt`.

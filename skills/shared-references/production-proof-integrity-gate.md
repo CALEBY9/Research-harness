@@ -223,8 +223,8 @@ The default proof route is:
 ```text
 paper_revision (scope, correction classification, ledgers)
 -> paper_review (scientific and reader-risk verification)
--> evidence_audit (numbers, constructs, implementation, provenance)
--> paper_format (rendered production and typography QA)
+-> nature-evidence-audit (numbers, constructs, implementation, provenance)
+-> nature-paper-format (rendered production and typography QA)
 -> editor/publisher re-proof
 -> final read-only verification
 ```

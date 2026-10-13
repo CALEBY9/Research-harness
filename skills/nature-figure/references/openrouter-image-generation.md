@@ -10,7 +10,10 @@
 - [Follow-up QA](#follow-up-qa)
 
 
-Use this reference only when the user explicitly asks to generate a paper schematic, graphical abstract, mechanism diagram, or concept illustration through OpenRouter / GPT Image 2 / an image-generation API.
+Use this reference only when OpenRouter is explicitly selected by the user
+or the existing authorized project workflow for conceptual-image generation.
+A generic GPT Image 2, image-tool or API request does not select OpenRouter.
+Other providers use their own available tool instructions.
 
 Read `ai-graphical-abstract-workflow.md` first. Complete its journal-policy gate,
 communication brief, scientific-review plan, and provenance plan before making a
@@ -42,7 +45,10 @@ Authentication uses `OPENROUTER_API_KEY` as a bearer token.
 
 ## Prompt contract
 
-Before calling the API, collect or infer:
+Reuse the frozen scientific specification, selected direction and permitted
+labels when present; do not infer replacements for approved fields. If fields
+are missing, complete them within the applicable conceptual-prompt contract.
+Before calling the API, collect the following applicable information:
 
 1. article title or central claim
 2. key biological/material/computational entities

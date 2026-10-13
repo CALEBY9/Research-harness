@@ -1,0 +1,4 @@
+interface:
+  display_name: "研究发现与选题 · Nature Research Discovery"
+  short_description: "Map fields and discover testable research questions"
+  default_prompt: "请用 $nature-research-discovery 梳理这个研究领域或提出有文献依据、可检验的候选问题。"

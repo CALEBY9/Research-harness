@@ -2,12 +2,13 @@ name: nature-figure
 version: 2.6.0
 description: >
   Declarative manifest for the static/dynamic split. SKILL.md uses this to
-  decide which fragments to load for a given figure request. The main axis is
-  the plotting backend (Python or R), resolved by static/core/contract.md.
-  Design, API, pattern, and QA material stays in on-demand references.
+  load plotting/assembly fragments only after SKILL.md selects that branch.
+  Prompt and reference modes use their own guides and skip this plotting core.
+  Planning/audit-only work skips backend setup. The backend axis selects Python
+  or R for an actual plotting operation; other guidance remains on demand.
 
 always_load:
-  # Skill-local core (figure does not use the prose-oriented nature-shared layer)
+  # Plotting/assembly branch only; never inherited by prompt/reference modes.
   - static/core/contract.md
   - static/core/stance.md
 
@@ -22,9 +23,9 @@ routes:
     reference: references/ai-graphical-abstract-workflow.md
   openrouter_image_generation:
     detect: |
-      Use this route only when the user explicitly asks for OpenRouter, GPT
-      Image 2, image-generation API output, AI-generated paper schematics,
-      graphical abstracts, concept illustrations, or mechanism diagrams. This
+      Use this route only when OpenRouter is explicitly selected by the user
+      or the task's existing authorized project workflow. Generic Image 2 or
+      AI-image wording does not select this provider. This
       route skips the Python/R backend gate because it generates a raster/vector
       image draft through an external image API rather than plotting data.
     reference: references/openrouter-image-generation.md
@@ -40,8 +41,10 @@ preference:
 axes:
   backend:
     detect: |
-      Resolve the backend using static/core/contract.md. Do not ask solely
-      because no saved preference exists. Load only the selected backend.
+      Resolve a backend only for rendering or a plotting-source edit, using
+      static/core/contract.md. Prompt/reference and planning/audit-only tasks
+      skip this axis. Do not ask solely because no saved preference exists.
+      Load only the selected backend.
     values:
       python:  static/fragments/backend/python.md
       r:       static/fragments/backend/r.md
@@ -49,7 +52,13 @@ axes:
 
 references:
   on_demand:
-    - condition: prepare or repair a new conceptual-figure specification for nature-image2-prompt; not a data-only plot or an unchanged approved layout
+    - condition: requested mechanism/workflow/conceptual-image prompt generation or audit
+      path: references/conceptual-prompts/guide.md
+    - condition: requested reference-based figure benchmarking or design-rule extraction
+      path: references/figure-benchmark/guide.md
+    - condition: requested reference inventory/intake; shared promotion requires explicit authorization
+      path: references/figure-corpus/guide.md
+    - condition: prepare or repair a new conceptual-figure specification for nature-figure; not a data-only plot or an unchanged approved layout
       path: references/conceptual-handoff.md
     - condition: convert a user request into core conclusion, evidence hierarchy, panel map, and review-risk checks
       path: references/figure-contract.md
@@ -63,7 +72,7 @@ references:
       path: references/r-template-index.md
     - condition: reuse or adapt a bundled example, plotting script, preview image, or user-provided template against new data
       path: references/asset-adaptation.md
-    - condition: before final delivery, revision package, rendered PDF text audit, panel-by-panel visual QA, microscopy/blot figure, or journal-specific audit
+    - condition: actual rendered-figure delivery/audit, microscopy/blot figure, or journal-specific figure QA; source/PDF tools apply only to present or requested artifacts
       path: references/qa-contract.md
     - condition: target is the flagship journal Nature, or exact initial-versus-production main/Extended Data figure and legend requirements are needed
       path: references/nature-article-requirements.md
@@ -77,7 +86,7 @@ references:
       path: references/common-patterns.md
     - condition: "real Nature page archetypes: schematic-led composites, dark image plates, clinical triptychs, asymmetric hero layouts"
       path: references/nature-2026-observations.md
-    - condition: "OpenRouter/GPT Image 2 route: AI-generated graphical abstracts, mechanism diagrams, paper schematics, or concept illustrations"
+    - condition: "OpenRouter explicitly selected by the user or the existing authorized project workflow for conceptual-image generation"
       path: references/openrouter-image-generation.md
     - condition: AI-assisted graphical abstract planning, generation, revision, audit, journal-policy check, scientific verification, disclosure, or provenance
       path: references/ai-graphical-abstract-workflow.md

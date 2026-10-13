@@ -48,7 +48,7 @@
 
 - 不会替作者新增结果、机制、统计意义或未给出的引用。
 - 不会为了更像 Nature 而夸大 novelty、causality 或 generality。
-- 新写或改变论证、段落架构与证据使用交给 `nature-writing`；纯排版交给 `paper_format`。
+- 新写或改变论证、段落架构与证据使用交给 `nature-writing`；纯排版交给 `nature-paper-format`。
 
 ## 相关技能
 

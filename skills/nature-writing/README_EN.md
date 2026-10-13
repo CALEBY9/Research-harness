@@ -45,13 +45,13 @@
 
 - The skill does not invent experimental results, statistical significance, mechanism explanations, or references.
 - If an English draft only needs sentence-level polishing, use `nature-polishing`.
-- If claim support requires literature search first, use `nature-citation` or `nature-academic-search`.
+- If claim support requires literature search first, use `nature-academic-search`; select its CNS mode only for an explicit source restriction.
 - This skill handles first submission; use `nature-response` for revision cover letters, rebuttals, and point-by-point responses.
 
 ## Related Skills
 
 - `nature-polishing`: English polishing, translation, and style tightening.
-- `nature-citation`: match supporting references for claims.
+- `nature-academic-search`: match supporting references for claims.
 - `nature-figure`: align figure conclusions and panel design with manuscript narrative.
 - `nature-response`: revision cover letters, responses to reviewers, and revision correspondence.
 - `nature-reviewer`: simulated review before submission.

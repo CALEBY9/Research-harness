@@ -98,4 +98,4 @@ The gate passes only when every substantive revision maps to an authorized edita
 
 ## Handoff Contract
 
-When `paper_revision` hands work to `paper_write`, `paper_polish`, `paper_format`, or a DOCX execution tool, it must pass the scope contract, editable spans, protected context, maximum edit unit, and any citation-manager source/linkage state. Downstream skills may return a scope-escalation proposal, but may not expand the editable surface or change the reference-manager source of truth themselves.
+When a reviewer-driven revision coordinated by `nature-response` needs `nature-writing`, `nature-polishing`, `nature-paper-format`, or a DOCX execution tool, pass the scope contract, editable spans, protected context, maximum edit unit, and any citation-manager source/linkage state. Downstream skills may return a scope-escalation proposal, but may not expand the editable surface or change the reference-manager source of truth themselves.

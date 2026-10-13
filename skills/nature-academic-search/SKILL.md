@@ -2,7 +2,8 @@
 name: nature-academic-search
 description: >-
   Coordinate multi-source literature search, citation verification, citation-context and
-  influence audits, MeSH strategies, and BibTeX/RIS/NBIB management. Use for 文献检索、
+  influence audits, explicit CNS-source citation support, MeSH strategies, and
+  BibTeX/RIS/NBIB management. Use for 文献检索、
   查论文、补支撑文献、段落补引用、引文核对、严格他引、排除自引、引用影响分析或参考文献管理; not for
   deep-reading one known paper.
 ---
@@ -34,29 +35,41 @@ Also read every file listed under `always_load`:
 Map the user's need to one or more `workflow` values:
 
 - `multi-source-search` — find literature across sources, including iterative checks of a material evidence gap, closest prior work, or support for manuscript claims without an explicit journal-family restriction.
-- `citation-verification` — verify citations extracted from a document.
+- `citation-verification` — verify citations extracted from a document, including field-level authors/order, DOI/title, year/volume, pages and article-number checks.
+- `cns-citation` — claim-level support/export restricted to the Nature/Science/Cell scope explicitly requested by the user.
 - `mesh-strategy` — build a MeSH/PubMed search strategy.
 - `citation-file-mgmt` — convert/manage `.nbib`/`.ris`/`.bib` files.
 - `reference-mgmt` — BibTeX, related-article discovery, ID conversion.
 - `strict-other-citation-impact-audit` — determine strict independent other-citations, build article-level citation metric tables, identify high-profile citers (academy members, presidents/deans, talent-award holders, fellows, field leaders), and extract how they cited the target paper.
 
-A combined request (for example search then export) may need more than one. State the detected workflow(s) in one short line before proceeding.
+Select only the requested workflows. Unrestricted and CNS-restricted search
+are alternatives unless both scopes were explicitly requested. For combined
+search, verification and export, reuse one candidate/metadata record set; do not
+repeat a completed lookup as a second workflow. A local file conversion needs
+no remote verification unless it was requested or a specific error requires it.
+Keep routine workflow selection internal.
 
 For supporting citations, derive queries from the actual claim and search the
 relevant discipline without a publisher-family filter. Return source-specific
 support or contradiction with the original locator, using the evidence boundary
-below. An explicit request to restrict sources to Nature/CNS belongs to
-`nature-citation`; a top-journal writing target alone does not restrict citations.
+below. For an explicit Nature/CNS restriction, use
+[CNS citation mode](references/cns-citation/guide.md) and its mode-local manifest,
+journal-scope guidance and search/export script. A top-journal writing target
+alone does not restrict citations. For metadata verification, use
+[field-level verification](references/reference-verification/guide.md) within
+the citation-verification workflow; reuse lookup records rather than running
+a second verification pass.
 
 ### 3. Load the matching workflow fragment(s)
 
-Read the file mapped for each detected workflow (under `references/workflows/`). Do **not** read every workflow. Each workflow file links to the shared modules it needs.
+Read the exact file mapped by the manifest, including a mode guide when that
+is the selected value. Do **not** read every workflow. Each workflow file links to the shared modules it needs.
 
 ### 4. Run the workflow using the loaded material
 
 Apply the loaded material in this order:
 
-1. Core tools and routing (`core/tools.md`, `core/routing-and-ops.md`) — which MCP tool for which need, and the T1→T2→T3 fallback chain that is the standard execution order across all workflows.
+1. Core tools and routing (`core/tools.md`, `core/routing-and-ops.md`) — available tools and the T1→T2→T3 fallback for remote lookups. Local conversions do not enter the remote lookup chain.
 2. The workflow fragment — its specific steps.
 3. Shared modules and scripts on demand (dedup, citation parser, search strategy, RIS/BibTeX format, format converter).
 
@@ -68,7 +81,10 @@ retain a DOI/URL plus page, section, figure, table, or equivalent locator.
 Search hits and citation counts locate candidates but do not license a
 scientific claim.
 
-Report specific tool failures and continue with remaining tools; broaden terms when there are no results; fall back to manual generation from MCP-fetched metadata if a script fails twice.
+Report specific tool failures and continue only the supported work. Adjust a
+failed command based on its error before retrying. Generate a reference file
+from verified retrieved metadata when that fallback is needed; never invent
+missing records or fields.
 
 ### 5. Reach for references only when needed
 
@@ -77,6 +93,6 @@ The files under `references/` (and `scripts/`) are deep references, not defaults
 ## Why this split
 
 - The static layer is versioned and reviewable; the workflow files and shared modules were already factored this way.
-- The dynamic layer keeps each invocation cheap: only the workflow the user needs enters context, instead of all six plus every module.
+- The dynamic layer keeps each invocation cheap: only the workflow the user needs enters context, instead of all seven plus every module.
 - The router itself is short on purpose. Update fragments and references, not this file, when adding scope.
-- This structure mirrors the other nature-* skills (`nature-writing`, `nature-polishing`, `nature-reader`, `nature-paper2ppt`, `nature-figure`, `nature-citation`, `nature-response`, `nature-data`).
+- This structure mirrors the other nature-* skills (`nature-writing`, `nature-polishing`, `nature-reader`, `nature-paper2ppt`, `nature-figure`, `nature-academic-search`, `nature-response`, `nature-data`).

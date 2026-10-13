@@ -2,7 +2,7 @@
 
 ## Source routing
 
-See [Source Tiers & Reliability](../../references/source-tiers.md) for the complete reliability classification and fallback routing rules. The T1→T2→T3 fallback chain is the standard execution order across all workflows.
+See [Source Tiers & Reliability](../../references/source-tiers.md) for reliability and fallback rules. Use T1→T2→T3 only for required remote lookups, stopping when the requested coverage or verification is sufficient. Reuse completed records; local file conversion does not enter this chain.
 
 Quick guide:
 
@@ -49,7 +49,7 @@ The format converter (`scripts/format-converter.py`) uses Python stdlib only —
 
 ### No-MCP fallback (standalone search)
 
-When the MCP server is not mounted (plain CLI use, skill auto-discovery, CI), the search workflow still runs via two stdlib-only scripts that hit public HTTP APIs directly — the same pattern `nature-citation/scripts/nature_citation.py` uses for CrossRef:
+When the MCP server is not mounted (plain CLI use, skill auto-discovery, CI), remote search can use two stdlib-only scripts that hit public HTTP APIs directly — the same pattern [the CNS mode helper](../../references/cns-citation/scripts/nature_citation.py) uses for CrossRef. These are execution options, not proof that each service is currently available:
 
 - **Discovery** — `scripts/academic_search.py` queries OpenAlex for keyword/author search, with relevance re-ranking and author disambiguation (`--affiliation` / `--orcid` / `--list-authors`). Returns ranked JSON (title, DOI, authors, year, citations, abstract). It supports anonymous basic use and an optional `OPENALEX_API_KEY` sent as a bearer header. Keep credentials in the runtime environment; do not put them in command arguments, URLs, reports or this plugin.
 - **Download / convert** — `scripts/format-converter.py` turns the chosen DOIs/PMIDs/arXiv IDs into `.ris`/`.bib`/`.enw`/`.nbib` (CrossRef + PubMed + arXiv, also stdlib-only).

@@ -10,7 +10,13 @@ Research Agent 在已授权范围内完成相应工作，并把需要选择的�
 可审阅产物交给研究者。已有数据、手稿或审稿意见也可以直接作为起点。
 
 当前公开入口是 [`research-agent`](skills/research-agent/SKILL.md)。仓库维护
-**34 个技能与共享参考目录**，采用 Nature Skills 作为默认写作底座，并保留本地
+**29 个技能源码与共享参考目录**：28 个维护中的入口（含共享依赖），
+另有 ARS 仅为发现目录之外的版本化参考。功能精简结果见
+[全部技能功能审查](docs/skill_function_audit.md)。
+科研流程技能统一采用 `nature-<capability>` 命名；更名对应关系见
+[技能命名](docs/skill_naming.md)。
+[`nature-scientific-insight`](skills/nature-scientific-insight/SKILL.md)（科研洞察与判断）是核心技能，
+Nature Skills 是默认写作底座，同时保留本地
 知识库、研究设计、数据分析和证据审计能力。其他专业可以复用通用科研能力；
 完整研究设计需要结合该专业的方法、数据条件和证据标准。
 
@@ -32,7 +38,7 @@ Research Agent 在已授权范围内完成相应工作，并把需要选择的�
 | 生命科学、医学、化学与材料研究 | 文献检索、论文阅读、方法与结果表达、统计报告、图件和投稿材料 | 专业实验或研究方案、真实实验数据及相应报告要求 |
 | 社会科学、管理学及人文研究 | 文献与引文、研究计划、论证组织、语言编辑、格式与项目连续性 | 本领域理论、定量或定性方法、文章结构和目标刊物规范 |
 
-`res_find`、`res_method`、`res_plan` 的现有研究设计默认围绕环境科学。
+`nature-research-discovery`、`nature-method-design`、`nature-experiment-plan` 的现有研究设计默认围绕环境科学。
 其他专业使用完整项目路径时，应提供领域问题、代表文献、成熟方法与验证标准，
 先检查这些默认假设是否适用。通用写作和润色可以直接使用；Nature 写作底座也可
 服务其他期刊，最终结构与提交材料按目标期刊调整。
@@ -67,20 +73,21 @@ Research Agent 在已授权范围内完成相应工作，并把需要选择的�
 
 | 任务 | 内容 | 主要技能 |
 |---|---|---|
-| 科学发现与选题 | 有来源的领域地图、最接近的先行研究、残余贡献、可检验假设、数据可行性与风险比较 | [res_find](skills/res_find/SKILL.md) |
-| 方法与实验设计 | 细化作者选定的问题，比较方法与竞争解释，设计对照、区分性观测和验证路线 | [res_method](skills/res_method/SKILL.md)、[res_plan](skills/res_plan/SKILL.md) |
-| 学术判断框架 | 从学者公开研究中提取对象定义、创新逻辑、机制链和证据标准 | [research-scholar-distiller](skills/research-scholar-distiller/SKILL.md) |
-| 文献检索与引文核验 | 多源检索、按证据缺口继续搜索、选择性引文追踪、参考文献核验与导出；明确要求 CNS 来源时单独限制 | [nature-academic-search](skills/nature-academic-search/SKILL.md)、[nature-ref-verifier](skills/nature-ref-verifier/SKILL.md)、[nature-citation](skills/nature-citation/SKILL.md) |
-| 全文获取与论文阅读 | 合法获取全文，制作保留定位信息的双语 reader，或整理单篇论文证据卡 | [nature-downloader](skills/nature-downloader/SKILL.md)、[nature-reader](skills/nature-reader/SKILL.md)、[nature-paper-card](skills/nature-paper-card/SKILL.md) |
-| 知识库与证据综合 | 查询已核验的本地论文库；制定系统综述、筛选、编码与跨论文综合方法 | [literature_kb](skills/literature_kb/SKILL.md)、[lit_synthesis](skills/lit_synthesis/SKILL.md) |
-| 数据分析与结果解释 | 执行可复现计算，形成脚本、表图和诊断；解释已完成结果及其可支持的结论 | [data_analyze](skills/data_analyze/SKILL.md)、[res_analyze](skills/res_analyze/SKILL.md) |
+| 科研洞察与判断（核心） | 判断已有问题或现象的研究价值、贡献、解释可信度及下一步科学取舍 | [nature-scientific-insight](skills/nature-scientific-insight/SKILL.md) |
+| 科学发现与选题 | 有来源的领域地图、最接近的先行研究、残余贡献、可检验假设、数据可行性与风险比较 | [nature-research-discovery](skills/nature-research-discovery/SKILL.md) |
+| 方法与实验设计 | 细化作者选定的问题，比较方法与竞争解释，设计对照、区分性观测和验证路线 | [nature-method-design](skills/nature-method-design/SKILL.md)、[nature-experiment-plan](skills/nature-experiment-plan/SKILL.md) |
+| 学术判断框架 | 从学者公开研究中提取对象定义、创新逻辑、机制链和证据标准 | [nature-scholar-distiller](skills/nature-scholar-distiller/SKILL.md) |
+| 文献检索与引文核验 | 多源检索、按证据缺口继续搜索、选择性引文追踪、参考文献核验与导出；明确要求 CNS 来源时单独限制 | [nature-academic-search](skills/nature-academic-search/SKILL.md) |
+| 全文获取与论文阅读 | 合法获取全文，制作保留定位信息的双语 reader，或整理单篇论文证据卡 | [nature-downloader](skills/nature-downloader/SKILL.md)、[nature-reader](skills/nature-reader/SKILL.md) |
+| 知识库与证据综合 | 查询已核验的本地论文库；制定系统综述、筛选、编码与跨论文综合方法 | [nature-literature-kb](skills/nature-literature-kb/SKILL.md)、[nature-literature-synthesis](skills/nature-literature-synthesis/SKILL.md) |
+| 数据分析与结果解释 | 执行可复现计算，形成脚本、表图和诊断；解释已完成结果及其可支持的结论 | [nature-data-analysis](skills/nature-data-analysis/SKILL.md) |
 | 论文与学位论文写作 | 基于作者证据规划、起草和重构摘要、引言、方法、结果、讨论及学位论文章节 | [nature-writing](skills/nature-writing/SKILL.md) |
-| 学术润色与文风修订 | 保持论证、科学含义和主张强度，润色、翻译或压缩已有文本；按需修订公式化或防御性表达 | [nature-polishing](skills/nature-polishing/SKILL.md)、[humanizer-zh](skills/humanizer-zh/SKILL.md)、[Humanizer](skills/humanizer/SKILL.md)、[anti-defensive-writing](skills/anti-defensive-writing/SKILL.md) |
-| 开题与研究计划 | 按已确认题目、学校或项目模板撰写开题报告、项目书与研究计划 | [researchwrite](skills/researchwrite/SKILL.md) |
-| 科研图件 | 图件叙事、多面板设计、核验数据绘制、投稿格式导出与审查；机制图提示词另有支持 | [nature-figure](skills/nature-figure/SKILL.md)、[nature-image2-prompt](skills/nature-image2-prompt/SKILL.md) |
-| 证据与投稿前审查 | 溯源和可复现性审计、审稿人视角评估、统计报告检查、数据可用性说明 | [evidence_audit](skills/evidence_audit/SKILL.md)、[nature-reviewer](skills/nature-reviewer/SKILL.md)、[nature-statistics](skills/nature-statistics/SKILL.md)、[nature-data](skills/nature-data/SKILL.md) |
+| 学术润色与文风修订 | 保持论证、科学含义和主张强度，润色、翻译或压缩已有文本；按需修订公式化或防御性表达 | [nature-polishing](skills/nature-polishing/SKILL.md)、[humanizer-zh](skills/humanizer-zh/SKILL.md)、[Humanizer](skills/humanizer/SKILL.md) |
+| 开题与研究计划 | 按已确认题目、学校或项目模板撰写开题报告、项目书与研究计划 | [nature-proposal-writer](skills/nature-proposal-writer/SKILL.md) |
+| 科研图件 | 图件叙事、多面板设计、核验数据绘制、投稿格式导出与审查；机制图提示词及参考图件使用按需模式 | [nature-figure](skills/nature-figure/SKILL.md) |
+| 证据与投稿前审查 | 溯源和可复现性审计、审稿人视角评估、统计报告检查、数据可用性说明 | [nature-evidence-audit](skills/nature-evidence-audit/SKILL.md)、[nature-reviewer](skills/nature-reviewer/SKILL.md)、[nature-statistics](skills/nature-statistics/SKILL.md)、[nature-data](skills/nature-data/SKILL.md) |
 | 审稿回复 | 按审稿人分别组织回复、返修信与修改片段，保持正文和回复内容一致 | [nature-response](skills/nature-response/SKILL.md) |
-| 格式与汇报材料 | 修订论文排版，制作论文汇报 PPT，或把图片、扫描页面重建为可编辑幻灯片 | [paper_format](skills/paper_format/SKILL.md)、[nature-paper2ppt](skills/nature-paper2ppt/SKILL.md)、[nature-image2ppt](skills/nature-image2ppt/SKILL.md) |
+| 格式与汇报材料 | 修订论文排版，制作论文汇报 PPT，或把图片、扫描页面重建为可编辑幻灯片 | [nature-paper-format](skills/nature-paper-format/SKILL.md)、[nature-paper2ppt](skills/nature-paper2ppt/SKILL.md)、[nature-image2ppt](skills/nature-image2ppt/SKILL.md) |
 | 周期文献追踪 | 在明确授权的来源、频率和交付渠道内发现、筛选、阅读和归档文献 | [nature-literature-pipeline](skills/nature-literature-pipeline/SKILL.md) |
 
 Nature 技能按需使用 [nature-shared](skills/nature-shared/SKILL.md) 的共享参考，
@@ -188,6 +195,18 @@ Nature 底座来自本仓库已发布的 `b5b8e08` 本地增强快照，之后�
 
 ## 当前验证与限制
 
+2026-10-13 功能精简后，8 个重复入口已移除，28 个维护条目在本机原生发现中
+启用；725 对源码/安装文件一致，125 条 manifest 资源路径和 168 个本地链接
+检查通过。迁移的论文定位与作者导出脚本共 16 项相关测试通过，两项图件帮助
+脚本可从新路径启动。只执行受影响的机械检查，没有新增模型调用或行为评估。
+完整分工、合并去向与限制见[功能审查](docs/skill_function_audit.md)。
+
+同日后续修正了合并模式的文本冲突：先选择交付物及模式，模式完成即返回；
+卡片不继承完整 reader 流程，提示词/参考图任务不进入绘图验收，已有文本可直接
+修辞修订，解释已有结果不默认重算。提供方误绑定、CNS 模式说明、查询复用和
+既有回归定义一并更正。按既定维护政策执行受影响的机械检查，模型行为与科研
+质量仍未实测。
+
 截至 2026-10-12，已执行的维护验证包括：**51 项维护、接口与集成测试通过**，
 源码检查通过，34 个技能目录下的 721 个源码文件与本机安装副本一致，
 受影响技能的原生发现检查无错误。现有 OpenAlex HTTP 回退完成匿名检索 smoke；
@@ -208,7 +227,8 @@ GitHub 保存技能源码和脱敏的改进材料。论文库、未公开研究�
 会话、凭据和本机绑定保留在仓库外或忽略的本地目录中。
 
 - [系统边界与个人习惯](docs/architecture.md)
-- [技能重叠与精简审查](docs/architecture_review.md)
+- [全部技能功能审查与本次精简](docs/skill_function_audit.md)
+- [早期架构审查](docs/architecture_review.md)
 - [科学发现建议与本地优化](docs/scientific_discovery_review.md)
 - [参考项目比较与选择](docs/reference_projects.md)
 - [行为评估方法](docs/behavioral_evaluation.md)

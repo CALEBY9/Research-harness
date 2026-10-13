@@ -1,6 +1,6 @@
 ---
 name: research-agent
-description: Research assistance grounded in original literature, local knowledge bases, and the author's evidence. Use for 调用 Research agent, manuscript drafting and revision, literature synthesis, research questions, and coordination of available research tools.
+description: Research assistance grounded in original literature, local knowledge bases, and the author's evidence, with nature-scientific-insight as its core scientific decision skill. Use for 调用 Research agent, scientific judgment, manuscript work, research questions and coordination of available research tools.
 ---
 
 # Research Agent
@@ -8,9 +8,31 @@ description: Research assistance grounded in original literature, local knowledg
 Complete the user's current research task with the smallest sufficient set of
 sources and tools. At the author's request, Nature Skills is again the default
 writing foundation, restored from the author's published Research Harness
-snapshot `b5b8e08`. ARS is retained as an inactive alternative, not a co-owner.
+snapshot `b5b8e08`. ARS is retained only as archived or versioned reference
+outside live skill discovery, not as an installed skill or co-owner.
 Do not restore skill_evolve_workflow or the retired Research workflow / paper_*
 owner chain.
+
+## Core scientific insight and decisions
+
+`nature-scientific-insight` (科研洞察与判断) is the core skill for consequential
+scientific decisions: significance, novelty, method value, competing explanations,
+claim strength, paper positioning and whether to continue a line of research.
+When the requested deliverable is such a judgment, use it as the primary owner.
+For discovery, design, interpretation or writing that contains an unresolved
+scientific choice, use its relevant criteria and sufficient existing evidence;
+reuse an established judgment instead of rerunning a full assessment.
+The author retains the direction and dominant-claim decision. Routine execution
+of settled work, language polishing, formatting and retrieval use their task
+owners directly. Centrality does not turn this skill into a mandatory stage,
+independent supervisor agent or automatic experiment launcher.
+
+Questions such as "Is this phenomenon worth studying?", "Is this idea novel and
+publishable?", "Is this mechanism convincing?" or "Which claim should we pursue?"
+use this core skill. A broad field map or a list of new hypotheses uses `nature-research-discovery`;
+an implementation method or full experiment plan uses `nature-method-design` or `nature-experiment-plan`;
+a formal manuscript review uses `nature-reviewer`. Choose by the requested
+deliverable and unresolved decision, not merely by words such as insight or gap.
 
 Recover the current task from the project's authority pointers and read the
 relevant definitions, decisions, evidence and manuscript passages. Expand into
@@ -23,38 +45,39 @@ needs a bounded reread before its evidence is used.
 
 | Task | Support |
 |---|---|
+| Judge scientific significance, novelty, method contributions, evidence strength, central claims or research continuation | `nature-scientific-insight` (core scientific decision support) |
 | Draft or substantively reconstruct manuscript sections or theses | `nature-writing` (`task=thesis` for theses; preserve the author's chapter plan) |
-| Compare paper-level scientific positioning or reconstruct the paper argument | `nature-writing` with its relevant shared narrative references; use `res_analyze` for unresolved result interpretation |
+| Compare or select paper-level scientific positioning | `nature-scientific-insight`; `nature-writing` turns the author-accepted position into the manuscript |
 | Language-only polishing or academic translation | `nature-polishing`; use its bounded language-only path when applicable |
-| Write a proposal, opening report or research-plan document | `researchwrite`; preserve the approved template and scope |
+| Write a proposal, opening report or research-plan document | `nature-proposal-writer`; preserve the approved template and scope |
 | Read or translate a full paper | `nature-reader` |
-| Produce an evidence-linked deep-reading paper card | `nature-paper-card` |
+| Produce an evidence-linked deep-reading paper card | `nature-reader`, paper-card mode; no full-translation prerequisite |
 | Search literature or support claims without a journal-family restriction | `nature-academic-search` |
-| Find citations explicitly restricted to Nature / Science / Cell families | `nature-citation` |
-| Verify reference metadata | `nature-ref-verifier` |
+| Find citations explicitly restricted to Nature / Science / Cell families | `nature-academic-search`, cns-citation mode only for an explicit source restriction |
+| Verify reference metadata | `nature-academic-search`, citation-verification with field-level checks |
 | Retrieve lawful full texts | `nature-downloader` |
 | Set up explicitly requested literature monitoring | `nature-literature-pipeline`; schedules require user authorization |
-| Plan, render or review publication figures | `nature-figure`; reuse verified data and the existing plotting workflow; use `data_analyze` for new computation |
+| Plan, render or review publication figures | `nature-figure`; reuse verified data and the existing plotting workflow; use `nature-data-analysis` for new computation |
 | Review statistical reporting or data-availability statements | `nature-statistics` or `nature-data`, respectively |
 | Review a manuscript or prepare reviewer responses | `nature-reviewer` or `nature-response`, respectively |
 | Turn a paper or source image into slides | `nature-paper2ppt` or `nature-image2ppt`, respectively |
-| Query or maintain a registered local paper corpus | `literature_kb` |
-| Map a research field, assess closest prior work, or develop testable candidate hypotheses | `res_find` |
-| Refine an author-selected method | `res_method` |
-| Plan experiments for a selected question or hypothesis | `res_plan` |
-| Execute reproducible analysis and statistical computation | `data_analyze` |
-| Interpret completed analysis outputs | `res_analyze` |
-| Audit evidence and reproducibility | `evidence_audit` |
-| Systematic-review protocol, screening or meta-analysis methods | `lit_synthesis` |
-| Repair manuscript formatting without changing its science | `paper_format` |
+| Query or maintain a registered local paper corpus | `nature-literature-kb` |
+| Map a research field or discover testable candidate hypotheses | `nature-research-discovery`, using the core judgment criteria for recommendations |
+| Refine an author-selected method | `nature-method-design` |
+| Plan experiments for a selected question or hypothesis | `nature-experiment-plan` |
+| Execute reproducible analysis and statistical computation | `nature-data-analysis` |
+| Interpret completed analysis outputs | `nature-data-analysis`, result-interpretation mode; reuse completed computation |
+| Audit evidence and reproducibility | `nature-evidence-audit` |
+| Systematic-review protocol, screening or meta-analysis methods | `nature-literature-synthesis` |
+| Repair manuscript formatting without changing its science | `nature-paper-format` |
 | Use selected studies to develop the present manuscript's argument | `nature-writing` with source-grounded synthesis support; original sources support the present task |
-| Distill a scholar's public work into a reusable research judgment framework | `research-scholar-distiller` |
-| Draft a manuscript-grounded conceptual image prompt | `nature-image2-prompt` (independent local adapter) |
+| Distill a scholar's public work into a reusable research judgment framework | `nature-scholar-distiller` |
+| Draft a manuscript-grounded conceptual image prompt | `nature-figure`, conceptual-prompts mode |
 
 These are task-specific alternatives, not mandatory stages. Scientific drafting
 and substantive argument reconstruction use `nature-writing`; read its `SKILL.md`,
 manifest and selected references before drafting. Resolve each owner from the
-actual installed skill catalog. On this host, Nature Skills and `researchwrite`
+actual installed skill catalog. On this host, Nature Skills and `nature-proposal-writer`
 are in `C:/Users/Administrator/.agents/skills/`; this router and local adapters
 remain in `C:/Users/Administrator/.codex/skills/`. Do not assume they are siblings.
 Load `nature-shared` as the selected owner's reference dependency, not as a
@@ -62,8 +85,8 @@ second drafting agent. Use document, PDF, presentation and chart tools for their
 verified capabilities. File restoration alone does not verify external services.
 
 Choose the primary owner by the requested deliverable. A reviewer report uses
-`nature-reviewer`, a provenance/reproduction audit uses `evidence_audit`, and
-interpretation of completed results uses `res_analyze`. Reuse prior checks when
+`nature-reviewer`, a provenance/reproduction audit uses `nature-evidence-audit`, and
+interpretation of completed results uses `nature-data-analysis`. Reuse prior checks when
 their source version and scope still cover the question; call another owner only
 for an identified gap. These are distinct review products, not three mandatory
 validation passes or independent runtime agents.
@@ -77,7 +100,7 @@ The existing source-grounded synthesis reference remains evidence
 support, not a competing writing owner. OpenScholar and PaperQA2 are design
 references, not installed runtimes or publication-quality certifications.
 
-Use a relevant registered local corpus through `literature_kb` when needed.
+Use a relevant registered local corpus through `nature-literature-kb` when needed.
 Read the original passages behind consequential claims. Reuse sufficient
 verified evidence; do not retrieve more papers just to increase a count.
 Extend discovery beyond the corpus when coverage matters, using available
@@ -99,9 +122,9 @@ mandatory critique pass or routine planning packet.
 
 For an authorized combined writing/analysis/figure task, remain responsible for
 the requested final artifacts across owner handoffs. nature-writing owns the paper
-argument, res_analyze resolves result meaning, nature-figure owns figure design
-and review as well as rendering from verified results, and data_analyze executes
-new quantitative analysis and its associated plots when needed. Use one rendering
+argument, nature-data-analysis executes requested calculations or interprets
+completed results in its corresponding mode, and nature-figure owns figure design
+and review as well as rendering from verified results. Use one rendering
 workflow rather than handing an unchanged figure between two executors.
 Reuse sufficient prior work; a plan or handoff is
 not the end of a task asking for prose or a rendered figure. Proposing a new
@@ -116,8 +139,8 @@ New research questions, dominant claims and changed estimands remain author
 decisions, while drafting supported prose does not require repeated approval.
 
 Explicit humanization requests may use `humanizer-zh` or
-`humanizer:humanizer`. Use `anti-defensive-writing` only for requested or
-specifically needed rhetorical repair after drafting; it cannot select the
+`humanizer:humanizer`. Use the anti-defensive mode of `nature-polishing` for
+requested or specifically needed rhetorical repair; it cannot select the
 argument or remove meaningful uncertainty. It is not an automatic writing stage.
 
 For sparse-evidence abstracts where measured-quantity identity is at risk,
@@ -128,7 +151,8 @@ fixed paragraph or sentence template.
 
 When the requested deliverable is a decision from outputs already produced by
 multiple owners, coordinate the synthesis at this entrypoint instead of adding a
-director owner. Reuse the supplied artifacts and existing project state; do not
+director runtime. Use `nature-scientific-insight` for the scientific recommendation;
+this entrypoint retains task coordination. Reuse the supplied artifacts and existing project state; do not
 rerun completed checks unless a specific evidence gap requires its owner.
 
 Compare the evidence locators, agreements, conflicts, supported claim boundary,
@@ -155,6 +179,11 @@ A single-stage request ends with that deliverable, including necessary supportin
 owners such as citation verification or formatting. A new independent research
 stage requires user authorization; users need not enumerate internal owner calls.
 Load one owner at a time; do not preload downstream skills or spawn stage agents.
+For an owner with multiple modes, select the requested deliverable before its
+mode-specific core. Complete that branch and return; load a second branch only
+for an actually requested subtask or identified gap within the same authorization.
+Reuse shared sources/results, and do not re-invoke the same owner merely to
+move between its modes.
 
 At an authorized owner transition, update the existing project state contract
 with objective, artifacts consumed/produced, validation actually executed,
@@ -189,4 +218,12 @@ smallest auditable fallback supported by the evidence; preserve completed work.
 Keep internal routing and gate metadata out of routine answers and clean finals.
 
 For route/owner maintenance only, use `references/copilot-regression.json` and
-run affected cases. Static route checks do not establish prose quality.
+select checks affected by the change. Reuse prior verification when its scope
+and assumptions still apply; routine updates do not require a full regression
+suite or standalone model benchmark. Observe behavior during authorized real
+project work and reuse the resulting artifacts and available traces. Do not add
+extra model runs, A/B repetitions or review passes merely to label the task an
+evaluation. A demonstrated failure or material behavior change may justify a
+targeted check within the current authorization. Record useful findings in the
+project's existing state, and claim improvement only to the extent that the
+evidence supports it. Static route checks do not establish prose quality.

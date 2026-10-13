@@ -11,9 +11,9 @@ import json
 from pathlib import Path
 import shutil
 
-LOCAL = """research-agent anti-defensive-writing humanizer humanizer-zh literature_kb
-res_find res_method res_plan data_analyze res_analyze evidence_audit lit_synthesis
-paper_format nature-image2-prompt research-scholar-distiller""".split()
+LOCAL = """research-agent nature-scientific-insight humanizer humanizer-zh nature-literature-kb
+nature-research-discovery nature-method-design nature-experiment-plan nature-data-analysis nature-evidence-audit nature-literature-synthesis
+nature-paper-format nature-scholar-distiller""".split()
 EXCLUDE = {".git", ".agent", "__pycache__", ".venv", "node_modules", "candidates"}
 EXTENSIONS = {".md", ".py", ".json", ".yaml", ".yml", ".toml", ".txt", ".sh",
               ".mjs", ".tsv", ".tex", ".bib", ".ris", ".nbib", ".png", ".jpg", ".pdf"}

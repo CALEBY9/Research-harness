@@ -40,7 +40,7 @@ For figure code, `figure_spec.yml` and the figure-owner acceptance checkpoints
 remain authoritative. Do not require a second Research Code Spec unless the
 requested code change extends beyond that approved figure contract.
 
-For `data_analyze`, treat a sufficiently complete `ANALYSIS_PLAN.md` as the
+For `nature-data-analysis`, treat a sufficiently complete `ANALYSIS_PLAN.md` as the
 spec. Add missing scientific invariants or acceptance checks there instead of
 creating parallel documentation.
 

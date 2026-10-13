@@ -1,0 +1,4 @@
+interface:
+  display_name: "科研数据分析 · Nature Data Analysis"
+  short_description: "Analyze datasets or interpret existing research outputs"
+  default_prompt: "请用 $nature-data-analysis 完成当前数据分析或解释已有结果，复用已完成计算并保留证据边界。"

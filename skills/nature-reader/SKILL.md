@@ -1,12 +1,30 @@
 ---
 name: nature-reader
-description: Create a source-grounded full-paper Chinese-English Markdown reader from PDF, DOI, arXiv, HTML, or pasted text, preserving figures, tables, equations, and anchors. Use for 读论文、论文或文献翻译、中英文对照、全文翻译解读; not for summary-only output or a Paper Card.
+description: Read one research paper as an evidence-grounded Paper Card or a full-text reader from PDF, DOI, arXiv, HTML or supplied text. Use for 单篇论文精读、文献卡片、读论文、全文翻译 or 中英文对照; choose the requested output and preserve source locators.
 metadata:
   version: "2.1.1"
   author: Community contribution, refactored into static/dynamic layers
 ---
 
-# Full-Paper Markdown Reader — Router
+# Research Paper Reader — Router
+
+## Choose the reading deliverable first
+
+For single-paper deep reading, a Paper Card, experiment-to-claim analysis or
+Chinese explanatory reading notes, use [paper-card mode](references/paper-card/guide.md).
+Load its mode-local manifest, selected paper-type fragments and bundled source
+preparation/audit tools. Reuse an existing source map; do not run full translation
+merely to produce a card. Match the requested language and retain source locators.
+Complete that mode and return; do not load the root full-reader manifest or
+continue through the full-reader protocol below for a card-only request.
+
+For explicitly requested full-text translation, bilingual reading or a complete
+full-paper reader, use the full-reader route below. Its core and output contract
+apply to that mode only. Preserve requested completeness and mark unavailable
+material; a card does not replace full translation. Load both cores only when
+the requested deliverable actually needs both outputs. Reuse one source
+extraction/map, complete each requested output, then return without invoking
+the reader again.
 
 This skill is split into two layers:
 
@@ -15,15 +33,16 @@ This skill is split into two layers:
 
 Do not try to apply the reading logic from memory or from this router. Always load fragments from disk as described below.
 
-## Routing protocol
+## Full-reader protocol
 
-Follow these five steps every time the skill is invoked.
+These five steps apply only after selecting the full-reader deliverable.
+The root manifest and its always_load list belong to this branch.
 
 ### 1. Load the manifest and the core layer
 
 Read [manifest.yaml](manifest.yaml). It declares the `source_format` axis, the allowed values, and the file paths each value maps to.
 
-Also read every file listed under `always_load`. These hold the core principles, the reading workflow, and the output contract that apply to every reading job, plus the shared Terminology Ledger used to build the recurring-term table.
+Also read every file listed under `always_load`. These hold the core principles, the reading workflow, and the output contract that apply to the full-reader branch, plus the shared Terminology Ledger used to build the recurring-term table.
 
 ### 2. Detect the source format
 
@@ -35,7 +54,7 @@ Decide the `source_format` value using the manifest's `detect:` hint and the use
 - `doi-arxiv` — a bare DOI or arXiv link that must be resolved first.
 - `pasted-text` — pasted prose or notes with no retrievable original layout.
 
-State the detected value in one short line to the user before processing, so they can correct you cheaply. A source may map to more than one value (for example a DOI that resolves to a PDF); load the resolution fragment first, then the fragment for the resolved artifact.
+Keep the source-format selection internal unless a material ambiguity needs the user's input. A source may map to more than one value (for example a DOI that resolves to a PDF); load the resolution fragment first, then the fragment for the resolved artifact.
 
 ### 3. Load the matching fragment(s)
 

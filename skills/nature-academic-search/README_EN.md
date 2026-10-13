@@ -47,6 +47,6 @@
 
 ## Related Skills
 
-- `nature-citation`: match Nature/CNS/Cell supporting citations for manuscript claims.
+- [CNS mode](references/cns-citation/guide.md) within this skill: use only for an explicit source restriction.
 - `nature-literature-pipeline`: turn one-off search into ongoing literature monitoring.
-- `nature-ref-verifier`: verify reference-list metadata field by field.
+- [Field-verification mode](references/reference-verification/guide.md) within this skill: reuse lookup records to compare metadata.

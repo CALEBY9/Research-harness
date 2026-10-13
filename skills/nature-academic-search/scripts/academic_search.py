@@ -6,7 +6,7 @@
 
 This is the graceful-degradation path for agents/environments that do not mount
 the MCP server (plain CLI use, skill auto-discovery, CI). It mirrors what
-`nature-citation/scripts/nature_citation.py` already does for CrossRef: a single
+`nature-academic-search/references/cns-citation/scripts/nature_citation.py` already does for CrossRef: a single
 self-contained file hitting a public HTTP API with no third-party dependencies.
 
 Source: OpenAlex (https://openalex.org), with anonymous basic use or an optional

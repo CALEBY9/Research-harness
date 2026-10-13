@@ -1,0 +1,4 @@
+interface:
+  display_name: "开题与研究计划 · Nature Proposal Writer"
+  short_description: "Draft evidence-grounded scientific research proposals"
+  default_prompt: "Use $nature-proposal-writer to draft an evidence-grounded research proposal from these materials."

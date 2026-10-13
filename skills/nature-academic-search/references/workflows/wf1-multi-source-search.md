@@ -44,7 +44,7 @@ bibliographic lookup can finish at the requested records.
 
 Keep queries, citation leads, original locators and unresolved limits in the
 same result report or existing project record. This loop gathers evidence;
-`res_find` owns the novelty/hypothesis judgment and the author selects the
+`nature-research-discovery` owns the novelty/hypothesis judgment and the author selects the
 research direction. Literature disagreement alone does not generate a validated
 new mechanism.
 

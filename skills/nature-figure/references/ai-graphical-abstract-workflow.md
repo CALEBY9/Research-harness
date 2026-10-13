@@ -2,7 +2,14 @@
 
 Use this reference whenever a task involves planning, generating, revising, or
 auditing a graphical abstract with AI assistance. Apply it before any
-provider-specific image-generation instructions.
+provider-specific image-generation instructions. Apply only the stages needed
+by the requested planning, prompt, rendered asset or audit. A prompt-only task
+validates its text/semantics and planned disclosure; it does not require rendered
+image checks or a fictitious generation/provenance record.
+
+Reuse any frozen semantic graph, approved visual direction and visible-text
+allowlist. Communication/style advice below cannot alter approved nodes, edges,
+causal strength or projection without the applicable author decision.
 
 ## Contents
 
@@ -95,15 +102,18 @@ Include these fields in a provider-neutral prompt:
   scientific objects
 - **Output role**, explicitly stating `concept draft` when generative AI is used
 
-Generate layout alternatives before polishing a single composition. Correct
-scientific structure first, then typography, color, and visual finish. Redraw
+During explicitly requested layout exploration, propose alternatives before
+a direction is selected. Once selected, reuse that direction; do not generate
+unselected layouts or a raster batch as a default. Correct scientific structure
+within the approved semantic boundary, then typography, color and finish. Redraw
 critical text, arrows, chemical structures, and quantitative marks with
 deterministic or editable tools whenever possible.
 
 ## 5. Run human scientific and publication QA
 
-Before delivery, check every visual element against the manuscript and source
-data:
+For an actual generated/revised asset, check its visual elements against the
+manuscript and source data before delivery. For prompt-only work, verify these
+requirements in the prompt and report that rendered/human review is pending:
 
 - scientific entities, directions, causal links, scale, anatomy, and chronology
 - all labels, abbreviations, spelling, units, and symbol definitions

@@ -7,6 +7,15 @@
 必要的工具调用无需逐步询问；研究问题、实质方法取舍、主张或受保护产物发生
 变化时，才把有证据支撑的选项交给作者。
 
+`nature-scientific-insight`（科研洞察与判断）是作者于 2026-10-13 指定的核心技能：独立判断任务由它
+负责；发现、设计、结果解释与写作按需复用其标准及已成立的判断。Research Agent
+负责当前任务协调，作者保留科学取舍。纯语言编辑和已确认方案的普通执行直接
+使用对应技能，核心判断不形成自动阶段链。
+
+它交付研究价值、贡献、解释可信度与下一步科学取舍建议；领域图谱及新候选仍由
+`nature-research-discovery` 负责，可实施方法及完整实验计划仍由 `nature-method-design`、`nature-experiment-plan` 负责。
+可以在选题、设计或结果阶段调用，不固定在“读完文献”之后，也不新增平行入口。
+
 ```mermaid
 flowchart TB
     U[研究者：任务、材料、已确认决定] --> R[Research Agent：选择当前任务 owner]
@@ -49,11 +58,13 @@ flowchart TB
 
 | 交付物 | 主要 owner | 支持边界 |
 |---|---|---|
-| 论文、学位论文章节与论证重构 | `nature-writing` | `researchwrite` 只负责 proposal、开题与研究计划 |
-| 已有文本的润色、翻译与同论证压缩 | `nature-polishing` | 不另选科学主线或改变证据使用；纯排版由 `paper_format` 负责 |
-| 投稿图件设计、渲染与审查 | `nature-figure` | 核验数据直接绘制；新计算由 `data_analyze` 完成，同一图只使用一个渲染流程 |
-| 系统综述方法与跨论文综合资产 | `lit_synthesis` | 数值执行交给 `data_analyze`，论文正文交给 `nature-writing` |
-| 数据执行、结果解释、溯源审计与模拟审稿 | 分别为 `data_analyze`、`res_analyze`、`evidence_audit`、`nature-reviewer` | 按问题复用有效证据，不自动串联为四轮检查 |
+| 研究价值、创新性、方法价值、证据强度、主张选择与研究去留判断 | `nature-scientific-insight` | 复用已有原文与分析；建议改变问题或核心主张交给作者决定 |
+| 论文、学位论文章节与论证重构 | `nature-writing` | `nature-proposal-writer` 只负责 proposal、开题与研究计划 |
+| 已有文本的润色、翻译与同论证压缩 | `nature-polishing` | 不另选科学主线或改变证据使用；纯排版由 `nature-paper-format` 负责 |
+| 投稿图件设计、渲染与审查 | `nature-figure` | 核验数据直接绘制；新计算由 `nature-data-analysis` 完成，同一图只使用一个渲染流程 |
+| 系统综述方法与跨论文综合资产 | `nature-literature-synthesis` | 数值执行交给 `nature-data-analysis`，论文正文交给 `nature-writing` |
+| 数据执行与已完成结果解释 | `nature-data-analysis` 的计算或结果解释模式 | 只需解释时复用已完成计算 |
+| 溯源审计与模拟审稿 | `nature-evidence-audit` 或 `nature-reviewer` | 按所需审查产物选择，不自动串联 |
 
 OpenSpec 是已有工作包的记录工具，不是所有任务的入口。科学定义保留在其权威文档，
 工作包链接要求与验收，`.agent/` 保存恢复指针。owner 模板只补缺失字段，
@@ -65,7 +76,7 @@ OpenSpec 是已有工作包的记录工具，不是所有任务的入口。科�
 
 科学发现与外部 AI for Science 建议的核验和选择性优化见
 [科学发现审查](scientific_discovery_review.md)；发现、方法与实验设计复用
-`res_find`、`res_method`、`res_plan`，不新增自动运行的五层 Agent 链。
+`nature-research-discovery`、`nature-method-design`、`nature-experiment-plan`，不新增自动运行的五层 Agent 链。
 
 ## 首版能力边界
 

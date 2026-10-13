@@ -8,15 +8,34 @@
 
 2026-10-12 按作者明确请求，从本仓库已发布的
 `b5b8e082522409aea0cb8db80a7afc2e5c086867` 恢复 17 个 Nature 目录及
-`researchwrite`。它们仍是当时的本地增强版本，不是最新上游发行版。
+`nature-proposal-writer`（当时安装名 `researchwrite`）。它们仍是当时的本地增强版本，不是最新上游发行版。
 实质写作由 `nature-writing` 承担，ARS 文件与增强保留为非默认备选；
 `skill_evolve_workflow` 继续退役。[ARS 采用记录](ars_writing_adoption.md)
 保留历史身份，不作为当前默认路由。
 
-本机 Nature / researchwrite 位于用户级 `.agents/skills`，Research Agent
-及既有分析、知识库工具位于历史 `.codex/skills`。通过 Codex 的
-`[[skills.config]]` 禁用 ARS 的 `SKILL.md` 入口，保留文件以支持回退及
-既有显式 vNext 绑定。更改配置后重启 Codex；源码、安装与发现须分别核验。
+本机 Nature / nature-proposal-writer 位于用户级 `.agents/skills`，Research Agent
+及既有分析、知识库工具位于历史 `.codex/skills`。2026-10-13 按作者要求
+删除 25 个重复的旧技能安装目录，包括旧 `paper_*` 写作链及 ARS 入口；
+ARS 仅保留发现目录之外的备份和版本化参考源码。图件语料库、知识库及
+研究设计等独立能力保留。三层下载不在当时删除的 25 个目录中，随后发现的
+后端缺失已从可追溯修订记录恢复。实现作为工具代码维护于
+[PDF 下载后端](../scripts/pdf_download/three_layer_pdf_downloader.py)，本机安装在
+用户工具目录，通过无 `SKILL.md` 的目录联接满足既有桥的路径；未恢复技能入口。
+8 项源码测试与 6 项实际 CLI 本地夹具检查通过，机构登录和外部出版商下载未复测。
+源码、安装与发现须分别核验；CLI 帮助可加载不代表后端可执行。
+
+同日按作者要求新增核心科学判断技能，随后按工作单元边界优化为
+`nature-scientific-insight`（科研洞察与判断），承接核心科学判断及旧
+`res_novelty` 的有价值细则；不恢复旧技能链。vNext 的 ARS 对照绑定指向
+版本化参考源码，保留其明确选择的上游写作配置。知识库绑定路径已重新核验，
+路径存在不表示查询、健康或科学证据已通过验证。
+
+原 `research-judgment` 已更名，源码、安装目录、frontmatter、界面元数据和当前
+owner 引用保持一致；不保留第二个公开别名。更名不等于已验证调用准确率提高。
+
+2026-10-13 按作者要求统一科研流程技能名称为 `nature-<capability>`；完整
+更名表与安装根目录见[技能命名](skill_naming.md)。`research-agent` 入口保留。
+目录、调用元数据、owner 引用及上游映射同步修正，原有项目资源与调用策略保留。
 
 `docs/import_manifest.json` 记录逐文件初次导入校验值，供迁移证据使用。
 它不是今后禁止修改技能的冻结门槛。`scripts/import_local_skills.py` 是
@@ -53,8 +72,9 @@ python -X utf8 -B scripts/nature_upstream.py prepare --commit e605b35611ab2849af
 
 审阅时保留本地中文 `zh`、学位论文 `thesis`、作者科学决定与交付规则，
 核对条件加载和共享依赖，区分脚本修复与写作行为变化。先把接受的变更
-合并到本仓库源码，运行 `harness.py validate`、相关脚本测试和必要的真实
-任务验证，再按已授权文件范围同步安装。工具没有自动合并、安装或启用
+合并到本仓库源码，按受影响的结构、引用或代码做必要机械检查，复用范围仍
+适用的验证；行为表现结合后续真实项目观察，不要求每次更新另跑模型基准。
+再按已授权文件范围同步安装。工具没有自动合并、安装或启用
 入口；普通 skills 更新器也没有登记本次恢复的 Nature 目录。
 
 2026-10-12 本轮只导入固定 `e605b35` 的 Discussion 参考和 retry-zero 修复，
@@ -116,7 +136,10 @@ python scripts/harness.py stage --target .\local_state\trial_skills --skill rese
 3. 按需要绑定 Nature 写作方法及共享参考、KB、文档工具等现用依赖。路径提示也可能来自示例，
    须检查调用语义；简单字符串替换不能证明可迁移。
 4. 查看现有安装与候选 diff，保留现有有效本地修改，选择本次安装的技能集合。
-5. 使用该运行时支持的安装方式，并验证实际技能发现与一条目标任务。
+5. 使用该运行时支持的安装方式，并验证实际技能发现与一条目标任务。核验用户目录
+   与项目目录的完整发现列表：所选维护技能应启用，退役入口应缺席，额外入口须逐项
+   解释用途；只核对源码或“改过的技能仍存在”不能发现残留。技能发现、脚本可加载
+   和真实科研判断质量分别报告，不用结构检查替代科研验证。
 
 Codex 当前官方文档支持仓库/用户级 `.agents/skills`，并说明同名技能不会
 自动合并。本快照源自混合的 `.agents/skills` 与历史 `.codex/skills` 安装。

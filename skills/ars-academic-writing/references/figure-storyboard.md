@@ -7,7 +7,7 @@ generate data or establish a new plotting owner.
 
 ## Extend the existing figure plan
 
-Reuse `res_analyze`'s `FIGURE_TABLE_PLAN` or the project's existing figure spec.
+Reuse `nature-data-analysis`'s `FIGURE_TABLE_PLAN` or the project's existing figure spec.
 It already covers purpose, provenance, software, annotations, readiness and
 missing analysis. Add only the missing information needed to answer:
 
@@ -53,18 +53,18 @@ tables or heatmaps. This does not authorize adding an uncomputed comparison.
 ## Hand off to a working renderer
 
 For quantitative figures, use the project's existing Python/R/GIS or other
-verified plotting workflow through `data_analyze`; use `editaplot` only when
+verified plotting workflow through `nature-data-analysis`; use `editaplot` only when
 available and its Origin runtime has been checked. Do not use image generation
 to invent or render quantitative results. Preserve editable source and the
 project's provenance requirements.
 
 When rendering is part of the authorized task, the executing owner reads
-[figure execution](../../data_analyze/references/figure-execution.md), completes
+[figure execution](../../nature-data-analysis/references/figure-execution.md), completes
 the data mapping, exports the actual figure, inspects it and repairs observed
 defects. Do not end at this storyboard or send routine layout decisions back to
 the author. Missing scientific comparisons remain proposals, not invented panels.
 
-For conceptual prompts, `nature-image2-prompt` consumes a complete logic
+For conceptual prompts, `nature-figure` consumes a complete logic
 wireframe and visual specification. A storyboard alone does not satisfy its
 node/edge semantics, selected direction, prompt preflight or author-approval
 requirements. Prepare missing planning information within the authorized scope;

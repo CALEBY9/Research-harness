@@ -47,6 +47,6 @@
 
 ## 相关技能
 
-- `nature-citation`：为手稿 claim 匹配 Nature/CNS/Cell 支撑文献。
+- 本技能 [CNS 模式](references/cns-citation/guide.md)：仅在明确要求该来源限制时使用。
 - `nature-literature-pipeline`：把一次性检索升级为持续文献监测。
-- `nature-ref-verifier`：逐条核查参考文献字段。
+- 本技能 [字段核验模式](references/reference-verification/guide.md)：复用查询记录逐条核查参考文献字段。

@@ -1,0 +1,4 @@
+interface:
+  display_name: "学者研究框架蒸馏 · Nature Scholar Distiller"
+  short_description: "Distill source-grounded scholar judgment frameworks"
+  default_prompt: "请用 $nature-scholar-distiller 从这些公开学术材料中提取有证据约束的研究判断框架。"

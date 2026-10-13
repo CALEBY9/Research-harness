@@ -1,7 +1,7 @@
 # Conceptual figure handoff
 
-Use when a new or substantially redesigned conceptual figure is passed to
-`nature-image2-prompt`. Its installed intake contract controls the final prompt;
+Use when a new or substantially redesigned conceptual figure needs a generation
+prompt. The conceptual-prompts mode intake contract controls the final prompt;
 this reference supplies the missing planning interface, not another approval
 system. Reuse the project's existing specification and complete relevant fields
 there. Data-only plots and edits preserving an approved layout do not need it.
@@ -12,7 +12,7 @@ Record the objective and the logic status: `DRAFT`, `LOGIC_VALIDATED`,
 `USER_APPROVED`, `USER_WAIVED` or a justified `NOT_APPLICABLE`. Model checking
 can support `LOGIC_VALIDATED`, never author approval. An exploratory prototype
 and a manuscript/submission figure have different existing approval requirements.
-Follow `nature-image2-prompt` for those boundaries.
+Follow `references/conceptual-prompts/guide.md` from the owning figure directory for those boundaries.
 
 Record the mainline as ordered node IDs and the supporting branches with their
 IDs, attachment points and scientific purposes. Populate the semantic tables:

@@ -24,7 +24,7 @@ Use any existing terminology and evidence records; do not create a second set
 of ledgers. Missing results stay explicit drafting placeholders outside a final
 submission claim. A limitation cannot be repaired by inventing a study.
 
-`nature-polishing` handles wording-only work. `paper_format` owns school layout,
+`nature-polishing` handles wording-only work. `nature-paper-format` owns school layout,
 DOCX/LaTeX mechanics and rendered QA, including its existing Master Thesis Studio
 adapter. Invoke that adapter for artifact production/formatting when requested;
 its historical writing template does not override the author's thesis plan.

@@ -1,5 +1,9 @@
 # Figure contract before plotting
 
+This file governs the plotting/assembly branch. Prompt-only and reference
+modes use their own guides. For planning/audit-only work, apply the relevant
+scientific/design checks without backend setup, runtime checks or new exports.
+
 A publication-quality scientific figure is a visual argument, not an isolated pretty plot. Every figure starts from a claim, an evidence hierarchy, and a review-risk check before code or aesthetics. Before generating or editing code, establish the contract below.
 
 ## Backend selection
@@ -31,7 +35,7 @@ Plan figures by scientific claims, not by source tables. Do not turn each table 
 1. **Core conclusion**: write the one-sentence claim the figure must defend and the Results-level scientific question it answers.
 2. **Evidence chain**: map each planned panel to one distinct inferential role in that claim, and drop, merge, or demote panels that only redraw another panel's evidence or repeat it under a secondary metric.
 3. **Archetype**: classify the figure as `quantitative grid`, `schematic-led composite`, `image plate + quant`, or `asymmetric mixed-modality figure`.
-4. **Backend**: use the explicit or saved Python/R track exclusively for all figure drawing, previewing, exporting, and visual QA. Do not cross-render with the other language.
+4. **Backend**: when plotting/rendering is requested, use the explicit or saved Python/R track exclusively for its drawing, previews, exports and QA renders. Planning/audit-only work does not select a rendering track. Do not cross-render with the other language.
 5. **Journal/export contract**: set final dimensions, a 5 pt floor for every rendered glyph, editable text, source data, statistics, image-integrity notes, and export formats before styling.
 
 The highest-priority rule is: **the chart serves the scientific logic**. Aesthetic polish, template matching, and complex layout are subordinate to making the core conclusion clear, defensible, and reviewable.

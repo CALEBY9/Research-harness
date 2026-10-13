@@ -1,0 +1,4 @@
+interface:
+  display_name: "文献证据综合 · Nature Literature Synthesis"
+  short_description: "Develop review protocols and cross-paper synthesis"
+  default_prompt: "请用 $nature-literature-synthesis 制定系统综述、筛选编码或跨论文证据综合的方法。"

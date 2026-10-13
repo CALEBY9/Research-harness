@@ -20,8 +20,10 @@ Retain original notices and review component-specific terms before redistributio
   `b5b8e082522409aea0cb8db80a7afc2e5c086867`. They are current runtime dependencies.
 - Source: https://github.com/Yuan1z0825/nature-skills
 - License: Apache License 2.0; original root license copied to `skills/NATURE_LICENSE`.
-- Scope: the 17 `nature-*` directories imported from the Nature installation,
-  plus `researchwrite`. `nature-image2-prompt` is a separate local adapter.
+- Scope: the initial 17 `nature-*` directories imported from the Nature installation,
+  plus `nature-proposal-writer` (originally `researchwrite`). Three imported modules
+  are now conditional resources under retained owners; see `docs/nature_upstream.json`.
+  The conceptual-prompts mode under `nature-figure` is a separate local adapter.
 - These are locally enhanced installed copies, not a pristine upstream release.
   See `docs/import_manifest.json` for the initial imported files.
 - Embedded assets/tools may have additional LICENSE/NOTICE files; those remain
@@ -62,7 +64,7 @@ Retain original notices and review component-specific terms before redistributio
 
 Local research adapters and the router come from the user's existing installation.
 Their source/provenance notes remain where supplied. In particular,
-`skills/anti-defensive-writing/references/provenance.md` describes independently
+`skills/nature-polishing/references/anti-defensive-writing/references/provenance.md` describes independently
 written guidance distilled from cited public designs.
 
 A public redistribution license for the user's own contributions has not been

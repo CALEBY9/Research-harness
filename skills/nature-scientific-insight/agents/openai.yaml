@@ -1,0 +1,4 @@
+interface:
+  display_name: "科研洞察与判断 · Nature Scientific Insight"
+  short_description: "Research value, novelty and next scientific decisions"
+  default_prompt: "请用 $nature-scientific-insight 判断我的研究问题、现象或主张有什么科学价值和创新，指出最强竞争解释，并建议下一步最值得补充的证据。"

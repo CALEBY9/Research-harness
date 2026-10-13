@@ -1,6 +1,8 @@
 # 本机方法子集适配
 
-2026-10-08：候选入口采用 ARS-Codex 写作方法子集，原有 `research-agent` 与 `ars-academic-writing` 仍为默认。上游为 Imbad0202/academic-research-skills-codex，commit `52228e8280dd1770e18ecfc3b1fdf16b13b58104`。这是固定版本原文快照；未安装完整套件，未执行上游脚本。上游作者 Cheng-I Wu，CC BY-NC 4.0；原文和完整 LICENSE 保存在绑定的 `upstream_source_root`，来源及文件哈希见 `upstream_source_manifest`。
+2026-10-08 的接入采用 ARS-Codex 写作方法子集。该日的 ARS 默认状态已被后续作者决定取代：2026-10-12 恢复 Nature 写作底座，2026-10-13 移出 ARS 安装并选定科研判断核心，随后将其优化为 `nature-scientific-insight`。当前候选仍显式使用原 `ars-upstream-slice`，本地对照入口绑定到发现目录之外的版本化 ARS 参考源码，不恢复旧安装。
+
+上游为 Imbad0202/academic-research-skills-codex，commit `52228e8280dd1770e18ecfc3b1fdf16b13b58104`。这是固定版本原文快照；未安装完整套件，未执行上游脚本。上游作者 Cheng-I Wu，CC BY-NC 4.0；原文和完整 LICENSE 保存在绑定的 `upstream_source_root`，来源及文件哈希见 `upstream_source_manifest`。
 
 ## 实际加载
 

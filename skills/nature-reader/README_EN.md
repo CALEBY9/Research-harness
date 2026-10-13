@@ -4,7 +4,16 @@
 
 `nature-reader` converts paper PDFs, DOIs, arXiv links, publisher HTML, or pasted text into traceable full-paper Markdown readers with Chinese-English text, figure/table placement, rendered equations, and a source map.
 
-## What To Use It For
+## Choose the Reading Deliverable
+
+For single-paper deep reading, explanatory notes or an evidence card, use
+[paper-card mode](references/paper-card/guide.md) without first translating
+the whole paper. It connects questions, methods, experiments and claims to
+source locators. The complete-reader path below applies to explicitly requested
+full translation, bilingual reading or a full reader. Load both only when both
+outputs are requested.
+
+## Full-Reader Uses
 
 - Create full-paper Chinese-English Markdown readers.
 - Insert figures, tables, and translated legends near the first substantive discussion.
@@ -26,7 +35,7 @@
 - Output directory and whether image cropping is needed.
 - Whether to keep English original text, Chinese translation, figures, tables, and translation notes.
 
-## Outputs
+## Full-Reader Outputs
 
 - `paper.md`: full reading material.
 - `source_map.json`: mapping for pages, text blocks, and figures/tables.
@@ -44,4 +53,4 @@
 
 - `nature-downloader`: legally obtain PDF or HTML full text first.
 - `nature-paper2ppt`: turn reading materials into Chinese presentation slides.
-- `nature-citation`: extract claims that need citation support.
+- `nature-academic-search`: extract claims that need citation support.

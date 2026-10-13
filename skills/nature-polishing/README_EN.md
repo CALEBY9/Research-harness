@@ -48,7 +48,7 @@
 
 - The skill does not add results, mechanisms, statistical significance, or citations not provided by the author.
 - It does not exaggerate novelty, causality, or generality to sound more like Nature.
-- Use `nature-writing` for new drafting or changed argument, paragraph architecture or evidence use; use `paper_format` for layout-only work.
+- Use `nature-writing` for new drafting or changed argument, paragraph architecture or evidence use; use `nature-paper-format` for layout-only work.
 
 ## Related Skills
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "研究方法设计 · Nature Method Design"
+  short_description: "Refine selected questions into implementable methods"
+  default_prompt: "请用 $nature-method-design 将我已选定的研究问题细化为有数据依据、可实施的方法方案。"

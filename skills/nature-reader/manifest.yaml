@@ -2,11 +2,13 @@ name: nature-reader
 version: 2.1.0
 description: >
   Declarative manifest for the static/dynamic split. SKILL.md uses this to
-  decide which fragments to load for a given paper-reading request. The main
-  axis is the source format, which changes how text, figures, and tables are
-  extracted before the bilingual reader is built.
+  load fragments for the full-reader branch only. Select the deliverable in
+  SKILL.md first. A card-only request uses the paper-card mode manifest and
+  never loads this manifest's full-reader core. The source-format axis selects
+  extraction guidance for the requested complete reader.
 
 always_load:
+  # Full-reader branch only; not shared defaults for paper-card mode.
   # Shared layer — common to the nature-* skills
   - ../nature-shared/core/terminology-ledger.md
   # Skill-local core
@@ -35,6 +37,8 @@ axes:
 
 references:
   on_demand:
+    - condition: alternative card-only deliverable; use its own manifest instead of this full-reader core
+      path: references/paper-card/guide.md
     - condition: cropping figures/tables, placement near first mention, tight-crop rules
       path: references/figure-extraction.md
     - condition: exact paper.md / source_map.json field schema and block shapes

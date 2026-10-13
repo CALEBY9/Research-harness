@@ -16,8 +16,13 @@
 - [Export checks](#export-checks)
 
 
-Use this before final delivery, before a revision package, and whenever the figure
-contains microscopy, blots, gels, clinical subgroup analysis, or statistical claims.
+Use this for delivery or audit of an actual rendered figure, revision package,
+microscopy, blot, gel, clinical subgroup or statistical display. For planning
+or audit-only requests, check supplied artifacts and mark unavailable rendered
+properties as unassessable. Prompt and reference-inventory modes use their own
+checks. Plot-source checks require plotting source; PDF checks require a PDF.
+Do not create an unrequested script/export solely to make a check applicable.
+Required outputs remain required: a missing requested PDF is a delivery gap.
 Journal rules change, so verify the latest target journal author guide for final
 submission. The values below are conservative defaults for Nature-family style work.
 For the flagship journal Nature, load `nature-article-requirements.md` and use

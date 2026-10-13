@@ -2,7 +2,9 @@ name: nature-polishing
 version: 6.5.1
 description: >
   Declarative manifest for the static/dynamic split. SKILL.md uses this to
-  decide which fragments to load for a given polishing request.
+  decide which fragments to load for a given polishing request. The
+  language_only fast path returns after its own load list; always_load and
+  the normal axes apply only when that fast path does not match.
 
 fast_paths:
   language_only:
@@ -86,6 +88,8 @@ axes:
 
 references:
   on_demand:
+    - condition: requested or observed rhetorical defect in supplied prose; apply once within the selected edit boundary, preserving locked modality and paragraph roles in LANGUAGE_ONLY
+      path: references/anti-defensive-writing/guide.md
     - condition: polishing a whole manuscript or multiple sections; repeated terminology, abbreviation, unit, or notation drift is visible; a material term collision could change meaning; or the user asks for a terminology audit
       path: ../nature-shared/core/terminology-ledger.md
     - condition: same-argument shortening of Results or full main text; preserving the existing main-text versus captions or SI allocation; preventing revision accretion or reducing repetition without changing paragraph roles

@@ -25,7 +25,7 @@ axes:
       reviewer suggestions, or a complete submission checklist. Use manuscript
       for journal manuscript sections and argument development. Use thesis for
       graduation theses, dissertations, and their chapter drafting or integration;
-      opening reports and research proposals belong to researchwrite. Revision correspondence
+      opening reports and research proposals belong to nature-proposal-writer. Revision correspondence
       after an editor decision belongs to nature-response, not this skill.
     values:
       manuscript:          static/fragments/task/manuscript.md

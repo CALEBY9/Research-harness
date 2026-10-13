@@ -1,0 +1,4 @@
+interface:
+  display_name: "学术论文排版 · Nature Paper Format"
+  short_description: "Repair academic layout and formatting consistently"
+  default_prompt: "请用 $nature-paper-format 根据指定模板修订这份学术材料的格式和排版。"

@@ -1,4 +1,4 @@
 interface:
   display_name: "Nature Figure"
-  short_description: "Create and audit submission-ready scientific figures"
-  default_prompt: "Use $nature-figure to create and audit a submission-ready scientific figure from these data."
+  short_description: "Create figures, prepare prompts or inspect figure references"
+  default_prompt: "Use $nature-figure for the requested figure, conceptual prompt or reference task, preserving the supplied science and selecting only the needed mode."

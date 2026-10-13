@@ -1,6 +1,6 @@
 ---
 name: nature-writing
-description: Draft, restructure, or plan Chinese or English research manuscripts, thesis chapters, and first-submission materials from author-provided evidence. Use for 论文写作、毕业论文、学位论文章节、摘要、引言、方法、Results、讨论 or submission materials; use nature-polishing for language-only edits and paper_format for layout-only work.
+description: Draft, restructure, or plan Chinese or English research manuscripts, thesis chapters, and first-submission materials from author-provided evidence. Use for 论文写作、毕业论文、学位论文章节、摘要、引言、方法、Results、讨论 or submission materials; use nature-polishing for language-only edits and nature-paper-format for layout-only work.
 ---
 
 # Nature-Style Scientific Writing — Router
@@ -26,7 +26,7 @@ Also read every file listed under `always_load`. These hold the default stance, 
 
 For each axis in the manifest, decide the value using the manifest's `detect:` hint and the user's input:
 
-- `task` — manuscript / thesis / submission-package. Use `thesis` for graduation-thesis or dissertation content and chapter architecture; proposals/opening reports belong to `researchwrite`. Use `submission-package` for first-submission materials, never for revision correspondence.
+- `task` — manuscript / thesis / submission-package. Use `thesis` for graduation-thesis or dissertation content and chapter architecture; proposals/opening reports belong to `nature-proposal-writer`. Use `submission-package` for first-submission materials, never for revision correspondence.
 - `paper_type` — research / methods / hypothesis / algorithmic / review. Default: research.
 - `section` — abstract / intro / related-work / method / experiments / discussion / conclusion / title. May be multiple. Ask the user if it is ambiguous and matters for the draft.
 - `language` — zh / en / zh-to-en. Follow the requested output language; use `zh` for Chinese drafting and `zh-to-en` only when English output is requested from Chinese notes. Chinese input alone is not a translation request.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Nature Reader"
-  short_description: "Build bilingual, figure-aware full-paper readers"
-  default_prompt: "Use $nature-reader to build a Chinese-English, figure-aware reader for this paper."
+  short_description: "Read papers as evidence cards or full-text readers"
+  default_prompt: "Use $nature-reader to read this paper in the requested depth and language, preserving evidence locators."

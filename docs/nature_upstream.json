@@ -6,28 +6,48 @@
   "watch_initial_commit": "e605b35611ab2849af46d0cf7831aefdcf85be07",
   "scoped_import_commit": "e605b35611ab2849af46d0cf7831aefdcf85be07",
   "scoped_imports": [
-    {"path": "skills/nature-shared/core/discussion-argument-language.md", "kind": "verbatim_reference"},
-    {"path": "skills/nature-academic-search/scripts/format-converter.py", "kind": "retry_zero_patch"}
+    {
+      "path": "skills/nature-shared/core/discussion-argument-language.md",
+      "kind": "verbatim_reference"
+    },
+    {
+      "path": "skills/nature-academic-search/scripts/format-converter.py",
+      "kind": "retry_zero_patch"
+    }
   ],
   "note": "Scoped imports are not an upgrade of the whole suite. Preserve local language, thesis, science and delivery adaptations. Historical upstream hint returned 404 during the public-source audit; no pristine base is assumed.",
   "skills": {
     "nature-academic-search": "skills/nature-academic-search",
-    "nature-citation": "skills/nature-citation",
     "nature-data": "skills/nature-data",
     "nature-downloader": "skills/nature-downloader",
     "nature-figure": "skills/nature-figure",
     "nature-image2ppt": "skills/nature-image2ppt",
     "nature-literature-pipeline": "skills/nature-literature-pipeline",
-    "nature-paper-card": "skills/nature-paper-card",
     "nature-paper2ppt": "skills/nature-paper2ppt",
     "nature-polishing": "skills/nature-polishing",
     "nature-reader": "skills/nature-reader",
-    "nature-ref-verifier": "skills/nature-ref-verifier",
     "nature-response": "skills/nature-response",
     "nature-reviewer": "skills/nature-reviewer",
     "nature-shared": "skills/nature-shared",
     "nature-statistics": "skills/nature-statistics",
     "nature-writing": "skills/nature-writing",
-    "researchwrite": "skills/nature-proposal-writer"
+    "nature-proposal-writer": "skills/nature-proposal-writer"
+  },
+  "merged_resource_provenance": {
+    "nature-citation": {
+      "upstream_path": "skills/nature-citation",
+      "local_path": "skills/nature-academic-search/references/cns-citation",
+      "status": "locally_merged_resource_not_a_standalone_watch_target"
+    },
+    "nature-ref-verifier": {
+      "upstream_path": "skills/nature-ref-verifier",
+      "local_path": "skills/nature-academic-search/references/reference-verification",
+      "status": "locally_merged_resource_not_a_standalone_watch_target"
+    },
+    "nature-paper-card": {
+      "upstream_path": "skills/nature-paper-card",
+      "local_path": "skills/nature-reader/references/paper-card",
+      "status": "locally_merged_resource_not_a_standalone_watch_target"
+    }
   }
 }

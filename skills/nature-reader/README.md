@@ -4,7 +4,14 @@
 
 `nature-reader` 用于把论文 PDF、DOI、arXiv、出版社 HTML 或粘贴文本转换为可回溯的全文 Markdown 阅读材料，包含中英对照、图表定位、可直接阅读的公式和 source map。
 
-## 适合用它做什么
+## 按交付深度选择
+
+单篇精读、中文解释性阅读笔记或文献卡片使用
+[paper-card 模式](references/paper-card/guide.md)，不先做全文翻译；其产物保留
+问题、方法、实验与主张的对应以及来源定位。明确要求全文翻译、中英对照或完整
+reader 时才使用下列全文路径，两种模式只在同时要求两项交付时一起加载。
+
+## 全文 reader 适合用它做什么
 
 - 制作论文全文中英对照 Markdown。
 - 在首次实质性讨论处插入对应图表和图注翻译。
@@ -26,7 +33,7 @@
 - 输出目录和是否需要图片裁剪。
 - 是否保留英文原文、中文翻译、图表、表格和翻译备注。
 
-## 产出
+## 全文 reader 产出
 
 - `paper.md`：全文阅读材料。
 - `source_map.json`：页码、文本块和图表来源映射。
@@ -44,4 +51,4 @@
 
 - `nature-downloader`：先合法获取 PDF 或 HTML 全文。
 - `nature-paper2ppt`：把阅读材料转成中文汇报 PPT。
-- `nature-citation`：从阅读材料中抽取需要引用支撑的 claim。
+- `nature-academic-search`：从阅读材料中抽取需要引用支撑的 claim。

@@ -15,7 +15,7 @@
    - PMID → `pubmed_fetch_articles`
    - arXiv ID → `search_arxiv`
    - Title + first author → `pubmed_search_articles` or `search_crossref`
-3. **Compare** retrieved metadata vs. document metadata (title, journal, year).
+3. **Compare** retrieved metadata vs. document metadata (title, authors/order, journal, year, volume/issue, pages or article number, DOI). Load [field-level verification](../reference-verification/guide.md) for batch discrepancies, mismatched DOI/title, early-access changes or correction requests. Reuse these lookup records; do not repeat the search as a second owner pass.
 4. **Classify** into: `verified` | `mismatch` | `not_found` | `suspicious` | `manual_needed`.
    See [Citation Parser: Classification Labels](../citation-parser.md#classification-labels) for criteria.
 5. **Generate report:**

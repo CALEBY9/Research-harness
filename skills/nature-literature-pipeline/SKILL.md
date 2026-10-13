@@ -7,12 +7,14 @@ metadata:
   author: Jiahao8595
   hermes:
     tags: [research, literature, pipeline, cron, automation, discovery]
-    related_skills: [nature-academic-search, nature-citation, arxiv, zotero]
+    related_skills: [nature-academic-search, arxiv, zotero]
 ---
 
 # Nature Literature Pipeline
 
-A complete, production-tested automated literature pipeline. Not just "search for papers" — it's a structured engine that scores, classifies, reads, delivers, and archives research papers daily.
+A recurring literature workflow for scoring, reading, delivery and archival.
+Confirm the available sources, scheduler and authorized delivery target for the
+actual task; this instruction file does not certify a running local pipeline.
 
 ## What It Does
 
@@ -48,7 +50,8 @@ After installing, tell your agent:
 My research area is [X], keywords: [Y], deliver to [feishu group name], archive to [path]
 ```
 
-The agent will configure keywords, delivery target, and archive path automatically.
+Prepare the requested configuration. Activate scheduling, delivery or persistent
+archive writes only within the explicit authorization described below.
 
 Then set up a daily cron job:
 
@@ -94,8 +97,7 @@ A config template is provided in `templates/literature-push-template.md`.
 
 ## Related Skills
 
-- `nature-academic-search` — ad-hoc literature search (complementary; this skill adds structured daily automation)
-- `nature-citation` — CNS citation export (for importing pipeline discoveries into manuscripts)
+- `nature-academic-search` — ad-hoc search and citation/export modes; use its CNS mode only when that source restriction was requested
 - `zotero` — library management (for long-term organization of pipeline outputs)
 - `arxiv` — arXiv API (used as a search source)
 

@@ -6,12 +6,12 @@ checks, or results supported entirely by the author's own data.
 
 ## Current owners and continuation
 
-`literature_kb` selects the registered corpus/run and returns locatable
+`nature-literature-kb` selects the registered corpus/run and returns locatable
 candidates. `research-agent` coordinates retrieval and source reading;
 `nature-writing` owns substantive synthesis and manuscript drafting,
 including checking the original passages that support its claims. Use
-`nature-paper-card` when a paper needs a full deep read or a Paper Card, not
-automatically for every citation. Use `lit_synthesis` for an actual systematic
+`nature-reader` when a paper needs a full deep read or a Paper Card, not
+automatically for every citation. Use `nature-literature-synthesis` for an actual systematic
 review, meta-analysis or formal synthesis task.
 
 A request to write from the corpus authorizes this bounded retrieval-to-writing

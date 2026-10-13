@@ -23,7 +23,7 @@ class NatureUpstreamTests(unittest.TestCase):
         (self.root / "docs").mkdir(parents=True)
         self.mappings = {"nature-writing": "skills/nature-writing",
                          "nature-shared": "skills/nature-shared",
-                         "researchwrite": "skills/nature-proposal-writer"}
+                         "nature-proposal-writer": "skills/nature-proposal-writer"}
         (self.root / "docs/nature_upstream.json").write_text(json.dumps(
             {"skills": self.mappings, "scoped_import_commit": "1" * 40,
              "watch_initial_commit": "1" * 40}), encoding="utf-8")
@@ -128,11 +128,11 @@ class NatureUpstreamTests(unittest.TestCase):
         repo, _, new = self.upstream_fixture()
         target = self.base / "review"
         with patch.object(updater, "UPSTREAM", str(repo)):
-            result = updater.prepare(target, new, ["researchwrite"], root=self.root)
+            result = updater.prepare(target, new, ["nature-proposal-writer"], root=self.root)
         self.assertIsNone(result["base_commit"])
-        self.assertTrue((target / "upstream_skills/researchwrite/SKILL.md").is_file())
-        self.assertFalse((target / "upstream_skills/nature-proposal-writer").exists())
-        self.assertEqual(result["selected_skills"], ["researchwrite", "nature-shared"])
+        self.assertTrue((target / "upstream_skills/nature-proposal-writer/SKILL.md").is_file())
+        self.assertFalse((target / "upstream_skills/researchwrite").exists())
+        self.assertEqual(result["selected_skills"], ["nature-proposal-writer", "nature-shared"])
 
     def test_unavailable_base_fails_without_success_record(self):
         repo, _, new = self.upstream_fixture()

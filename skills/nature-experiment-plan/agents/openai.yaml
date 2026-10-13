@@ -1,0 +1,4 @@
+interface:
+  display_name: "实验与分析计划 · Nature Experiment Plan"
+  short_description: "Plan comparisons, controls and decisive evidence"
+  default_prompt: "请用 $nature-experiment-plan 为已选定的问题或假设制定实验、分析、对照和验证计划。"

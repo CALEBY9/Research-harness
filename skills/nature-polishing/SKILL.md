@@ -1,6 +1,6 @@
 ---
 name: nature-polishing
-description: Polish, translate, or shorten existing Chinese or English academic prose within its established argument and evidence. Use for 论文润色、同论证学术改写、SCI语言编辑、Results压缩; use nature-writing for argument or section restructuring and paper_format for layout-only work.
+description: Polish, translate, or shorten existing Chinese or English academic prose within its established argument and evidence. Use for 论文润色、同论证学术改写、SCI语言编辑、Results压缩; use nature-writing for argument or section restructuring and nature-paper-format for layout-only work.
 ---
 
 # Nature-Style Academic Polishing — Router
@@ -11,6 +11,21 @@ This skill is split into two layers:
 - A **dynamic layer** (this file plus `manifest.yaml`) that detects the request's axes and loads only the fragments needed for the current job.
 
 Do not try to apply the polishing logic from memory or from this router. Always load fragments from disk as described below.
+
+## Targeted rhetorical repair
+
+For supplied prose that sounds apologetic, repeatedly qualified or written as
+a work log, load [anti-defensive repair](references/anti-defensive-writing/guide.md).
+Retain scientific uncertainty, adverse evidence, causal limits and author-owned
+claims. This polishing mode is conditional on that problem, not a mandatory
+additional pass. Supplied author prose is already sufficient input; do not
+launch drafting before repairing it. Within LANGUAGE_ONLY, use only repairs
+that preserve the locked modality, paragraph roles and order. Sentence
+reconstruction may use the bounded route when authorized. Changing claim
+strength, modality, paragraph roles or order requires the writing owner and
+the applicable author/evidence decision; otherwise preserve the affected
+wording and report the conflict. Do not run a second polishing
+pass merely because this reference was loaded.
 
 ## Fast-path preflight
 
@@ -29,13 +44,15 @@ If it matches, detect only the requested output language, load only the files
 listed by that fast path plus the matching language fragment, apply the
 Language-only contract below, and return the clean prose. Do not detect or
 announce the other axes, and do not load `always_load`, paper-type, section,
-journal, evidence-authority, or on-demand resources. Naming the passage as an
+journal, evidence-authority, or unrelated on-demand resources. The targeted
+anti-defensive guide may be loaded for that requested or observed rhetorical
+problem without loading the other axes. Naming the passage as an
 Abstract or Introduction does not by itself disable this fast path.
 
 Use the normal route for target-journal language/style conformity, word-limit
 work, same-argument compression, whole-manuscript consistency, or a versioned
 artifact edit within this boundary. Argument/evidence changes go to
-`nature-writing`; layout-only changes go to `paper_format`.
+`nature-writing`; layout-only changes go to `nature-paper-format`.
 
 ## Routing protocol
 
@@ -45,7 +62,8 @@ Follow these five steps when the fast-path preflight does not apply.
 
 Read [manifest.yaml](manifest.yaml). It declares the axes (`paper_type`, `section`, `language`, `journal`), the allowed values, and the file paths each value maps to.
 
-Also read every file listed under `always_load`. These hold the default stance, failure-mode diagnosis, ethics, and output format that apply to every polish job.
+Read every file listed under `always_load` only for this normal polishing
+branch. The fast path has its own load list and does not inherit these files.
 
 ### 2. Detect the axis values for this request
 
@@ -104,9 +122,8 @@ unchanged. Classify it internally as `LANGUAGE_ONLY`.
 - Return clean prose only. Report a genuine contradiction or meaning-changing
   ambiguity separately instead of silently editing the scientific claim.
 
-Use the fuller route below only when the user requests same-argument compression,
-a whole-manuscript consistency pass, or an
-actual versioned-artifact mutation that needs authority checks.
+The remaining on-demand guidance applies only to the normal route selected
+in preflight. A completed fast-path request returns without continuing into it.
 
 For Results, full-main-text compression, main-versus-SI allocation, or prose
 added during revision, load `../nature-shared/core/main-text-discipline.md`
@@ -161,7 +178,7 @@ Return clean prose as the deliverable. Keep rationale, before/after mapping,
 and claim-disposition notes separate unless the user explicitly asks for them.
 
 **Layout/typesetting (排版) requests are different.** If the user asks to fix
-*placement* rather than wording, route to `paper_format` without loading the prose
+*placement* rather than wording, route to `nature-paper-format` without loading the prose
 axes. The retained `references/latex-layout.md` is a technical resource for that
 owner, not a second layout workflow. Changes to a figure's scientific composition
 remain with `nature-figure`. Compile and inspect rendered pages for actual layout

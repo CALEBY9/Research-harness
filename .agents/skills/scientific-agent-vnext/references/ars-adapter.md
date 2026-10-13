@@ -4,7 +4,7 @@
 
 ## 可选写作配置
 
-`bundled-candidate` 使用本包原创方法，不声称加载 ARS。`ars-local` 读取现有本地 `ars-academic-writing` 的实际入口及本次任务需要的参考文件，保持基线来源可辨认。`ars-upstream-slice` 读取固定版本 ARS-Codex 的写作内容，跳过其全流程编排、自动委派、阶段目录规定、自动更新及全局配置。
+`bundled-candidate` 使用本包原创方法，不声称加载 ARS。`ars-local` 读取项目绑定中明确指定的 `local_baseline_entry` 及本次任务需要的参考文件，按 `local_baseline_kind` 区分实际安装与版本化参考，不猜测已移出的安装路径。`ars-upstream-slice` 读取固定版本 ARS-Codex 的写作内容，跳过其全流程编排、自动委派、阶段目录规定、自动更新及全局配置。
 
 用户的当前科研边界与本任务权限优先。上游的证据核查、作者主张控制、文献来源及学术诚信约束应当保留。任何必要适配写入一次简短差异记录，不能一边移除上游约束，一边报告为“完整上游原样运行”。
 

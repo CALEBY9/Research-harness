@@ -46,7 +46,7 @@ Use `PLAN_ARTIFACT_DRIFT` for stale or conflicting plans. Do not patch prose fir
 | Mode | Use when | Required route |
 |---|---|---|
 | `LOCAL_PATCH` | The scientific story and evidence are stable; only named spans need correction. | `paper_revision -> scoped owner skill -> paper_review verification` |
-| `EVIDENCE_SYNC` | New or corrected evidence changes admitted facts, numbers, boundaries, figures, or limited claim wording without changing the paper's central story. | update claim/evidence ledger and plan -> revise affected locations only -> `paper_review` / `evidence_audit` |
+| `EVIDENCE_SYNC` | New or corrected evidence changes admitted facts, numbers, boundaries, figures, or limited claim wording without changing the paper's central story. | update claim/evidence ledger and plan -> revise affected locations only -> `paper_review` / `nature-evidence-audit` |
 | `STORY_REBASE` | The dominant claim, paragraph architecture, section order, or information economy is weak; incremental editing would preserve accumulated bloat. | `paper_outline` rebuilds the story contract from the fact base -> `paper_write` regenerates only authorized surfaces -> `paper_review` |
 | `TARGET_PROFILE_REBASE` | The exact journal/article type changed while science remains stable. | existing `submit_guide -> paper_outline TARGET_PROFILE_REBASE` route |
 
@@ -84,7 +84,7 @@ Use `ABSTRACT_CATALOGUE_FAILURE` when the abstract is a list of independent meth
 - A version-named output path is immutable. If it already exists, return `VERSION_PATH_COLLISION`; create a new version path or explicitly enter a controlled overwrite workflow with backup and revalidation.
 - Bind review and QA claims to the exact artifact hash. If a reviewed or QA-bound artifact hash changes, return `POST_QA_ARTIFACT_DRIFT` and invalidate the old verdict.
 - Never call a later filename the better or canonical version merely because its number or modification time is newer.
-- For DOCX or multi-version deliverables, hand off to `paper_format` for lifecycle separation, output index/version ledger, save/reopen, rendering, and final delivery QA.
+- For DOCX or multi-version deliverables, hand off to `nature-paper-format` for lifecycle separation, output index/version ledger, save/reopen, rendering, and final delivery QA.
 
 ## 7. Verification before handoff
 

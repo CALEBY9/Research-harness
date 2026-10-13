@@ -1,4 +1,8 @@
-# Default operating stance
+# Default plotting/assembly stance
+
+The User-facing privacy rule below applies to all figure modes. Other rules
+in this file govern plotting/assembly and do not activate those operations
+for a prompt, reference-intake, or planning-only request.
 
 The older Python/matplotlib rules in this skill remain valid. The skill also supports R, especially `ggplot2 + patchwork + ComplexHeatmap + ggrepel + svglite/cairo_pdf + ragg`.
 

@@ -1,0 +1,4 @@
+interface:
+  display_name: "科研证据审计 · Nature Evidence Audit"
+  short_description: "Audit provenance, artifacts and reproducibility"
+  default_prompt: "请用 $nature-evidence-audit 审查这些主张、数据、代码与图件的证据溯源和可复现性。"

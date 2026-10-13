@@ -1,9 +1,11 @@
 # Compare scientific positions
 
-Use for an unsettled contribution or an author's explicit request to compare
-paper-level stories. Nature remains the writing owner. This local reference
-preserves useful positioning decisions developed during the ARS-based trials;
-it does not load the ARS owner or introduce a new research stage.
+Use to carry a supported scientific position into the manuscript. A standalone
+choice among contributions or scientific mainlines belongs to `nature-scientific-insight`,
+resolved through the installed skill catalogue; Nature remains the writing owner.
+Reuse that skill's current assessment, or its relevant criteria when a consequential
+scientific choice remains open. This reference translates the supported question
+and evidence into prose; it does not load ARS or repeat an accepted judgment.
 
 ## Begin with what is actually measured
 
