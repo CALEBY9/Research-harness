@@ -9,6 +9,7 @@ import logging
 import os
 from pathlib import Path, PurePosixPath
 import re
+import stat
 import subprocess
 import time
 
@@ -91,14 +92,22 @@ def snapshot(cache, revision, selected, mappings):
     return files
 
 
+def is_source_link(path):
+    """Reject symlinks and Windows junctions on Python 3.10 and later."""
+    metadata = path.lstat()
+    return (stat.S_ISLNK(metadata.st_mode) or
+            (os.name == "nt" and
+             metadata.st_reparse_tag == stat.IO_REPARSE_TAG_MOUNT_POINT))
+
+
 def local_snapshot(root, selected):
     files = {}
     for name in selected:
         directory = root / "skills" / name
-        if directory.is_symlink() or directory.is_junction():
+        if is_source_link(directory):
             raise ValueError("Local skill directory is a link: " + name)
         for path in directory.rglob("*"):
-            if path.is_symlink() or path.is_junction():
+            if is_source_link(path):
                 raise ValueError("Local source contains a link: " + name)
             if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc":
                 files[path.relative_to(root / "skills").as_posix()] = path.read_bytes()

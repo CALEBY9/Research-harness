@@ -2,6 +2,7 @@
 import importlib.util
 from datetime import datetime, timedelta, timezone
 import json
+import os
 from pathlib import Path
 import subprocess
 import tempfile
@@ -95,6 +96,22 @@ class NatureUpstreamTests(unittest.TestCase):
                 updater.prepare(target, self.sha, ["nature-writing"], root=self.root)
         self.assertFalse((self.root / "skills/review").exists())
         self.assertFalse((self.base / ".agents").exists())
+
+    def test_local_directory_links_are_rejected(self):
+        outside = self.base / "outside"
+        outside.mkdir()
+        (outside / "SKILL.md").write_text("outside source", encoding="utf-8")
+        for relative, selected in [("linked-skill", "linked-skill"),
+                                   ("nature-writing/linked-reference", "nature-writing")]:
+            with self.subTest(relative=relative):
+                link = self.root / "skills" / relative
+                if os.name == "nt":
+                    subprocess.run(["cmd", "/c", "mklink", "/J", str(link), str(outside)],
+                                   capture_output=True, check=True)
+                else:
+                    link.symlink_to(outside, target_is_directory=True)
+                with self.assertRaisesRegex(ValueError, "link"):
+                    updater.local_snapshot(self.root, [selected])
 
     def test_moving_branch_and_unknown_skill_rejected_before_writing(self):
         target = self.base / "review"

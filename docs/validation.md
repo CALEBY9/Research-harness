@@ -7,7 +7,8 @@
 | 检查 | 实际结果 | 边界 |
 |---|---|---|
 | `python -X utf8 -B scripts/harness.py validate` | PASS；29 个启用技能，133 个 Python 文件可解析，59 条回归定义 | 含两个未执行的私有输入案例；模型执行数为 0 |
-| `python -X utf8 -B -m unittest discover -s tests` | 73 项全部通过，无跳过 | 包含原有工具测试和新增分发测试；不代表全部技能的真实任务行为通过 |
+| `python -X utf8 -B -m unittest discover -s tests` | 74 项全部通过，无跳过 | 包含原有工具测试和新增分发测试；不代表全部技能的真实任务行为通过 |
+| Python 3.10 上游更新脚本 | 19 项测试通过；实际 Windows junction 被拒绝 | 修复原有 `Path.is_junction` 的版本兼容性，保留链接边界 |
 | 隔离安装 CLI | 通过：源码副本、空白用户目录、Python `-I -S` 禁用第三方包；dry-run、install、check 与重复安装拒绝 | 不依赖作者配置、私有库或外部账户；没有启动 Codex 或调用模型 |
 | 安装集合 | 启用入口与清单一致；共享资源及许可齐全；旧 ARS 写作入口与 figures4papers 缺席 | 是文件集合与内容检查，不是外部服务验收 |
 | 受影响技能元信息 | Research Agent、文献库、图件三个技能检查通过 | 不证明输出质量提升 |
