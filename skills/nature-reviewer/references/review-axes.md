@@ -36,13 +36,13 @@
   - Is the summary logic accessible?
   - Does the manuscript rely on unexplained jargon, compressed context, or unclear field impact?
 
-## Weighting guidance for the three reports
+## Weighting guidance for explicitly requested multi-review reports
 
 - Assign these emphasis briefs before any reviewer receives the manuscript, and do not change them in response to another report.
 - `Reviewer 1` should usually foreground `technical soundness / technical failings`.
 - `Reviewer 2` should usually foreground `originality` plus `scientific importance / significance`.
 - `Reviewer 3` should usually foreground `interdisciplinary readership interest` plus `readability for nonspecialists`.
-- All three reviewers should still cover all axes briefly; the difference is weight, not scope omission.
+- In explicitly requested multi-review mode, each reviewer should still cover all axes briefly; the difference is weight, not scope omission.
 
 ## Missing-evidence handling
 

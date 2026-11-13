@@ -7,6 +7,11 @@ description: >
   the normal axes apply only when that fast path does not match.
 
 fast_paths:
+  academic_humanization:
+    detect: Requested academic humanization / 去AI味 / AI降重, including combined polishing.
+    load:
+      - references/academic-humanization/guide.md
+    return_after_mode: true
   language_only:
     detect: |
       The user supplied the passage and requests wording-level clarity,

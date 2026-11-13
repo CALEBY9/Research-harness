@@ -19,6 +19,11 @@ Canonical 5-type vocabulary used by both `nature-polishing` and `nature-writing`
 - If the manuscript proposes a procedure/model and reports comparisons → **algorithmic**.
 - If the manuscript proposes a measurement or protocol and reports validation → **methods**.
 - If the manuscript synthesizes prior literature without new primary data → **review**.
+- For quantitative literature analyses, systematic reviews or meta-analyses,
+  record the empirical design separately: corpus selection, new measurements,
+  uncertainty and inference need study-design guidance even when the article
+  type is review. Do not infer an algorithm/module structure from LLM use or
+  treat a colloquial "review" label as the whole writing design.
 - Otherwise → **research** (default).
 
 ## Notes on legacy vocab

@@ -35,7 +35,7 @@ Use the `Top-Journal Figure Learning Loop` when the user gradually supplies high
 Accept one or more of:
 
 - target journal or venue family;
-- shared corpus manifest: `D:\03_claude research\01_LLM-knowledge_base\NCS figureCorpus\02_index\REFERENCE_FIGURE_MANIFEST.csv`;
+- shared corpus manifest: `D:\03_Agent4Science\01_LLM-knowledge_base\research_wiki\figureCorpus\02_index\REFERENCE_FIGURE_MANIFEST.csv`;
 - `paper/figures/ncs_corpus/REFERENCE_FIGURE_MANIFEST.csv`;
 - `paper/figures/ncs_corpus/DESIGN_TOKEN_CARDS.md`;
 - `paper/figures/ncs_corpus/STYLE_TOKEN_LIBRARY.yml`;

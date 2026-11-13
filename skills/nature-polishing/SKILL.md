@@ -1,6 +1,6 @@
 ---
 name: nature-polishing
-description: Polish, translate, or shorten existing Chinese or English academic prose within its established argument and evidence. Use for 论文润色、同论证学术改写、SCI语言编辑、Results压缩; use nature-writing for argument or section restructuring and nature-paper-format for layout-only work.
+description: Polish, translate, or shorten existing Chinese or English academic prose within its established argument and evidence. Use for 论文润色、同论证学术改写、SCI语言编辑、Results压缩、学术去AI味 / AI降重; use nature-writing for argument or section restructuring and nature-paper-format for layout-only work.
 ---
 
 # Nature-Style Academic Polishing — Router
@@ -11,6 +11,19 @@ This skill is split into two layers:
 - A **dynamic layer** (this file plus `manifest.yaml`) that detects the request's axes and loads only the fragments needed for the current job.
 
 Do not try to apply the polishing logic from memory or from this router. Always load fragments from disk as described below.
+
+## Academic humanization mode
+
+For requested academic 去AI味 / AI降重, read
+[the academic humanization guide](references/academic-humanization/guide.md).
+Use this mode directly on an already polished text; do not run ordinary
+polishing first. For combined polishing and humanization, make one integrated
+edit and one final meaning comparison with the original. Load only language
+or section guidance needed for a specific unresolved issue; do not run the
+normal five-axis route merely because humanization was requested.
+Keep evidence, numbers, citations, terminology, negation, uncertainty, causal
+strength and paragraph functions. General Chinese prose uses `humanizer-zh`.
+Do not claim detector outcomes or upload drafts to external detectors.
 
 ## Targeted rhetorical repair
 

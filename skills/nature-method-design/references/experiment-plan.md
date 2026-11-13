@@ -1,60 +1,6 @@
----
-name: nature-experiment-plan
-description: Turn a refined proposal into a claim-driven experiment, data-analysis, baseline, evaluation, and figure roadmap.
----
+# Experiment-plan mode
 
-Use subagents only when the user explicitly requests delegation; otherwise perform role checks locally.
-
-# Experiment Plan — Claim-Driven, Paper-Oriented Validation
-
-Refine and concretize: **$ARGUMENTS**
-
-## Role in the Research Workflow
-
-`nature-experiment-plan` is the Planning-stage experiment and analysis roadmap skill. It converts a final proposal into the exact evidence package needed for `nature-data-analysis` (computation or completed-output interpretation) and `research-agent`.
-
-Complete the requested operation only. Use the corresponding owner for a needed handoff within the user's authorized scope; these skills are not a mandatory stage chain.
-
-## Goal
-
-Design a compact validation plan that tests:
-
-1. the method or analysis answers the anchored environmental question
-2. the dominant contribution is real and focused
-3. appropriate field comparators and alternative explanations are addressed
-4. cross-domain or frontier components are justified rather than decorative
-5. figures and tables needed for the paper are planned before execution
-
-## Constants
-
-- **OUTPUT_DIR = `refine-logs/`** — Default destination for experiment planning artifacts
-- **CLAIM_SCOPE** — Preserve the author-approved question groups; compactness is not permission to reduce them to two claims
-- **CORE_BLOCK_SCOPE** — Keep only blocks needed for the approved questions and their validity; do not impose a fixed count
-- **MAX_BASELINE_FAMILIES = 3** — For algorithm comparisons, prefer a few strong baselines over many weak ones
-- **DEFAULT_SEEDS = 3** — Use 3 seeds when stochastic variance matters and budget allows
-
-## Workflow
-
-### Phase 0: Load Proposal Context
-
-Read the most relevant existing files first if they exist:
-
-- `refine-logs/FINAL_PROPOSAL.md`
-- `refine-logs/REVIEW_SUMMARY.md`
-- `refine-logs/REFINEMENT_REPORT.md`
-- `idea.json`
-- `IDEA_REPORT.md`
-
-Extract:
-- problem anchor
-- dominant contribution
-- optional supporting contribution
-- critical reviewer concerns
-- data, compute, fieldwork, software, or timeline constraints
-- mature baselines and field standards
-- cross-domain or frontier component, if central
-
-If these files do not exist, derive the same information from the user's prompt.
+Read the shared constraints in `../SKILL.md` first. Start from the supplied question or existing method proposal; do not repeat method selection or an adequate data audit. Use the project's existing plan/manifest and load only relevant optional sections below.
 
 Identify the research design before selecting validation blocks. Use existing
 authoritative project documents over generic planning defaults:
@@ -69,19 +15,9 @@ For mixed designs, combine only the applicable requirements. Do not create a
 new experiment to fill a template slot. Failed or null comparisons may still
 answer the scientific question; plan their interpretation before seeing results.
 
-### Phase 1: Data Audit and Freeze the Paper Claims
+## Claims and missing inputs
 
-Before proposing experiments, confirm the data audit from `nature-method-design` or derive a compact one from the prompt. Check:
-- data structure and file organization
-- data quality, missingness, uncertainty, and bias
-- variable semantics, units, spatial/temporal scale, and coordinate systems
-- dependencies among datasets, preprocessing steps, models, and metadata
-- access, license, privacy, and reproducibility constraints
-- external database/API retrieval contract when the evidence depends on public or licensed endpoints: authoritative source, target entity/identifier, filters, endpoint or access route, pagination/count reconciliation, server-side versus local filters, access date, and failure warnings
-
-If the data cannot support the intended claim, stop with a data-gap checklist rather than planning experiments around unsupported assumptions.
-
-External database/API retrieval is an auditable data path, not a hidden default dependency. If the source, endpoint, key, license, or pagination semantics are unavailable, record the limitation and plan the next best verifiable data route instead of drawing conclusions from partial lookups.
+Reuse existing data/source audits and fill only gaps that affect the plan. External API retrieval contracts are needed only when that access path is part of the evidence.
 
 Then write down the claims that must be defended:
 
@@ -197,7 +133,9 @@ For each milestone, estimate:
 - risk and mitigation
 - expected output path
 
-### Phase 5: Write Outputs
+### Phase 5: Deliver the requested plan
+
+Reuse existing project documents. The following are optional templates and fallback paths, not a requirement to duplicate evidence ledgers or create a tracker for planning-only work.
 
 #### `refine-logs/EXPERIMENT_PLAN.md`
 

@@ -1,6 +1,50 @@
 # 源码维护、暂存与安装
 
+按作者要求新增独立的 `nature-decision`：源码在 `skills/nature-decision/`，
+本机安装在 `.agents/skills/nature-decision/`，可直接用于跨领域个人决策。
+Research Agent 的具体决策路由指向它；公开人物资料的新增蒸馏仍由
+`nature-scholar-distiller` 负责。历史数量不包含这一新入口。
+源码与安装文件已逐项核对，Codex 原生提示元数据可发现新技能；技能清单若有
+缓存，请刷新或新开会话。结构与发现检查不等于已验证决策建议质量。
+
+2026-10-28 按作者要求接入 `ai-skeptic`（AI怀疑者）：源码保存在
+`skills/ai-skeptic/`，Research Agent 按需调用它质疑 idea、手稿和交付作品。
+这是保留原标识的通用支持技能，本机沿用已安装的 `.codex/skills/ai-skeptic/`，
+不为接入新增第二份发现入口。其他研究技能的 `.agents/skills/` 安装安排保持不变；
+运行时从实际技能清单定位。它不替代科学取舍、正式审稿或写作 owner。
+
+2026-10-25 按作者要求选择性安装 ARS：新增一个 `academic-research-suite`
+入口，负责选题收敛、文献调研和初始研究/论文框架。它是依据固定上游来源
+适配的精选版，未安装完整套件、代理、hooks、模型路由或运行依赖。
+本机相关条目由 27 增至 28；旧 `ars-academic-writing` 仍不进入发现。
+精读、论文正文、图件、润色、投稿与返修保持 Nature 分工，详见
+[ARS 与 Nature 协作](ars_nature_workflow.md)。本段覆盖下方历史记录中
+“ARS 全部停用”的当前路由含义，不恢复其他已合并或退役的入口。
+
+2026-10-23 本轮功能精简：29 个相关安装条目减为 27 个（含内部共享依赖）。
+`nature-experiment-plan` 已并入 `nature-method-design` 的 experiment-plan 模式；
+`academic-humanizer` 已并入 `nature-polishing` 的 academic-humanization 模式。
+旧目录移出技能发现范围，不留别名；正文、许可和例子保留在对应模式及本地恢复副本。
+模拟审稿默认单份报告；多份隔离审稿仅按明确请求使用。保留证据、权限及科学主张边界。
+以下较早日期的数量和分工只作历史记录，以本段及当前入口为准。
+
 ## 现有机器
+
+2026-10-23 按作者要求统一安装位置：Research Agent 的 29 个相关条目现均位于
+用户级 `C:/Users/Administrator/.agents/skills/`，共享依赖 `shared-references/`
+也位于该目录。原 `.codex/skills/` 中的 14 个相关技能已迁入，不保留重复安装
+或旧路径别名。维护源码仍在本仓库 `skills/`；工具后端、论文库和项目数据不迁移。
+以下带日期的双目录说明属于安装历史。
+EditaPlot 的本机安装器默认目标也已改为 `.agents/skills/editaplot`，显式
+`--target` 仍有效；计算后端继续使用原 `.codex/tools/editaplot/runtime`。
+
+2026-10-14 按作者最终用途精简：移除独立英文通用 humanizer，保留
+humanizer-zh 与 academic-humanizer。SCI 稿件润色后直接使用 academic-humanizer，
+不重复 nature-polishing。中文通用文本仍使用 humanizer-zh。
+源码在 `skills/academic-humanizer/`，本机安装现位于 `.agents/skills`；上游提交为
+`94b88b23703bed7df507acae7d6d5876209a0cdf`，保留 MIT LICENSE 与本地适配。
+组合“学术润色+AI降重”由 Research Agent 按需衔接，详见
+[任务路由](humanizer_task_routing.md)。现有未提交修改保留，没有自动发布。
 
 2026-09-08 初次导入采用 34 个实际已安装技能作为来源。Nature 源仓库的 HEAD 为
 `54144dcf6376b034716bd70edd40ad2cf407943e`，工作树存在本地增强，因此不能
@@ -41,7 +85,7 @@ owner 引用保持一致；不保留第二个公开别名。更名不等于已�
 它不是今后禁止修改技能的冻结门槛。`scripts/import_local_skills.py` 是
 一次性导入工具；目标已经存在时拒绝覆盖。正常维护使用文件 diff。
 
-原安装保持在本机既有技能目录。本仓库不复制全局 AGENTS、运行时配置、
+本机研究技能统一安装在用户级 `.agents/skills`。本仓库不复制全局 AGENTS、运行时配置、
 插件缓存、论文库、会话、项目状态或归档候选。
 
 ## Nature 上游审阅式更新
@@ -120,6 +164,10 @@ manifest 当前缺少本地中文及学位论文路径，旧原版基线也未�
 
 ## 通用隔离暂存
 
+Humanizer 的2026-10-12同步及后续更新边界见
+[Humanizer 上游同步](humanizer_upstream.md)。Nature 检查命令不覆盖 Humanizer，
+也不把本地适配技能视为可直接替换的上游包。
+
 下面命令需要指定一个尚不存在的目录，可选择单个技能，也可省略 `--skill`
 暂存全部技能。暂存仅方便审阅，不会替换任何当前安装。
 
@@ -142,12 +190,13 @@ python scripts/harness.py stage --target .\local_state\trial_skills --skill rese
    和真实科研判断质量分别报告，不用结构检查替代科研验证。
 
 Codex 当前官方文档支持仓库/用户级 `.agents/skills`，并说明同名技能不会
-自动合并。本快照源自混合的 `.agents/skills` 与历史 `.codex/skills` 安装。
+自动合并。本快照源自混合的 `.agents/skills` 与历史 `.codex/skills` 安装；
+本机现已将相关研究技能统一到 `.agents/skills`。
 不要把所有快照目录再放进已含同名技能的发现目录。
 [官方来源](https://learn.chatgpt.com/docs/build-skills)
 
-`humanizer:humanizer` 是本机现有 English Humanizer 的名称约定；部分旧 adapter
-含下划线。首版保留名称以避免破坏现有调用，不据此声称所有 Agent 都兼容。
+历史名称 `humanizer:humanizer` 对应的独立英文通用入口已于 2026-10-14 移除。
+当前 SCI 去AI味使用 academic-humanizer，不保留旧名称别名。
 
 ## 公开发布
 

@@ -65,7 +65,7 @@ association and simulated gains alone cannot identify a causal effect.
 Check data variables, units, scale, quality, access and mature baselines.
 Downgrade a candidate with no plausible data or discriminating test. A detailed
 method or experimental specification remains the task of `nature-method-design` or
-`nature-experiment-plan` when the user authorizes that deliverable.
+`nature-method-design` (experiment-plan mode) when the user authorizes that deliverable.
 
 ## 5. Critique and deliver
 

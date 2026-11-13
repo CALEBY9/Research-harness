@@ -1,4 +1,4 @@
 interface:
   display_name: "Research Agent"
-  short_description: "Source-grounded research and scientific synthesis."
-  default_prompt: "Use $research-agent to complete my research task from original literature, local knowledge and verified research evidence."
+  short_description: "ARS planning, Nature production and skeptical critique."
+  default_prompt: "Use $research-agent to complete my current research task, with ARS for planning, Nature for research production, and AI怀疑者 (ai-skeptic) for requested skeptical critique."

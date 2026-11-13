@@ -432,7 +432,7 @@ A model score is not a stopping rule or authorization for another paid call.
 [Honest unresolved issues]
 
 ## Next Steps
-- If supported and experiment planning is requested: hand off to `nature-experiment-plan`.
+- If supported and experiment planning is requested: continue in experiment-plan mode.
 - If revision is needed: address the specific defect within the current task.
 - If the scientific question must change: explain the evidence and return that choice to the author.
 ```
@@ -461,7 +461,7 @@ Remaining concerns:
 Review summary: refine-logs/REVIEW_SUMMARY.md
 Full report: refine-logs/REFINEMENT_REPORT.md
 Final proposal: refine-logs/FINAL_PROPOSAL.md
-Next step: deliver the proposal; use nature-experiment-plan only if planning is requested.
+Next step: deliver the proposal; use experiment-plan mode only if planning is requested.
 ```
 
 ### Checkpoint

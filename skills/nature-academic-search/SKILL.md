@@ -49,6 +49,13 @@ repeat a completed lookup as a second workflow. A local file conversion needs
 no remote verification unless it was requested or a specific error requires it.
 Keep routine workflow selection internal.
 
+For discovery and supporting citations in a topic covered by the author's local
+library, query `nature-literature-kb` first or reuse sufficient local original
+evidence already read. Extend externally for missing, newer, closest-prior or
+contrary evidence and required coverage. Direct metadata verification still uses
+the authoritative metadata source; conversions need no retrieval prerequisite.
+The preference for NCS/field-leading writing exemplars is not a citation filter.
+
 For supporting citations, derive queries from the actual claim and search the
 relevant discipline without a publisher-family filter. Return source-specific
 support or contradiction with the original locator, using the evidence boundary

@@ -21,8 +21,10 @@ description: Evaluate a research idea, phenomenon or claim to decide its scienti
 “Is this idea novel and publishable?”先判断实际贡献与证据，再按请求讨论发表定位。
 它可以出现在选题、设计或结果阶段，不要求先跑完整文献阅读流程。
 
-只要领域图谱或一批新假设，用 `nature-research-discovery`；已确认问题的实施方法或完整验证计划，
-用 `nature-method-design` 或 `nature-experiment-plan`；完整稿件的正式模拟审稿，用 `nature-reviewer`。
+领域图谱、宽泛选题与候选问题默认用 `academic-research-suite`；从已有环境观测、
+数据条件或先行研究发展过程假设及区分性验证时，自动用 `nature-research-discovery`。
+根据任务与材料识别领域和交付物，无需作者确认学科或指定技能。已确认问题的实施方法或完整验证计划，
+用 `nature-method-design` 的方法方案或 experiment-plan 模式；完整稿件的正式模拟审稿，用 `nature-reviewer`。
 同一任务可能借助这些能力，但以研究选择为交付物时由本技能负责结论。
 “洞察”不是额外创意数量、文献摘要或泛泛的专家意见。
 
@@ -59,8 +61,9 @@ description: Evaluate a research idea, phenomenon or claim to decide its scienti
 | 具体缺口 | 按需使用 |
 |---|---|
 | 原始文献、最近先行研究或检索覆盖不足 | `nature-academic-search`；本地已注册语料用 `nature-literature-kb`；关键单篇用 `nature-reader` 的 paper-card 模式 |
-| 需要发现新候选问题或建立领域图谱 | `nature-research-discovery` |
-| 需要形成可实施方法或实验计划 | `nature-method-design` 或 `nature-experiment-plan` |
+| 宽泛选题、候选问题或领域图谱 | `academic-research-suite`，复用已有调研 |
+| 从已有环境观测、数据条件或先行研究发展过程假设及区分性验证 | 自动使用 `nature-research-discovery`，不重复运行 ARS 发现 |
+| 需要形成可实施方法或实验计划 | `nature-method-design` 的相应模式 |
 | 结果尚未计算或尚未整理解释 | `nature-data-analysis`，按需选择计算或已完成结果解释模式 |
 | 数据、数字、代码或来源的可靠性存在具体疑问 | `nature-evidence-audit`；完整模拟审稿报告用 `nature-reviewer` |
 | 已获作者认可的判断需要转为正文或图件 | `nature-writing` 或 `nature-figure` |

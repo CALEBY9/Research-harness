@@ -1,4 +1,4 @@
 interface:
   display_name: "本地文献知识库 · Nature Literature KB"
-  short_description: "Query and maintain verified local paper corpora"
-  default_prompt: "请用 $nature-literature-kb 查询或维护与本次问题有关的已注册本地论文知识库。"
+  short_description: "Local-first evidence and published writing exemplars"
+  default_prompt: "请用 $nature-literature-kb 优先检索与本次研究或写作有关的本地原文，并按任务选择证据或已发表论文范例。"

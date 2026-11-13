@@ -17,7 +17,7 @@ Complete the requested operation only. Use the corresponding owner for a needed 
 
 Boundary:
 
-- `nature-experiment-plan` designs what evidence is needed.
+- `nature-method-design` (experiment-plan mode) designs what evidence is needed.
 - `nature-data-analysis` reads, checks, transforms, analyzes, visualizes, and reports the data.
 - Its completed-output mode interprets existing results as claim evidence, uncertainty, limitations and figure/table readiness without new computation.
 - `nature-evidence-audit` checks that data, scripts, commands, figures, tables, and claims are traceable and rerunnable.
@@ -261,7 +261,7 @@ Use explicit failure or return codes:
 - `ASSUMPTION_FAILED_NEEDS_ALTERNATIVE`
 - `RESULT_NOT_REPRODUCIBLE`
 - `CLAIM_INTERPRETATION_REQUIRED` — resolve within result-interpretation mode, without a self-handoff
-- `EXPERIMENT_PLAN_REQUIRED` — identify the design gap for `nature-experiment-plan`; do not launch a new stage automatically
+- `EXPERIMENT_PLAN_REQUIRED` — identify the design gap for `nature-method-design` (experiment-plan mode); do not launch a new stage automatically
 
 ## Key Rules
 

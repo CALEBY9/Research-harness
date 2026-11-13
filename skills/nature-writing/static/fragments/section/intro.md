@@ -34,6 +34,14 @@ Tell the user which variant you picked and why.
 
 - Do not summarize results in detail. The final paragraph states the contribution and approach, not the numbers.
 - Cite prior work to position, not to demonstrate breadth. Each citation should earn its place.
+- Check whether the literature base covers the foundations, major approaches,
+  existing syntheses, closest work and material limitations needed by this
+  question. A broad evidence-synthesis Introduction usually needs multiple
+  research strands; a few illustrative papers do not supply that coverage.
+  Respect explicit author/project source-count expectations, count distinct
+  works and inspect relevance and support. No fixed count is a universal rule.
+- Explain what a new comparison can change in understanding; adoption frequency
+  alone does not establish performance, causal mechanism or environmental value.
 - The transition from "what is known" to "what this paper does" must be explicit, not implied.
 - Define the gap as an unknown, disputed condition, mechanism, or boundary; do
   not define it as the absence of the author's method.

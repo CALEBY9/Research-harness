@@ -1,5 +1,24 @@
 # Research Agent 全部技能功能审查
 
+按作者要求，新增独立的 `nature-decision` 处理具体生活、学习、投资和跨领域
+资源决策，并内置有来源的专家视角；`nature-scholar-distiller` 继续负责提炼
+新的公开资料框架。纯科研价值、创新和主张判断默认仍归 `nature-scientific-insight`；
+明确要求名家视角的具体取舍使用 `nature-decision`。
+下列带日期的安装数量属于当时记录，不包含这一新入口。
+
+2026-10-25 按作者新要求启用 ARS 精选规划入口 `academic-research-suite`：
+找方向、文献调研与初始框架使用 ARS，论文生产使用 Nature；本机相关条目
+由 27 增至 28。原 ARS 写作、审稿、完整流水线与自动 runtime 不恢复。
+这是对下方历史“ARS 不恢复入口”的有限更新，其他功能精简结果保持。
+详见 [ARS 与 Nature 协作](ars_nature_workflow.md)。
+
+2026-10-23 本轮功能精简：29 个相关安装条目减为 27 个（含内部共享依赖）。
+`nature-experiment-plan` 已并入 `nature-method-design` 的 experiment-plan 模式；
+`academic-humanizer` 已并入 `nature-polishing` 的 academic-humanization 模式。
+旧目录移出技能发现范围，不留别名；正文、许可和例子保留在对应模式及本地恢复副本。
+模拟审稿默认单份报告；多份隔离审稿仅按明确请求使用。保留证据、权限及科学主张边界。
+以下较早日期的数量和分工只作历史记录，以本段及当前入口为准。
+
 2026-10-13 按作者要求审查更名后的本机技能，并实施精简。检查对象是维护源码、
 实际安装、技能触发描述、任务产物、共享引用和相关脚本；不是仅比较名称。
 共覆盖 37 个相关已安装条目：34 个仓库维护条目、2 个本机图件扩展、EditaPlot。
@@ -34,9 +53,10 @@ EditaPlot。28 个维护条目包含协调入口、25 个 Nature 条目及 2 个
 |---|---|---|
 | [research-agent](../skills/research-agent/SKILL.md) | 按用户交付物协调实际可用技能 | 公开协调入口；不重复实施各专业技能、不强制整条阶段链 |
 | [nature-scientific-insight](../skills/nature-scientific-insight/SKILL.md) | 研究价值、先行研究重合、残余贡献、解释与主张选择、下一步科学取舍 | 核心科研判断；作者保留方向和核心主张决定，未知与反证分开 |
+| [nature-decision](../skills/nature-decision/SKILL.md) | 用公开材料蒸馏出的视角辅助具体生活、学习、投资和跨领域资源取舍 | 独立调用；比较可行选项与风险，来源和推断分离，不代替专业人士或用户决定 |
 | [nature-research-discovery](../skills/nature-research-discovery/SKILL.md) | 建立领域地图、发现有来源的可检验候选问题 | 产物是新候选及比较；已有想法的独立价值判断使用核心技能 |
 | [nature-method-design](../skills/nature-method-design/SKILL.md) | 把作者选定的问题细化为数据可得、可实施的方法方案 | 方法选择与问题/数据约束；不自动进入完整实验或分析执行 |
-| [nature-experiment-plan](../skills/nature-experiment-plan/SKILL.md) | 已选问题的对照、基线、数据、实验/分析、验证及图表路线 | 完整执行计划不同于方法提案；不把计划写成已完成结果 |
+| [experiment-plan 模式](../skills/nature-method-design/references/experiment-plan.md) | `nature-method-design` 内的对照、基线、分析、验证及图表路线 | 按需模式，不另建入口、不重复方法选择和数据审计；计划不冒充结果 |
 | [nature-scholar-distiller](../skills/nature-scholar-distiller/SKILL.md) | 从学者公开原始研究提取可复核的研究判断框架 | 用户明确需要的专门产物；不代表学者本人或声称其授权认可 |
 | [nature-academic-search](../skills/nature-academic-search/SKILL.md) | 一次性文献检索、引用语境/严格他引、元数据核验和参考文献文件 | 合并一般检索、CNS 限制及字段核验；元数据正确不等于支持论文主张 |
 | [nature-downloader](../skills/nature-downloader/SKILL.md) | 合法获取全文、补充材料及机构访问路径 | 全文访问、权限与下载不同于理解内容；不保证每个服务当前可用 |
@@ -58,7 +78,7 @@ EditaPlot。28 个维护条目包含协调入口、25 个 Nature 条目及 2 个
 | [nature-paper2ppt](../skills/nature-paper2ppt/SKILL.md) | 从论文/阅读笔记编写完整学术汇报 PPT | 创建汇报故事与讲稿，区别于恢复已有图片幻灯片 |
 | [nature-image2ppt](../skills/nature-image2ppt/SKILL.md) | 截图、扫描或图片幻灯片恢复为对象级可编辑 PPT | 原版重建、对象可编辑性及渲染验收不同于新写演示文稿 |
 | [nature-shared](../skills/nature-shared/SKILL.md) | 科学证据、术语、写作与期刊的共享参考 | 现有多个技能的必需依赖；仅加载调用方明确需要的文件 |
-| [humanizer](../skills/humanizer/SKILL.md) | 一般英文表达的文风修订 | 独立通用工具，可用于非科研文字；不成为科研判断或写作默认 owner |
+| [academic-humanization 模式](../skills/nature-polishing/references/academic-humanization/guide.md) | `nature-polishing` 内的学术去AI味 | 按需模式，不另建入口；已润色稿直接进入，组合请求只做一次整合编辑与原文保真核对 |
 | [humanizer-zh](../skills/humanizer-zh/SKILL.md) | 一般中文文字的空话、重复和模板表达修订 | 独立中文通用工具，保留事实、确定程度和作者声音 |
 | EditaPlot（本机独立工具） | Origin/OriginPro 的对象级可编辑图表及其运行环境 | OPJU、Origin 实例与回读是具体工具能力；不与 figure 默认同时渲染同一图 |
 
@@ -102,7 +122,9 @@ EditaPlot。28 个维护条目包含协调入口、25 个 Nature 条目及 2 个
 
 ## 安装、来源与验证边界
 
-本机源码与安装同时维护；保留实际 `.codex/skills/` 与 `.agents/skills/` 根目录。
+本机源码与安装同时维护。2026-10-23 按作者要求，将 29 个相关已安装条目
+统一到 `.agents/skills/`，同时迁入 `shared-references/` 依赖；旧 `.codex/skills/`
+位置不保留重复技能或别名。技能功能和按需模式保持原有分工。
 8 个旧入口和 6 个对应源码目录移出发现范围，备份放在忽略的本轮维护记录中。
 不恢复旧 paper_* / Research workflow / ARS 默认入口，不改独立工具或私人后端。
 

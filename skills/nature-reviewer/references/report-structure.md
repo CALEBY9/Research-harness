@@ -1,5 +1,8 @@
 # Report structure
 
+> Multi-review details apply only when multiple reports were explicitly requested. Ordinary review follows the single-report format in `../SKILL.md`; do not require additional reviewers, isolation or synthesis for that mode.
+
+
 ## Contents
 
 - [Default output contract](#default-output-contract)
@@ -13,7 +16,7 @@
 
 ## Default output contract
 
-- The default output should contain these sections in order:
+- An explicitly requested multi-review package should contain these sections in order:
   1. `Review setup`
   2. `Reviewer 1`
   3. `Reviewer 2`

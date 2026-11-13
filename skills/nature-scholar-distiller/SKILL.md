@@ -1,6 +1,6 @@
 ---
 name: nature-scholar-distiller
-description: Distill public scholarship from leading researchers into evidence-constrained research judgment frameworks.
+description: Distill public scholarship and decision records into evidence-constrained research or practical decision frameworks.
 ---
 
 Use subagents only when the user explicitly requests delegation; otherwise perform role checks locally.
@@ -11,9 +11,9 @@ Distill public scholarship for: **$ARGUMENTS**
 
 ## Role in the Research Workflow
 
-`nature-scholar-distiller` turns public papers, reviews, perspectives, talks, lab pages, and verified bibliographic records into a constrained research-judgment framework. Use `research-agent` for missing literature, then return the requested judgment framework. Later idea screening, method design, writing, or review uses the matching Research Agent owner only when requested.
+`nature-scholar-distiller` turns public papers, reviews, perspectives, talks, lab pages, and verified public decision records into constrained research-judgment or practical decision frameworks. Use `research-agent` for missing sources, then return the requested framework. Later idea screening, method design, writing, review, or application to a concrete decision uses the matching owner only when requested; `nature-decision` applies relevant frameworks to life, learning, investment and cross-domain choices.
 
-Use it to improve how a research question is framed, tested, written, reviewed, and positioned for publication. Do not present the output as an authorized digital replica of any scholar.
+Use it to extract how public work frames, tests, writes, reviews or positions research, or to build a reusable decision framework from documented public material. Do not present the output as an authorized digital replica of any person.
 
 ## Scope
 
@@ -36,8 +36,27 @@ Distill judgment architecture, not surface style. Extract how scholars define ob
 - Never claim the scholar endorses, authored, or would personally agree with the output.
 - Phrase outputs as: "Based on recurring patterns in the public literature, this framework would examine..."
 - Do not infer stable judgment from a single paper.
+- Distinguish verified public actions or statements from a retrospective interpretation of why they occurred. Treat repeated retellings of one anecdote as one source, not independent evidence.
+- Attribute a recurring pattern only when it appears in at least two independent source contexts; prioritize primary records and retain contrary cases. Mark thinner evidence as a lead, not a rule.
 - Do not overstate publication probability or guarantee Nature-level suitability.
 - Separate `observed pattern`, `inferred tendency`, and `speculative extension`.
+
+## Optional Public Decision Framework
+
+Use this extension when the user asks to extract decision patterns from named public figures, scholars, historical actors, or a well-defined field. It is not a standing requirement for ordinary research tasks. For an actual life, learning, investment or cross-domain choice, use `nature-decision` and its bundled cards instead of re-distilling them by default.
+
+Build each reusable operator card with:
+
+- Scope and decision context where the pattern was observed
+- Observed pattern, with source locators
+- Inferred heuristic, explicitly labeled as interpretation
+- Triggering evidence, trade-offs, and any documented failure or counterexample
+- Questions that help the user inspect their own options
+- Confidence and transfer limits
+
+Do not call a checklist an objective function, a prompt a calibrated scoring model, or several model-generated personas independent experts. Add numeric weights, thresholds, or allocation percentages only when the user supplies a defensible basis or the sources establish one.
+
+The installed Research Agent is a skill-and-tool workflow, not a standalone decision engine. Use local literature retrieval only where it actually covers the question; do not promise a generic case-memory database, automatic access to personal context, dual RAG, or numeric multi-agent execution unless those capabilities are implemented and verified.
 
 ## Required Inputs
 
@@ -91,15 +110,16 @@ Use these as starting leads, not final authority. Verify publication records bef
 
 ### Step 1: Build the Public Corpus
 
-Collect and verify:
+For a research-scholar framework, collect and verify:
 
-- 5-15 core research papers
+- 5-15 core research papers when available
 - 2-5 reviews, perspectives, comments, or synthesis papers when available
-- Nature/Nature Portfolio or same-tier papers
 - lab pages, project pages, datasets, code, keynote/interview materials when relevant
 - critique, reply, or debate papers if they reveal boundaries
 
-Record source type and verification status. Do not fabricate DOI or bibliographic metadata.
+For a public decision framework, build a smaller, question-focused corpus from primary records where possible: authored books or essays, shareholder letters and filings, official talks or interviews, contemporaneous policy or project records, and original research. Use biographies and reputable reporting to find cases and counterevidence, not as sole proof of a private motive. There is no minimum source count when the public record is sparse; lower confidence instead.
+
+Record source type, date, author, verification status, and a usable locator. Do not fabricate DOI, bibliographic metadata, quotation, or attribution.
 
 ### Step 2: Extract the Eight-Layer Judgment Framework
 
@@ -116,7 +136,7 @@ For each candidate pattern, retain only if it appears in at least two independen
 | Boundaries | What claims or methods are rejected? | Avoid reviewer failure modes |
 | Trajectory | How has the agenda evolved over time? | Identify next-step research opportunities |
 
-### Step 3: Build the Research Mentor Modules
+### Step 3: Build the Reusable Framework
 
 Produce a compact framework with these modules:
 
@@ -162,6 +182,8 @@ When evaluating a user idea, proposal, abstract, manuscript, or response letter,
 - Overreach to avoid:
 - Prior work that may kill the claim:
 ```
+
+For a concrete non-research decision, hand the verified framework to `nature-decision` when application is requested; do not force this research-specific template onto a life, learning or investment question.
 
 ## Refusal Rules
 

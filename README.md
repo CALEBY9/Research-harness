@@ -9,9 +9,12 @@ Research Harness 是研究者主导的科研协作框架。它把问题筛选、
 Research Agent 在已授权范围内完成相应工作，并把需要选择的研究路线、缺失证据和
 可审阅产物交给研究者。已有数据、手稿或审稿意见也可以直接作为起点。
 
-当前公开入口是 [`research-agent`](skills/research-agent/SKILL.md)。仓库维护
-**29 个技能源码与共享参考目录**：28 个维护中的入口（含共享依赖），
-另有 ARS 仅为发现目录之外的版本化参考。功能精简结果见
+科研协调入口是 [`research-agent`](skills/research-agent/SKILL.md)。仓库维护
+**31 个技能与共享源码目录**，其中 30 个包含 `SKILL.md`，另有一个共享参考目录；
+旧 `ars-academic-writing` 是发现目录之外的历史参考。ARS 精选入口
+`academic-research-suite` 负责找方向、做调研、搭研究与论文框架；Nature 负责
+精读、正文写作、出图、润色、投稿和返修。分工与用法见
+[ARS 与 Nature 协作](docs/ars_nature_workflow.md)。功能精简结果见
 [全部技能功能审查](docs/skill_function_audit.md)。
 科研流程技能统一采用 `nature-<capability>` 命名；更名对应关系见
 [技能命名](docs/skill_naming.md)。
@@ -19,6 +22,17 @@ Research Agent 在已授权范围内完成相应工作，并把需要选择的�
 Nature Skills 是默认写作底座，同时保留本地
 知识库、研究设计、数据分析和证据审计能力。其他专业可以复用通用科研能力；
 完整研究设计需要结合该专业的方法、数据条件和证据标准。
+
+独立的 [`nature-decision`](skills/nature-decision/SKILL.md) 可直接帮助比较生活、
+学习、投资、职业和科研资源选项，内置来自公开资料的跨领域人物决策卡。它呈现
+可追溯的启发、适用条件和风险，而不模仿名人或保证结果；纯科研价值与创新判断
+默认仍使用 `nature-scientific-insight`，明确要求名家视角时使用决策技能。例如：
+“调用 nature-decision，帮我比较
+继续当前课题与转向新课题的时间成本、风险和下一步。”被问到“某某会怎么做”时，
+它说明该人物的公开做法对你的选项意味着什么，并标出依据和把握程度，不预测其私下
+选择；卡片之外的人物只做有限的公开资料核对。购房等大额承诺只用你提供的数字核算
+月供负担和剩余现金，并列出仍需核实的贷款条件与当地规则。不自动读取私人财务文件、
+设置提醒或执行交易。
 
 ## 适合谁，哪些专业可以使用？
 
@@ -38,7 +52,10 @@ Nature Skills 是默认写作底座，同时保留本地
 | 生命科学、医学、化学与材料研究 | 文献检索、论文阅读、方法与结果表达、统计报告、图件和投稿材料 | 专业实验或研究方案、真实实验数据及相应报告要求 |
 | 社会科学、管理学及人文研究 | 文献与引文、研究计划、论证组织、语言编辑、格式与项目连续性 | 本领域理论、定量或定性方法、文章结构和目标刊物规范 |
 
-`nature-research-discovery`、`nature-method-design`、`nature-experiment-plan` 的现有研究设计默认围绕环境科学。
+Research Agent 根据任务与材料自动识别领域和选择技能，无需手动确认学科或技能。
+宽泛选题、调研和初始框架默认使用 ARS；从已有环境观测、数据条件或先行研究
+发展过程假设及区分性验证时使用 `nature-research-discovery`，同一任务不重复发现。
+`nature-method-design` 的现有研究设计默认围绕环境科学。
 其他专业使用完整项目路径时，应提供领域问题、代表文献、成熟方法与验证标准，
 先检查这些默认假设是否适用。通用写作和润色可以直接使用；Nature 写作底座也可
 服务其他期刊，最终结构与提交材料按目标期刊调整。
@@ -74,12 +91,12 @@ Nature Skills 是默认写作底座，同时保留本地
 
 | 步骤 | 要做什么及完成标志 | 对应技能 |
 |---|---|---|
-| 1. 澄清模糊想法 | 明确感兴趣的现象、研究对象、尺度与资源约束，形成可检索的问题范围 | [nature-research-discovery](skills/nature-research-discovery/SKILL.md) |
-| 2. 检索领域与先行研究 | 多源检索、查询相关本地论文库，识别领域共识、最接近研究和证据缺口；保留来源及覆盖范围 | [nature-academic-search](skills/nature-academic-search/SKILL.md)、[nature-literature-kb](skills/nature-literature-kb/SKILL.md) |
+| 1. 澄清模糊想法 | 明确感兴趣的现象、研究对象、尺度与资源约束，形成可检索的问题范围 | [ARS 精选入口](skills/academic-research-suite/SKILL.md)（问题收敛） |
+| 2. 检索领域与先行研究 | 多源检索、查询相关本地论文库，识别领域共识、最接近研究和证据缺口；保留来源及覆盖范围 | [ARS 精选入口](skills/academic-research-suite/SKILL.md)（文献调研）；按需使用检索与本地库工具 |
 | 3. 获取全文并精读关键论文 | 合法取得全文，核查关键方法、结果与局限，形成有原文定位的证据卡；按请求提供完整或双语阅读 | [nature-downloader](skills/nature-downloader/SKILL.md)、[nature-reader](skills/nature-reader/SKILL.md) |
-| 4. 形成并筛选候选 idea | 根据文献提出少量可检验问题，比较科学价值、已有研究重合、剩余贡献、数据可行性与风险，给出推荐或重构建议 | [nature-research-discovery](skills/nature-research-discovery/SKILL.md)（候选组织）、[nature-scientific-insight](skills/nature-scientific-insight/SKILL.md)（核心判断标准） |
+| 4. 形成并筛选候选 idea | 根据文献提出少量可检验问题，比较科学价值、已有研究重合、剩余贡献、数据可行性与风险，给出推荐或重构建议 | [ARS 精选入口](skills/academic-research-suite/SKILL.md)（候选组织）；复用核心科学判断标准 |
 | 5. 确定研究问题与方向 | 研究者依据证据和建议选择方向，明确核心问题、假设或描述目标，以及保留和放弃的范围 | 研究者决定；[nature-scientific-insight](skills/nature-scientific-insight/SKILL.md)辅助取舍 |
-| 6. 设计方法与验证计划 | 比较成熟方法和竞争解释，确定数据需求、对照、基线、区分性观测与最小验证，形成可执行方案 | [nature-method-design](skills/nature-method-design/SKILL.md)、[nature-experiment-plan](skills/nature-experiment-plan/SKILL.md) |
+| 6. 设计方法与验证计划 | 比较成熟方法和竞争解释，确定数据需求、对照、基线、区分性观测与最小验证，形成可执行方案 | [nature-method-design](skills/nature-method-design/SKILL.md)、[experiment-plan 模式](skills/nature-method-design/references/experiment-plan.md) |
 | 7. 获取数据并执行分析 | 在可用访问和实验条件下整理数据、运行分析、检查误差与不确定性，保留负结果和可复现计算依据 | [nature-data-analysis](skills/nature-data-analysis/SKILL.md)；实际采样或实验由研究者及获授权工具完成 |
 | 8. 解释结果并确定科学主线 | 复用已完成计算，区分观测、解释和可支持主张，比较新增认识与竞争解释，由研究者决定核心主线 | [nature-data-analysis](skills/nature-data-analysis/SKILL.md)（结果解释）、[nature-scientific-insight](skills/nature-scientific-insight/SKILL.md)（科学取舍） |
 | 9. 组织图件并撰写论文 | 让关键图件、章节和引用共同支持已确认的主线，形成论文或学位论文章节；提纲与证据说明单独交付 | [nature-figure](skills/nature-figure/SKILL.md)、[nature-writing](skills/nature-writing/SKILL.md) |
@@ -92,18 +109,24 @@ Nature Skills 是默认写作底座，同时保留本地
 收窄或重构想法。没有搜到相同论文不能直接证明创新成立。步骤 4 的筛选可以在
 一份候选报告中完成；已有判断充分时直接复用。
 
+只需研究框架、初始论文大纲或论证骨架时使用 ARS 的 framework 模式；
+需要正文时使用 Nature，并复用已确认框架。正式方法与实验方案继续由
+`nature-method-design` 负责，不在框架阶段静默运行分析。
+
 `nature-scientific-insight` 是贯穿选题、设计和结果解释的核心判断支持。“核心”
 表示采用什么科学判断标准，执行顺序仍由当前问题、可用证据和研究者的选择决定。
 
 其他交付按需要插入对应步骤：
 
+- 需要主动质疑 idea、手稿或交付作品时，使用 [AI怀疑者（ai-skeptic）](skills/ai-skeptic/SKILL.md)。例如：“调用 Research agent，让 AI怀疑者质疑这个 idea”。它给出有依据的反对理由、影响和解除质疑的条件，按需调用；科学取舍与正式审稿仍由对应技能负责。
 - 确定问题与设计后，需撰写开题报告、项目书或研究计划时，使用 [nature-proposal-writer](skills/nature-proposal-writer/SKILL.md)。
 - 做系统综述或元分析时，使用 [nature-literature-synthesis](skills/nature-literature-synthesis/SKILL.md)制定适用的检索、筛选与综合方案；按研究类型调整后续分析步骤。
 - 从学者公开研究提取判断框架时，使用 [nature-scholar-distiller](skills/nature-scholar-distiller/SKILL.md)；明确需要周期文献监测时，使用 [nature-literature-pipeline](skills/nature-literature-pipeline/SKILL.md)。
-- 需独立文风修订时，可使用 [humanizer-zh](skills/humanizer-zh/SKILL.md)或 [Humanizer](skills/humanizer/SKILL.md)；汇报材料用 [nature-paper2ppt](skills/nature-paper2ppt/SKILL.md)，已有图片幻灯片重建用 [nature-image2ppt](skills/nature-image2ppt/SKILL.md)。
+- SCI 稿件润色后去 AI 味使用 [nature-polishing 的 academic-humanization 模式](skills/nature-polishing/references/academic-humanization/guide.md)，复用已完成润色；中文通用文风修订可使用 [humanizer-zh](skills/humanizer-zh/SKILL.md)。汇报材料用 [nature-paper2ppt](skills/nature-paper2ppt/SKILL.md)，已有图片幻灯片重建用 [nature-image2ppt](skills/nature-image2ppt/SKILL.md)。
 
 Nature 技能按需使用 [nature-shared](skills/nature-shared/SKILL.md) 的共享参考，
-它承担参考支持。ARS 保留为停用的备选材料；本机独立 `scientific-agent-vnext`
+它承担参考支持。旧 ARS 写作适配保留为停用材料；新的 ARS 精选入口负责前期规划。
+本机独立 `scientific-agent-vnext`
 候选仅供明确选择的任务使用。默认写作使用 Nature，不自动混用其他写作体系。
 
 ## 从模糊 idea 到投稿级手稿

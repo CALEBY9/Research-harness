@@ -1,32 +1,36 @@
 # Output format (writing)
 
-Default output:
-
-1. `Draft:` — the requested prose.
-2. `Section outline:` — `3-7` compact bullets when the task involves a full section.
-3. `Assumptions or missing inputs:` — only material issues; do not pad with style nits.
-4. `Claim-evidence map:` — for major claims, in the form:
-   `Claim: ... | Evidence: ... | Status: supported / needs evidence / inferred`
-5. `Why this structure:` — `2-4` short bullets on the structural choices made.
-6. `To redirect me:` — one line inviting targeted feedback, e.g. "Name the paragraph or claim that is off and I will revise only that, keeping the rest." This sets up the targeted revision loop (workflow step 9) instead of a full rewrite.
+For manuscript or thesis prose, default to the requested clean text with its
+appropriate headings, citations, tables, and captions. The author need not say
+"prose only" to receive a clean manuscript.
 
 Use the requested output language. Chinese notes do not imply English output.
-Keep planning and verification notes separate from the clean manuscript. When
-the user requests prose only, return that prose and separately report only a
-material unresolved issue; do not append the routine outline or process blocks.
 
-For a journal Results or full-main-text restructuring task, also include a compact
-`Main-text discipline audit:` after the prose:
+Keep outlines, claim-evidence maps, structural rationale, change logs, and
+verification records outside the manuscript. Maintain records required by the
+loaded guidance separately; do not append routine process blocks to the prose.
+Deliver an outline, explanation, or audit when that is the requested task, or
+include it separately when the author asks for both prose and supporting notes.
+For file delivery, use a separate notes file when needed; for chat delivery,
+put necessary notes in a clearly separate section after the manuscript.
+
+Report material unresolved evidence, assumptions, or scientific choices in those
+notes even when only prose was requested. Do not invent support or silently
+hide a limitation to make the draft look complete. Hold only the affected prose
+when essential support is missing. Use an explicit placeholder such as
+`[Evidence needed: comparator group accuracy on test set X]` only in an
+author-requested scaffold, never in a clean manuscript presented as complete.
+
+For a requested Results or main-text restructuring audit, keep the separate
+record compact:
 
 - result allocation: core / necessary support / qualification / SI-bound detail
 - relocated, replaced, compressed, or deleted material
 - primary statistic retained in the main text and secondary analyses routed to SI
 - before/after word count for each revised subsection
 
-Return the full allocation and claim-repetition tables only when the manuscript
-is being comprehensively restructured or the user asks for the audit trail.
-
-If essential evidence or boundary is missing, do not invent. Write a placeholder such as `[Evidence needed: comparator group accuracy on test set X]` and list it under `Assumptions or missing inputs:`.
+Maintain the allocation and claim-repetition records needed for comprehensive
+restructuring, but return the full tables only when the author requests them.
 
 For `task=submission-package`, replace the default manuscript format with:
 
@@ -36,3 +40,6 @@ For `task=submission-package`, replace the default manuscript format with:
 4. `AUTHOR_INPUT_NEEDED:`
 5. `Cross-file consistency checks:`
 6. `Next actions:`
+
+Keep each letter or other submission-ready document under `Draft materials:`
+clean; readiness checks and author-action notes belong outside that document.
