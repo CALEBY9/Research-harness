@@ -20,6 +20,7 @@ the full ARS-Codex package or a claim of upstream behavioral equivalence.
 | `deep-research/agents/bibliography_agent.md` and `academic-paper/agents/literature_strategist_agent.md`: queries, search records and source curation | `literature-survey.md` |
 | `deep-research/agents/synthesis_agent.md`: thematic, narrative, framework and critical synthesis; conflicting evidence | `literature-survey.md` |
 | `deep-research/templates/literature_matrix_template.md`: source-by-theme evidence organization | `literature-survey.md` |
+| `deep-research/agents/timeline_extraction_agent.md`: temporal facts, date precision and citation version families | `literature-survey.md`, conditional timeline/version checks added 2026-11-13 |
 | `deep-research/agents/research_architect_agent.md`: question–method–data coherence | `framework-planning.md` |
 | `academic-paper/agents/structure_architect_agent.md` and `references/paper_structure_patterns.md`: evidence-to-section mapping and structure families | `framework-planning.md` |
 | `academic-paper/agents/argument_builder_agent.md`: claim–evidence–reasoning, counterarguments and logical progression | `framework-planning.md` |
@@ -42,8 +43,17 @@ automatic updates and optional runtime dependencies are not activated or bundled
 This adaptation does not weaken any existing project, source-integrity,
 privacy, permission or institutional approval requirements.
 
-Only one public ARS skill is installed: `academic-research-suite`. The older
-local `ars-academic-writing` source remains archived outside live discovery.
+The 2026-11-13 integration uses the same inspected snapshot, not a claim of
+coverage of the latest upstream. Temporal/version methods are condensed into
+the existing matrix; upstream sidecar schemas, phase gates and runtime are omitted.
+The author-requested reading/reflection, broad exploration, shortlist deep search
+and pilot-feedback workflow is a local coordination addition on 2026-11-13.
+Its model preferences come from the author, not from the pinned ARS source;
+no HERO or ARIS runtime is imported or claimed as installed.
+
+Only one ARS module is installed: `academic-research-suite`, coordinated by
+Research Agent. The redundant `ars-academic-writing` source was removed on
+2026-11-13; its attribution and adaptation history remain in Git history.
 The installed skill is not registered with an automatic upstream updater.
 Structural/discovery checks do not establish research quality, retrieval
 coverage, source-coding accuracy or productivity improvement.

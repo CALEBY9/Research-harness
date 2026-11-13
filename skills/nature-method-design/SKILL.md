@@ -22,6 +22,12 @@ use `nature-scientific-insight` criteria, reusing sufficient prior judgments.
 
 ## Shared constraints
 
+For model-assisted initial planning and refinement, use the plan-refiner roles in
+[the collaboration policy](../nature-shared/core/model-collaboration.md). Reuse
+the selected idea, source evidence and pilot results. Start with the decisive
+comparison and a minimal pilot; use its outcome to refine the larger plan.
+Additional models are optional support, not approval gates or proof of validity.
+
 - Recover the approved question, study design, units, scales, comparators and
   constraints from the project's authority documents. Preserve their scientific
   meaning; recommend material changes for the author to decide.

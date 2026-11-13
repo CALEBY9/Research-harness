@@ -11,6 +11,15 @@ Analyze research data from: **$ARGUMENTS**
 
 ## Role in the Research Workflow
 
+For experiment execution, follow the experiment-bridge roles in
+[the collaboration policy](../nature-shared/core/model-collaboration.md).
+Use the selected question, approved plan, data and compute budget. Run the
+smallest executable case and relevant baseline first, inspect actual outputs,
+then expand within scope. Keep model-written code and claimed execution separate.
+Return results and failures to the idea/plan owner; do not silently change the
+question, metric, split or interpretation to improve a benchmark. Benchmark
+optimization applies only where benchmark performance addresses the research goal.
+
 `nature-data-analysis` is the execution-stage data analysis skill. It turns raw, interim, or processed datasets into auditable analysis outputs: data audits, cleaning notes, exploratory summaries, statistical/model diagnostics, result tables, figures, scripts, and analysis reports.
 
 Complete the requested operation only. Use the corresponding owner for a needed handoff within the user's authorized scope; these skills are not a mandatory stage chain.

@@ -1,6 +1,11 @@
 # Minimal ARS writing adoption
 
-Current status, 2026-10-12: the author chose to restore Nature as the default
+Current status, 2026-11-13: the redundant ARS writing source directory has been
+removed. Its license and provenance remain in Git history; current selective
+planning methods and ownership are documented in [ARS coordination](ars_nature_workflow.md).
+The following dated adoption record is historical.
+
+Status on 2026-10-12: the author chose to restore Nature as the default
 writing foundation from this repository's `b5b8e08` snapshot. ARS source and
 local refinements are retained as an inactive alternative; the record below
 describes the earlier adoption and is not the current default routing policy.

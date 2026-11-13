@@ -46,8 +46,10 @@ def load_catalog(root=ROOT):
     if not active or active & inactive:
         raise ValueError("Catalog needs a nonempty active set, disjoint from inactive skills")
     discovered = {p.parent.name for p in (root / "skills").glob("*/SKILL.md")}
-    if discovered != active | inactive:
-        raise ValueError(f"Catalog/source mismatch: {sorted(discovered ^ (active | inactive))}")
+    # Retired names remain detectable even after their source directories are removed.
+    mismatch = (active - discovered) | (discovered - active - inactive)
+    if mismatch:
+        raise ValueError(f"Catalog/source mismatch: {sorted(mismatch)}")
     for name in catalog["shared"]:
         if not (root / "skills" / name).is_dir() or name in inactive:
             raise ValueError(f"Missing or inactive shared resource: {name}")

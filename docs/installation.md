@@ -27,6 +27,27 @@ Codex 支持用户目录 ~/.agents/skills 和项目内 .agents/skills。技能�
 
 ## 项目级或选择安装
 
+### 统一科研入口与模型分工
+
+日常只需调用 Research Agent 并说明当前科研任务。它协调选题、文献、设计、
+分析、图件、写作、投稿与返修；ARS、写作、润色等由它内部按需选择。
+内部模块仍可被宿主发现或直接调用，不要求用户分别操作这些模块。
+Research Agent 先按[协作规则](../skills/nature-shared/core/model-collaboration.md)确定用户已选定的分工。
+新安装未选择多模型方案时，直接用当前宿主完成任务，无需 Gemini/Claude/CPA。
+需要采用下述作者预设时，可在项目 AGENTS.md 或当前请求中明确“采用作者的阶段
+模型分工”，并沿用自己的已配置连接；安装本身不等于选择。作者本机已明确采用。
+在该预设下：
+普通写作、非拟投稿手稿的起草与润色可由 Codex 完成；拟投稿手稿（包括早期
+草稿）默认交 Gemini。Claude 按需负责高价值故事判断和大纲，Codex 也负责
+研究材料、技术推演、代码分析、图表实现与证据核对，中英文均适用。
+这是作者的资源与写作偏好，其他使用者按自己的项目设置与可用模型选择；
+未选择多模型分工时可用当前宿主，不要求三家订阅或 CPA。
+当前作者通过 CPA 反代使用 Gemini 网页额度，后续接入优先复用其现有配置。
+安装器不会配置 CPA、连接账户或获得额度；提供接入说明不代表连接已验证。
+已指定 Gemini 的拟投稿任务缺少获授权的可用连接时提供任务包；普通写作仍可直接完成。
+
+### 安装范围
+
 例如只在你自己的项目目录中使用：
 
 ~~~powershell
@@ -45,7 +66,7 @@ python -X utf8 -B scripts/harness.py check --target ../my-research/.agents/skill
 
 选择安装会同时带上 nature-shared、shared-references 和许可文件。仅安装 research-agent 路由器不会自动安装其全部专业技能；需要完整研究工作流时使用默认安装。
 
-[skills/catalog.json](../skills/catalog.json) 是启用目录的唯一分发清单。ars-academic-writing 是停用参考，安装器拒绝选择它。figures4papers 的未确认许可素材不分发。安装不包含本仓库 .agents 中的 OpenSpec 集成和实验候选，也不会启用历史写作链。
+[skills/catalog.json](../skills/catalog.json) 是启用目录的唯一分发清单。ars-academic-writing 的源码已删除，停用名称仍用于拒绝选择安装及识别旧安装残留；inactive 名称不要求有对应源码目录。figures4papers 的未确认许可素材不分发。安装不包含本仓库 .agents 中的 OpenSpec 集成和实验候选，也不会启用历史写作链。
 
 ## 没有作者的知识库也能使用
 

@@ -1,9 +1,42 @@
 ---
 name: research-agent
-description: Coordinate research with ARS for topic scoping, literature surveys and frameworks, Nature skills for reading, manuscript production and submission, and ai-skeptic for requested skeptical critique. Use for 调用 Research agent, research tasks and owner handoffs; nature-decision supports cross-domain life, learning, investment and resource choices, while nature-scientific-insight handles standalone scientific judgments by default.
+description: Coordinate common research tasks from question development and literature through methods, analysis, figures, manuscripts and revision. Use for 调用 Research agent and research tasks; select internal skills and model roles without requiring users to choose modules.
 ---
 
 # Research Agent
+
+## One Research Agent for the research lifecycle
+
+Research Agent is the user's single coordinating entry for topic discovery,
+literature work, research design, coding and analysis, interpretation, figures,
+manuscript production, submission and revision. Start from the user's current
+question or materials; do not force every task through every stage.
+
+ARS, writing, polishing and the other skills below are internal capabilities.
+Select and read them as needed without asking the user to choose skill names
+or restart the request. Keep responsibility for the requested final outcome,
+carry forward accepted evidence and decisions, and continue independent work
+when one dependency is unavailable. A module handoff is not task completion.
+
+Read [the collaboration policy](../nature-shared/core/model-collaboration.md)
+when coordinating this workflow; reuse the applicable sections during the task.
+Resolve the user's selected allocation before assigning models. Installation alone
+does not select the author's multi-model preset; unconfigured users can complete
+authorized work with the current host. For the author-selected preset, Gemini
+writes submission-intended prose, Claude provides scarce high-value story support,
+and Codex can write ordinary/non-submission text and perform research and tool work.
+Use the author's configured CPA only when available and authorized; do not assume
+that connection or its quota has been verified.
+
+Apply this allocation before downstream instructions to draft or polish.
+For idea discovery, plan refinement, experiment execution and figure production,
+use the stage roles in that same policy. Keep broad exploration, focused evidence
+checks and small pilots connected through the existing owners, with pilot results
+feeding back into selection and planning. Stage labels are not extra entrypoints.
+Pass the relevant task, evidence, model role and return criteria to internal
+modules. Honor an explicit user override; never silently substitute a prose
+author or claim an external model was called without actual execution.
+
 
 Complete the user's current research task with the smallest sufficient set of
 sources and tools. At the author's 2026-10-25 request, the selective ARS skill
@@ -11,7 +44,7 @@ sources and tools. At the author's 2026-10-25 request, the selective ARS skill
 research/paper frameworks. Nature Skills owns single-paper reading, manuscript
 prose, figures, polishing, submission and reviewer responses; its locally enhanced
 writing foundation remains based on the published Harness snapshot `b5b8e08`.
-The old `ars-academic-writing` remains archived and is not a live writing owner.
+The redundant `ars-academic-writing` source was removed; Git history retains it.
 Do not restore skill_evolve_workflow or the retired Research workflow / paper_*
 owner chain.
 

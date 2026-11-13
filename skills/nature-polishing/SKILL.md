@@ -5,6 +5,21 @@ description: Polish, translate, or shorten existing Chinese or English academic 
 
 # Nature-Style Academic Polishing — Router
 
+## Internal Research Agent capability
+
+Within Research Agent, this skill is an internal task module, not another
+user-facing starting point. Reuse the task, evidence and model allocation
+already selected by Research Agent; return the result or a concrete blocking
+dependency to that coordinator without asking the user to select another skill.
+When invoked directly, apply [the same collaboration policy](../nature-shared/core/model-collaboration.md).
+Resolve the user's selected allocation in that policy; installing this skill does
+not require external models. Without a chosen multi-model allocation, the current
+host completes the requested work. Under the author's selected preset, Gemini writes
+submission-intended prose, Codex can write ordinary/non-submission text, and Claude
+is optional high-value story support. Preserve that preset when a connection is
+unavailable: prepare the affected handoff without claiming an external call.
+
+
 This skill is split into two layers:
 
 - A **static layer** under `static/` that holds versioned, reusable content fragments (core principles, paper-type playbooks, per-section guidance, language-specific rules, per-journal style).

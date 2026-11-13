@@ -6,6 +6,19 @@ A researcher-led collection of skills for environmental and Earth sciences: wate
 
 Researchers retain control of scientific direction and central claims. The agent carries out authorized work while keeping source locations, uncertainties and contrary evidence visible.
 
+Use Research Agent as the single coordinating entry. ARS, writing, polishing and
+other skills are internal capabilities selected for the task; users need not
+operate them separately. The selected workflow moves from reading and reflection
+through broad exploration, focused evidence checks, pilots and plan refinement,
+then experiments, writing and figures; start wherever existing work permits.
+Model roles, connection requirements and validation limits are described in the
+[architecture guide](docs/architecture.md).
+
+The maintainer's multi-model allocation is opt-in: a fresh installation can use
+the current host without Gemini, Claude or CPA. To adopt that allocation, state
+it in your project instructions or request and supply your own configured access.
+The distribution contains coordination instructions, not an automatic model connector.
+
 ## Quick start
 
 You need Python 3.10+ and a Codex environment that supports local Agent Skills. The installer uses only the Python standard library. Model access comes from your own host environment.
@@ -45,7 +58,7 @@ Try the [self-contained example](examples/research_brief.md), which includes Eng
 | Optional corpus integration and literature monitoring | nature-literature-kb, nature-literature-pipeline |
 | Requested skeptical critique and sourced decision support | ai-skeptic, nature-decision, nature-scholar-distiller |
 
-The collection also includes Chinese general editing and shared references. The [catalog](skills/catalog.json) declares 29 active skill entry points. The archived ARS writing adapter is not installed. Skills are selected by deliverable; there is no mandatory end-to-end autonomous pipeline.
+The collection also includes Chinese general editing and shared references. The [catalog](skills/catalog.json) declares 29 active skill entry points. The redundant ARS writing adapter was removed from the source tree; its history and attribution remain in Git. Its retired name still prevents installation and identifies stale installations. Skills are selected by deliverable; there is no mandatory end-to-end autonomous pipeline.
 
 ## Optional dependencies
 

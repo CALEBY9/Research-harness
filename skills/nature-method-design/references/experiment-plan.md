@@ -17,6 +17,17 @@ answer the scientific question; plan their interpretation before seeing results.
 
 ## Claims and missing inputs
 
+Prioritize the smallest experiment that can distinguish the main explanation
+from its strongest relevant alternative or test a feasibility-critical premise.
+State what outcome would justify expansion, revision or stopping. Reuse completed
+pilots rather than prescribing another one for every planning request.
+
+Add hyperparameter sweeps, ablations and extra tables only when they resolve a
+specific claim, observed instability or a meaningful implementation choice.
+Do not inflate the plan to pre-empt every hypothetical reviewer concern. Keep
+necessary controls, leakage checks, uncertainty and adverse results. A negative
+pilot informs the idea; it is not a reason to tune until the preferred story appears.
+
 Reuse existing data/source audits and fill only gaps that affect the plan. External API retrieval contracts are needed only when that access path is part of the evidence.
 
 Then write down the claims that must be defended:

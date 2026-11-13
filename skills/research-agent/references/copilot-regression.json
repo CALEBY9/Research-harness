@@ -890,6 +890,6 @@
       "human_adjudication_required": false
     }
   ],
-  "migration_note": "2026-10-13 the scientific decision skill was renamed to nature-scientific-insight. On 2026-10-25 the author authorized selective academic-research-suite for topic discovery, literature surveys and initial frameworks; standalone scientific judgments, method design, formal review, reading and prose keep their Nature owners. Old ars-academic-writing remains archived. These maintenance definitions do not certify behavioral or scientific-quality gains.",
+  "migration_note": "2026-10-13 the scientific decision skill was renamed to nature-scientific-insight. On 2026-10-25 the author authorized selective academic-research-suite for topic discovery, literature surveys and initial frameworks; standalone scientific judgments, method design, formal review, reading and prose keep their Nature owners. Redundant ars-academic-writing source was removed on 2026-11-13; attribution remains in Git history. These maintenance definitions do not certify behavioral or scientific-quality gains.",
   "consolidation_note": "2026-10-13 eight duplicate entrypoints consolidated into existing owner modes; useful resources and author/evidence boundaries retained. Definitions remain maintenance-only, not executed behavioral evaluations."
 }

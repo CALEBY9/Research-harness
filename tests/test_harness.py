@@ -38,6 +38,11 @@ class HarnessTests(unittest.TestCase):
         path.write_text(json.dumps({"cases": [{"case_id": "bad", "expected_owner": "missing"}]}))
         self.assertIn("Missing route owner", " ".join(harness.validate(self.repo)["errors"]))
 
+    def test_missing_active_source_is_still_rejected(self):
+        (self.repo / "skills/research-agent/SKILL.md").unlink()
+        with self.assertRaisesRegex(ValueError, "Catalog/source mismatch"):
+            harness.load_catalog(self.repo)
+
     def test_secret_scan_reports_locator_without_secret(self):
         fake = "ghp_" + "X" * 36
         (self.repo / "example.txt").write_text(fake)
@@ -125,6 +130,23 @@ class HarnessTests(unittest.TestCase):
         result = harness.install(target, None, self.repo, dry_run=True)
         self.assertEqual(result["status"], "INSTALL_PLAN")
         self.assertFalse(target.parent.exists())
+
+    def test_removed_inactive_source_remains_rejected_and_detectable(self):
+        self.distribution_fixture()
+        retired = self.repo / "skills/retired-writing"
+        (retired / "SKILL.md").unlink()
+        retired.rmdir()
+        self.assertEqual(harness.validate(self.repo)["status"], "PASS")
+        target = self.base / "installed"
+        with self.assertRaisesRegex(ValueError, "inactive skill"):
+            harness.install(target, ["retired-writing"], self.repo)
+        harness.install(target, None, self.repo)
+        self.assertFalse((target / "retired-writing").exists())
+        (target / "retired-writing").mkdir()
+        (target / "retired-writing/SKILL.md").write_text("Old entry.\n", encoding="utf-8")
+        result = harness.check_installation(target, None, self.repo)
+        self.assertEqual(result["status"], "FAIL")
+        self.assertEqual(result["inactive_present"], ["retired-writing"])
 
     def test_explicit_install_preserves_unrelated_skills_and_checks_complete_package(self):
         self.distribution_fixture()

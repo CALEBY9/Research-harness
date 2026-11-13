@@ -2,6 +2,42 @@
 
 ## 研究者主导的协作
 
+作者当前优先尝试的科研路径是：阅读与感悟 → 广搜和候选展开 → 深搜筛选 →
+最小预实验 → 修订计划与正式实验 → Gemini 写稿、Codex 核对、按图件类型出图。
+预实验或正式实验若改变关键判断，回到候选或计划；已有成果可从任意位置接续。
+这不是四个公开入口，也不是每次任务必须跑完的阶段链。
+
+| 阶段 | 内部承接 | 当前作者的模型偏好与产物 |
+|---|---|---|
+| Idea discovery | academic-research-suite；已有环境观测驱动的假设用 nature-research-discovery | 6 Astra 与 Gemini 讨论，先广后深，形成有科学动机和最小检验的候选 |
+| Plan refiner | nature-method-design | 6 Astra 主导，按价值与额度邀请作者指定的 op 4.6；产出关键比较、预实验与继续/修订条件 |
+| Experiment bridge | nature-data-analysis，按需证据审计 | 6.1 sol、grok 4.7 等经济可靠的执行候选；实际代码、结果和失败回流到计划 |
+| Paper writing | nature-writing / nature-polishing | 拟投稿稿件 Gemini 直接主笔，Codex 核对科学含义；Claude 按需处理关键叙事 |
+| Figure production | nature-figure | 数据图使用真实数据；概念图可选作者提出的 GPT Image 2.5，核实实际工具后使用 |
+
+模型名称是用户偏好标签；提供方映射、可用性与额度须在执行时核实，尚未建立
+自动连接或测得质量收益。HERO 已确认为
+[HERO-Anti-OverDefense](https://github.com/wanshuiyin/HERO-Anti-OverDefense)，
+参考其规则，不安装额外计时器或交接技能；ARIS 的具体采用范围仍未确认。
+防过度防御采用具体取舍：只增加能回答科学问题或处理已见问题的实验，不用
+全套超参数扫描、消融或审查表填充计划。依据见
+[阶段分工](../skills/nature-shared/core/model-collaboration.md)。
+
+面向作者的统一科研入口是 Research Agent。写作、润色、ARS 与其他技能是
+内部能力模块，按任务调用并复用上下文；模块切换不要求用户重新选择入口。
+它覆盖选题、文献、方法、数据分析、结果解释、图件、写作、投稿和返修，允许
+从任意阶段开始，不默认运行所有阶段。模型分工由
+[统一协作规则](../skills/nature-shared/core/model-collaboration.md)约束。
+
+Research Agent 持续负责请求的最终成果。Codex 可执行科研推理与技术工作；
+普通写作与非拟投稿手稿可由 Codex 完成；拟投稿手稿默认由 Gemini 主笔，
+Claude 的稀缺额度用于关键故事和大纲。按实际用途分工，不按技能名强制模型。
+外部模型协作依赖实际可用且获授权的连接；仅保存指令不代表已实现自动调用。
+当前作者说明通过 CPA 反代使用 Gemini 网页额度；优先复用其已配置且获授权的
+连接。仅在连接不可用时准备人工交接材料，普通写作不受外部连接阻塞。
+其他使用者优先使用自己的分工；安装本身不选中作者预设，未配置多模型时由当前
+宿主完成任务。作者本机已明确选中该预设，无需采用者重复确认。
+
 你提出当前任务、指定材料和约束。Research Agent 选择一个主要 owner，按需使用
 检索、下载、证据审计、格式化等支持能力，在已授权范围内完成工作。
 必要的工具调用无需逐步询问；研究问题、实质方法取舍、主张或受保护产物发生

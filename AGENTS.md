@@ -45,8 +45,11 @@ Read `docs/architecture.md` and `.agent/NEXT.md` when resuming maintenance.
   justify targeted follow-up; independent costly runs still need authorization.
 - On 2026-10-12 the author explicitly requested restoring Nature Skills from
   the published `b5b8e08` snapshot as the writing foundation. After the author's
-  2026-10-13 duplicate-skill cleanup, the old ARS writing adaptation remains an
-  archived/versioned reference outside live discovery. On 2026-10-25 the author
+  2026-10-13 duplicate-skill cleanup, the old ARS writing adaptation became a
+  versioned reference outside live discovery. On 2026-11-13 the author approved
+  removing redundant ARS source only; that old writing directory is now removed,
+  with provenance retained in Git history. Nature capabilities are retained.
+  On 2026-10-25 the author
   authorized the separate selective ARS planning entry; do not restore the full
   suite or its writing/review/runtime chain. Keep skill_evolve_workflow retired. Verify affected
   behavior from actual tasks; structural checks do not certify writing quality. Do not enable

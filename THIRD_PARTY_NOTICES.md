@@ -11,11 +11,12 @@ unrestricted Apache-2.0 package. Review the selected components before reuse.
 
 ## ARS writing adaptation
 
-- `skills/ars-academic-writing/` is a local adaptation of selected argument,
+- The former `skills/ars-academic-writing/` was a local adaptation of selected argument,
   Introduction rhetoric and drafting guidance from academic-research-skills.
 - Upstream copyright (c) 2026 Cheng-I Wu; CC BY-NC 4.0, not Apache or MIT.
-- Commit, links, modifications, license and warranty notice are retained in
-  `skills/ars-academic-writing/references/provenance.md`.
+- Redundant source files were removed on 2026-11-13. Commit, links,
+  modifications, license and warranty notice remain in the
+  [historical provenance](https://github.com/CALEBY9/Research-harness/blob/d9fcb8cbf52f3a8e569d849c66bcf9ca5a17d4bc/skills/ars-academic-writing/references/provenance.md).
 - This is not the full suite or an upstream-endorsed installation.
 
 ## ARS selective research planning
@@ -31,7 +32,8 @@ unrestricted Apache-2.0 package. Review the selected components before reuse.
   changes are mapped in `references/provenance.md` under that skill.
 - Only the selective planning entry is active. Upstream writing/review/full
   pipeline workflows, scripts, hooks and optional runtime are not bundled or
-  activated; the earlier `ars-academic-writing` adaptation stays inactive.
+  activated; the earlier `ars-academic-writing` adaptation is removed from the
+  current tree and remains inactive.
 
 ## Nature Skills
 

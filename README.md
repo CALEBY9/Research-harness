@@ -6,6 +6,14 @@
 
 研究者决定科学方向和核心主张。Agent 在授权范围内完成检索、实现、验证与交付，保留原文定位、数据依据、不确定性和反证。
 
+日常只需调用 Research Agent 并提出科研任务。ARS、写作、润色等是内部能力模块，
+由它按需选择，用户无需分别操作。当前优先尝试“阅读感悟 → 广搜与候选展开 →
+深搜筛选 → 预实验与计划修订 → 正式实验 → 写作与出图”，允许按已有进展接续。
+阶段模型分工、CPA 等连接条件与验证范围见[统一协作说明](docs/architecture.md)。
+
+新安装默认可用当前宿主；作者的多模型分工需明确选用，不要求三家订阅或 CPA。
+仓库分发协作指令，不包含已接通的模型自动调用连接。
+
 ## 快速开始
 
 需要 Python 3.10+，以及能加载本地 Agent Skills 的 Codex 环境。安装脚本只使用 Python 标准库；模型访问由你自己的运行环境提供。
@@ -29,7 +37,7 @@ python -X utf8 -B scripts/harness.py check --target ~/.agents/skills
 
 ## 能做什么
 
-| 任务与交付物 | 主要技能 |
+| 任务与交付物 | 内部能力模块（按需选用） |
 |---|---|
 | 找方向、选题收敛、文献调研、初始研究或论文框架 | academic-research-suite（ARS 精选入口） |
 | 研究价值、创新性、核心主张与研究去留判断 | nature-scientific-insight |
@@ -60,7 +68,7 @@ python -X utf8 -B scripts/harness.py check --target ~/.agents/skills
 
 [分发目录清单](skills/catalog.json)明确列出 29 个启用技能，包括内部共享技能 nature-shared。默认还安装 shared-references，以及许可和来源说明。选择单个技能时，同样会带上共享资源。
 
-旧 ars-academic-writing 仅保留为历史参考，不进入默认或选择安装。未确认再分发许可的 figures4papers 参考文件不进入当前分发；本机保留文件不受影响，历史 Git 提交未改写。
+旧 ars-academic-writing 的重复源码已删除，Git 历史保留来源与追溯；停用名称仍用于拒绝安装和检查残留。未确认再分发许可的 figures4papers 参考文件不进入当前分发；本机保留文件不受影响，历史 Git 提交未改写。
 
 本仓库提供技能说明、参考资源和已有工具脚本。下列能力按需要另行配置：
 

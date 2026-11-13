@@ -10,6 +10,21 @@ metadata:
 
 # ARS — 选题、调研与框架精选版
 
+## Internal Research Agent capability
+
+Within Research Agent, this skill is an internal task module, not another
+user-facing starting point. Reuse the task, evidence and model allocation
+already selected by Research Agent; return the result or a concrete blocking
+dependency to that coordinator without asking the user to select another skill.
+When invoked directly, apply [the same collaboration policy](../nature-shared/core/model-collaboration.md).
+Resolve the user's selected allocation in that policy; installing this skill does
+not require external models. Without a chosen multi-model allocation, the current
+host completes the requested work. Under the author's selected preset, Gemini writes
+submission-intended prose, Codex can write ordinary/non-submission text, and Claude
+is optional high-value story support. Preserve that preset when a connection is
+unavailable: prepare the affected handoff without claiming an external call.
+
+
 这是 ARS 的本地选择性适配入口。只采用 `deep-research` 的问题收敛、检索与
 证据综合，以及 `academic-paper` 的结构与论证规划方法；来源、保留与省略
 范围见 [provenance.md](references/provenance.md)。它不是上游完整套件。
@@ -33,20 +48,11 @@ metadata:
 
 ## 与 Nature 的分工
 
-| 交付物 | 执行技能 |
-|---|---|
-| 单篇论文精读、Paper Card、全文翻译 | `nature-reader` |
-| 为现有主张补引用、核对 DOI 或参考文献、导出文献格式 | `nature-academic-search` |
-| 全文获取或已注册的本地文献库查询 | `nature-downloader` / `nature-literature-kb` |
-| 独立判断某个已给定想法的新颖性、价值或证据是否足够 | `nature-scientific-insight` |
-| 作者选定问题后的具体方法、实验、对照与验证计划 | `nature-method-design` 的相应模式 |
-| 正式系统综述的 protocol、筛选、编码、偏倚或 meta-analysis 方法 | `nature-literature-synthesis` |
-| 论文/学位论文正文、综述章节正文、已有稿件的实质论证重构 | `nature-writing` |
-| 真实数据计算、结果解释 | `nature-data-analysis` |
-| 科研图件设计、绘制、导出与审查 | `nature-figure` |
-| 学术润色、翻译、压缩、去AI味 | `nature-polishing` |
-| 首次投稿材料 / 模拟审稿 / 审稿回复 / 排版 | `nature-writing` / `nature-reviewer` / `nature-response` / `nature-paper-format` |
-| 开题报告、项目书或正式研究计划正文 | `nature-proposal-writer` |
+其他交付物沿用 [Research Agent 路由](../research-agent/SKILL.md)，此处不维护
+第二份完整技能表。探索性文献调研与初始框架由本模块负责；正式综述协议
+与筛选用 `nature-literature-synthesis`，完整方法与实验用 `nature-method-design`，
+正文与实质论证重构用 `nature-writing`。单篇精读、引用核对、图件、语言
+润色及投稿返修继续使用对应 Nature 能力。
 
 按用户已授权的交付物进入相应 Nature 技能，不因请求经过 ARS 就重复问许可。
 一次 ARS 规划不自动授权正文写作、数据计算或完整流水线。用户已明确要求
