@@ -78,11 +78,14 @@ python -X utf8 -B scripts/harness.py check --target ~/.agents/skills
 
 ~~~powershell
 python -X utf8 -B scripts/harness.py validate
+python -m pip install -r scripts/pdf_download/requirements.txt
 python -X utf8 -B -m unittest discover -s tests -v
 python -X utf8 -B scripts/harness.py doctor
 ~~~
 
 validate 检查源码结构、语法、启用清单和已知凭据模式；check 检查安装文件及共享资源；doctor 提示路径依赖和可选知识库绑定。它们不调用模型、不证明科研判断或论文质量。
+
+上述 pip 命令供下载后端测试使用，建议在独立 Python 环境运行；安装技能本身不需要这些包。
 
 [GitHub Actions](.github/workflows/validate.yml) 配置了 Windows、Linux、macOS 与 Python 3.10/3.13 的离线检查和安装测试。工作流配置不等于各平台已经通过；请以对应提交的 Actions 结果为准。维护测试中的可选外部工具缺失会明确跳过。
 

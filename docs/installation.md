@@ -78,7 +78,7 @@ python -X utf8 -B scripts/harness.py doctor
 | 文本规划、论文阅读、写作与润色 | 已能运行 Codex，并提供所需材料即可开始 |
 | 外部文献检索与全文 | 选择实际可用的服务；API 配置和机构登录由自己提供 |
 | 学术检索 MCP 后端 | 按 skills/nature-academic-search/mcp-server/requirements.txt 配置独立环境；install.sh 为历史 Claude Code 安装器，不用于本次 Codex 安装 |
-| PDF 下载 | 按 skills/nature-downloader/requirements.txt 和该技能说明配置；机构权限不由安装器提供 |
+| PDF 下载 | 技能工具按 skills/nature-downloader/requirements.txt 配置；仓库三层下载后端另用 scripts/pdf_download/requirements.txt；机构权限不由安装器提供 |
 | 图片恢复为 PPT | 按 skills/nature-image2ppt/requirements.txt 和技能说明配置；需要模型时沿用自己的服务 |
 | DOCX、PDF、PPT 与专业绘图 | 提供可用文档工具与相应依赖；Origin、Office、EditaPlot、Tabbit 需另行安装 |
 | 定期文献追踪与通知 | 用户明确选择后，单独配置服务和调度；不会随安装自动运行 |

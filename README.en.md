@@ -79,11 +79,14 @@ The installer intentionally has no overwrite option. `git pull` does not change 
 
 ```sh
 python -X utf8 -B scripts/harness.py validate
+python -m pip install -r scripts/pdf_download/requirements.txt
 python -X utf8 -B -m unittest discover -s tests -v
 python -X utf8 -B scripts/harness.py doctor
 ```
 
 `validate` checks source structure, syntax, distribution selection and known credential patterns. `check` verifies installed files and shared resources. Neither executes models or establishes scientific quality. Optional tool tests report skips explicitly.
+
+The pip command supplies the existing downloader's test dependencies; use a separate Python environment. Installing the skill collection itself does not require these packages.
 
 [CI](.github/workflows/validate.yml) is configured for Windows, Linux and macOS with Python 3.10 and 3.13. Consult the Actions run for the exact commit; a configured matrix is not a claim that every platform has passed. Host skill discovery and real research behavior require separate checks.
 

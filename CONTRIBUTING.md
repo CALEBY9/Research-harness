@@ -15,6 +15,7 @@
 ~~~powershell
 git switch -c improve/specific-problem
 python -X utf8 -B scripts/harness.py validate
+python -m pip install -r scripts/pdf_download/requirements.txt
 python -X utf8 -B -m unittest discover -s tests -v
 git diff --check
 ~~~
