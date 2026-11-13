@@ -50,6 +50,13 @@ class DistributionCLITests(unittest.TestCase):
             self.assertEqual(names, set(catalog["active"]))
             self.assertTrue((target / "shared-references/scripts/clean_final_scanner.py").is_file())
             self.assertTrue((target / "nature-shared/SKILL.md").is_file())
+            bridge_help = subprocess.run(
+                [sys.executable, "-I", "-S", "-B",
+                 str(target / "research-agent/scripts/model_bridge.py"), "--help"],
+                cwd=base, env=env, text=True, encoding="utf-8",
+                stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=30)
+            self.assertEqual(bridge_help.returncode, 0, bridge_help.stderr)
+            self.assertIn("--config", bridge_help.stdout)
             self.assertTrue((target / "NATURE_LICENSE").is_file())
             self.assertFalse((target / "ars-academic-writing").exists())
             self.assertFalse((target / "nature-figure/assets/figures4papers").exists())

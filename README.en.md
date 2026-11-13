@@ -17,7 +17,10 @@ Model roles, connection requirements and validation limits are described in the
 The maintainer's multi-model allocation is opt-in: a fresh installation can use
 the current host without Gemini, Claude or CPA. To adopt that allocation, state
 it in your project instructions or request and supply your own configured access.
-The distribution contains coordination instructions, not an automatic model connector.
+An optional [model bridge](skills/research-agent/references/model-bridge.md) sends
+actual evidence, saves the response and returns control to Research Agent for
+factual review and delivery. It requires your configured model endpoint and access;
+installation does not supply accounts or quota.
 
 ## Quick start
 

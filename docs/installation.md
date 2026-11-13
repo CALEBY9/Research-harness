@@ -46,6 +46,19 @@ Research Agent 先按[协作规则](../skills/nature-shared/core/model-collabora
 安装器不会配置 CPA、连接账户或获得额度；提供接入说明不代表连接已验证。
 已指定 Gemini 的拟投稿任务缺少获授权的可用连接时提供任务包；普通写作仍可直接完成。
 
+### 可选的模型调用桥接
+
+完整安装已包含 `research-agent/scripts/model_bridge.py`。按
+[连接说明与配置示例](../skills/research-agent/references/model-bridge.md)在本机建立
+`~/.config/research-agent/models.json`，然后先运行 `models` 查询实际模型，再用
+`call` 发送明确授权的材料。默认环境变量凭据方式只需 Python 标准库；可选的
+现有 CPA YAML 凭据读取复用当前 Python 中的 PyYAML，不复制密钥、不修改 CPA 配置。
+
+桥接每次只请求一个角色，Claude 不自动参与，失败不自动重试或换模型。
+返回 `AWAITING_HOST_REVIEW` 后，Research Agent 读取返回稿并继续事实核对和交付，
+用户不需要手工搬运文本。示例测试输入在 [model_writing](../examples/model_writing/evidence.md)，
+全部为模拟数据。该桥接支持 Chat Completions 接口；不宣称接通所有 API 格式或偏好型号。
+
 ### 安装范围
 
 例如只在你自己的项目目录中使用：

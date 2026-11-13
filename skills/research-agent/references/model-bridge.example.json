@@ -1,0 +1,15 @@
+{
+  "providers": {
+    "gateway": {
+      "base_url": "http://127.0.0.1:8883/v1",
+      "api_key_env": "RESEARCH_AGENT_API_KEY",
+      "timeout_seconds": 180
+    }
+  },
+  "roles": {
+    "writer": {"provider": "gateway", "model": "", "max_output_tokens": 4096},
+    "idea_peer": {"provider": "gateway", "model": "", "max_output_tokens": 2048},
+    "story": {"provider": "gateway", "model": "", "max_output_tokens": 2048},
+    "plan_peer": {"provider": "gateway", "model": "", "max_output_tokens": 2048}
+  }
+}

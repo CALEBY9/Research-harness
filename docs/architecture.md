@@ -16,9 +16,13 @@
 | Figure production | nature-figure | 数据图使用真实数据；概念图可选作者提出的 GPT Image 2.5，核实实际工具后使用 |
 
 模型名称是用户偏好标签；提供方映射、可用性与额度须在执行时核实，尚未建立
-自动连接或测得质量收益。HERO 已确认为
+所有偏好型号的可用连接或测得质量收益。可选
+[调用桥接](../skills/research-agent/references/model-bridge.md)使用已配置的
+OpenAI-compatible 服务，外部结果返回当前 Research Agent 后继续核对与交付。
+不另建三模型逐段投票或自动争论循环。HERO 已确认为
 [HERO-Anti-OverDefense](https://github.com/wanshuiyin/HERO-Anti-OverDefense)，
-参考其规则，不安装额外计时器或交接技能；ARIS 的具体采用范围仍未确认。
+参考其规则，不安装额外计时器或交接技能；ARIS 的 API 调用设计借鉴范围见
+[桥接来源说明](../skills/research-agent/references/model-bridge.md#来源与采用范围)。
 防过度防御采用具体取舍：只增加能回答科学问题或处理已见问题的实验，不用
 全套超参数扫描、消融或审查表填充计划。依据见
 [阶段分工](../skills/nature-shared/core/model-collaboration.md)。

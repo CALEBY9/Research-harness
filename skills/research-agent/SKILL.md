@@ -29,6 +29,11 @@ Use the author's configured CPA only when available and authorized; do not assum
 that connection or its quota has been verified.
 
 Apply this allocation before downstream instructions to draft or polish.
+When external model access is configured and needed, use
+[the model bridge](references/model-bridge.md) and its local configuration. Send
+actual evidence content, read the returned text, and continue the host's factual
+check and authorized file delivery. A successful API response is an intermediate
+result, not completion of the user's writing task.
 For idea discovery, plan refinement, experiment execution and figure production,
 use the stage roles in that same policy. Keep broad exploration, focused evidence
 checks and small pilots connected through the existing owners, with pilot results
