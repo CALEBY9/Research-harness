@@ -15,7 +15,10 @@ Use this sentence to clarify the article's contribution, not to replace the auth
 
 ## 1b. Build the Terminology Ledger
 
-On first contact with the material, extract the recurring terms, abbreviations, notation, and proper names into a Terminology Ledger before drafting any prose. Lock the canonical forms and reuse them across every section. See `../../../nature-shared/core/terminology-ledger.md`.
+Reuse the project's established terms. For multi-section consistency, observed
+drift or an explicit audit, maintain a compact Terminology Ledger in the existing
+working notes. A short passage needs only an internal check against source
+definitions. See `../../../nature-shared/core/terminology-ledger.md`.
 
 When the source is development documentation, record internal shorthand as
 source variants, not automatically as canonical manuscript terms. Resolve its
@@ -160,7 +163,8 @@ Sweep for `first`, `unique`, `unprecedented`, `comprehensive`, `complete`, `alwa
 ## 7. Check paragraph flow and manuscript meaning
 
 - One paragraph, one message.
-- The first sentence is the topic / claim.
+- Make the paragraph's purpose clear; a topic sentence is useful, but a needed
+  observation, comparison or transition may lead when it improves the argument.
 - Each subsequent sentence has an explicit relation to the previous one (cause, comparison, restriction, example).
 
 For full reverse-outlining, open `references/paragraph-flow.md`.
@@ -196,10 +200,16 @@ blocks to a prose request.
 
 ## 9. Revise by targeted edit, not full rewrite
 
-When the user reacts to a draft, "this is not what I meant" is usually local — a wrong claim, a mis-framed paragraph, the wrong result leading. Do not silently re-draft the whole section: a full rewrite breaks the paragraphs that were already right and forces the user to re-check everything.
+Infer the revision scope from the user's feedback. A local correction calls for
+a local edit; rejection of the overall premise or story may require the
+authorized section to be rebuilt. Preserve accepted passages where compatible
+with the requested change.
 
-- Change **only** the paragraphs or claims the user flagged; keep the rest verbatim.
-- If a requested fix genuinely forces a structural change (reordering sections, moving a claim across paragraphs), say so and confirm the new structure before applying it, rather than restructuring silently.
+- For a local request, change the affected passages and necessary dependencies
+  within scope; retain unrelated accepted prose.
+- When restructuring is already requested, execute it within the authorized
+  scope. Ask only if it requires an unresolved scientific decision or expansion
+  beyond that scope, not for routine paragraph-order choices.
 - Keep the Terminology Ledger (step 1b) stable across revisions unless the user changes a term; never let a revision reintroduce a variant of a locked term.
 - After revising, re-run only the checks relevant to what changed (steps 5-7), not the whole workflow.
 - If the user's redirection reveals the original premise was wrong, return to the confirmation gate (step 3b) instead of patching prose on a broken premise.

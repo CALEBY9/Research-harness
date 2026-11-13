@@ -168,7 +168,7 @@ support, not a competing writing owner. OpenScholar and PaperQA2 are design
 references, not installed runtimes or publication-quality certifications.
 
 For literature-dependent research, citation support and substantive manuscript
-writing, automatically consult the relevant local corpus through
+writing, when a local corpus is configured, automatically consult it through
 `nature-literature-kb` first. Infer the corpus from the topic and project
 pointers; the author need not say "use the knowledge base". Reuse sufficient
 local evidence already read for the same task. Extend discovery for missing,

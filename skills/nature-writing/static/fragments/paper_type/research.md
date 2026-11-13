@@ -6,11 +6,14 @@ A research paper answers: why this phenomenon matters, what was done, what was f
 
 `field-scale need -> unresolved bottleneck -> proposed move -> decisive evidence -> broader implication -> boundary`
 
-Before drafting, force the user's material into this chain. If one link is missing, mark it as missing rather than writing around it.
+Use this chain as a diagnostic when it fits the study, not a required template.
+Observational, descriptive, replication and null-result studies may need a
+different argument. Identify evidence gaps that affect the requested claims;
+do not manufacture a bottleneck, intervention or positive discovery to fill a slot.
 
 ## Drafting order
 
-For a research paper, draft in evidence-first order:
+For a new full paper with results available, one useful drafting order is:
 
 1. Results — write what was observed before anything else
 2. Introduction and Conclusion — frame around the actual results
@@ -20,7 +23,11 @@ For a research paper, draft in evidence-first order:
 6. Authors — order and contributions
 7. Abstract — last, distilled from the rest
 
-Do not draft Introduction before Results. The Introduction's job is to set up the gap that Results actually fills.
+Start with the section the user requested. An Introduction can be drafted from
+the established question, literature and study design before Results prose
+exists. Distinguish study aims from demonstrated findings; revisit alignment
+when results become available. Do not create an unsolicited Results section
+as a prerequisite.
 
 ## Hourglass structure
 
@@ -29,4 +36,5 @@ Strong research papers mirror an hourglass:
 - Introduction: broad → narrow to specific gap, question, hypothesis, methods
 - Discussion/Conclusion: narrow → broad, connecting findings back to the field
 
-If a draft violates this, rebuild architecture before drafting paragraphs.
+Use this as one possible architecture. Preserve a coherent author-approved
+structure; rebuild only when it fails the argument and restructuring is in scope.

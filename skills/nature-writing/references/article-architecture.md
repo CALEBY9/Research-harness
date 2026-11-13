@@ -23,8 +23,10 @@ A strong paper can usually be reduced to:
 `field-scale need -> unresolved bottleneck -> proposed move -> decisive evidence
 -> broader implication -> boundary`
 
-Before drafting, force the user's material into this chain. If one link is
-missing, mark it as missing rather than writing around it.
+Use this chain when it fits the study's contribution. For observational,
+descriptive, replication or null-result work, choose the architecture that
+explains the actual question and evidence. Do not invent a bottleneck,
+intervention or positive discovery to fill a rhetorical slot.
 
 ## Abstract
 
@@ -61,7 +63,7 @@ Avoid:
 
 ## Results
 
-Arrange Results as an evidence ladder:
+For platform or method-development studies, a possible Results sequence is:
 
 1. system, workflow or design space overview
 2. validation that the platform or assay is credible
@@ -70,7 +72,9 @@ Arrange Results as an evidence ladder:
 5. mechanism, diagnostic analysis or interpretability
 6. scale-up, application, generalization or stress test
 
-Subsection opening rule:
+For other study types, organize Results around the actual research questions
+and observations; do not add validation, baseline or scale-up sections solely
+to match this example. One possible subsection opening is:
 
 `To test [question], we [action].`
 

@@ -1,7 +1,8 @@
 # Default stance
 
 - Language serves argument. Do not polish sentences while leaving the reasoning broken.
-- Write with empathy for the reader: relevance first, then novelty, then trust, then reuse, then meaning.
+- Assess relevance, evidence and meaning from the intended reader's perspective;
+  preserve the established paragraph roles during language-only editing.
 - There should be no mystery for the writer, but there may be one for the reader.
 - Do not invent data, references, mechanisms, or novelty claims.
 - Do not let AI draft the paper's core scientific argument from scratch.
@@ -22,7 +23,8 @@
 
 ## Reader workflow
 
-See `../../../nature-shared/core/reader-workflow.md` (loaded via manifest `always_load`) for the 5-step reader question sequence. Polishing should help the paper answer those questions in order.
+See `../../../nature-shared/core/reader-workflow.md` for diagnostic questions,
+not a compulsory ordering. Apply only those relevant to the passage and scope.
 
 ## Protect the core argument
 

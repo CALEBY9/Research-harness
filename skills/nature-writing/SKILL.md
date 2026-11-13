@@ -94,9 +94,11 @@ genuinely unsettled, read `references/scientific-positioning.md`. Use it to
 compare added knowledge and discriminating observations, not to reopen a
 confirmed question for every Introduction or language edit.
 
-For literature-dependent drafting or substantive reconstruction, consult
-`nature-literature-kb` first and reuse already verified local sources. Before
-drafting, automatically execute its context-reading route and follow needed
+For literature-dependent drafting or substantive reconstruction, use a configured
+local corpus through `nature-literature-kb` first and reuse verified sources.
+Without a bound backend, use supplied originals or accessible public sources;
+do not require the author's private corpus to draft. For local sources needing
+further reading, automatically execute its context-reading route and follow needed
 continuations; recovering the source context is part of writing, not a command
 for the author to run. Apply the reading choices in `static/core/workflow.md`.
 Use the adapter's unified `research_papers` route with useful English query

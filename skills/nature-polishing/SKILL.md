@@ -62,9 +62,13 @@ anti-defensive guide may be loaded for that requested or observed rhetorical
 problem without loading the other axes. Naming the passage as an
 Abstract or Introduction does not by itself disable this fast path.
 
-Use the normal route for target-journal language/style conformity, word-limit
-work, same-argument compression, whole-manuscript consistency, or a versioned
-artifact edit within this boundary. Argument/evidence changes go to
+Word-limit work and same-argument compression of a supplied passage can use
+the fast path when paragraph roles and evidence remain fixed. Verify the
+requested length with a counting tool. A file-backed edit adds the relevant
+artifact tool and checks; file storage alone does not require all style axes.
+Use the normal route for target-journal style conformity, whole-manuscript
+consistency or editing that needs section-specific guidance within this boundary.
+Argument/evidence changes go to
 `nature-writing`; layout-only changes go to `nature-paper-format`.
 
 ## Routing protocol

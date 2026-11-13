@@ -17,6 +17,8 @@ fast_paths:
       The user supplied the passage and requests wording-level clarity,
       concision, fluency, proofreading, or same-argument language polishing.
       Argument, evidence, claim strength, and paragraph order remain fixed.
+      This includes a word limit or same-argument compression of a supplied
+      passage when those constraints can be preserved; verify the length.
     load:
       - static/core/stance.md
       - static/core/output-format.md

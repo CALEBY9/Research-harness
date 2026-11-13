@@ -7,7 +7,9 @@
 
 ## Reader workflow
 
-See `../../../nature-shared/core/reader-workflow.md` (loaded via manifest `always_load`) for the 5-step reader question sequence. Draft and revise so the paper answers those questions in order.
+See `../../../nature-shared/core/reader-workflow.md` for reader-oriented
+diagnostic questions. Select their order and emphasis for the actual study
+and requested section; they are not a compulsory narrative template.
 
 ## Claim discipline
 
@@ -25,6 +27,6 @@ Identify before writing:
 - **evidence**: figures, measurements, comparisons, datasets, statistics, or examples
 - **boundary**: where the claim stops
 - **target journal or word limit** if provided
-- **terminology**: on first contact with the material, extract the recurring methods, models, datasets, metrics, abbreviations, and notation into a Terminology Ledger and reuse the canonical forms across every section (see `../../../nature-shared/core/terminology-ledger.md`)
+- **terminology**: reuse defined terms; maintain a Terminology Ledger for multi-section consistency, observed drift or an explicit audit. Short passages need an internal consistency check, not a new artifact (see `../../../nature-shared/core/terminology-ledger.md`).
 
 Apply the conditional confirmation gate in `workflow.md` (step 3b).
