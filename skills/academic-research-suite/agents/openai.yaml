@@ -1,0 +1,4 @@
+interface:
+  display_name: "ARS · 选题、调研与框架"
+  short_description: "ARS topic scoping, surveys and research frameworks"
+  default_prompt: "Use $academic-research-suite for source-grounded topic scoping, a literature survey, or a research and paper framework; use Nature skills for manuscript production."

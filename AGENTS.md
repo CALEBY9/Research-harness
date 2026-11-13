@@ -5,6 +5,10 @@ the imported, locally enhanced installation; it is not the live skill directory.
 Read `docs/architecture.md` and `.agent/NEXT.md` when resuming maintenance.
 
 - Edit the smallest owner of an observed failure. Keep `research-agent` a router.
+- On 2026-10-23 the author approved further consolidation: method proposals and
+  experiment plans use nature-method-design modes; academic humanization uses
+  nature-polishing mode. Do not restore the retired standalone entries. Ordinary
+  manuscript review produces one report; isolated multi-review requires a request.
 - On 2026-10-13 the author selected `nature-scientific-insight` as the core scientific
   decision skill. It owns evidence-grounded recommendations; discovery, design,
   result interpretation and Nature writing retain their task deliverables.
@@ -13,7 +17,11 @@ Read `docs/architecture.md` and `.agent/NEXT.md` when resuming maintenance.
   bilingual prose requirements, source authority and clean-final delivery.
 - Research workflow skills use `nature-<capability>` with lowercase hyphenated names.
   Keep `research-agent` as the public entry and preserve upstream identifiers for
-  independent general-purpose tools such as Humanizer and EditaPlot.
+  independent general-purpose tools such as Humanizer and EditaPlot. The author's
+  2026-10-25 selective ARS request also preserves `academic-research-suite` as its
+  single upstream-named entry: topic scoping, literature surveys and initial
+  research/paper frameworks use ARS; reading, prose, figures, polishing and
+  submission use Nature. See `docs/ars_nature_workflow.md`.
   Directory, frontmatter, invocation metadata and current owner references agree;
   see `docs/skill_naming.md`. Do not install duplicate legacy-name aliases.
 - On 2026-10-13 the author requested a full functional cleanup. Eight overlapping
@@ -37,8 +45,13 @@ Read `docs/architecture.md` and `.agent/NEXT.md` when resuming maintenance.
   justify targeted follow-up; independent costly runs still need authorization.
 - On 2026-10-12 the author explicitly requested restoring Nature Skills from
   the published `b5b8e08` snapshot as the writing foundation. After the author's
-  2026-10-13 duplicate-skill cleanup, preserve ARS only as archived/versioned
-  reference outside live skill discovery; keep skill_evolve_workflow retired. Verify affected
+  2026-10-13 duplicate-skill cleanup, the old ARS writing adaptation became a
+  versioned reference outside live discovery. On 2026-11-13 the author approved
+  removing redundant ARS source only; that old writing directory is now removed,
+  with provenance retained in Git history. Nature capabilities are retained.
+  On 2026-10-25 the author
+  authorized the separate selective ARS planning entry; do not restore the full
+  suite or its writing/review/runtime chain. Keep skill_evolve_workflow retired. Verify affected
   behavior from actual tasks; structural checks do not certify writing quality. Do not enable
   automatic self-editing, paid evaluations, schedules or subagents without explicit
   authorization. On 2026-10-12 the author authorized Nature upstream monitoring:

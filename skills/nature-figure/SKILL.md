@@ -18,6 +18,15 @@ Do not try to apply the figure logic from memory or from this router. Always loa
 
 ## Select the requested deliverable first
 
+For model/provider preferences, use the figure-production row in
+[the collaboration policy](../nature-shared/core/model-collaboration.md).
+Image generation may assist conceptual illustrations and graphical abstracts;
+quantitative plots and observed scientific imagery retain their real-data origin.
+Do not regenerate data marks, measurements or observed structures for visual polish.
+Judge readability, scientific accuracy and editability rather than promising
+reduced AI detectability. ARIS is a user-mentioned candidate workflow, not a
+verified installed dependency or an alternative public entrypoint.
+
 Choose the applicable branch before loading a plotting manifest or backend.
 Non-plotting branches finish with their requested output and return; the plotting
 protocol below does not apply to them. For an explicitly combined task, reuse

@@ -1,5 +1,8 @@
 # QA checklist
 
+> Multi-review details apply only when multiple reports were explicitly requested. Ordinary review follows the single-report format in `../SKILL.md`; do not require additional reviewers, isolation or synthesis for that mode.
+
+
 ## Reviewer-isolation checks
 
 - Reviewer emphasis briefs were fixed before any report was generated.
@@ -43,7 +46,7 @@
 
 ## Coverage checks
 
-- Confirm all three reviewer reports exist.
+- Confirm all explicitly requested reviewer reports exist.
 - Confirm all reviewers received the same source packet and criteria, with only their preassigned emphasis briefs differing; no invented identity or unequal evidence access explains their conclusions.
 - Confirm each reviewer still addresses all core axes, even if briefly.
 - Confirm each reviewer visibly contains both `Major Concerns` and `Minor Comments` sections.
@@ -70,7 +73,7 @@
 
 ## Consistency checks
 
-- Verifiable manuscript facts should stay consistent across all three reviewers even though their analyses were independent.
+- Verifiable manuscript facts should stay consistent across the requested reviewers even though their analyses were independent.
 - Divergence may reflect weighting or interpretation of the same evidence, not access to different or invented facts.
 - Technical failings listed in the synthesis should match issues already raised in at least one individual report.
 - Consensus issues were raised by at least two reviewer reports and map to the same underlying issue key.

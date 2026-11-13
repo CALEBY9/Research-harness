@@ -40,7 +40,7 @@ If the image source, article title, venue, year, or figure ID is unknown, mark i
 Canonical shared root and active manifest:
 
 ```text
-D:\03_claude research\01_LLM-knowledge_base\NCS figureCorpus\
+D:\03_Agent4Science\01_LLM-knowledge_base\research_wiki\figureCorpus\
 └── 02_index\REFERENCE_FIGURE_MANIFEST.csv
 ```
 
@@ -55,7 +55,7 @@ Before any shared write:
 Recommended staging layout:
 
 ```text
-NCS figureCorpus/qc/reference_intake/run_<timestamp>/
+figureCorpus/qc/reference_intake/run_<timestamp>/
 ├── raw_inputs/                 # only when the user's rights/local-use boundary permits a copy
 ├── candidate_figures/          # extracted or normalized candidates; not active corpus assets
 ├── INTAKE_MANIFEST.csv         # provenance, extraction, classification, rights, and review state

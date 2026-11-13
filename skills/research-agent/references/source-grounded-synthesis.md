@@ -39,8 +39,10 @@ the missing scientific premise separately; do not disguise it as finished prose.
 Before delivery, check that the original sources support the attached claims
 and that the literature motivation matches the author's results. Preserve
 the author's scope and the uncertainty needed to interpret the findings.
-There is no prescribed paragraph count, transition vocabulary, number of
-citations or mandatory rhetorical escalation. Keep source checks out of the
+Absent an explicit author/project requirement, there is no prescribed paragraph
+count, transition vocabulary, citation count or mandatory rhetorical escalation.
+Honor an explicit source-coverage target while checking relevance and support.
+Keep source checks out of the
 clean manuscript unless they are part of its scientific content.
 
 ## Design sources and limits

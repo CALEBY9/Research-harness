@@ -264,10 +264,10 @@ Use the bridge when all or most of these are true:
 Bridge target:
 
 ```text
-D:\03_claude research\00_master-thesis-studio
+D:\03_AI4Science\00_master-thesis-studio
 ```
 
-Before using the bridge, verify the adapter command exists with `Test-Path "D:\03_claude research\00_master-thesis-studio\scripts\build_output.py"`. If it is missing, return `MTS_WORKSPACE_MISSING` and continue with the native `nature-paper-format` audit/manual Word or `docx_layout_audit.py` route; do not claim bridge QA ran.
+Before using the bridge, verify the adapter command exists with `Test-Path "D:\03_AI4Science\00_master-thesis-studio\scripts\build_output.py"`. If it is missing, return `MTS_WORKSPACE_MISSING` and continue with the native `nature-paper-format` audit/manual Word or `docx_layout_audit.py` route; do not claim bridge QA ran.
 
 Bridge input contract:
 
@@ -285,7 +285,7 @@ QA mode: audit-only / candidate / final
 Preferred execution command:
 
 ```powershell
-python "D:\03_claude research\00_master-thesis-studio\scripts\build_output.py" <project_dir> --format word --name v3.2_format --qa --core-change format
+python "D:\03_AI4Science\00_master-thesis-studio\scripts\build_output.py" <project_dir> --format word --name v3.2_format --qa --core-change format
 ```
 
 Expected bridge outputs for new workspaces (existing `10_output/` workspaces retain `current/` and `qa/` paths):
@@ -312,7 +312,7 @@ Failure codes:
 When a `.docx` manuscript exists, run the local layout checker before any submission-ready claim:
 
 ```powershell
-python C:\Users\Administrator\.codex\skills\nature-paper-format\scripts\docx_layout_audit.py manuscript.docx --out-dir qa\layout_audit --academic-profile gb7713 --english-font-name "Times New Roman" --body-font-pt 11 --caption-font-pt 10 --caption-size-delta-pt 1 --display-item-alignment center --require-mathtype --require-inline-math --submission-ready --use-word-com --export-pdf
+python C:\Users\Administrator\.agents\skills\nature-paper-format\scripts\docx_layout_audit.py manuscript.docx --out-dir qa\layout_audit --academic-profile gb7713 --english-font-name "Times New Roman" --body-font-pt 11 --caption-font-pt 10 --caption-size-delta-pt 1 --display-item-alignment center --require-mathtype --require-inline-math --submission-ready --use-word-com --export-pdf
 ```
 
 Use the flags conservatively:

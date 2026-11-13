@@ -1,204 +1,50 @@
 ---
 name: nature-method-design
-description: Refine an environmental-science idea into a problem-anchored, data-aware, implementable method proposal.
+description: Design research methods or experiment and validation plans for selected questions. Use for 研究设计、方法方案、实验计划、对照与验证路线; not proposal-document writing or executing analyses.
 ---
 
-Use subagents only when the user explicitly requests delegation; otherwise perform role checks locally.
+# Research Design — 研究设计
 
-Refine and concretize: **$ARGUMENTS**
+Use the author's selected question and existing evidence. Choose the requested
+deliverable before loading a mode; these are two depths of one design task.
 
-## Role in the Research Workflow
+| Requested deliverable | Read |
+|---|---|
+| Compare or refine implementable methods, data choices and assumptions | [Method proposal](references/method-proposal.md) |
+| Specify experiments, baselines, validation blocks, run order and figure roadmap | [Experiment plan](references/experiment-plan.md) |
 
-`nature-method-design` is the Planning-stage method refinement gate. It turns a defensible idea into a focused proposal with clear data, model, analysis, figure, and validation implications.
+For a combined request, reuse the method decision and data audit when developing
+the plan. Do not invoke this skill again or require both outputs for one mode.
+Existing proposals can enter experiment-plan mode directly. Proposal/opening-report
+documents belong to `nature-proposal-writer`; execution and interpretation belong
+to `nature-data-analysis`. Scientific value and unresolved contribution choices
+use `nature-scientific-insight` criteria, reusing sufficient prior judgments.
 
-Begin with the author's selected question or mature idea. Do not force discovery or a novelty-workflow run before method refinement. If a broad direction still lacks a problem anchor, use available literature and data to identify the specific unresolved scientific choice.
+## Shared constraints
 
-## Evidence needed for design
+For model-assisted initial planning and refinement, use the plan-refiner roles in
+[the collaboration policy](../nature-shared/core/model-collaboration.md). Reuse
+the selected idea, source evidence and pilot results. Start with the decisive
+comparison and a minimal pilot; use its outcome to refine the larger plan.
+Additional models are optional support, not approval gates or proof of validity.
 
-Reuse existing literature coverage, closest prior work, residual delta, hypothesis, and data feasibility evidence in any sufficient format. Recover missing original-source evidence through the relevant literature owner; a named legacy gate file is not a prerequisite. Separate established support, unresolved novelty, and provisional design assumptions. Do not rescue a region-only or method-only novelty claim by changing wording.
-
-For an unresolved scientific method-choice or contribution claim, use
-[nature-scientific-insight criteria](../nature-scientific-insight/references/judgment-criteria.md),
-including method-contribution levels and simpler mature alternatives. Reuse a
-sufficient judgment; this skill owns the implementable design. A standalone
-decision about method value belongs to `nature-scientific-insight`.
-
-## Goal
-
-Produce a proposal that is:
-
-1. anchored to one scientific problem
-2. testable with plausible environmental data
-3. aware of mature in-domain baselines
-4. explicit about any cross-domain borrowing
-5. simple enough to implement and defend
-6. ready for claim-driven experiment planning in `nature-experiment-plan`
-
-## Constants
-
-| Constant | Default | Description |
-|----------|---------|-------------|
-| `OUTPUT_DIR` | `refine-logs/` | Directory for method refinement artifacts |
-| `CLAIM_SCOPE` | Author-approved questions | Preserve the question groups; prioritize without silently dropping them |
-| `METHOD_BLOCK_SCOPE` | Evidence needed | Keep only blocks that resolve a question or its validity; no fixed count |
-| `MAX_BASELINE_FAMILIES` | 3 | Prefer a few strong baselines over long lists |
-
-## Expected Inputs
-
-Read the most relevant available context first:
-
-- `idea.json`
-- `IDEA_REPORT.md`
-- `refine-logs/LITERATURE_COVERAGE_AUDIT.md`
-- `refine-logs/REVIEW_SUMMARY.md`, if a previous review exists
-- `literature/` summaries or notes
-- user-provided proposal, top-journal paper, dataset description, or method sketch
-
-If no clear scientific question exists, stop and ask for the missing problem anchor instead of designing a method.
-
-## Workflow
-
-### Phase 0: Freeze the Problem Anchor
-
-Define:
-- environmental system
-- spatial and temporal scale
-- target variable, process, or mechanism
-- scientific gap
-- why the question matters
-- minimum evidence needed to answer it
-
-The problem anchor must remain stable through the refinement. Do not let method novelty replace the scientific question.
-
-### Phase 1: Data Audit Gate and Domain Grounding
-
-Before choosing methods, perform a data audit inspired by data-centric research-agent workflows. Identify:
-- required observations, remote-sensing products, field measurements, model outputs, or reanalysis data
-- spatial/temporal resolution and coverage
-- variable semantics, units, coordinate systems, and domain meaning
-- known quality issues, uncertainty, missingness, bias, and scale mismatch
-- data access, licensing, privacy, and preprocessing feasibility
-- dependency relationships among files, tables, rasters, vectors, models, or metadata
-- mature field methods and baseline models
-
-If the data cannot plausibly answer the frozen scientific question, stop with a data-gap report instead of designing an unsupported method.
-
-For marine spatial co-location or offshore planning studies, extend the Data Audit Gate with a data-enhancement pass before method selection:
-- download or stage public layers in a traceable `data/external/enhancement_sources/` directory;
-- keep `download_manifest.json`, source URLs, access dates, licenses, file hashes, query scripts, and failed-download notes;
-- prioritize real public sources such as GFW fishing effort, Bio-ORACLE/Copernicus Marine, GEBCO bathymetry, WDPA/OECM, Figshare/Zenodo aquaculture or water-quality datasets, public sea-use/project PDFs, WRI power plants, and OpenStreetMap/Overpass infrastructure proxies;
-- treat login-gated, application-only, commercial, military, or privacy-sensitive data as manual acquisition items, not fabricated substitutes;
-- downgrade unsupported claims when only national screening layers are available and site-level hydrodynamics, cable routes, VMS/non-AIS fishing, engineering surveys, or ecological monitoring are missing.
-
-
-### Phase 2: Compare Method Routes
-
-Compare viable routes when the method remains open or the user requests comparison. When the author has already chosen a method, refine it and its relevant baselines without forcing unrelated alternatives:
-
-For a method-development task, compare mature field methods and any justified
-borrowed or frontier route. For observational, literature, measurement or
-scenario research, compare designs that answer the actual question: what is
-measured, against which reference, under which assumptions, and which rival
-explanation remains compatible. An algorithm family comparison is not mandatory.
-
-For a material unresolved interpretation, identify the observation that would
-distinguish it from its strongest competitor, whether the current data contain
-it, and the smallest feasible addition if they do not. Avoid circular proxies
-defined by the outcome. State how the decision changes if that observation is
-absent, null or reversed; descriptive contributions need no invented mechanism.
-
-For every borrowed or frontier component, state:
-- what is transferred
-- why transfer is valid
-- what evidence would prove transfer legality
-- where the transfer likely fails
-
-### Phase 3: Build the Final Method Proposal
-
-Specify:
-- dominant contribution type: `problem`, `method`, `data`, or `finding`
-- core method blocks and their roles
-- data-processing workflow
-- model/analysis workflow
-- baseline comparison set
-- uncertainty and sensitivity analysis needs
-- figure implications
-- implementation risks
-
-Keep the method compact. Remove components that do not defend the main claim.
-
-### Phase 4: PI-style Reviewer Gate
-
-Check:
-- Does the method answer the frozen scientific question?
-- Is the novelty more than applying method X to domain Y?
-- Are the data assumptions realistic after the Data Audit Gate?
-- Are mature baselines included?
-- Is cross-domain transfer justified?
-- Are limitations and failure boundaries explicit?
-- What is the strongest reviewer objection?
-- What fatal flaw would make the project not worth running?
-- Should the proposal proceed, be reframed, or stop before `nature-experiment-plan`?
-
-## Canonical Output
-
-Write or propose `refine-logs/FINAL_PROPOSAL.md` with:
-
-```markdown
-# Final Proposal
-
-## Problem Anchor
-
-## Scientific Question
-
-## Knowledge Gap
-
-## Dominant Contribution
-
-## Data Audit Gate
-| Dimension | Finding | Risk | Required Action |
-|-----------|---------|------|-----------------|
-| Structure |  |  |  |
-| Quality |  |  |  |
-| Semantics |  |  |  |
-| Dependency |  |  |  |
-| Access / License |  |  |  |
-
-## Data and Study System
-
-## Mature Baselines and Field Standards
-
-## Method Thesis
-
-## Method Workflow
-
-## Cross-Domain Inspiration and Transfer Boundary
-
-## Claim Map
-| Claim | Evidence Needed | Baseline / Comparator | Risk | Planned Validation |
-|-------|-----------------|-----------------------|------|--------------------|
-
-## Data Processing Plan
-
-## Model / Analysis Plan
-
-## Figure Implications
-
-## Limitations and Failure Boundaries
-
-## Next Step
-If experiment planning is included in the request, hand the completed proposal to `nature-experiment-plan`; otherwise deliver the method proposal.
-```
-
-Optionally write:
-- `refine-logs/REVIEW_SUMMARY.md` — reviewer critique and response notes
-- `refine-logs/REFINEMENT_REPORT.md` — summary of changes across refinement rounds
-
-## Key Rules
-
-- Verify novelty-critical prior work and retain explicit uncertainty where coverage remains incomplete; reuse sufficient evidence without requiring legacy artifact names.
-- Do not invent data availability, performance, results, or citations.
-- Prefer the smallest adequate mechanism.
-- Prefer strong baselines over padded comparisons.
-- Make transfer legality explicit for every cross-domain or frontier component.
-- Separate method design from experiment planning; detailed run order belongs in `nature-experiment-plan`.
+- Recover the approved question, study design, units, scales, comparators and
+  constraints from the project's authority documents. Preserve their scientific
+  meaning; recommend material changes for the author to decide.
+- Reuse the existing data audit. Fill only relevant gaps in source/coverage,
+  semantics/units, resolution, missingness, dependence, access and licensing.
+  A missing legacy filename is not a reason to restart design or create files.
+- A planning or review request does not authorize data acquisition. For marine
+  co-location, identify missing bathymetry, environment, sea-use or engineering
+  evidence; download or stage it only when needed and authorized. Record actual
+  sources, access conditions and failures if acquisition is performed.
+- Select evidence requirements for the research design. Algorithm baselines,
+  ablations, random seeds and assisted-search checks apply only when relevant;
+  literature, observational and scenario studies need their own validity checks.
+- Missing data, untested assumptions and negative findings stay explicit. Do not
+  invent availability, novelty, expected performance, results or citations.
+- Use the existing project layout and records. Mode templates are optional ways
+  to supply missing information, not mandatory parallel state systems.
+- Deliver the requested design with supported choices, decisive comparisons,
+  failure interpretations and feasible effort. Planning is not execution.
+  Do not launch experiments, subagents or a new research stage by selecting a mode.

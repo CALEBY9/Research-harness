@@ -14,3 +14,5 @@ __pycache__/
 node_modules/
 .DS_Store
 Thumbs.db
+# Unlicensed reference material remains local, outside the distribution.
+skills/nature-figure/assets/figures4papers/

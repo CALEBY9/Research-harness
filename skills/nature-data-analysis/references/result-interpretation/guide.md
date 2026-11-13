@@ -167,7 +167,7 @@ Use this structure for `ANALYSIS_SUMMARY.md`:
 ## Key Rules
 
 - Do not fabricate results or statistical significance.
-- Preserve data provenance paths and carry forward Claim ID / Evidence ID / Locator from `nature-experiment-plan` when available.
+- Preserve data provenance paths and carry forward Claim ID / Evidence ID / Locator from `nature-method-design` (experiment-plan mode) when available.
 - Mark weak, ambiguous, or failed results explicitly.
 - Separate observation from interpretation.
 - Do not polish into manuscript prose here; `research-agent` handle paper structure and drafting.

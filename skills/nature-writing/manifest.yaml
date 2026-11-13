@@ -102,7 +102,7 @@ references:
       path: references/scientific-positioning.md
     - condition: drafting or substantively restructuring Discussion; integrating Results, locating the contribution against prior work, or explaining claim-specific boundaries and next tests
       path: ../nature-shared/core/discussion-argument-language.md
-    - condition: drafting or substantively restructuring environmental-science or environmental-management manuscript content and domain-specific published examples would help frame the research question, contribution, evidence order, or discussion; especially renewable-energy siting, marine aquaculture, coupled systems, scenarios, or environmental applications of LLMs and deep learning; not LANGUAGE_ONLY polishing or full-paper translation
+    - condition: drafting or substantively restructuring environmental-science or environmental-management manuscripts; learning whole-paper scientific narrative, especially the connected Abstract, Introduction and Discussion, research framing, contribution, methods, figures or interpretation from local published exemplars; also repairing a weak story or disconnected sections; not LANGUAGE_ONLY polishing or full-paper translation
       path: references/environmental-manuscript-patterns.md
     - condition: task is manuscript and the user is drafting, restructuring, or compressing Results or full main text; deciding what belongs in main text versus captions or SI; preventing revision accretion; reducing statistical or claim repetition; or building the shortest sufficient evidence chain
       path: ../nature-shared/core/main-text-discipline.md

@@ -1,6 +1,6 @@
 ---
 name: nature-research-discovery
-description: Map an environmental-science field or discover source-grounded, testable candidate hypotheses. Use nature-scientific-insight for a standalone novelty verdict, scientific contribution comparison or research go/no-go decision.
+description: Develop environmental process hypotheses with distinguishing observations or minimal validation from supplied observations, data constraints or prior studies. Select automatically by the requested deliverable; broad topic scoping, field surveys and initial frameworks use academic-research-suite, while standalone novelty and research go/no-go judgments use nature-scientific-insight.
 ---
 
 Use subagents only when the user explicitly requests delegation; otherwise perform role checks locally.
@@ -9,13 +9,22 @@ Generate environment-science research ideas from: **$ARGUMENTS**
 
 ## Role in the Research Workflow
 
-`nature-research-discovery` is the Discovery-stage orchestrator. It should produce a small set of defensible, data-grounded candidate ideas, not a finished method or paper.
+`academic-research-suite` is the default owner for broad topic scoping, field
+surveys and initial frameworks, including environmental topics. Select this
+workflow automatically when the requested deliverable is to develop environmental
+process hypotheses and distinguishing observations or minimal validation from
+supplied observations, data constraints or prior studies. Infer the domain from
+the task and materials; do not require the author to classify the discipline or
+name a skill. Honor an explicit workflow choice within the requested scope.
+Reuse existing ARS sources and data constraints without running a second
+discovery cycle. Produce a small set of defensible, data-grounded candidates;
+a finished method or paper uses its corresponding owner.
 
 Match the requested deliverable: a field map or candidate hypotheses, with the
 closest-prior evidence needed to ground them. A standalone novelty assessment
 uses `nature-scientific-insight`. A map-only request does not require generating or
 ranking ideas; an author-selected question can go directly to `nature-method-design` or
-`nature-experiment-plan` through the router.
+`nature-method-design` (experiment-plan mode) through the router.
 
 `nature-scientific-insight` owns scientific recommendation criteria. For candidate
 screening or ranking, read its

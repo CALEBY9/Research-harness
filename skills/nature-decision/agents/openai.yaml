@@ -1,0 +1,4 @@
+interface:
+  display_name: "跨领域决策智囊 · Nature Decision"
+  short_description: "Source-grounded perspectives for real decisions"
+  default_prompt: "请用 $nature-decision 帮我比较眼前的选择，结合相关领域大牛公开资料中可核查的决策启发，指出代价、风险和改变建议的条件。"

@@ -56,9 +56,9 @@
 
 ## Conservative implementation choices
 
-- The skill returns exactly `3 mutually blind reviewer reports + 1 post-review synthesis` by default.
+- Ordinary requests return one review. Multiple isolated reports and a post-review synthesis apply only when explicitly requested.
   - This is a repo-level implementation choice, not a direct source requirement.
-- The three reviewers receive the same immutable source packet but work in mutually blind contexts with preassigned emphasis briefs; they do not receive shared concerns or other reports.
+- In explicitly requested multi-review mode, reviewers receive the same immutable source packet but work in mutually blind contexts with preassigned emphasis briefs; they do not receive shared concerns or other reports.
   - Mutual blindness is a repo-level simulation integrity rule, not a claim about every journal workflow.
 - Reviewer differences must not rely on invented identity, seniority, institution, demographic profile, or narrow specialty role.
   - This is a conservative anti-hallucination rule derived from the limited source basis.

@@ -39,7 +39,7 @@ Rules:
 
 #### Candidate Search / Scored Iteration Ledger
 
-Use this ledger when `nature-experiment-plan` marks an analysis block as a scorable task, or when the user asks for automated method search, repeated code/model improvement, hyperparameter or architecture search, candidate recombination, LLM-assisted code generation, or score-driven optimization.
+Use this ledger when `nature-method-design` (experiment-plan mode) marks an analysis block as a scorable task, or when the user asks for automated method search, repeated code/model improvement, hyperparameter or architecture search, candidate recombination, LLM-assisted code generation, or score-driven optimization.
 
 The ledger is not required for ordinary one-shot statistics, EDA, baseline fitting, or deterministic data cleaning.
 
@@ -57,7 +57,7 @@ Rules:
 - If candidates are recombined from prior methods or literature summaries, record their parent/source idea and hand the provenance to `nature-evidence-audit`.
 - For tree search, UCB/PUCT-style selection, beam search, best-of-N, retry loops, or other branch-and-score procedures, record the search policy, parent-selection rationale, recombination parent(s), manual filtering, and saturation or stop rule; do not report only the winning candidate.
 - Report total search cost when material, including runtime, compute, LLM/API use, and human filtering. Equal inner-evaluation counts do not establish equal total compute or efficiency.
-- Stop or return to `nature-experiment-plan` if the metric is unstable, leaks future/label information, rewards a shortcut, or lacks a meaningful baseline.
+- Stop or return to `nature-method-design` (experiment-plan mode) if the metric is unstable, leaks future/label information, rewards a shortcut, or lacks a meaningful baseline.
 
 ### `CANDIDATE_SEARCH_LEDGER.md`
 

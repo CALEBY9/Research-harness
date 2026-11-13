@@ -1,5 +1,5 @@
 {
-  "schema_version": "research-agent-copilot-regression.v10",
+  "schema_version": "research-agent-copilot-regression.v11",
   "purpose": "Maintenance-only regression pack for Research Agent routing, explicit multi-owner continuity and synthesis, research-code spec, degradation handling, measured-quantity identity, conditional rhetorical repair, and prose boundaries; never load for ordinary research tasks.",
   "scoring": {
     "route_case": "PASS only when the primary owner equals expected_owner, any expected_mode is selected, and no forbidden owner, mode or workflow is introduced.",
@@ -9,19 +9,60 @@
     "degradation_case": "PASS only when the expected owner and status are selected, the trigger/fallback/must-not/user-signal/owner fields are recoverable, only unaffected work continues, the allowed fallback and forbidden behaviors are respected, and no default degradation ledger is created.",
     "anti_defensive_case": "PASS only when requested rhetorical repair accepts supplied author prose directly or follows drafting when drafting is requested, respects the selected edit boundary, does not capture ordinary language-only work, and preserves evidence meanings.",
     "quality_case": "Requires protected-anchor checks plus fresh human readability/coherence adjudication; static checks alone cannot PASS prose quality.",
-    "hard_regression": "Any loss of facts, numbers, citations, claim strength, evidence boundary, author control, clean-final behavior, or restoration of explicitly retired skills."
+    "hard_regression": "Any loss of facts, numbers, citations, claim strength, evidence boundary, author control, clean-final behavior, or unauthorized restoration of retired skills; the 2026-10-25 selective ARS planning entry is explicitly authorized."
   },
   "cases": [
     {
       "case_id": "RA-ROUTE-01-IDEA-SCREEN",
       "case_type": "route",
       "prompt": "调用 Research agent，我有风电场生态系统服务这个宽泛方向，请结合已有文献线索和可获得数据筛选并排序可检验的研究问题。",
-      "expected_owner": "nature-research-discovery",
+      "expected_owner": "academic-research-suite",
+      "expected_mode": "question-discovery",
       "forbidden_owners": [
         "nature-writing",
-        "nature-proposal-writer"
+        "nature-proposal-writer",
+        "nature-research-discovery"
       ],
-      "required_boundary": "Use bounded evidence-grounded screening; do not claim novelty without the owner-required evidence and do not auto-run later method or writing stages.",
+      "required_boundary": "Infer the owner from the deliverable; an environmental topic alone does not trigger Nature discovery. Use bounded evidence-grounded screening, require no discipline or skill confirmation, and do not auto-run later method or writing stages.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-ARS-01-LITERATURE-SURVEY",
+      "case_type": "route",
+      "prompt": "调用 Research agent，调研海上风光养殖共址领域的主要研究脉络、争论和最近先行工作，整理文献矩阵，暂时不要写论文正文。",
+      "expected_owner": "academic-research-suite",
+      "expected_mode": "literature-survey",
+      "forbidden_owners": ["nature-writing", "ars-academic-writing"],
+      "required_boundary": "Produce a source-located exploratory survey with search and reading limits; do not claim systematic-review completeness or repeat the survey through a second planning owner.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-ARS-02-FRAMEWORK",
+      "case_type": "route",
+      "prompt": "调用 Research agent，研究问题和文献矩阵已经确认，请搭研究框架和论文大纲，标出每一节需要的证据，不要写正文或重新检索。",
+      "expected_owner": "academic-research-suite",
+      "expected_mode": "framework",
+      "forbidden_owners": ["nature-writing", "nature-research-discovery"],
+      "required_boundary": "Reuse the accepted question and evidence; return the framework and evidence-to-section map without inventing results, rerunning searches or starting manuscript prose.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-ARS-03-SOCRATIC",
+      "case_type": "route",
+      "prompt": "调用 Research agent，请用 ARS 的苏格拉底提问带我想清楚研究问题，先不要替我提出候选题目。",
+      "expected_owner": "academic-research-suite",
+      "expected_mode": "socratic",
+      "forbidden_owners": ["nature-writing"],
+      "required_boundary": "Ask focused questions and summarize only user-expressed ideas; do not attribute generated candidates to the user or impose fixed rounds.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-ARS-04-AUTO-NATURE-DISCOVERY",
+      "case_type": "route",
+      "prompt": "调用 Research agent，已有海上风电场周边的溶解氧和流速观测，以及已完成的相关论文梳理，请发展两个竞争的过程解释，分别给出可区分的观测和最小验证；暂不选定主线或制定完整实验方案。",
+      "expected_owner": "nature-research-discovery",
+      "forbidden_owners": ["nature-writing", "academic-research-suite", "nature-method-design"],
+      "required_boundary": "Infer the environmental process-hypothesis task without discipline or skill confirmation. Reuse sufficient existing evidence, return competing hypotheses and minimal distinguishing validation, and do not restart ARS discovery, select the author's main claim or produce a full experiment plan.",
       "human_adjudication_required": false
     },
     {
@@ -40,13 +81,14 @@
       "case_id": "RA-ROUTE-03-EXPERIMENT-PLAN",
       "case_type": "route",
       "prompt": "调用 Research agent，方法和数据已经确定，请给出 must-run 实验、基线、评估指标和图表路线图。",
-      "expected_owner": "nature-experiment-plan",
+      "expected_owner": "nature-method-design",
       "forbidden_owners": [
         "nature-research-discovery",
         "nature-proposal-writer"
       ],
       "required_boundary": "Plan evidence and execution only; do not invent results or reopen the selected research question.",
-      "human_adjudication_required": false
+      "human_adjudication_required": false,
+      "expected_mode": "experiment-plan"
     },
     {
       "case_id": "RA-ROUTE-04-DATA-EXECUTION",
@@ -587,14 +629,15 @@
       "case_id": "RA-ROUTE-08-HYPOTHESIS-ROADMAP",
       "case_type": "route",
       "prompt": "调用 Research agent，我已有一个明确的可证伪假设和可用数据，请把它变成实验/分析路线图，包含必须运行的检验和对照，不要重新选题。",
-      "expected_owner": "nature-experiment-plan",
+      "expected_owner": "nature-method-design",
       "forbidden_owners": [
         "nature-research-discovery",
         "nature-proposal-writer"
       ],
       "required_boundary": "Plan from the author-selected hypothesis without upstream re-screening; plan evidence and execution only, no invented results.",
       "provenance": "Static routing probes by independent review agents, 2026-09-20: falsifiable-hypothesis roadmap requests had no router row; nature-experiment-plan row wording extended.",
-      "human_adjudication_required": false
+      "human_adjudication_required": false,
+      "expected_mode": "experiment-plan"
     },
     {
       "case_id": "RA-ROUTE-09-ABLATION-STATS",
@@ -663,7 +706,8 @@
       "expected_owner": "nature-scientific-insight",
       "forbidden_owners": [
         "nature-research-discovery",
-        "nature-experiment-plan"
+        "nature-method-design",
+        "nature-decision"
       ],
       "required_boundary": "Assess the supplied phenomenon, closest prior answers and rival explanations; recommend the most informative next evidence without replacing the question with new topics or writing a full experiment plan.",
       "human_adjudication_required": false
@@ -675,7 +719,8 @@
       "expected_owner": "nature-scientific-insight",
       "forbidden_owners": [
         "nature-reviewer",
-        "nature-writing"
+        "nature-writing",
+        "nature-decision"
       ],
       "required_boundary": "Separate novelty, scientific significance, feasibility and conditional publication positioning. Preserve uncertainty from incomplete coverage and do not predict acceptance or launch writing.",
       "human_adjudication_required": false
@@ -705,6 +750,131 @@
       "expected_mode": "paper-card"
     },
     {
+      "case_id": "RA-SKEPTIC-01-IDEA",
+      "case_type": "route",
+      "prompt": "调用 Research agent，让 AI怀疑者质疑这个 idea。我目前觉得它很有潜力，请从所附先行研究和初步证据中指出最强反对理由，以及什么结果会让质疑不成立。",
+      "expected_owner": "ai-skeptic",
+      "forbidden_owners": [
+        "nature-research-discovery",
+        "nature-reviewer"
+      ],
+      "required_boundary": "Deliver grounded objections, impact and resolution conditions; distinguish defects from unverified risks and preferences, do not invent novelty evidence or silently launch experiments, and preserve the author's scientific decision.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-SKEPTIC-02-MANUSCRIPT",
+      "case_type": "route",
+      "prompt": "调用 Research agent，用 AI怀疑者看这份引言和方法，优先质疑是否达到高水平论文的论证要求，只给出有依据的问题和解决条件，不要改稿。",
+      "expected_owner": "ai-skeptic",
+      "forbidden_owners": [
+        "nature-writing",
+        "nature-polishing"
+      ],
+      "required_boundary": "Assess only supplied sections, locate material problems and distinguish missing evidence from disproved claims; keep the reviewed files unchanged and do not turn skeptical critique into a mandatory formal referee report.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-DECISION-01-INVESTMENT",
+      "case_type": "route",
+      "prompt": "调用 Research agent，我考虑把大部分应急积蓄投进某只新能源股票，三个月内还要支付房租且没有其他缓冲。请结合李嘉诚和巴菲特的公开框架，帮我比较可行选择及风险，不要求交易指令。",
+      "expected_owner": "nature-decision",
+      "forbidden_owners": [
+        "nature-scholar-distiller",
+        "nature-scientific-insight",
+        "academic-research-suite"
+      ],
+      "required_boundary": "Use the relevant bundled sources, compare liquidity, downside and feasible alternatives against the supplied facts, and give conditional educational guidance without inventing returns, demanding account details, scanning private files or directing a specific trade.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-DECISION-02-LEARNING",
+      "case_type": "route",
+      "prompt": "调用 Research agent，今晚我有三小时复习，比较一直重读笔记与整理后自测两种方案。请用有证据的学习方法给一个简短建议。",
+      "expected_owner": "nature-decision",
+      "forbidden_owners": [
+        "nature-scholar-distiller",
+        "academic-research-suite"
+      ],
+      "required_boundary": "Use the learning-science card, distinguish the source experiments from transfer to this task, make a proportionate provisional recommendation, and do not insist on a fixed interview or invent a universal schedule.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-DECISION-03-RESEARCH-RESOURCES",
+      "case_type": "route",
+      "prompt": "调用 Research agent，我离毕业还有一年，比较延续已有数据的课题与转向高风险新课题的时间、毕业保障和长期成长；请结合科学家和商业决策框架。",
+      "expected_owner": "nature-decision",
+      "forbidden_owners": [
+        "nature-scholar-distiller",
+        "nature-research-discovery",
+        "academic-research-suite"
+      ],
+      "required_boundary": "Compare the real alternatives, time and downside using relevant sourced perspectives, expose missing facts and conditions that change the choice, and do not impose a fixed resource split or pretend that a scientific novelty assessment is already complete.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-DECISION-04-EXPLICIT-SCIENTIFIC",
+      "case_type": "route",
+      "prompt": "显式调用 nature-decision，结合提供的先行研究与实验结果，帮我在两个论文核心主张之间做决策，指出风险和改变建议的证据。",
+      "expected_owner": "nature-decision",
+      "forbidden_owners": [
+        "nature-writing",
+        "nature-reviewer"
+      ],
+      "required_boundary": "Honor the explicitly selected decision owner; reuse an existing scientific judgment or consult nature-scientific-insight only for an identified evidence gap, preserve the author's choice, and do not turn the request into manuscript writing or referee review.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-DECISION-05-EXPERT-LENS",
+      "case_type": "route",
+      "prompt": "调用 Research agent，参考谷保静和颜宁公开资料中的思路，判断我提供的两个科研方向哪个值得继续；比较现有证据和资源，不是只做人物介绍。",
+      "expected_owner": "nature-decision",
+      "forbidden_owners": [
+        "nature-scholar-distiller",
+        "academic-research-suite"
+      ],
+      "required_boundary": "Select the decision skill for the explicitly requested expert-derived perspectives even without its name, reuse scientific-insight for an identified scientific gap when needed, compare the user's actual choices, and do not claim the named researchers endorse the outcome.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-DECISION-06-HOME-PURCHASE",
+      "case_type": "route",
+      "prompt": "调用 Research agent，我打算把全部存款加家里给的钱做首付买房，月供占到手收入一半以上，两年后可能换城市或读博。请帮我判断该不该买，并给明天能做的第一步。",
+      "expected_owner": "nature-decision",
+      "forbidden_owners": [
+        "nature-scholar-distiller",
+        "nature-scientific-insight",
+        "academic-research-suite"
+      ],
+      "required_boundary": "Compute payment burden and remaining cash only from the supplied figures, name the missing financing terms, one-off costs and local rules, compare buying with feasible alternatives, give a conditional recommendation with reversal conditions and a first action, and point to qualified lender or professional checks without inventing market forecasts or thresholds.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-DECISION-07-UNBUNDLED-EXPERT",
+      "case_type": "route",
+      "prompt": "调用 Research agent，我在城市绿地碳汇精细核算和流域生态补偿机制设计两个博士课题之间犹豫。如果让 Johan Rockström 来选，他会怎么做？请直接告诉我他会怎么选。",
+      "expected_owner": "nature-decision",
+      "forbidden_owners": [
+        "nature-scholar-distiller",
+        "academic-research-suite"
+      ],
+      "required_boundary": "Run only a bounded primary-source check for the person without a bundled card, state what was and was not checked and the confidence, translate the documented approach into implications for the user's options, give the assistant's own recommendation, do not quote or forecast the person's private choice or imply approval, and do not create a persistent card without authorization.",
+      "human_adjudication_required": false
+    },
+    {
+      "case_id": "RA-DISTILLER-01-PUBLIC-DECISION-FRAMEWORK",
+      "case_type": "route",
+      "prompt": "调用 Research agent，请从李嘉诚、巴菲特、马斯克、施一公、颜宁和谷保静团队可核查的公开材料中，提炼适用于学习、生活和投资的可复用决策框架；只做公开资料蒸馏，不评价我当前的选择。",
+      "expected_owner": "nature-scholar-distiller",
+      "forbidden_owners": [
+        "nature-decision",
+        "nature-scientific-insight",
+        "nature-research-discovery",
+        "academic-research-suite"
+      ],
+      "required_boundary": "Distill source-supported reusable cards with observed facts, interpretation and transfer limits; do not turn a source-extraction request into a concrete personal recommendation, impersonate the figures or invent fixed allocations.",
+      "human_adjudication_required": false
+    },
+    {
       "case_id": "RA-AI4S-01-REPRO-NO-OWNER",
       "case_type": "route",
       "prompt": "调用 Research agent，复现这篇论文发布在 GitHub 的训练代码和消融实验，搭好环境直接跑通。",
@@ -720,6 +890,6 @@
       "human_adjudication_required": false
     }
   ],
-  "migration_note": "2026-10-13 the core scientific decision skill was renamed from research-judgment to nature-scientific-insight, with clearer workflow deliverables and discriminating trigger examples. Standalone novelty and cross-owner scientific decisions route there; discovery, design, formal review and reading keep their owners. Nature remains the writing foundation restored on 2026-10-12. The old name has no live alias, ARS survives as versioned reference, and these regression definitions do not certify behavioral or scientific-quality gains.",
+  "migration_note": "2026-10-13 the scientific decision skill was renamed to nature-scientific-insight. On 2026-10-25 the author authorized selective academic-research-suite for topic discovery, literature surveys and initial frameworks; standalone scientific judgments, method design, formal review, reading and prose keep their Nature owners. Redundant ars-academic-writing source was removed on 2026-11-13; attribution remains in Git history. These maintenance definitions do not certify behavioral or scientific-quality gains.",
   "consolidation_note": "2026-10-13 eight duplicate entrypoints consolidated into existing owner modes; useful resources and author/evidence boundaries retained. Definitions remain maintenance-only, not executed behavioral evaluations."
 }

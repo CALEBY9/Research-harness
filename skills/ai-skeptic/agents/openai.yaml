@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI怀疑者"
+  short_description: "以顶尖同行的严谨标准质疑手稿、想法与交付作品，指出证据缺口和关键反例"
+  default_prompt: "使用 $ai-skeptic（AI怀疑者）严厉审视以下材料：指出最有依据的反对意见、问题所在、影响，以及消除质疑所需的最小验证。"

@@ -7,11 +7,18 @@ description: >
   the normal axes apply only when that fast path does not match.
 
 fast_paths:
+  academic_humanization:
+    detect: Requested academic humanization / 去AI味 / AI降重, including combined polishing.
+    load:
+      - references/academic-humanization/guide.md
+    return_after_mode: true
   language_only:
     detect: |
       The user supplied the passage and requests wording-level clarity,
       concision, fluency, proofreading, or same-argument language polishing.
       Argument, evidence, claim strength, and paragraph order remain fixed.
+      This includes a word limit or same-argument compression of a supplied
+      passage when those constraints can be preserved; verify the length.
     load:
       - static/core/stance.md
       - static/core/output-format.md

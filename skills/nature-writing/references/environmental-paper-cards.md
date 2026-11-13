@@ -1,6 +1,6 @@
 # 环境领域论文：逐篇论证卡
 
-卡片是对实际文本功能的概括，不复刻作者语句，也不把已发表等同全部写法值得采用。PDF 页均为物理页；部分双栏提取顺序与阅读顺序不同，按章节标题和语义连接定位。精确本地原文路径及 hash 见 `D:/03_claude research/01_LLM-knowledge_base/logs/manuscript_patterns_20260907/source_manifest.json`；source_id 对应下面的 S 编号。
+卡片是对实际文本功能的概括，不复刻作者语句，也不把已发表等同全部写法值得采用。PDF 页均为物理页；部分双栏提取顺序与阅读顺序不同，按章节标题和语义连接定位。精确本地原文路径及 hash 见 `D:/03_Agent4Science/01_LLM-knowledge_base/research_wiki/logs/manuscript_patterns_20260907/source_manifest.json`；source_id 对应下面的 S 编号。
 
 ## P01 · 从全球潜力到真正的发展约束
 

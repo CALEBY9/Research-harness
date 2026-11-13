@@ -27,6 +27,12 @@ Open `references/abstract.md` for templates and examples.
 
 ## Diagnostics before submitting the draft
 
+- Check the abstract against the current Introduction question, central Results
+  and Discussion implication after substantive section changes. An unchanged
+  old abstract has not thereby been recalibrated. An adoption study must not
+  imply that it tested predictive reliability or method superiority; connect
+  the broader motivation to the narrower discovery explicitly.
+
 - Beginning with `Here, we` may signal missing context.
 - Ending with a broad promise may need scope control.
 - A result may feel ungrounded when neither a decisive comparison nor the logic

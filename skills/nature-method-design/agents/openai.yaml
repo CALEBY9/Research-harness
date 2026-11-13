@@ -1,4 +1,4 @@
 interface:
-  display_name: "研究方法设计 · Nature Method Design"
-  short_description: "Refine selected questions into implementable methods"
-  default_prompt: "请用 $nature-method-design 将我已选定的研究问题细化为有数据依据、可实施的方法方案。"
+  display_name: "研究设计 · Research Design"
+  short_description: "Design research methods and validation plans"
+  default_prompt: "请用 $nature-method-design 为当前研究问题设计方法方案或实验与验证计划，复用已有数据审计。"

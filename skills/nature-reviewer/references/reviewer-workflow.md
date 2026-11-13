@@ -1,5 +1,8 @@
 # Reviewer workflow
 
+> Multi-review details apply only when multiple reports were explicitly requested. Ordinary review follows the single-report format in `../SKILL.md`; do not require additional reviewers, isolation or synthesis for that mode.
+
+
 ## Contents
 
 - [Default execution order](#default-execution-order)

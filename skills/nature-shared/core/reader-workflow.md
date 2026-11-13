@@ -1,10 +1,10 @@
 # Reader workflow
 
-Used by both `nature-polishing` and `nature-writing`. Always-loaded shared core.
+Used by the normal routes of `nature-polishing` and `nature-writing`.
 
 ## The reader's question sequence
 
-Most readers of a scientific paper follow a stable sequence:
+These questions help assess a paper's usefulness to its intended reader:
 
 1. **Relevance** — Is this for me?
 2. **Novelty** — What is new here?
@@ -12,10 +12,14 @@ Most readers of a scientific paper follow a stable sequence:
 4. **Reuse** — Can I use it?
 5. **Meaning** — What does it mean, and where are the boundaries?
 
-Whether the task is drafting from scratch or polishing existing prose, the paper should help the reader answer these questions in this order.
+Use the relevant questions as diagnostic criteria, not a fixed section or
+paragraph order. Their emphasis and placement depend on the study, audience,
+article type and requested section. A Methods paragraph need not re-establish
+novelty; a language edit must preserve the agreed argument and paragraph roles.
 
 ## Implications
 
-- A draft that buries novelty (question 2) behind methods detail (which serves question 3) will lose readers in the first paragraph.
-- A polish that improves sentence-level fluency without surfacing relevance (question 1) earlier may still fail with broad-audience readers.
-- "Where are the boundaries" (question 5) is the most commonly skipped. Both drafting and polishing should expose it, not paper over it.
+- Check whether the opening gives the intended reader enough reason to continue.
+- Keep methods and evidence where they make the claim understandable and assessable.
+- Preserve consequential boundaries near the claims they qualify. Do not add
+  generic caveats or reorder supplied prose solely to satisfy this list.

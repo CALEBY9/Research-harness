@@ -1,11 +1,17 @@
 ---
 name: nature-literature-synthesis
-description: Develop systematic-review protocols, screening and coding methods, evidence-synthesis assets, and meta-analysis or scientometric methodology. Use for reproducible cross-paper synthesis; manuscript drafting belongs to nature-writing and numerical execution to nature-data-analysis.
+description: Develop formal systematic-review protocols, screening and coding methods, evidence-synthesis assets, and meta-analysis or scientometric methodology. Exploratory literature landscapes use academic-research-suite; manuscript prose uses nature-writing and numerical execution uses nature-data-analysis.
 ---
 
 Use subagents only when the user explicitly requests delegation; otherwise perform role checks locally.
 
 # Literature Synthesis — 系统综述 / 元研究 / LLM 流水线综述 (v1.0)
+
+Exploratory field surveys, related-work investigation and early literature
+frameworks use `academic-research-suite` (ARS). This skill owns formal review
+methodology and reproducible synthesis assets. Reuse existing ARS search records
+and source matrices where sufficient; disclose any missing protocol, screening
+or bias-assessment evidence rather than relabeling a survey as a systematic review.
 
 Develop synthesis methodology and evidence assets for: **$ARGUMENTS**
 

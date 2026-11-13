@@ -1,9 +1,31 @@
 ---
 name: nature-writing
-description: Draft, restructure, or plan Chinese or English research manuscripts, thesis chapters, and first-submission materials from author-provided evidence. Use for 论文写作、毕业论文、学位论文章节、摘要、引言、方法、Results、讨论 or submission materials; use nature-polishing for language-only edits and nature-paper-format for layout-only work.
+description: Draft or substantively reconstruct Chinese or English manuscripts, thesis chapters and first-submission materials from author evidence. Use for 论文正文、毕业论文、摘要、引言、方法、Results、讨论 and submission; initial research frameworks or outline-only planning use academic-research-suite, language edits use nature-polishing, and formatting uses nature-paper-format.
 ---
 
 # Nature-Style Scientific Writing — Router
+
+## Internal Research Agent capability
+
+Within Research Agent, this skill is an internal task module, not another
+user-facing starting point. Reuse the task, evidence and model allocation
+already selected by Research Agent; return the result or a concrete blocking
+dependency to that coordinator without asking the user to select another skill.
+When invoked directly, apply [the same collaboration policy](../nature-shared/core/model-collaboration.md).
+Resolve the user's selected allocation in that policy; installing this skill does
+not require external models. Without a chosen multi-model allocation, the current
+host completes the requested work. Under the author's selected preset, Gemini writes
+submission-intended prose, Codex can write ordinary/non-submission text, and Claude
+is optional high-value story support. Preserve that preset when a connection is
+unavailable: prepare the affected handoff without claiming an external call.
+
+
+Initial research frameworks, outline-only requests and pre-drafting argument
+blueprints use `academic-research-suite` (ARS). Reuse an accepted ARS framework
+and its evidence locators when drafting; do not restart topic selection or
+literature investigation. Necessary planning inside an authorized prose task,
+thesis drafting and substantive restructuring of an existing manuscript remain
+here. Do not route a request for manuscript prose back into a planning-only task.
 
 This skill is split into two layers:
 
@@ -21,6 +43,12 @@ For a new task, resolve the relevant routes below. For follow-up edits, reuse es
 Read [manifest.yaml](manifest.yaml). It declares the axes (`task`, `paper_type`, `section`, `language`, `journal`), the allowed values, and the file paths each value maps to.
 
 Also read every file listed under `always_load`. These hold the default stance, writing workflow, and output format that apply to every drafting job.
+
+Read each required instruction file completely, including conditionally selected
+fragments and shared guidance. Use bounded chunks when needed; a head-only read
+or truncated tool result does not complete loading. Read the missing ranges
+before drafting. This does not require loading unselected fragments or whole
+source documents when the task needs only a specific passage.
 
 ### 2. Detect the axis values for this request
 
@@ -64,14 +92,14 @@ Do **not** read every fragment in `static/`. Load only what step 2 selected.
 
 Apply the loaded fragments in this priority order:
 
-1. Core stance + intake (`core/stance.md`) — surface missing claim / evidence / boundary before drafting.
+1. Core stance + intake (`static/core/stance.md`) — surface missing claim / evidence / boundary before drafting.
 2. Paper-type playbook — argument chain, drafting order.
 3. Section-specific drafting rules and structure.
 4. Task-specific submission rules when `task=submission-package`.
 5. Journal-specific framing and constraints.
 6. Language-specific sentence and paragraph rules (apply last).
 
-For `task=manuscript` or `task=thesis`, run the workflow in `core/workflow.md` after
+For `task=manuscript` or `task=thesis`, run the workflow in `static/core/workflow.md` after
 the polishing-boundary check. Reuse an already settled argument, outline, and
 terminology rather than reconfirming them; apply the thesis fragment's
 adaptations for chapter work.
@@ -80,6 +108,30 @@ When the author asks to compare scientific mainlines, or the contribution is
 genuinely unsettled, read `references/scientific-positioning.md`. Use it to
 compare added knowledge and discriminating observations, not to reopen a
 confirmed question for every Introduction or language edit.
+
+For literature-dependent drafting or substantive reconstruction, use a configured
+local corpus through `nature-literature-kb` first and reuse verified sources.
+Without a bound backend, use supplied originals or accessible public sources;
+do not require the author's private corpus to draft. For local sources needing
+further reading, automatically execute its context-reading route and follow needed
+continuations; recovering the source context is part of writing, not a command
+for the author to run. Apply the reading choices in `static/core/workflow.md`.
+Use the adapter's unified `research_papers` route with useful English query
+variants; extraction batches are internal storage details. Keep notes and
+design references separate from verified scientific support.
+Select relevant published exemplars from the local corpus or existing
+source-linked references; environmental work uses
+`references/environmental-manuscript-patterns.md`. Prioritize the author's
+Nature/Science/Cell and field-leading examples when article type, evidence and
+section match. Learn the whole manuscript's scientific story, with Abstract,
+Introduction and Discussion as the priority: how the paper selects its central
+contribution, makes the question matter, progresses through findings, and changes
+the reader's understanding. Read those sections together and inspect the
+supporting Results/figures, or reuse a sufficient source-linked distillation.
+Study titles, design, methods, analyses, visuals and other useful features as
+the task needs them. Apply the narrative-learning step in
+static/core/workflow.md; the present study supplies its own facts and claims.
+Expand externally for a concrete gap; do not wait for a separate learning request.
 
 When developing the present manuscript from several original studies, resolve
 the installed `research-agent` through the available skill catalogue and read
@@ -117,7 +169,9 @@ override them.
 
 For `task=submission-package`, follow `static/fragments/task/submission-package.md` and `references/submission-package.md` instead. Build the deliverable matrix and readiness audit; do not force manuscript paragraph architecture onto administrative submission materials.
 
-If essential evidence or boundary is missing, write a placeholder and list it under `Assumptions or missing inputs:` instead of inventing content.
+If essential evidence or boundary is missing, report the issue separately and
+hold the affected prose rather than inventing content. Use placeholders only
+when the author requests a scaffold; follow `static/core/output-format.md`.
 
 For claim-bearing drafting, manuscript version rebasing, or any submission-
 readiness statement, also load

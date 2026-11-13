@@ -1,0 +1,40 @@
+name: Validate distribution
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-checks:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+        python: ['3.10', '3.13']
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 10
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Validate source and distribution catalog
+        run: python -B scripts/harness.py validate
+      - name: Install downloader test dependencies
+        run: python -m pip install -r scripts/pdf_download/requirements.txt
+      - name: Run offline tests
+        run: python -B -m unittest discover -s tests -v
+      - name: Install into an isolated directory
+        run: python -B scripts/harness.py install --target "${{ runner.temp }}/research-agent-skills"
+      - name: Verify installed package
+        run: python -B scripts/harness.py check --target "${{ runner.temp }}/research-agent-skills"
+      - name: Check whitespace
+        run: git diff --check

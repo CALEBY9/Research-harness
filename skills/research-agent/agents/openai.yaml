@@ -1,4 +1,4 @@
 interface:
   display_name: "Research Agent"
-  short_description: "Source-grounded research and scientific synthesis."
-  default_prompt: "Use $research-agent to complete my research task from original literature, local knowledge and verified research evidence."
+  short_description: "Research coordination from ideas to manuscript revision"
+  default_prompt: "Use $research-agent to complete my research task from the supplied materials, selecting the needed internal capabilities and model roles while preserving my confirmed scientific decisions."

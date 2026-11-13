@@ -8,7 +8,7 @@
 
 - Stress-test a manuscript, abstract, figure set, or result storyline before submission.
 - Evaluate originality, scientific importance, interdisciplinary readership, technical soundness, and readability using Nature-style review dimensions.
-- Generate three reviewer reports in mutually blind isolated contexts, then create a separate cross-review synthesis only after every report is frozen.
+- Generate one grounded review by default. Only when multiple reports are explicitly requested, use isolated contexts and a synthesis after every report is frozen; never claim blindness without isolation.
 - Mark unsupported claims, technical defects, evidence-chain breaks, and barriers for non-specialist readers.
 - Separate comments into `Major Concerns` and `Minor Comments`, marking Major issues that block the central case as `Blocking Yes`.
 - Keep severe criticism direct, professional, and evidence-grounded; keep minor comments specific and actionable without inventing issues to fill a quota.

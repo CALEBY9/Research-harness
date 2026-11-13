@@ -38,6 +38,18 @@ retrieved fragment when methods, results or limitations needed for the claim
 are elsewhere. Verify citation metadata against the original or authoritative
 metadata; a journal header is not a paper title.
 
+Context recovery is an automatic part of this continuation. Use the selected
+corpus adapter's unified paper-library query/read entry, including catalogued
+main, supplement, Zotero, specialist and validated incremental sources. Bounded
+English variants accompany Chinese questions. Optional historical hybrid recall
+must map identical PDF bytes back to repaired source blocks; old vector IDs
+are not source-reading IDs. Notes and design references retain their own roles.
+Read returned source blocks and follow the needed continuations, preserving
+the run, source version and original locators. Check missing sections and whether
+the anchor was included; a returned `COMPLETE` covers only the selected scope.
+Candidate method/figure links require original-source interpretation. Reuse
+adequate prior reading and do not ask the author to execute retrieval commands.
+
 Reuse existing evidence IDs. When a structured `KB_EVIDENCE_PACK` is useful,
 its minimal content is: paper identity, original locator, evidence, design and
 scale, uncertainty, and relation to the proposed claim. Relations remain

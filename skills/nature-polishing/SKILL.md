@@ -1,9 +1,24 @@
 ---
 name: nature-polishing
-description: Polish, translate, or shorten existing Chinese or English academic prose within its established argument and evidence. Use for 论文润色、同论证学术改写、SCI语言编辑、Results压缩; use nature-writing for argument or section restructuring and nature-paper-format for layout-only work.
+description: Polish, translate, or shorten existing Chinese or English academic prose within its established argument and evidence. Use for 论文润色、同论证学术改写、SCI语言编辑、Results压缩、学术去AI味 / AI降重; use nature-writing for argument or section restructuring and nature-paper-format for layout-only work.
 ---
 
 # Nature-Style Academic Polishing — Router
+
+## Internal Research Agent capability
+
+Within Research Agent, this skill is an internal task module, not another
+user-facing starting point. Reuse the task, evidence and model allocation
+already selected by Research Agent; return the result or a concrete blocking
+dependency to that coordinator without asking the user to select another skill.
+When invoked directly, apply [the same collaboration policy](../nature-shared/core/model-collaboration.md).
+Resolve the user's selected allocation in that policy; installing this skill does
+not require external models. Without a chosen multi-model allocation, the current
+host completes the requested work. Under the author's selected preset, Gemini writes
+submission-intended prose, Codex can write ordinary/non-submission text, and Claude
+is optional high-value story support. Preserve that preset when a connection is
+unavailable: prepare the affected handoff without claiming an external call.
+
 
 This skill is split into two layers:
 
@@ -11,6 +26,19 @@ This skill is split into two layers:
 - A **dynamic layer** (this file plus `manifest.yaml`) that detects the request's axes and loads only the fragments needed for the current job.
 
 Do not try to apply the polishing logic from memory or from this router. Always load fragments from disk as described below.
+
+## Academic humanization mode
+
+For requested academic 去AI味 / AI降重, read
+[the academic humanization guide](references/academic-humanization/guide.md).
+Use this mode directly on an already polished text; do not run ordinary
+polishing first. For combined polishing and humanization, make one integrated
+edit and one final meaning comparison with the original. Load only language
+or section guidance needed for a specific unresolved issue; do not run the
+normal five-axis route merely because humanization was requested.
+Keep evidence, numbers, citations, terminology, negation, uncertainty, causal
+strength and paragraph functions. General Chinese prose uses `humanizer-zh`.
+Do not claim detector outcomes or upload drafts to external detectors.
 
 ## Targeted rhetorical repair
 
@@ -49,9 +77,13 @@ anti-defensive guide may be loaded for that requested or observed rhetorical
 problem without loading the other axes. Naming the passage as an
 Abstract or Introduction does not by itself disable this fast path.
 
-Use the normal route for target-journal language/style conformity, word-limit
-work, same-argument compression, whole-manuscript consistency, or a versioned
-artifact edit within this boundary. Argument/evidence changes go to
+Word-limit work and same-argument compression of a supplied passage can use
+the fast path when paragraph roles and evidence remain fixed. Verify the
+requested length with a counting tool. A file-backed edit adds the relevant
+artifact tool and checks; file storage alone does not require all style axes.
+Use the normal route for target-journal style conformity, whole-manuscript
+consistency or editing that needs section-specific guidance within this boundary.
+Argument/evidence changes go to
 `nature-writing`; layout-only changes go to `nature-paper-format`.
 
 ## Routing protocol
