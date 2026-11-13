@@ -110,14 +110,22 @@ needs a bounded reread before its evidence is used.
 These are task-specific alternatives, not mandatory stages. Scientific drafting
 and substantive argument reconstruction use `nature-writing`; read its `SKILL.md`,
 manifest and selected references before drafting. Resolve each owner from the
-actual installed skill catalog. On this host, this router, Nature Skills, local
-research support, selective ARS, Humanizers and EditaPlot are installed together under
-`C:/Users/Administrator/.agents/skills/`, including shared reference dependencies.
+actual installed skill catalog. Use the host's user or project skill location,
+not the original author's machine paths. The default Research Harness install
+includes the active router, Nature owners, selective ARS and shared references.
+EditaPlot and other specialist applications are optional external tools.
 The independently installed general-purpose `ai-skeptic` may use a different
 skill root; resolve it from the catalog without installing a second copy.
 Load `nature-shared` as the selected owner's reference dependency, not as a
 second drafting agent. Use document, PDF, presentation and chart tools for their
 verified capabilities. File restoration alone does not verify external services.
+
+The author's private library is not a prerequisite for ordinary research tasks.
+Use a configured local corpus when available. If none is bound, work from the
+user's supplied originals and accessible literature through the search/reader
+owners, stating the actual coverage. Never claim a local search was executed
+when no backend exists. Pause only the operation that requires an unavailable
+library or specialist tool; continue independent work within the request.
 
 ARS literature investigation produces source-linked planning evidence; drafting
 a literature-review section or rewriting an existing paper uses `nature-writing`.

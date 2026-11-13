@@ -1,8 +1,13 @@
 # Third-party provenance and licensing
 
-This is initially a private maintenance repository for an existing local research
-skill installation. There is no blanket license grant over all bundled material.
-Retain original notices and review component-specific terms before redistribution.
+Research Harness contains original adapters and separately licensed upstream
+components. Original contributions are licensed under Apache-2.0 (see `LICENSE`),
+as selected by the maintainer on 2026-11-13. This grant does not relicense any
+third-party component, paper, image or example. Retain component notices.
+
+The active distribution is declared in `skills/catalog.json`. ARS components
+retain CC BY-NC 4.0 terms, so the entire bundle must not be advertised as an
+unrestricted Apache-2.0 package. Review the selected components before reuse.
 
 ## ARS writing adaptation
 
@@ -44,6 +49,11 @@ Retain original notices and review component-specific terms before redistributio
 - Embedded assets/tools may have additional LICENSE/NOTICE files; those remain
   in their original imported directories. Root Apache metadata alone does not
   establish rights for every image or embedded third-party example.
+- The `nature-figure/assets/figures4papers` reference collection has no confirmed
+  redistribution license in the retained upstream notice. It is excluded from
+  installation and no longer tracked in the current source tree. Existing local
+  files are retained; older Git history has not been rewritten. This repository
+  grants no rights over that collection.
 - On 2026-10-12, scoped updates from upstream commit
   `e605b35611ab2849af46d0cf7831aefdcf85be07` imported
   `nature-shared/core/discussion-argument-language.md` verbatim and applied the
@@ -96,9 +106,10 @@ Their source/provenance notes remain where supplied. In particular,
 `skills/nature-polishing/references/anti-defensive-writing/references/provenance.md` describes independently
 written guidance distilled from cited public designs.
 
-A public redistribution license for the user's own contributions has not been
-selected. Do not assume ownership of any referenced paper, image, font, tool,
-or third-party text. Private research inputs and project data are not bundled.
+The maintainer's original contributions use the root Apache-2.0 license.
+Adaptations of third-party works remain subject to their original terms; the
+root license is not a replacement for them. Private research inputs, corpora,
+credentials and project data are not bundled.
 
 ## Reference projects
 

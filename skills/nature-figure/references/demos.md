@@ -3,11 +3,11 @@
 Use this file when a user asks for a `figures4papers` look, cites the older
 `scientific-figure-making` skill, or needs a concrete Python/matplotlib reference.
 
-The retained third-party files live under `../assets/figures4papers/`. Before
-opening or adapting them, read
-`../assets/figures4papers/THIRD_PARTY_NOTICES.md`. These materials are not
-automatically covered by the root MIT License, and their inclusion does not grant
-additional reuse rights.
+The third-party collection is not bundled in the current distribution: its
+retained notice did not establish redistribution permission. Some author
+installations may retain a local copy; do not assume it exists or is licensed
+for reuse. Consult the upstream source below and its current terms before use.
+Use the repository's own plotting helpers when no authorized reference is available.
 
 ## Use boundary
 
@@ -21,19 +21,19 @@ additional reuse rights.
 5. Preserve the editable SVG/PDF/TIFF and source-data rules from `api.md` and
    `qa-contract.md`.
 
-## Retained project map
+## Upstream project map (not installed resources)
 
-| Project | Open when | Local references |
+| Project | Reference use | Upstream directory name |
 |---------|-----------|------------------|
-| `figure_ImmunoStruct` | Method-comparison and ablation bars | `../assets/figures4papers/figure_ImmunoStruct/` |
-| `figure_CellSpliceNet` | Compact benchmark and cross-species bars | `../assets/figures4papers/figure_CellSpliceNet/` |
-| `figure_brainteaser` | Category, rewriting, and self-correction panels | `../assets/figures4papers/figure_brainteaser/` |
-| `figure_VIGIL` | Radar, trend, ablation, and probability/manifold panels | `../assets/figures4papers/figure_VIGIL/` |
-| `figure_ophthal_review` | Time trends and composition heatmaps | `../assets/figures4papers/figure_ophthal_review/` |
-| `figure_RNAGenScape` | Heatmaps, optimization, manifold, and sweep plots | `../assets/figures4papers/figure_RNAGenScape/` |
-| `figure_Dispersion` | Conceptual sphere and observation panels | `../assets/figures4papers/figure_Dispersion/` |
-| `figure_Cflows` | Diffusion, trajectory, comparison, and ablation panels | `../assets/figures4papers/figure_Cflows/` |
-| `figure_FPGM` | Frequency-prior or distribution-style motivation | `../assets/figures4papers/figure_FPGM/` |
+| `figure_ImmunoStruct` | Method-comparison and ablation bars | `figure_ImmunoStruct` |
+| `figure_CellSpliceNet` | Compact benchmark and cross-species bars | `figure_CellSpliceNet` |
+| `figure_brainteaser` | Category, rewriting, and self-correction panels | `figure_brainteaser` |
+| `figure_VIGIL` | Radar, trend, ablation, and probability/manifold panels | `figure_VIGIL` |
+| `figure_ophthal_review` | Time trends and composition heatmaps | `figure_ophthal_review` |
+| `figure_RNAGenScape` | Heatmaps, optimization, manifold, and sweep plots | `figure_RNAGenScape` |
+| `figure_Dispersion` | Conceptual sphere and observation panels | `figure_Dispersion` |
+| `figure_Cflows` | Diffusion, trajectory, comparison, and ablation panels | `figure_Cflows` |
+| `figure_FPGM` | Frequency-prior or distribution-style motivation | `figure_FPGM` |
 
 ## Prefer repository-owned implementation paths
 

@@ -42,7 +42,7 @@
 |------|------|------------|
 | 多面板论文图 | <a href="assets/gallery/fig1-material-mechanism-rich.png"><img src="assets/gallery/fig1-material-mechanism-rich.png" width="220" alt="Material design and physical validation"></a> | 机制示意、图像面板、定量结果和相关性放在同一证据链中 |
 | 图表类型 atlas | <a href="assets/chart-atlas/atlas-03-heatmaps.png"><img src="assets/chart-atlas/atlas-03-heatmaps.png" width="220" alt="Heatmap atlas"></a> | 热图、注释矩阵、聚类块和发散色标的组合模式 |
-| 第三方 figures4papers 参考 | <a href="assets/figures4papers/figure_VIGIL/figures/comparison_radar.png"><img src="assets/figures4papers/figure_VIGIL/figures/comparison_radar.png" width="220" alt="VIGIL comparison radar"></a> | 仅用于研究 layout、legend 和多指标比较语法；使用前阅读独立版权说明 |
+| 第三方 figures4papers 参考 | [上游项目](https://github.com/ChenLiu-1996/figures4papers)（不随包提供） | 仅研究布局与表达模式；使用前核对上游许可 |
 
 ## 你需要提供
 
@@ -71,7 +71,7 @@
 - `scripts/validate_figure.py`：Python/R 绘图源码的可复现静态 QA。
 - `scripts/audit_pdf_text.py`：扫描导出 PDF 的 `Tf` 操作符，发现 mathtext 上下标等低于 5 pt 的实际字形。
 - `scripts/figure_safety.py`：严格单调插值和基于数据/误差范围的标签高度 helper。
-- `assets/figures4papers/`：保留的第三方参考脚本与预览图；不自动适用本仓库 MIT License，使用前阅读 `THIRD_PARTY_NOTICES.md`。
+- `figures4papers`：外部参考集合，因未确认再分发许可不随包提供；既有本机文件保留，不能据此推断可复制或发布。
 
 ## 边界
 

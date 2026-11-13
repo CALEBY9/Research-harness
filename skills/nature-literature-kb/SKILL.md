@@ -11,11 +11,25 @@ This skill provides the local registered-paper-corpus adapter for Research Agent
 - Map Claude tools to Codex operations: `Read`/`Glob`/`Grep` to shell reads/searches, `Write`/`Edit` to local file edits, and `Bash` to PowerShell-compatible `shell_command`.
 - Do not assume Claude Code hooks, settings, slash-command routing, or Claude-only frontmatter fields exist in Codex CLI.
 - Use this skill only as local-document intelligence support; it does not replace `research-agent` for topic discovery.
-- Follow `C:\Users\Administrator\AGENTS.md` and project-local `AGENTS.md`.
+- Follow the applicable user-level and project-local `AGENTS.md`.
 
 # nature-literature-kb
 
-Use this skill when the user asks to build, refresh, inspect, or query the papers branch of the unified LLM knowledge-base project on D drive.
+Use this skill to integrate an existing, explicitly bound local literature
+library. This package does not include the author's private corpus, indexes or
+`research_library.py` backend.
+
+Resolve the KB root from the current project's documented configuration or an
+explicit user-supplied path, then `RESEARCH_AGENT_KB_ROOT`. Verify the actual
+backend and index before using any route below. Historical author paths are
+recovery examples, not defaults for another machine. Do not create or rebuild a
+library merely because this skill is installed.
+
+If no library is configured, return `KB_CORPUS_UNBOUND` to the caller and continue
+the requested research using supplied originals or `nature-academic-search` and
+`nature-reader`. Missing optional KB integration does not block ordinary writing.
+Do not fabricate local hits, silently substitute indexes or characterize corpus
+absence as a scientific evidence gap.
 
 This is the first retrieval source for relevant literature-dependent research
 and substantive manuscript writing. Infer the corpus from the topic, project
@@ -49,10 +63,10 @@ need no new literature search.
 
 ## Canonical Entry
 
-Canonical unified LLM KB root:
+Use the verified root as `<KB_ROOT>` throughout these backend examples:
 
 ```text
-D:\03_Agent4Science\01_LLM-knowledge_base\research_wiki
+<KB_ROOT>
 ```
 
 Knowledge branches:
@@ -68,7 +82,7 @@ wiki\notes\                           # actual source-linked reading notes only
 Project-specific paper indexes should live under:
 
 ```text
-D:\03_Agent4Science\01_LLM-knowledge_base\research_wiki\papers\indexes\<corpus_id>
+<KB_ROOT>/papers/indexes/<corpus_id>
 ```
 
 Public library names (storage/run names are internal provenance):
@@ -84,7 +98,7 @@ figure_references  图件参考库: existing Nature figure owner and design-refe
 Unified PDF storage policy:
 
 ```text
-D:\03_Agent4Science\01_LLM-knowledge_base\research_wiki\papers\sources\<corpus_id>\pdfs
+<KB_ROOT>/papers/sources/<corpus_id>/pdfs
 ```
 
 Keep PDFs, derived chunks, metadata, QC artifacts, and generated indexes in separate sibling directories.
@@ -210,10 +224,12 @@ rebuild is part of ordinary writing.
 
 ### DL-GEE: optional historical hybrid recall expansion
 
-Operational root:
+This route is optional and specific to an already configured DL-GEE backend.
+Resolve the operational root from the verified binding. The following example
+applies when the environment variable names that same verified root:
 
 ```powershell
-cd "D:\03_Agent4Science\01_LLM-knowledge_base\research_wiki"
+Set-Location -LiteralPath $env:RESEARCH_AGENT_KB_ROOT
 ```
 
 Read-only query of the hash-verified active hybrid `run_*` index:
@@ -255,6 +271,10 @@ python papers\scripts\build_dlgee_literature_index.py --limit 5 --output-root "p
 
 ### Green-certificate/carbon-power: archived hybrid backend
 
+The paths in this subsection are historical author-specific recovery examples.
+Use them only for that explicitly selected archived project after verifying its
+own rules. They are not a required installation or a generic KB interface.
+
 The executable currently lives at:
 
 ```text
@@ -276,11 +296,11 @@ python "$toolRoot\literature_kb.py" query --kb-dir "$kbDir" --query "绿色证�
 
 If the dependency preflight fails, return `KB_ENVIRONMENT_MISSING`. Do not install packages or change the archived project automatically.
 
-## Current Pipeline Contract
+## Author backend contracts (only when explicitly bound)
 
-- Source corpus: shared KB PDFs under `D:\03_Agent4Science\01_LLM-knowledge_base\research_wiki\papers\sources\green_certificate_carbon_power\papers`.
-- Output root: `D:\03_Agent4Science\01_LLM-knowledge_base\research_wiki\papers\indexes\green_certificate_carbon_power`.
-- DL-GEE corpus: original PDFs, existing PDF chunks, metadata, extraction outputs, and QC artifacts are stored under `D:\03_Agent4Science\01_LLM-knowledge_base\research_wiki\papers\sources\dl_gee_literature`; treat this as a separate corpus and do not merge it into the green-certificate/carbon-power index.
+- Source corpus: shared KB PDFs under `<KB_ROOT>/papers/sources/<corpus_id>/pdfs`, unless the verified existing backend documents another layout.
+- Output root: `<KB_ROOT>/papers/indexes/<corpus_id>`.
+- DL-GEE corpus: original PDFs, chunks, metadata and extraction artifacts remain a separate source boundary; do not merge them into another topic's index.
 - Before build/query, verify the canonical root and selected corpus/index path exist. Treat older roots only as provenance unless the user explicitly selects them.
 - DL-GEE default manuscript route: `manage_dlgee_library.py query/read` searches the repaired main FTS run, supplement and healthy manual additions, then recovers source context. Read its reported runs and coverage; no dense update is implied. The historical hybrid remains registered in `papers/indexes/dl_gee_literature/active_run.json`: pinned Qwen3-Embedding-0.6B/FAISS plus the immutable parent SQLite FTS5/BM25 run, fused with RRF. Its BM25 parent is the historical lexical fallback; keep its chunk namespace separate.
 - Green-certificate archived backend: MinerU/PyMuPDF extraction, semantic chunks, dense index + BM25 reciprocal-rank fusion, and section/short-chunk reranking. Its artifacts are `manifest.json`, `kb_stats.json`, `kb_quality_report.md`, `chunks.csv`, `papers.csv`, `dense.index`, and `bm25.pkl`.

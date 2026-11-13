@@ -1,0 +1,27 @@
+name: Bug report / 问题复现
+description: Report a reproducible installation, tool or skill problem.
+body:
+  - type: markdown
+    attributes:
+      value: Use synthetic inputs. Do not post credentials, private papers or unpublished data.
+  - type: input
+    id: revision
+    attributes:
+      label: Commit and environment / 提交与环境
+      description: Commit, OS, Python version and agent host.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction / 最小复现
+      description: Exact command or request, public or synthetic inputs, and exit code.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and observed behavior / 预期与实际
+      description: Include the complete non-sensitive error and the affected skill.
+    validations:
+      required: true

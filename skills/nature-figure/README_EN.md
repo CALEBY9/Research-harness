@@ -42,7 +42,7 @@ Start with a figure contract rather than a template:
 |-----------|---------|------------------|
 | Multi-panel manuscript figure | <a href="assets/gallery/fig1-material-mechanism-rich.png"><img src="assets/gallery/fig1-material-mechanism-rich.png" width="220" alt="Material design and physical validation"></a> | Mechanism schematic, image panels, quantitative results, and correlation in one evidence chain |
 | Chart-type atlas | <a href="assets/chart-atlas/atlas-03-heatmaps.png"><img src="assets/chart-atlas/atlas-03-heatmaps.png" width="220" alt="Heatmap atlas"></a> | Heatmaps, annotation matrices, cluster blocks, and diverging color scales |
-| Third-party figures4papers reference | <a href="assets/figures4papers/figure_VIGIL/figures/comparison_radar.png"><img src="assets/figures4papers/figure_VIGIL/figures/comparison_radar.png" width="220" alt="VIGIL comparison radar"></a> | Study layout, legend, and multi-metric comparison grammar only; read the separate copyright notice before use |
+| Third-party figures4papers reference | [Upstream project](https://github.com/ChenLiu-1996/figures4papers) (not bundled) | Study layout and presentation patterns; check upstream licensing before use |
 
 ## What You Need To Provide
 
@@ -71,7 +71,7 @@ Start with a figure contract rather than a template:
 - `scripts/validate_figure.py`: reproducible static QA for Python and R plotting source.
 - `scripts/audit_pdf_text.py`: scan exported PDF `Tf` operators for real glyph runs below the 5 pt floor, including reduced mathtext scripts.
 - `scripts/figure_safety.py`: strict monotone interpolation and data/uncertainty-driven label positioning helpers.
-- `assets/figures4papers/`: retained third-party scripts and previews; the repository MIT License does not automatically apply, so read `THIRD_PARTY_NOTICES.md` before use.
+- `figures4papers`: an external reference collection, excluded because redistribution permission was not established; retained author-local copies do not grant reuse rights.
 
 ## Boundaries
 
