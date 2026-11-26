@@ -38,6 +38,10 @@ description: Evaluate a research idea, phenomenon or claim to decide its scienti
 
 ## 建立可核查的判断
 
+Treat the user's proposed interpretation as a hypothesis to evaluate,
+not as a conclusion to adopt. Form an independent assessment before
+comparing it with the user's position.
+
 1. **说清新增认识。** 写出已有研究已经允许得出的结论，以及本研究增加的
    估计、解释、边界、可比较证据或资源。把科学重要性与技术便利分开。
 2. **寻找最强反证。** 从最接近的原始研究与最可信的竞争解释出发，核查对象、
